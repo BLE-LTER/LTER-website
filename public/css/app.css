@@ -12,13 +12,39 @@ h2.title {
   padding-top: 2rem;
 }    
 
-h3 {
-    color: #1F3A56;
+.fill {
+	position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+	margin-bottom: 20px;
 }
 
-figure {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+.fill img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+
+.caption-overlay { 
+	position: absolute; 
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+	padding: 8px;
+	background: white; 
+	opacity:0.5;
+}
+
+figcaption {
+	margin-bottom: 20px;
+}
+
+.alt-color {
+    color: #1F3A56;
+	background-color: #A3C9D9
 }
 
 p.fineprint {
@@ -36,7 +62,6 @@ address {
 .marketing-site-footer-top {
   background: #1F3A56;
   padding: 2rem 0 0;
-  margin-top: 2rem;
 }
 
 .marketing-site-footer-name {
