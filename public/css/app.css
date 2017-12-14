@@ -105,7 +105,7 @@ figcaption {
   margin-top: 30px
 }
 
-.table-people-title {
+.table-people-title, .table-leads-title {
   width: 19%;
   font-weight: bold
 }
@@ -114,11 +114,15 @@ figcaption {
   width: 16%
 }
 
-.table-people-phone {
+.table-leads-affililation {
+  width: 28%
+}
+
+.table-people-phone, .table-leads-phone {
   width: 11%
 }
 
-.table-people-email {
+.table-people-email, .table-leads-email {
   width: 25%
 }
 
