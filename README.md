@@ -9,3 +9,5 @@ Colors are from <a href="https://color.adobe.com/ArcticIce-color-theme-1997889/"
 #77A2BD
 #A3C9D9
 #E8F5F8
+
+build_index.js is used to build the search index. It is modified from https://github.com/twhiteaker/Lunr-Index-and-Search-for-Static-Sites.
