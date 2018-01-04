@@ -8,7 +8,7 @@ var cheerio = require("cheerio");
 const HTML_FOLDER = path.join(__dirname, 'public');;  // folder with your HTML files
 // Valid search fields: "title", "description", "keywords", "body"
 const SEARCH_FIELDS = ["title", "description", "keywords", "body"];
-const EXCLUDE_FILES = ["search.html"];
+const EXCLUDE_FILES = ["search.html", "google1b139a0c8d361fbe.html"];
 const MAX_PREVIEW_CHARS = 275;  // Number of characters to show for a given search result
 const OUTPUT_INDEX = "lunr_index.js";  // Index file
 
