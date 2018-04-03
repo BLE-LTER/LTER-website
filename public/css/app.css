@@ -1,190 +1,95 @@
-.noTransition {
-    -moz-transition: none;
-    -webkit-transition: none;
-    -o-transition: color 0 ease-in;
-    transition: none;
+body {
+  padding-top: 3.5em;
 }
 
-.title a {
-  color: #E8F5F8;
-}
-
-h2.title {
-  margin-bottom: 0;
-}
-
-.title-banner {
-  color: #E8F5F8;
+.bg-darker {
   background: #1F3A56;
-  padding-top: 2rem;
+  color: #E8F5F8;
 }    
 
-.nav-banner {
-  background: #A3C9D9;
+.bg-darkest {
+  background: #0F2339;
+}    
+
+/* header */
+.navbar-dark .navbar-nav .nav-link {
+	color: rgba(255,255,255,.8);
 }
 
-.nav-banner .title-bar {
-  color: #1F3A56;
-  background: #A3C9D9;
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+  color: rgba(255,255,255,1);
 }
 
-.nav-banner .menu-icon::after {
-  background: #1F3A56;
-  box-shadow: 0 7px 0 #1F3A56, 0 14px 0 #1F3A56;
-}
-
-.nav-banner .top-bar,  .nav-banner .top-bar ul {
-  background-color: #A3C9D9;
-}
-
-.nav-banner a, .top-bar-right .button {
-  color: #1F3A56;
-  font-size: 110%;
-  background-color: #77A2BD;
-  border: 1px solid #0F2339;
-}
-
-.nav-banner a:hover, .top-bar-right .button:hover {
-  color: #E8F5F8;
-}
-
-.nav-banner input {
-  max-width: 100%;
-}
-
-.no-js .top-bar {
-  display: none;
-}
-
-@media screen and (min-width: 40em) {
-  .no-js .top-bar {
-    display: block;
-  }
-
-  .no-js .title-bar {
-    display: none;
-  }
-}
-
-.fill {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.fill img {
-  flex-shrink: 0;
+/* main */
+img.fill {
   min-width: 100%;
-  min-height: 100%
 }
 
-.caption-overlay { 
-  position: absolute; 
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  padding: 8px;
-  background: white; 
-  opacity:0.5;
-}
-
-figcaption {
-  margin-bottom: 20px;
-}
-
-.alt-color {
-  color: #1F3A56;
-  background-color: #A3C9D9
-}
-
-.people-category {
-  margin-top: 30px
-}
-
-.table-people-title, .table-leads-title {
-  width: 19%;
-  font-weight: bold
-}
-
-.table-people-affililation {
-  width: 16%
-}
-
-.table-leads-affililation {
-  width: 28%
-}
-
-.table-im-affililation {
-  width: 24%
-}
-
-.table-people-phone, .table-leads-phone {
-  width: 11%
-}
-
-.table-people-email, .table-leads-email {
-  width: 25%
-}
-
-p.fineprint {
-  font-size: 80%;
-}
-
+/* footer */
 address {
   font-style: normal;
 }
 
-.marketing-site-footer {
-  color: #8aa0ae;
+footer {
+  color: #D0DDE3;
+  margin-top: 3em;
 }
 
-.marketing-site-footer-top {
-  background: #1F3A56;
+.footer-top {
   padding: 2rem 0 0;
 }
 
-.marketing-site-footer-title {
-  color: #fefefe;
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-}
-
-.marketing-site-footer-block {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 1rem;
-}
-
-.marketing-site-footer-block p {
+footer p {
   line-height: 1.125rem;
 }
 
-.marketing-site-footer a {
-  color: #2baaff;
+footer a, footer a:hover {
+  color: #6ec5ff;
+  text-decoration: none;
 }
 
-.marketing-site-footer-name, .marketing-site-footer-name a {
-  color: #fefefe;
-  margin-bottom: 1rem;
+.footer-bottom {
+  padding-top: 1rem;
 }
 
-.marketing-site-footer-bottom {
-  background: #0F2339;
-  padding: 1rem 0;
+/* site search */
+.loading {
+	display: none;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
-.marketing-site-footer-bottom p,
-.marketing-site-footer-bottom .menu {
-  margin-bottom: 0;
+.result-title a {
+  font-size: 1.2em;
 }
 
-@media screen and (max-width: 63.9375em) {
-  .marketing-site-footer-bottom {
-    text-align: center;
-  }
+.result-preview, .result-author, .resultCount {
+  color: #808080;
+}
+
+.result-query {
+  font-weight: bold;
+}
+
+.pagination {
+	text-align: center;
+	margin: 16px 8px 16px 8px;
+}
+.pagination a {
+	color: black;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+.pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+}
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
 }

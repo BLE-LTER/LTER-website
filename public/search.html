@@ -1,143 +1,111 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="A Long Term Ecological Research (LTER) program studying lagoon ecosystems along the northern Alaskan Arctic coastline in the Beaufort Sea">
     <meta name="keywords" content="LTER, Beaufort Sea, Lagoon Ecosystem">
     <meta name="author" content="Tim Whiteaker">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Site Search | Beaufort Lagoon Ecosystems LTER</title>
     <script src="https://use.fontawesome.com/a989b590e9.js"></script>
-    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/app.css">
     <script src="https://unpkg.com/lunr/lunr.js"></script>
-    <link href="css/search.css" rel="stylesheet" type="text/css">
     <script src="js/lunr_index.js"></script>
     <script src="js/pagination.js"></script>
     <script src="js/lunrclient.js"></script>
   </head>
   <body>
     <header>
-      <div class="grid-container fluid full title-banner">
-        <div class="grid-container">
-          <div class="grid-x grid-padding-x">
-            <div class="large-12 cell">
-              <h2 class="title"><a href="index.html">Beaufort Lagoon Ecosystems LTER</a></h2>
-              <h5>member of the NSF Long Term Ecological Research Network</h5>
-            </div>
-          </div>
-        </div>
-      </div>
+      <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-darkest">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">BLE</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-      <!--nav bar - https://foundation.zurb.com/sites/docs/top-bar.html#advanced-layout -->
-      <div class="grid-container fluid full nav-banner">
-        <div class="grid-container">
-          <div class="grid-x grid-padding-x">
-            <div class="large-12 cell">
-              <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-                <button class="menu-icon" type="button" data-toggle="responsive-menu" value="menu"></button>
-                <div class="title-bar-title">Menu</div>
-              </div>
-              <div class="top-bar" id="responsive-menu">
-                <div class="top-bar-left">
-                  <ul class="dropdown menu" data-dropdown-menu>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="people.html">People</a></li>
-                  </ul>
-                </div>
-                <div class="top-bar-right">
-                  <ul class="menu">
-                    <li><input id="siteSearchInput" class="input-group-field" onkeypress="siteSearchKeypress(event)" type="search" placeholder="Search this site..." aria-label="Search"></li>
-                    <li><button onclick="launchSiteSearch()" type="button" class="button noTransition" aria-label="Submit Search">Search</button></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="people.html">People</a></li>
+            </ul>
+            <form class="form-inline">
+              <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control mr-sm-2" type="search" placeholder="Search this site..." aria-label="Search">
+              <button onclick="return launchSiteSearch()" class="btn btn-outline-light my-2 my-sm-0" type="submit" aria-label="Submit Search">Search</button>
+            </form>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
-    
-    <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell">
-          <h3>Search this website</h3>
-          <form id="lunrSearchForm" name="lunrSearchForm">
-            <div class="input-group">
-              <input class="input-group-field" name="q" placeholder="Search this site..." type="text" aria-label="Search">
-              <div class="input-group-button">
-                <input type="submit" class="button" value="Search" aria-label="Submit Search">
-              </div>
+
+    <div class="container pt-3">
+      <h1>Search this website</h1>
+      <form id="lunrSearchForm" name="lunrSearchForm">
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control" name="q" placeholder="Enter search term" type="text" aria-label="Enter search term">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="submit" aria-label="Submit Search">Search</button>
             </div>
-          </form>
-          <div class="loading" id="loading-div">
-            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-            <span class="sr-only">Loading...</span>
           </div>
-          <div class="resultCount" id="resultCount"></div>
-          <div id="searchResults"></div>
-          <div class="pagination" id="pagination"></div>
         </div>
+      </form>
+      <div class="loading" id="loading-div">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
       </div>
+      <div class="resultCount" id="resultCount"></div>
+      <div id="searchResults"></div>
+      <div class="pagination" id="pagination"></div>
     </div>
 
-    <footer class="marketing-site-footer">
-        <div class="grid-container fluid full">
-          <div class="marketing-site-footer-top">
-            <div class="grid-container">
-              <div class="grid-x grid-padding-x">
-                <div class="medium-5 cell">
-                  <h4 class="marketing-site-footer-name"><a href="index.html">Beaufort Lagoon Ecosystems LTER</a></h4>
-                  <p>This Site is a Member of the LTER Network.</p>
-                  <p class="fineprint">This material is based upon work supported by the National Science Foundation. Any opinions, findings, conclusions, or recommendations expressed in the material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p>
-                </div>
-                <div class="medium-3 cell">
-                   <h4 class="marketing-site-footer-title">Contact</h4>
-                   <address>
-                      <div class="marketing-site-footer-block">
-                        <p><a href="mailto:ken.dunton@utexas.edu">Ken Dunton</a><br>Principal Investigator</p>
-                      </div>
-                      <div class="marketing-site-footer-block">
-                        <p><a href="mailto:jimm@utexas.edu">James McClelland</a><br>Co-Principal Investigator</p>
-                      </div>
-                      <div class="marketing-site-footer-block">
-                        <p><a href="mailto:whiteaker@utexas.edu">Tim Whiteaker</a><br>Information Manager</p>
-                      </div>
-                   </address>
-                </div>
-                <div class="medium-4 cell">
-                  <h4 class="marketing-site-footer-title">See Also</h4>
-                  <p><a href="http://www.lternet.edu/">LTER Network Homepage</a></p>
-                  <p><a href="http://www.lternet.edu/sites/">LTER Network Sites</a></p>
-                  <p>
-                    <a href="http://www.lternet.edu/"><img src="img/LTER-network-square-sm.jpg" alt="LTER logo"></a>
-                    <a href=""><img src="img/nsf1.gif" alt="NSF logo"></a>
-                  </p>
-                </div>
-              </div>
+    <footer>
+      <div class="container-fluid bg-darker">
+        <div class="container">
+          <div class="row footer-top">
+            <div class="col-12 col-lg-5">
+              <p class="h4"><a href="index.html">Beaufort Lagoon Ecosystems LTER</a></p>
+              <p>This Site is a Member of the LTER Network.</p>
+              <p><small>This material is based upon work supported by the National Science Foundation. Any opinions, findings, conclusions, or recommendations expressed in the material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</small></p>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <p class="h4">Contact</p>
+              <address>
+                <p><a href="mailto:ken.dunton@utexas.edu">Ken Dunton</a><br>Principal Investigator</p>
+                <p><a href="mailto:jimm@utexas.edu">James McClelland</a><br>Co-Principal Investigator</p>
+                <p><a href="mailto:whiteaker@utexas.edu">Tim Whiteaker</a><br>Information Manager</p>
+              </address>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <p class="h4">See Also</p>
+              <p><a href="http://www.lternet.edu/">LTER Network Homepage</a></p>
+              <p><a href="http://www.lternet.edu/sites/">LTER Network Sites</a></p>
+              <p>
+                <a href="http://www.lternet.edu/"><img src="img/LTER-network-square-sm.jpg" alt="LTER logo within link to LTER Network"></a>
+                <a href=""><img src="img/nsf1.gif" alt="NSF logo within link to National Science Foundation"></a>
+              </p>
             </div>
           </div>
-            <div class="marketing-site-footer-bottom">
-              <div class="grid-container">
-                <div class="grid-x grid-padding-x">
-                  <div class="large-8 cell">
-                    <p class="fineprint">&copy; 2017 The University of Texas at Austin. All rights reserved</p>
-                  </div>
-                  <div class="large-4 cell">
-                    <p class="fineprint"><a href="https://cio.utexas.edu/policies/web-privacy">Privacy Policy</a> | 
-                    <a href="https://cio.utexas.edu/policies/web-accessibility">Accessibility Policy</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </footer>
         </div>
+      </div>
+      <div class="container-fluid bg-darkest">
+        <div class="container">
+          <div class="row footer-bottom text-center text-lg-left">
+            <div class="col-lg-8">
+              <p class="mb-1"><small>&copy; 2017 The University of Texas at Austin. All rights reserved</small></p>
+            </div>
+            <div class="col-lg-4">
+              <p><small><a href="https://cio.utexas.edu/policies/web-privacy">Privacy Policy</a> | 
+              <a href="https://cio.utexas.edu/policies/web-accessibility">Accessibility Policy</a></small></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
 
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
