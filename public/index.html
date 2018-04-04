@@ -42,10 +42,14 @@
     </div>
 
     <figure>
-      <img src="img/beaufort-lagoon.jpg" class="figure-img img-fluid fill" alt="lagoon photo">
+       <picture>
+        <source srcset="img/beaufort_lagoon_xs.jpg" media="(max-width: 575px)">
+        <source srcset="img/beaufort_lagoon_sm.jpg" media="(max-width: 767px)">
+        <source srcset="img/beaufort-lagoon.jpg">
+        <img src="img/beaufort-lagoon.jpg" class="figure-img img-fluid fill" alt="lagoon photo">
+      </picture> 
       <figcaption class="figure-caption text-center">Coastal lagoons along the Eastern Beaufort Sea (courtesy of Susan Schonberg)</figcaption>
     </figure>      
-
     <div class="container">
       <p class="lead">This project will establish a new Long Term Ecological Research (LTER) program along the northern Alaskan Arctic coastline in the Beaufort Sea. Lagoon systems encompass more than 50% of the Beaufort Sea coast, providing food and habitat for large populations of migratory fish and waterfowl that are essential to the culture of Inupiat communities of northern Alaska. We believe that the differential availability of seasonally distinct resources is critical for maintaining the high productivity of these ecosystems.</p>
       <p class="lead">As research progresses, we'll share key findings, datasets, and publications on this website.</p>
@@ -78,8 +82,16 @@
               <p><a href="http://www.lternet.edu/">LTER Network Homepage</a></p>
               <p><a href="http://www.lternet.edu/sites/">LTER Network Sites</a></p>
               <p>
-                <a href="http://www.lternet.edu/"><img src="img/LTER-network-square-sm.jpg" alt="LTER logo within link to LTER Network"></a>
-                <a href=""><img src="img/nsf1.gif" alt="NSF logo within link to National Science Foundation"></a>
+                <a href="http://www.lternet.edu/">
+                  <noscript data-src="img/LTER-network-square-sm.jpg" img-class="" alt="LTER logo within link to LTER Network">
+                    <img src="img/LTER-network-square-sm.jpg" alt="LTER logo within link to LTER Network">
+                  </noscript>
+                </a>
+                <a href="https://www.nsf.gov/">
+                  <noscript data-src="img/nsf1.gif" img-class="" alt="NSF logo within link to National Science Foundation">
+                    <img src="img/nsf1.gif" alt="NSF logo within link to National Science Foundation">
+                  </noscript>
+                </a>
               </p>
             </div>
           </div>
