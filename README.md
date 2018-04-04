@@ -1,13 +1,8 @@
 # LTER-website
 Static HTML website for Long Term Ecological Research site
 
-Currently using Foundation 6.4.2 complete.
+This project contains an example [Long Term Ecological Research](https://lternet.edu/) (LTER) site website which aims to full LTER website guidelines. The site is implemented as static HTML which can be hosted for free using services like [Netlify](https://www.netlify.com/).
 
-Colors are from <a href="https://color.adobe.com/ArcticIce-color-theme-1997889/">ArcticeIce palette</a>:
-#0F2339
-#1F3A56
-#77A2BD
-#A3C9D9
-#E8F5F8
+CSS Framework: Bootstrap 4.0.0
 
 build_index.js is used to build the search index. It is modified from https://github.com/twhiteaker/Lunr-Index-and-Search-for-Static-Sites.
