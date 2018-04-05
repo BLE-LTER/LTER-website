@@ -1,5 +1,5 @@
 {
-    "name": "BLE LTER",
+    "name": "Beaufort Lagoon Ecosystems",
     "short_name": "BLE LTER",
     "icons": [
         {
@@ -15,5 +15,6 @@
     ],
     "theme_color": "#0d3760",
     "background_color": "#0d3760",
-    "display": "standalone"
+    "display": "standalone",
+    "start_url": "/?utm_source=homescreen"
 }
