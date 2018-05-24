@@ -28,6 +28,7 @@ self.addEventListener('install', function(event) {
 self.addEventListener('fetch', function(event) {
   console.log("[ServiceWorker] Fetch");
   event.respondWith(
+    console.log(event.request);
     caches.match(event.request)
       .then(function(response) {
         if (response) {
