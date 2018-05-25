@@ -1,17 +1,10 @@
-var CACHE_NAME = 'ble-cache-v1';
+var CACHE_NAME = 'ble-cache-v1.001';
 var urlsToCache = [
   '/',
   'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
-  'https://d33wubrfki0l68.cloudfront.net/css/37f58c2668ae65fbfe1132d9505859f6261a14ce/css/app.css',
   'https://code.jquery.com/jquery-3.2.1.slim.min.js',
   'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js',
-  'https://d33wubrfki0l68.cloudfront.net/js/158a44e0bc59abfaf9d7dac473ff0c4f44753a3a/js/app.js',
   'https://unpkg.com/lunr/lunr.js',
-  'https://d33wubrfki0l68.cloudfront.net/bundles/2639a19f1670d311559eb51171a47278f2730e9e.js',
-  '/index.html',
-  '/about.html',
-  '/people.html',
-  '/search.html'
 ];
 
 self.addEventListener('install', function(event) {
