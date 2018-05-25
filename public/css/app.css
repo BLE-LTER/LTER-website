@@ -39,6 +39,18 @@ a {
   background: #011E3E;
 }
 
+/* by the numbers */
+.number-heading {
+  color: #0d3760;
+  margin-bottom: 1em;
+}
+
+.by-the-number {
+  font-size: 3em;
+  color: #6ec5ff;
+  margin-bottom: 0;
+}
+
 /* main */
 body {
   padding-top: 3.5em;
