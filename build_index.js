@@ -1,3 +1,5 @@
+// Builds a site search index using lunr
+
 var path = require("path");
 var fs = require("fs");
 var lunr = require("lunr");
