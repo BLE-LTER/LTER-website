@@ -9,6 +9,7 @@ This project contains an example [Long Term Ecological Research](https://lternet
 * Responsive design and navigation bar using Bootstrap 4.0.0
 * Local site search using [Lunr](https://github.com/twhiteaker/Lunr-Index-and-Search-for-Static-Sites)
 * Progressive Web App (though not that useful for us presently)
+* https://simplesharingbuttons.com/ for sharing buttons
 
 # About this pile of files
 
