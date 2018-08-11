@@ -77,7 +77,7 @@ function errorCallback() {
 // Passes search URL and callbacks to CORS function
 function searchZotero(query, publicGroupId, start=0) {
     var base = "https://api.zotero.org/groups/";
-    var params = "/items?v=3&include=bib&sort=date&q=";
+    var params = "/items?v=3&include=bib&sort=date&itemType=-attachment&q=";
     var limit = "&limit=" + ZOTERO_CONFIG["limit"];
     start = "&start=" + start;
     var url = base + publicGroupId + params + query + limit + start;
