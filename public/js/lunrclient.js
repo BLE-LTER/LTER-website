@@ -1,11 +1,8 @@
 "use strict";
 
 var LUNR_CONFIG = {
-    "limit": 10,  // Max number of results to retrieve per page
     "resultsElementId": "searchResults",  // Element to contain results
-    "countElementId": "resultCount",  // Element showing number of results
-    "pagesElementId": "pagination",  // Element to display result page links
-    "showPages": 5  // MUST BE ODD NUMBER! Max number of page links to show
+    "countElementId": "resultCount"  // Element showing number of results
 };
 
 
@@ -32,7 +29,7 @@ function parseLunrResults(results) {
 }
 
 
-function searchLunr(query, start=0) {
+function searchLunr(query) {
     var idx = lunr.Index.load(LUNR_DATA);
     // Write results to page
     var results = idx.search(query);
@@ -40,33 +37,16 @@ function searchLunr(query, start=0) {
     var elementId = LUNR_CONFIG["resultsElementId"];
     document.getElementById(elementId).innerHTML = resultHtml;
 
-    // Add links to additional search result pages if necessary
-    var currentStart = getParameterByName("start");
-    if (!currentStart) {
-        currentStart = 0;
-    }
-    else {
-        currentStart = parseInt(currentStart);
-    }
     var count = results.length;
-    var limit = parseInt(LUNR_CONFIG["limit"]);
-    var showPages = parseInt(LUNR_CONFIG["showPages"]);
-    var pageElementId = LUNR_CONFIG["pagesElementId"];
-    showPageLinks(count, limit, showPages, currentStart, pageElementId);
-    var query = getParameterByName("q");
-    showResultCount(query, count, limit, currentStart, LUNR_CONFIG["countElementId"]);
+    showResultCount(query, count, null, null, LUNR_CONFIG["countElementId"]);
 }
 
 
 // When the window loads, read query parameters and perform search
 window.onload = function() {
     var query = getParameterByName("q");
-    var start = getParameterByName("start");
     if (query != "" && query != null) {
         document.forms.lunrSearchForm.q.value = query;
-        if (!start) {
-            start = 0;
-        }
-        searchLunr(query, start);
+        searchLunr(query);
     }
 };

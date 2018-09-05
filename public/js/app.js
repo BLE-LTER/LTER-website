@@ -66,7 +66,7 @@ function makePageLink(currentUrl, currentStart, start, linkText) {
     var tagStart = '<a href="';
     if (currentStart == start) {
         uri = "#";
-        if (!linkText.toString().startsWith("&")) {  // Don't modify arrows
+        if (!linkText.toString().substring(0, 1) === "&") {  // Don't modify arrows
             tagStart = '<a class="active" href="';
         }
     }
@@ -131,7 +131,7 @@ function showResultCount(query, total, limitPerPage, currentStartIndex, domEleme
     if (total == 0) {
         return;
     }
-
+    
     var s = "";
     if (total > 1) {
         s = "s";
@@ -144,7 +144,7 @@ function showResultCount(query, total, limitPerPage, currentStartIndex, domEleme
     else {
         var forQuery = "";
     }
-    if (total <= limitPerPage) {
+    if (limitPerPage === null || total <= limitPerPage) {
         var showing = "</p>";
     }
     else {
