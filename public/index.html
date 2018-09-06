@@ -39,9 +39,13 @@
                   <li class="nav-item"><a class="nav-link" href="bibliography.html">Bibliography</a></li>
                   <li class="nav-item"><a class="nav-link" href="outreach.html">Outreach</a></li>
                </ul>
-               <form class="form-inline">
-                  <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control mr-sm-2" type="search" placeholder="Search this site..." aria-label="Search">
-                  <button onclick="return launchSiteSearch()" class="btn btn-outline-light my-2 my-sm-0" type="submit" title="Submit Search" aria-label="Submit Search"><i class="fas fa-search"></i></button>
+               <form>
+                  <div class="input-group">
+                     <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control" type="search" placeholder="Search this site..." aria-label="Search">
+                     <div class="input-group-append">
+                        <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit" title="Submit Search" aria-label="Submit Search"><i class="fas fa-search"></i></button>
+                     </div>
+                  </div>
                </form>
             </div>
          </div>
