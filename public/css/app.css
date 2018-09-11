@@ -90,7 +90,6 @@ footer a, footer a:hover {
 
 /* site search */
 .loading {
-  display: none;
   width: 100px;
   height: 100px;
   top:0;
