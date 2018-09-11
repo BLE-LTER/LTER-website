@@ -27,7 +27,7 @@ function parseZoteroResults(resultText) {
 }
 
 
-function show_loading(isLoading) {
+function showLoading(isLoading) {
    var x = document.getElementById("loading-div");
    if (isLoading) {
       document.body.style.cursor = "wait";
@@ -42,7 +42,7 @@ function show_loading(isLoading) {
 
 // Function to call if CORS request is successful
 function successCallback(headers, response) {
-   show_loading(false);
+   showLoading(false);
 
    // Write results to page
    var resultHtml = parseZoteroResults(response);
@@ -69,7 +69,7 @@ function successCallback(headers, response) {
 
 // Function to call if CORS request fails
 function errorCallback() {
-   show_loading(false);
+   showLoading(false);
    alert("There was an error making the request.");
 }
 
@@ -82,7 +82,7 @@ function searchZotero(query, publicGroupId, start) {
    if (start === undefined) start = "0";
    start = "&start=" + start;
    var url = base + publicGroupId + params + query + limit + start;
-   show_loading(true);
+   showLoading(true);
    makeCorsRequest(url, successCallback, errorCallback);
 }
 
