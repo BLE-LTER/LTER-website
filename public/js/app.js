@@ -83,6 +83,9 @@ function showPageLinks(total, limit, showPages, currentStart, domElementId) {
       return "";
    }
 
+   var el = document.getElementById(domElementId);
+   if (!el) return;
+
    var currentUrl = window.location.href;
    var numPages = Math.ceil(total / limit);
    var currentPage = Math.floor(currentStart / limit) + 1;
@@ -112,8 +115,7 @@ function showPageLinks(total, limit, showPages, currentStart, domElementId) {
    link_list.push(
       makePageLink(currentUrl, currentStart, lastIndex, "&raquo;"));
 
-   var html = link_list.join("");
-   document.getElementById(domElementId).innerHTML = html;
+   el.innerHTML = link_list.join("");
 }
 
 
@@ -128,7 +130,8 @@ function escapeHtml(unsafe) {
 
 
 function showResultCount(query, total, limitPerPage, currentStartIndex, domElementId) {
-   if (total == 0) {
+   var element = document.getElementById(domElementId);
+   if (total == 0 || !element) {
       return;
    }
 
@@ -155,7 +158,6 @@ function showResultCount(query, total, limitPerPage, currentStartIndex, domEleme
       }
       var showing = (". Showing results " + fromCount + " to " + toCount + ".</p>");
    }
-   var element = document.getElementById(domElementId);
    element.innerHTML = found + forQuery + showing;
 }
 
