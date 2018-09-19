@@ -7,11 +7,13 @@ function launchSiteSearch() {
    }
 }
 
+
 function siteSearchKeypress(e) {
    if (e.keyCode == 13) {
       launchSiteSearch();
    }
 }
+
 
 // Get URL arguments
 function getParameterByName(name, url) {
@@ -24,6 +26,7 @@ function getParameterByName(name, url) {
    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+
 // Lazy load images, https://davidwalsh.name/lazyload-image-fade
 [].forEach.call(document.querySelectorAll('noscript'), function (noscript) {
    if (noscript.getAttribute('data-src')) {
@@ -34,6 +37,7 @@ function getParameterByName(name, url) {
       img.alt = noscript.getAttribute('alt');
    }
 });
+
 
 // Install service worker
 if ('serviceWorker' in navigator) {
@@ -180,6 +184,7 @@ function createCORSRequest(method, url) {
    }
    return xhr;
 }
+
 
 // Make the actual CORS request.
 function makeCorsRequest(url, successCallback, errorCallback) {
