@@ -2,7 +2,7 @@
 
 Static HTML website for Long Term Ecological Research site
 
-This project contains an example [Long Term Ecological Research](https://lternet.edu/) (LTER) site website which aims to full LTER website guidelines. The website is implemented as static HTML which can be hosted for free using services like [Netlify](https://www.netlify.com/).
+This project contains an example [Long Term Ecological Research](https://lternet.edu/) (LTER) site website which aims to satisfy LTER website guidelines. The website is implemented as static HTML which can be hosted for free using services like [Netlify](https://www.netlify.com/).
 
 # Features
 
