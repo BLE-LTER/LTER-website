@@ -62,6 +62,10 @@ img.fill {
   min-width: 100%;
 }
 
+table.table-striped a {
+   color: blue;
+}
+
 /* footer */
 address {
   font-style: normal;
