@@ -15,6 +15,8 @@ This project contains an example [Long Term Ecological Research](https://lternet
 
 `build_index.js` is used to build the search index. It is modified from https://github.com/twhiteaker/Lunr-Index-and-Search-for-Static-Sites. Using node.js, you would run `build_index.js` after every time you updated site content to rebuild the search index, and copy the resulting `lunr_index.js` into the `public/js` folder.
 
+`apply_template.js` is used to update the header or footer for all HTML files from a template file. 
+
 [RealFaviconGenerator](https://realfavicongenerator.net/) was used to create the various icons and browserconfig.xml. To make your own icons, I suggest starting with a single image file 512x512 pixels in size.
 
 `robots.txt` tells search engines to index all pages.  `humans.txt` is for someone to read if they want to look at the source files behind the website.
