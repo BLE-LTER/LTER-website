@@ -6,34 +6,52 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+
 <url>
-  <loc>http://ble.lternet.edu/</loc>
-  <lastmod>2018-08-02T16:25:22+00:00</lastmod>
+  <loc>https://ble.lternet.edu/</loc>
+  <lastmod>2018-12-13T16:21:35+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://ble.lternet.edu/index.html</loc>
-  <lastmod>2018-08-02T16:25:22+00:00</lastmod>
+  <loc>https://ble.lternet.edu/about</loc>
+  <lastmod>2018-12-13T16:21:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://ble.lternet.edu/about.html</loc>
-  <lastmod>2018-08-05T16:25:22+00:00</lastmod>
-  <priority>0.50</priority>
+  <loc>https://ble.lternet.edu/research</loc>
+  <lastmod>2018-12-13T16:21:35+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://ble.lternet.edu/people.html</loc>
-  <lastmod>2018-06-02T16:25:22+00:00</lastmod>
-  <priority>0.50</priority>
+  <loc>https://ble.lternet.edu/catalog</loc>
+  <lastmod>2018-12-13T16:21:35+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://ble.lternet.edu/bibliography.html</loc>
-  <lastmod>2018-08-10T16:25:22+00:00</lastmod>
-  <priority>0.50</priority>
+  <loc>https://ble.lternet.edu/submitdata</loc>
+  <lastmod>2018-12-13T16:21:35+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://ble.lternet.edu/outreach.html</loc>
-  <lastmod>2018-08-02T16:25:22+00:00</lastmod>
-  <priority>0.50</priority>
+  <loc>https://ble.lternet.edu/ims</loc>
+  <lastmod>2018-12-13T16:21:35+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
+<url>
+  <loc>https://ble.lternet.edu/bibliography</loc>
+  <lastmod>2018-12-13T16:21:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/outreach</loc>
+  <lastmod>2018-12-13T16:21:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/people</loc>
+  <lastmod>2018-12-13T16:21:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
 </urlset>

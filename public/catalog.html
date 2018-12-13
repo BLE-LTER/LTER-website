@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
-
-<head>
+<!DOCTYPE html><html lang="en" prefix="og: http://ogp.me/ns#"><head>
    <meta charset="utf-8">
    <title>Data Catalog | Beaufort Lagoon Ecosystems LTER</title>
    <meta name="description" content="Search, browse, and discover BLE LTER datasets">
@@ -13,11 +10,9 @@
    <meta http-equiv="x-ua-compatible" content="ie=edge">
    <meta name="author" content="Tim Whiteaker">
    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <link rel="stylesheet" href="css/app.css">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-      crossorigin="anonymous">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -32,8 +27,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-darkest">
          <div class="container">
             <a class="navbar-brand" href="index.html">BLE</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-               aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -42,8 +36,7 @@
                   <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                   <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Data</a>
+                     <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data</a>
                      <div class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
                         <a class="dropdown-item" href="catalog.html">Data Catalog</a>
                         <a class="dropdown-item" href="submitdata.html">Submit Data</a>
@@ -56,11 +49,9 @@
                </ul>
                <form>
                   <div class="input-group">
-                     <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control" type="search"
-                        placeholder="Search this site..." aria-label="Search">
+                     <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control" type="search" placeholder="Search this site..." aria-label="Search">
                      <div class="input-group-append">
-                        <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit" title="Submit Search"
-                           aria-label="Submit Search"><i class="fas fa-search"></i></button>
+                        <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit" title="Submit Search" aria-label="Submit Search"><i class="fas fa-search"></i></button>
                      </div>
                   </div>
                </form>
@@ -78,9 +69,7 @@
          also be discoverable via the <a href="https://portal.edirepository.org/nis/home.jsp" target="_blank" rel="noopener">EDI
             Data Portal</a>. If you are
          an information manager and are interested in letting your data center do the heavy lifting of supporting a
-         dataset catalog for you, then you may be interested in the <a href="https://github.com/BLE-LTER/Solr-JavaScript-Search-Client"
-            target="_blank" rel="noopener">Solr JavaScript Search Client</a> for the Arctic Data Center or the <a href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client"
-            target="_blank" rel="noopener">PASTA JavaScript Search Client</a> for EDI.</p>
+         dataset catalog for you, then you may be interested in the <a href="https://github.com/BLE-LTER/Solr-JavaScript-Search-Client" target="_blank" rel="noopener">Solr JavaScript Search Client</a> for the Arctic Data Center or the <a href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client" target="_blank" rel="noopener">PASTA JavaScript Search Client</a> for EDI.</p>
       <div style="display:none">
          <p class="mt-5 lead">We archive our data at the <a href="https://arcticdata.io/catalog/" target="_blank" rel="noopener">Arctic
                Data Center</a>. If you prefer their search interface, you can enter <strong>knb-lter-ble</strong> in
@@ -89,8 +78,7 @@
             Data are generally archived and released within two years of collection for public use.  Metadata accompanying 
             each dataset includes specific use policies. See also <a href="https://lternet.edu/data-access-policy/" target="_blank" rel="noopener">LTER
             Data Policies</a>.</p>
-         <p class="lead">This search tool was built from the <a href="https://github.com/BLE-LTER/Solr-JavaScript-Search-Client"
-               target="_blank" rel="noopener">Solr JavaScript Search Client</a>.</p>
+         <p class="lead">This search tool was built from the <a href="https://github.com/BLE-LTER/Solr-JavaScript-Search-Client" target="_blank" rel="noopener">Solr JavaScript Search Client</a>.</p>
       </div>
    </div>
 
@@ -118,7 +106,7 @@
                <div class="col-sm-6 col-lg-4">
                   <p class="h4">See Also</p>
                   <p><a href="http://www.lternet.edu/">LTER Network Homepage</a></p>
-                  <p><a href="http://www.lternet.edu/sites/">LTER Network Sites</a></p>
+                  <p><a href="http://www.lternet.edu/site/">LTER Network Sites</a></p>
                   <p>
                      <a href="http://www.lternet.edu/">
                         <noscript data-src="img/LTER-network-square-sm.jpg" img-class="" alt="LTER logo within link to LTER Network">
@@ -152,15 +140,13 @@
    </footer>
 
    <div id="before-end-of-body">
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-         crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-         crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <script async src="js/app.js"></script>
    </div>
 
 
 
-</body>
 
-</html>
+
+</body></html>
