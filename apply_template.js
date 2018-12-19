@@ -6,9 +6,9 @@ var cheerio = require("cheerio");
 
 
 // Change these constants to suit your needs
-const HTML_FOLDER = path.join(__dirname, 'public');;  // folder with your HTML files
+const HTML_FOLDER = path.join(__dirname, 'public');; // folder with your HTML files
 const EXCLUDE_FILES = ["google1b139a0c8d361fbe.html"];
-const TEMPLATE = "templates/fix_broken_lter_sites_link.html";  // template file
+const TEMPLATE = "templates/add_contact.html"; // template file
 
 
 function isHtml(filename) {
@@ -34,8 +34,7 @@ function findHtml(folder) {
             recursed[j] = path.join(files[i], recursed[j]).replace(/\\/g, "/");
          }
          htmls.push.apply(htmls, recursed);
-      }
-      else if (isHtml(filename) && !EXCLUDE_FILES.includes(files[i])) {
+      } else if (isHtml(filename) && !EXCLUDE_FILES.includes(files[i])) {
          htmls.push(files[i]);
       };
    };

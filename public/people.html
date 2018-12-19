@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
    <meta charset="utf-8">
    <title>People | Beaufort Lagoon Ecosystems LTER</title>
    <meta name="description" content="Personnel working with the Beaufort Lagoon Ecosystems (BLE) Long Term Ecological Research (LTER) program">
@@ -7,9 +10,11 @@
    <meta http-equiv="x-ua-compatible" content="ie=edge">
    <meta name="author" content="Tim Whiteaker">
    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous">
    <link rel="stylesheet" href="css/app.css">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous">
    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -24,16 +29,25 @@
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-darkest">
          <div class="container">
             <a class="navbar-brand" href="index.html">BLE</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+               aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                <ul class="navbar-nav mr-auto">
-                  <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">About</a>
+                     <div class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
+                        <a class="dropdown-item" href="about.html">Project Overview</a>
+                        <a class="dropdown-item" href="contact.html">Contacts</a>
+                     </div>
+                  </li>
                   <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data</a>
+                     <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Data</a>
                      <div class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
                         <a class="dropdown-item" href="catalog.html">Data Catalog</a>
                         <a class="dropdown-item" href="submitdata.html">Submit Data</a>
@@ -46,9 +60,11 @@
                </ul>
                <form>
                   <div class="input-group">
-                     <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control" type="search" placeholder="Search this site..." aria-label="Search">
+                     <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control" type="search"
+                        placeholder="Search this site..." aria-label="Search">
                      <div class="input-group-append">
-                        <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit" title="Submit Search" aria-label="Submit Search"><i class="fas fa-search"></i></button>
+                        <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit" title="Submit Search"
+                           aria-label="Submit Search"><i class="fas fa-search"></i></button>
                      </div>
                   </div>
                </form>
@@ -239,7 +255,7 @@
                <tr>
                   <td>Christina Bonsell</td>
                   <td>The University of Texas at Austin</td>
-                  <td>805-455-5899</td>
+                  <td></td>
                   <td><a href="mailto:cbonsell@utexas.edu">cbonsell@utexas.edu</a></td>
                </tr>
                <tr>
@@ -335,8 +351,10 @@
    </footer>
 
    <div id="before-end-of-body">
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+         crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+         crossorigin="anonymous"></script>
       <script async src="js/app.js"></script>
    </div>
 
@@ -344,4 +362,6 @@
 
 
 
-</body></html>
+</body>
+
+</html>
