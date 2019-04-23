@@ -8,7 +8,7 @@ var cheerio = require("cheerio");
 // Change these constants to suit your needs
 const HTML_FOLDER = path.join(__dirname, 'public');; // folder with your HTML files
 const EXCLUDE_FILES = ["google1b139a0c8d361fbe.html"];
-const TEMPLATE = "templates/add_contact.html"; // template file
+const TEMPLATE = "templates/bootstrap_4.3.1.html"; // template file
 
 
 function isHtml(filename) {
