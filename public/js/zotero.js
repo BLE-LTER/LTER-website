@@ -282,12 +282,17 @@ function showUrl(url) {
 }
 
 
+function encodeStyle(style) {
+   return style.replace(/\//g, '%3A').replace(/:/g, '%2F');
+}
+
+
 // Passes search URL and callbacks to CORS function
 function searchZotero(query, itemType, sort, start) {
    var zotId = (ZOTERO_CONFIG["zotIdType"] === "group") ? "groups/" + ZOTERO_CONFIG["zotId"] : "users/" + ZOTERO_CONFIG["zotId"];
-   var collection = (ZOTERO_CONFIG["collectionKey"] === "") ? "/" : "/collections/" + ZOTERO_CONFIG["collectionKey"] + "/";
+   var collection = (ZOTERO_CONFIG["collectionKey"] === "") ? "" : "/collections/" + ZOTERO_CONFIG["collectionKey"];
    var base = "https://api.zotero.org/" + zotId + collection + "/items?v=3&include=bib,data";
-   var style = (ZOTERO_CONFIG["style"] === "") ? "" : "&style=" + ZOTERO_CONFIG["style"];
+   var style = (ZOTERO_CONFIG["style"] === "") ? "" : "&style=" + encodeStyle(ZOTERO_CONFIG["style"]);
    var params = "&q=" + encodeURI(query) + "&itemType=" + itemType +
       "&sort=" + sort + "&start=" + start + ZOTERO_CONFIG["filterTags"];
    var limit = "&limit=" + ZOTERO_CONFIG["limit"];
