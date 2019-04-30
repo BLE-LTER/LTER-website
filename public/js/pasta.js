@@ -29,8 +29,13 @@ function parsePastaResults(xmlDoc) {
    }
    for (var i = 0; i < docs.length; i++) {
       var doc = docs[i];
-      var authors = doc.getElementsByTagName("responsibleParties")[0].childNodes[0].nodeValue.trim();
-      var names = authors.replace(/\r?\n/g, "; ");
+      var authorNodes = doc.getElementsByTagName("author");
+      var authors = [];
+      for (var authorIndex = 0; authorIndex < authorNodes.length; authorIndex++) {
+         authors.push(authorNodes[authorIndex].innerHTML);
+      }
+      var names = authors.join("; ");
+
       var date;
       try {
          date = " (Published " + doc.getElementsByTagName("pubdate")[0].childNodes[0].nodeValue + ")";
@@ -87,8 +92,13 @@ function downloadCsv(count) {
       var docs = xmlDoc.getElementsByTagName("document");
       for (var i = 0; i < docs.length; i++) {
          var doc = docs[i];
-         var authors = doc.getElementsByTagName("responsibleParties")[0].childNodes[0].nodeValue.trim();
-         var names = authors.replace(/\r?\n/g, "; ");
+         var authorNodes = doc.getElementsByTagName("author");
+         var authors = [];
+         for (var authorIndex = 0; authorIndex < authorNodes.length; authorIndex++) {
+            authors.push(authorNodes[authorIndex].innerHTML);
+         }
+         var names = authors.join("; ");
+
          var date;
          try {
             date = doc.getElementsByTagName("pubdate")[0].childNodes[0].nodeValue;
@@ -354,7 +364,7 @@ window.onload = function () {
          "pubdate",
          "doi",
          "packageid",
-         "responsibleParties"
+         "author"
       ].toString();
       var params = "fl=" + fields + "&defType=edismax" + PASTA_CONFIG["filter"];
       if (coreArea && coreArea !== "any") {
@@ -424,7 +434,7 @@ window.onload = function () {
       datayear, pubyear, pkgId, taxon, geo, sortBy)
    searchPasta(PASTA_CONFIG["limit"], pageStart);
    if ("PASTA_LOOKUP" in window) {
-      makeAutocomplete("creator", PASTA_LOOKUP["responsibleParties"]);
+      makeAutocomplete("creator", PASTA_LOOKUP["author"]);
       makeAutocomplete("taxon", PASTA_LOOKUP["taxonomic"]);
    }
 };
