@@ -50,6 +50,18 @@ if ('serviceWorker' in navigator) {
    });
 }
 
+
+function showLoading(isLoading) {
+   var x = document.getElementById("loading-div");
+   if (isLoading) {
+      document.body.style.cursor = "wait";
+      x.style.display = "block";
+   } else {
+      document.body.style.cursor = "default";
+      x.style.display = "none";
+   }
+}
+
 // PAGINATION
 
 // https://stackoverflow.com/questions/5999118/add-or-update-query-string-parameter

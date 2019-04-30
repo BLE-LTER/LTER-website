@@ -1,5 +1,3 @@
-// Requires cors.js to be loaded first
-
 "use strict";
 
 var ZOTERO_CONFIG = {
@@ -20,18 +18,6 @@ var ZOTERO_CONFIG = {
    "showPages": 5, // MUST BE ODD NUMBER! Max number of page links to show
    "sortDiv": "sortDiv" // Element with interactive sort options
 };
-
-
-// Get URL arguments
-function getParameterByName(name, url) {
-   if (!url) url = window.location.href;
-   name = name.replace(/[\[\]]/g, "\\$&");
-   var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-      results = regex.exec(url);
-   if (!results) return null;
-   if (!results[2]) return "";
-   return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
 
 
 // Parse Zotero search results into HTML
@@ -223,18 +209,6 @@ function parseZoteroResults(resultText) {
    }
    rows.push("</tbody></table></div>");
    return rows.join("");
-}
-
-
-function showLoading(isLoading) {
-   var x = document.getElementById("loading-div");
-   if (isLoading) {
-      document.body.style.cursor = "wait";
-      x.style.display = "block";
-   } else {
-      document.body.style.cursor = "default";
-      x.style.display = "none";
-   }
 }
 
 
