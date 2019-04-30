@@ -151,3 +151,17 @@ ul.share-buttons .sr-only{
 ul.share-buttons img{
   width: 32px;
 }
+
+/* data search */
+.dataset-title a {
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.dataset-title a:hover {
+  text-decoration: underline;
+}
+
+.dataset-author {
+  color: #808080;
+}

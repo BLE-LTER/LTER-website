@@ -75,38 +75,48 @@
          </div>
       </nav>
    </header>
-
    <div class="container pt-3">
       <h1>BLE Data Catalog</h1>
-      <p class="lead">As we generate datasets, look for a listing of them to appear on this page.
-      </p>
-      <p class="lead">We plan to archive our data at the <a href="https://arcticdata.io/" target="_blank"
-            rel="noopener">Arctic
-            Data Center</a> and pipe a list of our datasets from their catalog directly to the BLE website. Data will
-         also be discoverable via the <a href="https://portal.edirepository.org/nis/home.jsp" target="_blank"
-            rel="noopener">EDI
-            Data Portal</a>. If you are
-         an information manager and are interested in letting your data center do the heavy lifting of supporting a
+      <p class="lead">Search our catalog below, or find the same datasets archived at both the <a
+            href="https://arcticdata.io/" target="_blank" rel="noopener">Arctic
+            Data Center</a> (search for <strong>knb-lter-ble</strong>) and <a
+            href="http://portal.edirepository.org:80/nis/simpleSearch?defType=edismax&q=organization%3A%28%22Beaufort+Lagoon+Ecosystems+LTER%22%29&fq=-scope:ecotrends&fq=-scope:lter-landsat*&fl=id,packageid,title,author,organization,pubdate,coordinates&debug=false"
+            target="_blank" rel="noopener">EDI</a>. Data are generally archived and released within two years of
+         collection for public use. Metadata accompanying each dataset includes specific use policies. See also <a
+            href="https://lternet.edu/data-access-policy/" target="_blank" rel="noopener">LTER Data Policies</a>.</p>
+
+      <div id="pastaClient">
+         <form id="dataSearchForm" name="dataSearchForm">
+            <div class="form-group">
+               <div class="input-group">
+                  <input type="hidden" id="sort" name="sort" value="score">
+                  <input autofocus class="form-control" name="q" placeholder="Enter search term" type="text" aria-label="Enter search term">
+                  <div class="input-group-append">
+                     <button class="btn btn-outline-secondary" type="submit" aria-label="Submit Search">Search</button>
+                  </div>
+               </div>
+            </div>
+
+         </form>
+
+         <div class="loading" id="loading-div">
+            <i class="fas fa-spinner fa-pulse fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+         </div>
+         <div class="resultCount" id="resultCount"></div>
+         <div id="searchResults"></div>
+         <div class="pagination" id="paginationBot"></div>
+      </div>
+
+      <p class="lead">This search tool was built from the <a
+            href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client" target="_blank" rel="noopener">PASTA
+            JavaScript Search Client</a>. If you are interested in letting your data center do the heavy lifting of
+         supporting a
          dataset catalog for you, then you may be interested in the <a
             href="https://github.com/BLE-LTER/Solr-JavaScript-Search-Client" target="_blank" rel="noopener">Solr
             JavaScript Search Client</a> for the Arctic Data Center or the <a
             href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client" target="_blank" rel="noopener">PASTA
             JavaScript Search Client</a> for EDI.</p>
-      <div style="display:none">
-         <p class="mt-5 lead">We archive our data at the <a href="https://arcticdata.io/catalog/" target="_blank"
-               rel="noopener">Arctic
-               Data Center</a>. If you prefer their search interface, you can enter <strong>knb-lter-ble</strong> in
-            their search box to find our data. The same datasets are also discoverable via the
-            <a href="https://portal.edirepository.org/nis/home.jsp" target="_blank" rel="noopener">EDI Data Portal</a>.
-            Data are generally archived and released within two years of collection for public use. Metadata
-            accompanying
-            each dataset includes specific use policies. See also <a href="https://lternet.edu/data-access-policy/"
-               target="_blank" rel="noopener">LTER
-               Data Policies</a>.</p>
-         <p class="lead">This search tool was built from the <a
-               href="https://github.com/BLE-LTER/Solr-JavaScript-Search-Client" target="_blank" rel="noopener">Solr
-               JavaScript Search Client</a>.</p>
-      </div>
    </div>
 
    <footer class="lighter">
@@ -178,11 +188,7 @@
       </script>
       <script async src="js/app.js"></script>
    </div>
-
-
-
-
-
+   <script async src="js/pasta.js"></script>
 </body>
 
 </html>
