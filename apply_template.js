@@ -8,7 +8,7 @@ var cheerio = require("cheerio");
 // Change these constants to suit your needs
 const HTML_FOLDER = path.join(__dirname, 'public');; // folder with your HTML files
 const EXCLUDE_FILES = ["google1b139a0c8d361fbe.html"];
-const TEMPLATE = "templates/bootstrap_4.3.1.html"; // template file
+const TEMPLATE = "templates/font_awesome_5.8.1.html"; // template file
 
 
 function isHtml(filename) {
@@ -42,6 +42,19 @@ function findHtml(folder) {
 };
 
 
+// Splits html around common header area
+function splitForHead(htmlTxt) {
+   const START_COMMENT = "<!-- Start Common Head -->";
+   const END_COMMENT = "<!-- End Common Head -->";
+   var stop1 = htmlTxt.indexOf(START_COMMENT) + START_COMMENT.length;
+   var stop2 = htmlTxt.indexOf(END_COMMENT);
+   var beforeIt = htmlTxt.slice(0, stop1);
+   var it = htmlTxt.slice(stop1, stop2);
+   var afterIt = htmlTxt.slice(stop2);
+   return [beforeIt, it, afterIt];
+}
+
+
 function readTemplate() {
    var filename = path.join(__dirname, TEMPLATE);
    var txt = fs.readFileSync(filename).toString();
@@ -50,7 +63,7 @@ function readTemplate() {
    var footer = $("body").find("footer").eq(0);
    var end_of_body = $("#before-end-of-body");
    var template = {
-      "head": $("head"),
+      "head": splitForHead(txt)[1],
       "header": header,
       "footer": footer,
       "end_of_body": end_of_body
@@ -59,18 +72,16 @@ function readTemplate() {
 }
 
 
-function updateHead(fileHtml, fileHead, templateHead) {
-   templateHead.children().each(function (i, el) {
-      var html = fileHtml.html(el);
-      // do nothing for now
-      // probably have to add dummy el to head, below which we overwrite from template
-   });
+function updateHead(htmlTxt, template) {
+   parts = splitForHead(htmlTxt);
+   return parts[0] + template.head + parts[2];
 }
 
 
 function updateHtml(root, file, template) {
    var filename = path.join(root, file);
    var txt = fs.readFileSync(filename).toString();
+   txt = updateHead(txt, template);
    var $ = cheerio.load(txt);
    var header = $("body").find("header").eq(0);
    var footer = $("body").find("footer").eq(0);
@@ -78,7 +89,6 @@ function updateHtml(root, file, template) {
    header.replaceWith(template.header);
    footer.replaceWith(template.footer);
    end_of_body.replaceWith(template.end_of_body);
-   updateHead($, $("head"), template.head);
 
    fs.writeFile(filename, $.html(), function (err) {
       if (err) {
