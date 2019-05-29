@@ -53,3 +53,9 @@ sript to work, you must include elements exactly as follows:
 To apply a template, edit `apply_template.js` so that the `TEMPLATE` constant is
 pointing to the desired template. Then start a Node command prompt and run `node
 apply_template.js`. This script requires [Node.js](https://nodejs.org/en/download/) and [cheerio](https://github.com/cheeriojs/cheerio).
+
+## Creating Icons
+
+[RealFaviconGenerator](https://realfavicongenerator.net/) was used to create the various icons and browserconfig.xml. To make your own icons, I suggest starting with a single image file 512x512 pixels in size.  
+
+You'll probably want to manually edit favicon-16x16.png and favicon-32x32.png, or else they may look blurry when rescaled from 512x512.  You'll also want to edit favicon.ico (Chrome uses this, for example) since it includes those smaller sizes embedded within it. If you don't already have an editor which handles *.ico files, try [redketchup's Icon Editor](https://redketchup.io/icon-editor) as it lets you upload the 16x16 and 32x32 images that you just manually created, to replace those sizes in favicon.ico.
