@@ -1,11 +1,7 @@
 {
    "name": "Beaufort Lagoon Ecosystems",
    "short_name": "BLE LTER",
-   "icons": [{
-         "src": "/favicon-16x16.png?v=rMqzlp2Rnj",
-         "sizes": "16x16",
-         "type": "image/png"
-      },
+   "icons": [
       {
          "src": "/android-chrome-192x192.png?v=rMqzlp2Rnj",
          "sizes": "192x192",
