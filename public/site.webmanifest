@@ -3,12 +3,12 @@
    "short_name": "BLE LTER",
    "icons": [
       {
-         "src": "/android-chrome-192x192.png?v=rMqzlp2Rnj",
+         "src": "/android-chrome-192x192.png?v=rMqzlp2Rno",
          "sizes": "192x192",
          "type": "image/png"
       },
       {
-         "src": "/android-chrome-512x512.png?v=rMqzlp2Rnj",
+         "src": "/android-chrome-512x512.png?v=rMqzlp2Rno",
          "sizes": "512x512",
          "type": "image/png"
       }
