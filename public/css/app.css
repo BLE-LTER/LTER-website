@@ -1,65 +1,69 @@
 /* override bootstrap */
 .navbar-dark .navbar-brand {
-	color: #E8F5F8;
+   color: #E8F5F8;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-	color: #E8F5F8;
+   color: #E8F5F8;
 }
 
-.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
-  color: #fff;
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
+   color: #fff;
 }
 
 .btn-outline-light {
-  color: #E8F5F8;
-  border-color: #E8F5F8;
+   color: #E8F5F8;
+   border-color: #E8F5F8;
 }
 
-.btn-outline-light:not(:disabled):not(.disabled).active, .btn-outline-light:not(:disabled):not(.disabled):active, .show > .btn-outline-light.dropdown-toggle, .btn-outline-light:hover {
-  border-color: #011E3E;
-  color: #011E3E;
-  background-color: #E8F5F8;
+.btn-outline-light:not(:disabled):not(.disabled).active,
+.btn-outline-light:not(:disabled):not(.disabled):active,
+.show>.btn-outline-light.dropdown-toggle,
+.btn-outline-light:hover {
+   border-color: #011E3E;
+   color: #011E3E;
+   background-color: #E8F5F8;
 }
 
 a {
-  color: #0070e9;
+   color: #0070e9;
 }
 
 /* theme */
 .lighter {
-  color: #E8F5F8;
+   color: #E8F5F8;
 }
 
 .bg-darker {
-  background: #0d3760;
-}    
+   background: #0d3760;
+}
 
 .bg-darkest {
-  background: #011E3E;
+   background: #011E3E;
 }
 
 /* by the numbers */
 .number-heading {
-  color: #0d3760;
-  margin-bottom: 1em;
-  padding-bottom: 0.5em;
-  border-bottom: 1px solid #0d3760;
+   color: #0d3760;
+   margin-bottom: 1em;
+   padding-bottom: 0.5em;
+   border-bottom: 1px solid #0d3760;
 }
 
 .by-the-number {
-  font-size: 3em;
-  color: #0d3760;
-  margin-bottom: 0;
+   font-size: 3em;
+   color: #0d3760;
+   margin-bottom: 0;
 }
 
 /* main */
 body {
-  padding-top: 3.5em;
+   padding-top: 3.5em;
 }
 
 img.fill {
-  min-width: 100%;
+   min-width: 100%;
 }
 
 table.table-striped a {
@@ -68,100 +72,106 @@ table.table-striped a {
 
 /* footer */
 address {
-  font-style: normal;
+   font-style: normal;
 }
 
 footer {
-  margin-top: 3em;
+   margin-top: 3em;
 }
 
 .footer-top {
-  padding: 2rem 0 0;
+   padding: 2rem 0 0;
 }
 
 footer p {
-  line-height: 1.125rem;
+   line-height: 1.125rem;
 }
 
-footer a, footer a:hover {
-  color: #6ec5ff;
-  text-decoration: none;
+footer a,
+footer a:hover {
+   color: #6ec5ff;
+   text-decoration: none;
 }
 
 .footer-bottom {
-  padding-top: 1rem;
+   padding-top: 1rem;
 }
 
 /* site search */
 .loading {
-  width: 100px;
-  margin: auto;
+   width: 100px;
+   margin: auto;
 }
 
 .result-title a {
-  font-size: 1.2em;
+   font-size: 1.2em;
 }
 
-.result-preview, .result-author, .resultCount {
-  color: #6c757d;
+.result-preview,
+.result-author,
+.resultCount {
+   color: #6c757d;
 }
 
 .result-query {
-  font-weight: bold;
+   font-weight: bold;
 }
 
 .pagination {
-	text-align: center;
-	margin: 16px 8px 16px 8px;
+   text-align: center;
+   margin: 16px 8px 16px 8px;
 }
+
 .pagination a {
-	color: black;
-	padding: 8px 16px;
-	text-decoration: none;
+   color: black;
+   padding: 8px 16px;
+   text-decoration: none;
 }
+
 .pagination a.active {
-	background-color: #0d3760;
-	color: white;
+   background-color: #0d3760;
+   color: white;
 }
+
 .pagination a:hover:not(.active) {
-	background-color: #ddd;
+   background-color: #ddd;
 }
 
 /* sharing icons */
-ul.share-buttons{
-  list-style: none;
-  padding: 0;
+ul.share-buttons {
+   list-style: none;
+   padding: 0;
 }
 
-ul.share-buttons li{
-  display: inline;
+ul.share-buttons li {
+   display: inline;
 }
 
-ul.share-buttons .sr-only{
-  position: absolute;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0;
-  border: 0;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
+ul.share-buttons .sr-only {
+   position: absolute;
+   clip: rect(1px 1px 1px 1px);
+   clip: rect(1px, 1px, 1px, 1px);
+   padding: 0;
+   border: 0;
+   height: 1px;
+   width: 1px;
+   overflow: hidden;
 }
 
-ul.share-buttons img{
-  width: 32px;
+ul.share-buttons img {
+   width: 32px;
 }
 
 /* data search */
 .dataset-title a {
-  font-size: 1.2em;
-  text-decoration: none;
+   font-size: 1.2em;
+   text-decoration: none;
 }
 
 .dataset-title a:hover {
-  text-decoration: underline;
+   text-decoration: underline;
 }
 
 .dataset-author {
-  color: #808080;
+   color: #6c757d;
 }
