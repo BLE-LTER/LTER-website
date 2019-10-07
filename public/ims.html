@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
-
-<head>
+<!DOCTYPE html><html lang="en" prefix="og: http://ogp.me/ns#"><head>
    <meta charset="utf-8">
    <title>Information Management System | Beaufort Lagoon Ecosystems LTER</title>
-   <meta name="description"
-      content="The BLE IMS uses modular components and relies on external APIs and resources to minimize development burden and promote reusability">
+   <meta name="description" content="The BLE IMS uses modular components and relies on external APIs and resources to minimize development burden and promote reusability">
    <meta name="keywords" content="IMS, information management, data management">
    <link rel="canonical" href="https://ble.lternet.edu/ims.html">
    <meta property="og:title" content="Information Management System | Beaufort Lagoon Ecosystems LTER">
@@ -16,11 +12,9 @@
    <meta name="author" content="Tim Whiteaker">
    <meta name="viewport" content="width=device-width, initial-scale=1.0,
    shrink-to-fit=no">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <link rel="stylesheet" href="css/app.css">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=rMqzlp2Rno">
    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=rMqzlp2Rno">
    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=rMqzlp2Rno">
@@ -51,25 +45,23 @@
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-darkest">
          <div class="container">
             <a class="navbar-brand" href="index.html">BLE</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-               aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                <ul class="navbar-nav mr-auto">
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">About</a>
+                     <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
                      <div class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
                         <a class="dropdown-item" href="about.html">Project Overview</a>
                         <a class="dropdown-item" href="contact.html">Contacts</a>
+                        <a class="dropdown-item" href="media.html">Media Coverage</a>
                      </div>
                   </li>
                   <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Data</a>
+                     <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data</a>
                      <div class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
                         <a class="dropdown-item" href="catalog.html">Data Catalog</a>
                         <a class="dropdown-item" href="submitdata.html">Submit Data</a>
@@ -82,11 +74,9 @@
                </ul>
                <form>
                   <div class="input-group">
-                     <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control"
-                        type="search" placeholder="Search this site..." aria-label="Search">
+                     <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control" type="search" placeholder="Search this site..." aria-label="Search">
                      <div class="input-group-append">
-                        <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit"
-                           title="Submit Search" aria-label="Submit Search"><i class="fas fa-search"></i></button>
+                        <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit" title="Submit Search" aria-label="Submit Search"><i class="fas fa-search"></i></button>
                      </div>
                   </div>
                </form>
@@ -99,8 +89,7 @@
       <h1>BLE Information Management System</h1>
       <p class="lead">The BLE IMS uses modular components and relies on external APIs and open source resources to
          minimize development burden and promote reusability. We welcome discussion and feedback on our system, and we
-         love collaborating with other information managers on improving the state of IM in LTER. See <a
-            href="https://github.com/BLE-LTER/" target="_blank" rel="noopener">what we&apos;re up to on GitHub</a>, and
+         love collaborating with other information managers on improving the state of IM in LTER. See <a href="https://github.com/BLE-LTER/" target="_blank" rel="noopener">what we&apos;re up to on GitHub</a>, and
          take a peek into our information management system below.
       </p>
 
@@ -116,12 +105,10 @@
             <div class="d-flex flex-column card-body">
                <i class="fas fa-file-excel fa-4x"></i>
                <p class="lead text-left mt-3 mb-4">
-                  Our researchers use a <a href="https://utexas.box.com/v/ble-metadata-template" target="_blank"
-                     rel="noopener">spreadsheet metadata template</a> to supply metadata with data submissions. The
+                  Our researchers use a <a href="https://utexas.box.com/v/ble-metadata-template" target="_blank" rel="noopener">spreadsheet metadata template</a> to supply metadata with data submissions. The
                   spreadsheet includes validation and other forms of guidance to help the user supply rich metadata.
                </p>
-               <a class="mt-auto btn btn-lg btn-block btn-primary bg-darker"
-                  href="https://utexas.box.com/v/ble-metadata-template" target="_blank" rel="noopener">Metadata
+               <a class="mt-auto btn btn-lg btn-block btn-primary bg-darker" href="https://utexas.box.com/v/ble-metadata-template" target="_blank" rel="noopener">Metadata
                   Template</a>
             </div>
          </div>
@@ -137,8 +124,7 @@
                      Metabase</a> schema. This schema is designed to be simple and extensible while supporting the
                   creation of EML metadata.
                </p>
-               <a class="mt-auto btn btn-lg btn-block btn-primary bg-darker"
-                  href="https://github.com/lter/LTER-core-metabase" target="_blank" rel="noopener">Core Metabase</a>
+               <a class="mt-auto btn btn-lg btn-block btn-primary bg-darker" href="https://github.com/lter/LTER-core-metabase" target="_blank" rel="noopener">Core Metabase</a>
             </div>
          </div>
          <div class="card mb-4 shadow-sm">
@@ -148,13 +134,10 @@
             <div class="d-flex flex-column card-body">
                <i class="fas fa-code fa-4x"></i>
                <p class="lead text-left mt-3 mb-4">
-                  We created an R package called <a href="https://github.com/atn38/MetaEgress" target="_blank"
-                     rel="noopener"> MetaEgress</a> to generate Ecological Metadata Language documents from our Core
-                  Metabase. We plan to eventually tie this into the <a href="https://github.com/EDIorg/EMLassemblyline"
-                     target="_blank" rel="noopener">EML Assembly Line</a>.
+                  We created an R package called <a href="https://github.com/atn38/MetaEgress" target="_blank" rel="noopener"> MetaEgress</a> to generate Ecological Metadata Language documents from our Core
+                  Metabase. We plan to eventually tie this into the <a href="https://github.com/EDIorg/EMLassemblyline" target="_blank" rel="noopener">EML Assembly Line</a>.
                </p>
-               <a class="mt-auto btn btn-lg btn-block btn-primary bg-darker" href="https://github.com/atn38/MetaEgress"
-                  target="_blank" rel="noopener">MetaEgress</a>
+               <a class="mt-auto btn btn-lg btn-block btn-primary bg-darker" href="https://github.com/atn38/MetaEgress" target="_blank" rel="noopener">MetaEgress</a>
             </div>
          </div>
       </div>
@@ -163,8 +146,7 @@
          <h2 class="text-center pt-3 pb-3">Our Website</h2>
          <p class="pl-3 pr-2 lead">Our static HTML website is built purely with HTML, CSS, and JavaScript, and costs us
             $0 to
-            operate annually (yes, zero). You can literally download <a href="https://github.com/BLE-LTER/LTER-website"
-               target="_blank" rel="noopener">our website on GitHub</a> and double-click index.html to run it from your
+            operate annually (yes, zero). You can literally download <a href="https://github.com/BLE-LTER/LTER-website" target="_blank" rel="noopener">our website on GitHub</a> and double-click index.html to run it from your
             local computer. We gladly take advantage of the following technologies.</p>
       </div>
 
@@ -177,15 +159,12 @@
             <div class="d-flex flex-column card-body">
                <i class="fas fa-table fa-4x"></i>
                <p class="lead text-left mt-3 mb-4">
-                  Using our <a href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client" target="_blank"
-                     rel="noopener">PASTA client</a>, our <a href="catalog.html">Data Catalog</a> taps into the
+                  Using our <a href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client" target="_blank" rel="noopener">PASTA client</a>, our <a href="catalog.html">Data Catalog</a> taps into the
                   Environmental Data Initiative where we archive our data. This ensures that our website stays in sync
                   with the official archive. Sites that archive with DataOne nodes such as the Arctic Data Center may be
-                  interested in our <a href="https://github.com/BLE-LTER/Solr-JavaScript-Search-Client" target="_blank"
-                     rel="noopener">Solr client</a>.
+                  interested in our <a href="https://github.com/BLE-LTER/Solr-JavaScript-Search-Client" target="_blank" rel="noopener">Solr client</a>.
                </p>
-               <a class="mt-auto btn btn-lg btn-block btn-primary bg-darker"
-                  href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client" target="_blank" rel="noopener">PASTA
+               <a class="mt-auto btn btn-lg btn-block btn-primary bg-darker" href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client" target="_blank" rel="noopener">PASTA
                   Client</a>
             </div>
          </div>
@@ -197,15 +176,11 @@
                <i class="fas fa-book fa-4x"></i>
                <p class="lead text-left mt-3 mb-4">
                   We use <a href="https://www.zotero.org/" target="_blank" rel="noopener">Zotero</a> as our reference
-                  manager. With our <a href="https://github.com/BLE-LTER/Zotero-JavaScript-Search-Client"
-                     target="_blank" rel="noopener">Zotero
-                     JavaScript client</a>, we call upon that API to feed our bibliography directly into our <a
-                     href="bibliography.html">Publications page</a>. When a team member updates our Zotero
+                  manager. With our <a href="https://github.com/BLE-LTER/Zotero-JavaScript-Search-Client" target="_blank" rel="noopener">Zotero
+                     JavaScript client</a>, we call upon that API to feed our bibliography directly into our <a href="bibliography.html">Publications page</a>. When a team member updates our Zotero
                   library, they can see that update immediately on our website.
                </p>
-               <a class="mt-auto btn btn-lg btn-block btn-primary bg-darker"
-                  href="https://github.com/BLE-LTER/Zotero-JavaScript-Search-Client" target="_blank"
-                  rel="noopener">Zotero Client</a>
+               <a class="mt-auto btn btn-lg btn-block btn-primary bg-darker" href="https://github.com/BLE-LTER/Zotero-JavaScript-Search-Client" target="_blank" rel="noopener">Zotero Client</a>
             </div>
          </div>
          <div class="card mb-4 shadow-sm">
@@ -216,14 +191,11 @@
                <i class="fas fa-search fa-4x"></i>
                <p class="lead text-left mt-3 mb-4">
                   We use <a href="https://lunrjs.com/" target="_blank" rel="noopener">Lunr</a> for static search on our
-                  website. Our <a href="https://github.com/BLE-LTER/Lunr-Index-and-Search-for-Static-Sites"
-                     target="_blank" rel="noopener">Lunr GitHub Project</a> demonstrates how to build a search index for
+                  website. Our <a href="https://github.com/BLE-LTER/Lunr-Index-and-Search-for-Static-Sites" target="_blank" rel="noopener">Lunr GitHub Project</a> demonstrates how to build a search index for
                   your website and provide search functionality. We like that the search interface is encapsulated
                   within our site without any external branding.
                </p>
-               <a class="mt-auto btn btn-lg btn-block btn-primary bg-darker"
-                  href="https://github.com/BLE-LTER/Lunr-Index-and-Search-for-Static-Sites" target="_blank"
-                  rel="noopener">Lunr Client</a>
+               <a class="mt-auto btn btn-lg btn-block btn-primary bg-darker" href="https://github.com/BLE-LTER/Lunr-Index-and-Search-for-Static-Sites" target="_blank" rel="noopener">Lunr Client</a>
             </div>
          </div>
       </div>
@@ -233,8 +205,7 @@
          having to maintain any servers.
          This means we don&apos;t incur the operating cost of a dynamic server (unlike WordPress or Drupal sites for
          example), and we aren&apos;t plagued by dynamic CMS security flaws.</p>
-      <p class="lead">There are lots of free hosts for static websites. We like <a href="https://www.netlify.com/"
-            target="_blank" rel="noopener">Netlify</a> the best. They minify our assets to improve page load times,
+      <p class="lead">There are lots of free hosts for static websites. We like <a href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a> the best. They minify our assets to improve page load times,
          provide HTTPS, and host our site on a content delivery network with servers distributed around the world to
          maximize uptime and speed, among other benefits. As soon as we make a new commit to our site on GitHub,
          Netlify picks it up and distributes it across their network. They also support forms, functions, and secure
@@ -252,8 +223,7 @@
          incorporate information management into their workflows up front, and
          because there is open, friendly, and regular dialog between scientists and information managers within BLE.</p>
       <p class="lead">Our IM team enjoys extending that dialog into the broader LTER community. If you are facing an IM
-         challenge involving GIS, Python, or any part of the stack described above, feel free to <a
-            href="mailto:BLE-IM@utexas.edu">contact
+         challenge involving GIS, Python, or any part of the stack described above, feel free to <a href="mailto:BLE-IM@utexas.edu">contact
             us</a>.</p>
    </div>
 
@@ -284,14 +254,12 @@
                   <p><a href="http://www.lternet.edu/site/">LTER Network Sites</a></p>
                   <p>
                      <a href="http://www.lternet.edu/">
-                        <noscript data-src="img/LTER-network-square-sm.jpg" img-class=""
-                           alt="LTER logo within link to LTER Network">
+                        <noscript data-src="img/LTER-network-square-sm.jpg" img-class alt="LTER logo within link to LTER Network">
                            <img src="img/LTER-network-square-sm.jpg" alt="LTER logo within link to LTER Network">
                         </noscript>
                      </a>
                      <a href="https://www.nsf.gov/">
-                        <noscript data-src="img/nsf1.gif" img-class=""
-                           alt="NSF logo within link to National Science Foundation">
+                        <noscript data-src="img/nsf1.gif" img-class alt="NSF logo within link to National Science Foundation">
                            <img src="img/nsf1.gif" alt="NSF logo within link to National Science Foundation">
                         </noscript>
                      </a>
@@ -304,8 +272,7 @@
          <div class="container">
             <div class="row footer-bottom text-center text-lg-left">
                <div class="col-lg-8">
-                  <p class="mb-1"><small>Except where otherwise noted, material may be re-used under a <a
-                           href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
+                  <p class="mb-1"><small>Except where otherwise noted, material may be re-used under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
                            Commons BY-SA 4.0 license</a>.</small></p>
                </div>
                <div class="col-lg-4">
@@ -318,11 +285,9 @@
    </footer>
 
    <div id="before-end-of-body">
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
       </script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
       </script>
       <script async src="js/app.js"></script>
    </div>
@@ -330,6 +295,6 @@
 
 
 
-</body>
 
-</html>
+
+</body></html>
