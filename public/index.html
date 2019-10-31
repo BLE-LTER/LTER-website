@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
+<html style = "height: 100%;" lang="en" prefix="og: http://ogp.me/ns#">
 
 <head>
    <meta charset="utf-8">
@@ -31,24 +31,67 @@
    <meta name="msapplication-TileColor" content="#2b5797">
    <meta name="theme-color" content="#0d3760">
    <!-- End Common Head -->
+   <style>
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400&display=swap');
+.nav-item{
+   padding: 0px 20px;
+}
+.background-video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover; 
+}
+#homepage-container{
+position: fixed;
+  top: 10vh;
+  left: 10vw;
+}
+body{
+       position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+</style>
 </head>
 
-<body>
+<body style="width: 100%; height: 100%;font-family: 'Libre Franklin', sans-serif;
+">
+ <video style="" class = "background-video" poster="video/intro-video-poster.jpg" autoplay="autoplay" loop="loop" muted="muted">
+         <source src="video/intro-video.mp4"></video>
+      <div class= "container", id = "">
+         <div style = "z-index: 1000; margin: auto; padding: auto;" class="container">
+         <img src="img/logo.svg" style="max-height: 200px;" onerror="this.src=&apos;img/logo_solid.png&apos;"
+            class="img-fluid" alt="BLE logo">
+   </div>
    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-darkest">
+      <nav style = "font-size: 150%; margin: auto; padding: auto;" class="navbar navbar-expand-lg navbar-dark">
          <div class="container">
-            <a class="navbar-brand" href="index.html">BLE</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
-               <ul class="navbar-nav mr-auto">
+               <ul  class="navbar-nav mr-auto">
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-toggle="dropdown"
+                     <a  class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">About</a>
-                     <div class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
+                     <div style = "background-color: rgba(232, 245, 248, 0.3);" class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
                         <a class="dropdown-item" href="about.html">Project Overview</a>
                         <a class="dropdown-item" href="contact.html">Contacts</a>
                         <a class="dropdown-item" href="media.html">Media Coverage</a>
@@ -58,7 +101,7 @@
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Data</a>
-                     <div class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
+                     <div  style = "background-color: rgba(232, 245, 248, 0.3);"class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
                         <a class="dropdown-item" href="catalog.html">Data Catalog</a>
                         <a class="dropdown-item" href="submitdata.html">Submit Data</a>
                         <a class="dropdown-item" href="ims.html">Information Management</a>
@@ -68,232 +111,12 @@
                   <li class="nav-item"><a class="nav-link" href="outreach.html">Outreach</a></li>
                   <li class="nav-item"><a class="nav-link" href="people.html">People</a></li>
                </ul>
-               <form>
-                  <div class="input-group">
-                     <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control"
-                        type="search" placeholder="Search this site..." aria-label="Search">
-                     <div class="input-group-append">
-                        <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit"
-                           title="Submit Search" aria-label="Submit Search"><i class="fas fa-search"></i></button>
-                     </div>
-                  </div>
-               </form>
             </div>
          </div>
       </nav>
    </header>
-
-   <div class="container-fluid bg-darker lighter">
-      <div class="container">
-         <img src="img/logo.svg" style="max-height: 200px;" onerror="this.src=&apos;img/logo_solid.png&apos;"
-            class="img-fluid" alt="BLE logo">
-      </div>
-   </div>
-
-   <div class="container-fluid bg-darker lighter">
-      <video style="width: 100%;" poster="video/intro-video-poster.jpg" autoplay="autoplay" loop="loop" muted="muted">
-         <source src="video/intro-video.mp4"></video>
-   </div>
-   <div class="container">
-      <div class="clearfix">
-         <p class="lead pt-4">Beaufort Lagoon Ecosystems LTER is a new Long Term Ecological Research program along the
-            northern
-            Alaskan Arctic coastline in the Beaufort Sea. Lagoon systems encompass more than half of the Beaufort Sea
-            coast, providing food and habitat for large populations of migratory fish and waterfowl that are essential
-            to the culture of Inupiat communities of northern Alaska. We believe that the differential availability of
-            seasonally distinct resources is critical for maintaining the high
-            productivity of these ecosystems. BLE will use sampling, monitoring,
-            and modeling to study these lagoons and their interactions with the
-            surrounding environment to better understand how these ecosystems
-            function and to predict how they will change in the coming decades.</p>
-         <hr>
-         <div class="float-lg-right border rounded mx-3"><a class="twitter-timeline" data-tweet-limit="2"
-               data-theme="light" data-link-color="#0070e9"
-               href="https://twitter.com/ArcticLagoons?ref_src=twsrc%5Etfw">Tweets by
-               ArcticLagoons</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-         </div>
-         <h2>Ph.D. Assistantship in Arctic Estuarine Food Web Ecology</h2>
-         <!-- Expires June 1 -->
-         <p class="lead">A Ph.D. research assistantship is available (beginning
-            spring/summer 2020) in Katrin Iken&apos;s lab at the University of Alaska
-            Fairbanks, College of Fisheries and Ocean Sciences (UAF, CFOS)
-            (<a href="https://www.uaf.edu/cfos/" target="_blank" rel="noopener">https://www.uaf.edu/cfos/</a>). This
-            position is part of a new Long-Term Ecological Research (LTER) program funded by the National Science
-            Foundation to study the food web ecology of Beaufort Sea lagoons. The
-            student&apos;s research would focus on discerning how variable carbon inputs
-            (terrestrial, marine phytoplankton, sea ice) are utilized in the lagoon
-            systems over the course of the year from frozen to break-up to open
-            water. We seek applicants with a background in trophic ecology,
-            especially with lab and data analysis skills in stable isotope
-            analysis, compound-specific (amino acid) stable isotope analysis,
-            and/or fatty acid analysis. The student is expected to participate in
-            field work in the Arctic as well as develop a strong research thesis
-            project. Applicants should have a M.S. degree in a marine or
-            environmental science field, a strong academic background, show
-            evidence of independent work in the field and/or lab, and demonstrate a
-            capacity to contribute to a collaborative research environment. For
-            more information, please email a statement of interest/background and a
-            copy of your CV to Katrin Iken (<a href="mailto:kbiken@alaska.edu">kbiken@alaska.edu</a>). <br><br>
-            Links:<br>
-            <a href="https://www.uaf.edu/cfos/people/faculty/detail/index.xml?id=93" target="_blank" rel="noopener">Iken
-               faculty page</a><br>
-            <a href="https://www.uaf.edu/cfos/academics/graduate/" target="_blank" rel="noopener">
-               CFOS graduate program</a>
-         </p>
-         <hr>
-         <!-- <h2>Ph.D. Assistantship in Arctic Estuarine Ecology</h2>
-         <p class="lead">A Ph.D. research assistantship is available (beginning
-            summer 2019) in Ken Dunton&#x2019;s lab at the University of Texas at Austin
-            <a href="https://utmsi.utexas.edu/" target="_blank" rel="noopener">Marine Science Institute</a>. This
-            position is
-            part of an interdisciplinary program funded by the National Science
-            Foundation to study the benthic ecology of Beaufort Sea lagoons within
-            a newly established LTER located on Alaska&#x2019;s northern Arctic coast. The
-            student&#x2019;s research would focus on the resilience of Arctic estuarine
-            benthic communities, with emphasis on how intertidal and subtidal
-            communities respond to extremes in ice, salinity, and hypoxia. This
-            includes studies that examine seasonal and spatial patterns in
-            invertebrate population structure to address mechanisms of persistence,
-            migration, recovery, and trophic linkages with key consumers. We seek
-            applicants with a background in estuarine and/or marine science with a
-            degree in biology, ecology, environmental science, or closely related
-            fields. The student is expected to develop an integrative field and
-            experimental project that incorporates fundamentally new and innovative
-            approaches to questions of disturbance and resilience in benthic
-            populations. Applicants should have a strong academic background, show
-            evidence of independent work in the field and/or lab, and demonstrate a
-            capacity to contribute to a collaborative research environment. For
-            more information, please email a statement of interest/background and a
-            copy of your CV to Ken Dunton (<a href="mailto:ken.dunton@utexas.edu" target="_top">ken.dunton@utexas.edu</a>).<br><br>
-            Links:<br>
-            <a href="https://www.utmsi.utexas.edu/staff/dunton" target="_blank" rel="noopener">Dunton Lab</a><br>
-            <a href="https://utmsi.utexas.edu/academics/graduate/admission-information" target="_blank" rel="noopener">
-               UTMSI graduate program</a>
-         </p> -->
-         <!-- <div><a class="twitter-timeline" data-tweet-limit="2" data-theme="light" data-link-color="#0070e9" href="https://twitter.com/ArcticLagoons?ref_src=twsrc%5Etfw">Tweets
-               by
-               ArcticLagoons</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-         </div>
-         <hr> -->
-      </div>
-      <br>
-      <h2 class="number-heading text-center">BLE BY THE NUMBERS</h2>
-      <div class="row lead text-center">
-         <div class="border pb-3 col-md-6 col-xl">
-            <p class="by-the-number">12</p>
-            investigators working on the project this summer
-         </div>
-         <div class="border pb-3 col-md-6 col-xl">
-            <p class="by-the-number">6</p>
-            universities represented on the project
-         </div>
-         <div class="border pb-3 col-md-6 col-xl">
-            <p class="by-the-number">3</p>
-            research nodes: Utqiagvik, Deadhorse, and Kaktovik
-         </div>
-         <div class="border pb-3 col-md-6 col-xl">
-            <p class="by-the-number">530</p>
-            kilometers of coastline studied
-         </div>
-      </div>
-      <div class="text-center mt-5">
-         <ul class="share-buttons">
-            <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fble.lternet.edu%2F&amp;quote=Beaufort%20Lagoon%20Ecosystems%20LTER"
-                  rel="noopener" title="Share on Facebook" target="_blank"><img alt="Share on Facebook"
-                     src="img/social_flat_rounded_rects_svg/Facebook.svg"></a></li>
-            <li><a href="https://twitter.com/intent/tweet?source=https%3A%2F%2Fble.lternet.edu%2F&amp;text=Beaufort%20Lagoon%20Ecosystems%20LTER:%20https%3A%2F%2Fble.lternet.edu%2F&amp;via=ArcticLagoons"
-                  target="_blank" rel="noopener" title="Tweet"><img alt="Tweet"
-                     src="img/social_flat_rounded_rects_svg/Twitter.svg"></a></li>
-            <li><a href="https://plus.google.com/share?url=https%3A%2F%2Fble.lternet.edu%2F" target="_blank"
-                  rel="noopener" title="Share on Google+"><img alt="Share on Google+"
-                     src="img/social_flat_rounded_rects_svg/Google+.svg"></a></li>
-            <li><a href="http://www.tumblr.com/share?v=3&amp;u=https%3A%2F%2Fble.lternet.edu%2F&amp;quote=Beaufort%20Lagoon%20Ecosystems%20LTER&amp;s="
-                  target="_blank" rel="noopener" title="Post to Tumblr"><img alt="Post to Tumblr"
-                     src="img/social_flat_rounded_rects_svg/Tumblr.svg"></a></li>
-            <li><a href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fble.lternet.edu%2F&amp;media=https://d33wubrfki0l68.cloudfront.net/518713c9844203f2d989632e960db1aff4fe27b6/802f4/img/beaufort-lagoon.jpg&amp;description=A%20Long%20Term%20Ecological%20Research%20(LTER)%20program%20studying%20lagoon%20ecosystems%20along%20the%20northern%20Alaskan%20Arctic%20coastline%20in%20the%20Beaufort%20Sea"
-                  target="_blank" rel="noopener" title="Pin it"><img alt="Pin it"
-                     src="img/social_flat_rounded_rects_svg/Pinterest.svg"></a></li>
-            <li><a href="https://getpocket.com/save?url=https%3A%2F%2Fble.lternet.edu%2F&amp;title=Beaufort%20Lagoon%20Ecosystems%20LTER"
-                  target="_blank" rel="noopener" title="Add to Pocket"><img alt="Add to Pocket"
-                     src="img/social_flat_rounded_rects_svg/Pocket.svg"></a></li>
-            <li><a href="http://www.reddit.com/submit?url=https%3A%2F%2Fble.lternet.edu%2F&amp;title=Beaufort%20Lagoon%20Ecosystems%20LTER"
-                  target="_blank" rel="noopener" title="Submit to Reddit"><img alt="Submit to Reddit"
-                     src="img/social_flat_rounded_rects_svg/Reddit.svg"></a></li>
-            <li><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fble.lternet.edu%2F&amp;title=Beaufort%20Lagoon%20Ecosystems%20LTER&amp;summary=A%20Long%20Term%20Ecological%20Research%20(LTER)%20program%20studying%20lagoon%20ecosystems%20along%20the%20northern%20Alaskan%20Arctic%20coastline%20in%20the%20Beaufort%20Sea&amp;source=https%3A%2F%2Fble.lternet.edu%2F"
-                  target="_blank" rel="noopener" title="Share on LinkedIn"><img alt="Share on LinkedIn"
-                     src="img/social_flat_rounded_rects_svg/LinkedIn.svg"></a></li>
-            <li><a href="https://pinboard.in/popup_login/?url=https%3A%2F%2Fble.lternet.edu%2F&amp;title=Beaufort%20Lagoon%20Ecosystems%20LTER&amp;description=A%20Long%20Term%20Ecological%20Research%20(LTER)%20program%20studying%20lagoon%20ecosystems%20along%20the%20northern%20Alaskan%20Arctic%20coastline%20in%20the%20Beaufort%20Sea"
-                  target="_blank" rel="noopener" title="Save to Pinboard"><img alt="Save to Pinboard"
-                     src="img/social_flat_rounded_rects_svg/Pinboard.svg"></a></li>
-            <li><a href="mailto:?subject=Beaufort%20Lagoon%20Ecosystems%20LTER&amp;body=A%20Long%20Term%20Ecological%20Research%20(LTER)%20program%20studying%20lagoon%20ecosystems%20along%20the%20northern%20Alaskan%20Arctic%20coastline%20in%20the%20Beaufort%20Sea:%20https%3A%2F%2Fble.lternet.edu%2F"
-                  target="_blank" rel="noopener" title="Send email"><img alt="Send email"
-                     src="img/social_flat_rounded_rects_svg/Email.svg"></a></li>
-         </ul>
-      </div>
-   </div>
-
-   <footer class="lighter">
-      <div class="container-fluid bg-darker">
-         <div class="container">
-            <div class="row footer-top">
-               <div class="col-12 col-lg-5">
-                  <p class="h4"><a href="index.html">Beaufort Lagoon Ecosystems LTER</a></p>
-                  <p>This site is a member of the U.S. LTER Network.</p>
-                  <p><small>This material is based upon work supported by the <a href="https://www.nsf.gov/">National
-                           Science Foundation</a> under award #1656026 (2017-08-01 to 2022-07-31). Any opinions,
-                        findings, conclusions, or recommendations expressed in the material are those of the author(s)
-                        and do not necessarily reflect the views of the National Science Foundation.</small></p>
-                  <p><a href="https://utexas.app.box.com/folder/7974766549">Internal file sharing site</a></p>
-               </div>
-               <div class="col-sm-6 col-lg-3">
-                  <p class="h4">Contact</p>
-                  <address>
-                     <p><a href="mailto:ken.dunton@utexas.edu">Ken Dunton</a><br>Principal Investigator</p>
-                     <p><a href="mailto:jimm@utexas.edu">James McClelland</a><br>Co-Principal Investigator</p>
-                     <p><a href="mailto:whiteaker@utexas.edu">Tim Whiteaker</a><br>Information Manager</p>
-                  </address>
-               </div>
-               <div class="col-sm-6 col-lg-4">
-                  <p class="h4">See Also</p>
-                  <p><a href="http://www.lternet.edu/">LTER Network Homepage</a></p>
-                  <p><a href="http://www.lternet.edu/site/">LTER Network Sites</a></p>
-                  <p>
-                     <a href="http://www.lternet.edu/">
-                        <noscript data-src="img/LTER-network-square-sm.jpg" img-class
-                           alt="LTER logo within link to LTER Network">
-                           <img src="img/LTER-network-square-sm.jpg" alt="LTER logo within link to LTER Network">
-                        </noscript>
-                     </a>
-                     <a href="https://www.nsf.gov/">
-                        <noscript data-src="img/nsf1.gif" img-class
-                           alt="NSF logo within link to National Science Foundation">
-                           <img src="img/nsf1.gif" alt="NSF logo within link to National Science Foundation">
-                        </noscript>
-                     </a>
-                  </p>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="container-fluid bg-darkest">
-         <div class="container">
-            <div class="row footer-bottom text-center text-lg-left">
-               <div class="col-lg-8">
-                  <p class="mb-1"><small>Except where otherwise noted, material may be re-used under a <a
-                           href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
-                           Commons BY-SA 4.0 license</a>.</small></p>
-               </div>
-               <div class="col-lg-4">
-                  <p><small><a href="https://cio.utexas.edu/policies/web-privacy">Privacy Policy</a> |
-                        <a href="https://cio.utexas.edu/policies/web-accessibility">Accessibility Policy</a></small></p>
-               </div>
-            </div>
-         </div>
-      </div>
-   </footer>
-
+   <div class="container"><p style="text-align: center; color: white; position: absolute; bottom: 10px; margin: auto;">A member of the U.S. Long Term Ecological Research Network</p></div>
+</div>
    <div id="before-end-of-body">
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
