@@ -1,28 +1,31 @@
+
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,700&display=swap');
+
 /* override bootstrap */
 .navbar-dark .navbar-brand {
-   color: #E8F5F8;
+   color: #000;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-   color: #fff;
+   color: #000;
 }
 
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:hover {
-   color: #fff;
+   color: #000;
 }
 
 .btn-outline-light {
-   color: #E8F5F8;
-   border-color: #E8F5F8;
+   color: #000;
+   border-color: #999;
 }
 
 .btn-outline-light:not(:disabled):not(.disabled).active,
 .btn-outline-light:not(:disabled):not(.disabled):active,
 .show>.btn-outline-light.dropdown-toggle,
 .btn-outline-light:hover {
-   border-color: #011E3E;
-   color: #011E3E;
+   border-color: #999;
+   color: #000;
    background-color: #E8F5F8;
 }
 
@@ -33,6 +36,10 @@ a {
 /* theme */
 .lighter {
    color: #E8F5F8;
+}
+
+.bg-white{
+   background: #fff;
 }
 
 .bg-darker {
@@ -48,19 +55,48 @@ a {
    color: #;
    margin-bottom: 1em;
    padding-bottom: 0.5em;
-   border-bottom: 1px solid #0d3760;
+   /*border-bottom: 1px solid #999;*/
 }
 
 .by-the-number {
-   font-size: 3em;
+   font-size: 2.5em;
    color: #;
    margin-bottom: 0;
 }
 
 /* main */
 body {
-   padding-top: 3.5em;
+   /*padding-top: 3.5em;*/
 }
+      .nav-item{
+         padding: 0px 5px;
+      }
+      .background-video { 
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+     }
+     body{
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: ;
+        z-index: -100;
+        /*padding-top: 2rem;*/
+        width: 100%; 
+        height: 100%;
+        font-family: 'Libre Franklin', sans-serif;
+     }
 
 img.fill {
    min-width: 100%;
