@@ -41,10 +41,10 @@
 </head>
 
 <body>
-   <header style="background-color: white;">
+   <header>
       <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
          <div class="container">
-            <a class="navbar-brand" href="index.html">BLE</a>
+            <a class="navbar-brand" href="index.html"><img src="img/logo-square-black.png" style="max-height: 40px;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
@@ -95,9 +95,9 @@
       </nav>
    </header>
 
-   <div class="container pt-3">
-      <h1>BLE Information Management System</h1>
-      <p class="lead">The BLE IMS uses modular components and relies on external APIs and open source resources to
+   <div class="container pt-3" style="max-width: 720px; margin-top: 5rem;">
+      <h1>Information Management System at BLE LTER</h1>
+      <p class>The BLE IMS uses modular components and relies on external APIs and open source resources to
          minimize development burden and promote reusability. We welcome discussion and feedback on our system, and we
          love collaborating with other information managers on improving the state of IM in LTER. See <a href="https://github.com/BLE-LTER/" target="_blank" rel="noopener">what we&apos;re up to on GitHub</a>, and
          take a peek into our information management system below.
@@ -114,7 +114,7 @@
             </div>
             <div class="d-flex flex-column card-body">
                <i class="fas fa-file-excel fa-4x"></i>
-               <p class="lead text-left mt-3 mb-4">
+               <p class=" text-left mt-3 mb-4">
                   Our researchers use a <a href="https://utexas.box.com/v/ble-metadata-template" target="_blank" rel="noopener">spreadsheet metadata template</a> to supply metadata with data submissions. The
                   spreadsheet includes validation and other forms of guidance to help the user supply rich metadata.
                </p>
@@ -128,7 +128,7 @@
             </div>
             <div class="d-flex flex-column card-body">
                <i class="fas fa-database fa-4x"></i>
-               <p class="lead text-left mt-3 mb-4">
+               <p class=" text-left mt-3 mb-4">
                   We store data package information in a Postgres database using the
                   <a href="https://github.com/lter/LTER-core-metabase" target="_blank" rel="noopener">LTER Core
                      Metabase</a> schema. This schema is designed to be simple and extensible while supporting the
@@ -143,7 +143,7 @@
             </div>
             <div class="d-flex flex-column card-body">
                <i class="fas fa-code fa-4x"></i>
-               <p class="lead text-left mt-3 mb-4">
+               <p class=" text-left mt-3 mb-4">
                   We created an R package called <a href="https://github.com/atn38/MetaEgress" target="_blank" rel="noopener"> MetaEgress</a> to generate Ecological Metadata Language documents from our Core
                   Metabase. We plan to eventually tie this into the <a href="https://github.com/EDIorg/EMLassemblyline" target="_blank" rel="noopener">EML Assembly Line</a>.
                </p>
@@ -154,7 +154,7 @@
 
       <div class="border-top border-left border-right rounded-top mt-5 mb-4">
          <h2 class="text-center pt-3 pb-3">Our Website</h2>
-         <p class="pl-3 pr-2 lead">Our static HTML website is built purely with HTML, CSS, and JavaScript, and costs us
+         <p class="pl-3 pr-2 ">Our static HTML website is built purely with HTML, CSS, and JavaScript, and costs us
             $0 to
             operate annually (yes, zero). You can literally download <a href="https://github.com/BLE-LTER/LTER-website" target="_blank" rel="noopener">our website on GitHub</a> and double-click index.html to run it from your
             local computer. We gladly take advantage of the following technologies.</p>
@@ -168,7 +168,7 @@
             </div>
             <div class="d-flex flex-column card-body">
                <i class="fas fa-table fa-4x"></i>
-               <p class="lead text-left mt-3 mb-4">
+               <p class=" text-left mt-3 mb-4">
                   Using our <a href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client" target="_blank" rel="noopener">PASTA client</a>, our <a href="catalog.html">Data Catalog</a> taps into the
                   Environmental Data Initiative where we archive our data. This ensures that our website stays in sync
                   with the official archive. Sites that archive with DataOne nodes such as the Arctic Data Center may be
@@ -184,7 +184,7 @@
             </div>
             <div class="d-flex flex-column card-body">
                <i class="fas fa-book fa-4x"></i>
-               <p class="lead text-left mt-3 mb-4">
+               <p class=" text-left mt-3 mb-4">
                   We use <a href="https://www.zotero.org/" target="_blank" rel="noopener">Zotero</a> as our reference
                   manager. With our <a href="https://github.com/BLE-LTER/Zotero-JavaScript-Search-Client" target="_blank" rel="noopener">Zotero
                      JavaScript client</a>, we call upon that API to feed our bibliography directly into our <a href="bibliography.html">Publications page</a>. When a team member updates our Zotero
@@ -199,7 +199,7 @@
             </div>
             <div class="d-flex flex-column card-body">
                <i class="fas fa-search fa-4x"></i>
-               <p class="lead text-left mt-3 mb-4">
+               <p class=" text-left mt-3 mb-4">
                   We use <a href="https://lunrjs.com/" target="_blank" rel="noopener">Lunr</a> for static search on our
                   website. Our <a href="https://github.com/BLE-LTER/Lunr-Index-and-Search-for-Static-Sites" target="_blank" rel="noopener">Lunr GitHub Project</a> demonstrates how to build a search index for
                   your website and provide search functionality. We like that the search interface is encapsulated
@@ -211,28 +211,28 @@
       </div>
 
       <h3 class="h4">Going Serverless</h3>
-      <p class="lead">By relying on external APIs and sticking with static HTML, we can implement our website without
+      <p class>By relying on external APIs and sticking with static HTML, we can implement our website without
          having to maintain any servers.
          This means we don&apos;t incur the operating cost of a dynamic server (unlike WordPress or Drupal sites for
          example), and we aren&apos;t plagued by dynamic CMS security flaws.</p>
-      <p class="lead">There are lots of free hosts for static websites. We like <a href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a> the best. They minify our assets to improve page load times,
+      <p class>There are lots of free hosts for static websites. We like <a href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a> the best. They minify our assets to improve page load times,
          provide HTTPS, and host our site on a content delivery network with servers distributed around the world to
          maximize uptime and speed, among other benefits. As soon as we make a new commit to our site on GitHub,
          Netlify picks it up and distributes it across their network. They also support forms, functions, and secure
          logins, though we haven&apos;t played with those features yet.</p>
-      <p class="lead">Eventually we may adopt a static site generator to assist with page creation and website
+      <p class>Eventually we may adopt a static site generator to assist with page creation and website
          redesign. For now we use a simple script to update headers, footers, and navigation across the entire site
          when needed.</p>
 
       <div class="border-top border-left border-right rounded-top mt-5 mb-4">
          <h2 class="text-center pt-3 pb-3">We Love Our Team</h2>
       </div>
-      <p class="lead">Our Information Management System would be nothing without the skills, dedication, and enthusiasm
+      <p class>Our Information Management System would be nothing without the skills, dedication, and enthusiasm
          of our team, both on the
          IM side and the domain science side. This system works because our scientists are willing and able to
          incorporate information management into their workflows up front, and
          because there is open, friendly, and regular dialog between scientists and information managers within BLE.</p>
-      <p class="lead">Our IM team enjoys extending that dialog into the broader LTER community. If you are facing an IM
+      <p class>Our IM team enjoys extending that dialog into the broader LTER community. If you are facing an IM
          challenge involving GIS, Python, or any part of the stack described above, feel free to <a href="mailto:BLE-IM@utexas.edu">contact
             us</a>.</p>
    </div>
@@ -241,7 +241,7 @@
       <div class="container-fluid">
          <div class="container">
             <div class="row footer-top">
-               <div class="col-12 col-lg-5">
+               <div class="col-12 col-lg-6">
                   <p class="h4"><a href="index.html">Beaufort Lagoon Ecosystems LTER</a></p>
                   <p>This site is a member of the U.S. LTER Network.</p>
                   <p><small>This material is based upon work supported by the <a href="https://www.nsf.gov/">National
@@ -258,7 +258,7 @@
                      <p><a href="mailto:whiteaker@utexas.edu">Tim Whiteaker</a><br>Information Manager</p>
                   </address>
                </div>
-               <div class="col-sm-6 col-lg-4">
+               <div class="col-sm-6 col-lg-3">
                   <p class="h4">See Also</p>
                   <p><a href="http://www.lternet.edu/">LTER Network Homepage</a></p>
                   <p><a href="http://www.lternet.edu/site/">LTER Network Sites</a></p>

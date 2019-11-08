@@ -27,10 +27,10 @@
 </head>
 
 <body>
-   <header style="background-color: white;">
+   <header>
       <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
          <div class="container">
-            <a class="navbar-brand" href="index.html">BLE</a>
+            <a class="navbar-brand" href="index.html"><img src="img/logo-square-black.png" style="max-height: 40px;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
@@ -80,12 +80,13 @@
          </div>
       </nav>
    </header>
-   <div class="container pt-3">
-      <h1>BLE Data Catalog</h1>
-      <p class="lead">Search our catalog below, or find the same datasets archived at both the <a href="https://arcticdata.io/" target="_blank" rel="noopener">Arctic
+   <div class="container pt-3" style="margin-top: 5rem;">
+      <h1>BLE LTER Data Catalog</h1>
+      <br>
+      <p class>Search our catalog below, or find the same datasets archived at both the <a href="https://arcticdata.io/" target="_blank" rel="noopener">Arctic
             Data Center</a> (search for <strong>knb-lter-ble</strong>) and <a href="http://portal.edirepository.org:80/nis/simpleSearch?defType=edismax&amp;q=organization%3A%28%22Beaufort+Lagoon+Ecosystems+LTER%22%29&amp;fq=-scope:ecotrends&amp;fq=-scope:lter-landsat*&amp;fl=id,packageid,title,author,organization,pubdate,coordinates&amp;debug=false" target="_blank" rel="noopener">EDI</a>. Data are generally archived and released within two years of
          collection for public use. Metadata accompanying each dataset includes specific use policies. See also <a href="https://lternet.edu/data-access-policy/" target="_blank" rel="noopener">LTER Data Policies</a>.</p>
-
+      <br>
       <div id="pastaClient">
          <form id="dataSearchForm" name="dataSearchForm">
             <div class="form-group">
@@ -99,7 +100,7 @@
             </div>
 
          </form>
-
+         <br>
          <div class="loading" id="loading-div">
             <i class="fas fa-spinner fa-pulse fa-3x fa-fw"></i>
             <span class="sr-only">Loading...</span>
@@ -108,8 +109,8 @@
          <div id="searchResults"></div>
          <div class="pagination" id="paginationBot"></div>
       </div>
-
-      <p class="lead">This search tool was built from the <a href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client" target="_blank" rel="noopener">PASTA
+      <br>
+      <p class>This search tool was built from the <a href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client" target="_blank" rel="noopener">PASTA
             JavaScript Search Client</a>. If you are interested in letting your data center do the heavy lifting of
          supporting a
          dataset catalog for you, then you may be interested in the <a href="https://github.com/BLE-LTER/Solr-JavaScript-Search-Client" target="_blank" rel="noopener">Solr
@@ -121,7 +122,7 @@
       <div class="container-fluid">
          <div class="container">
             <div class="row footer-top">
-               <div class="col-12 col-lg-5">
+               <div class="col-12 col-lg-6">
                   <p class="h4"><a href="index.html">Beaufort Lagoon Ecosystems LTER</a></p>
                   <p>This site is a member of the U.S. LTER Network.</p>
                   <p><small>This material is based upon work supported by the <a href="https://www.nsf.gov/">National
@@ -138,7 +139,7 @@
                      <p><a href="mailto:whiteaker@utexas.edu">Tim Whiteaker</a><br>Information Manager</p>
                   </address>
                </div>
-               <div class="col-sm-6 col-lg-4">
+               <div class="col-sm-6 col-lg-3">
                   <p class="h4">See Also</p>
                   <p><a href="http://www.lternet.edu/">LTER Network Homepage</a></p>
                   <p><a href="http://www.lternet.edu/site/">LTER Network Sites</a></p>
