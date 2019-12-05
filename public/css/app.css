@@ -2,20 +2,25 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,700,900&display=swap');
 
 nav {
-   border-bottom: 1px solid #eee;
+   border-bottom: 1px solid rgba(10,90,163, 0.3);
 }
-footer .container-fluid {
+/*footer .container-fluid {
    border-top: 1px solid #eee;
-}
+}*/
 
 .container-small{
    margin-top: 5rem;
    max-width: 768px;
 }
 
-h1 {
-   font-weight: 700;
+h1{
+   font-weight: 900;
+   color: #0A5AA3;
 }
+h2, h3, h4 {
+   font-weight: 700;
+/*   color: #0A5AA3;
+*/}
 
 /* override bootstrap */
 .navbar-dark .navbar-brand {
@@ -30,6 +35,10 @@ h1 {
 .navbar-dark .navbar-nav .nav-link:hover {
    color: #000;
 }
+
+/*.navbar{
+   position: sticky;
+}*/
 
 .btn-outline-light {
    color: #000;
@@ -85,14 +94,14 @@ a {
    padding: 0px 5px;
 }
 .background-video { 
- position: absolute;
+ position: fixed;
  top: 50%;
  left: 50%;
  min-width: 100%;
  min-height: 100%;
  width: auto;
  height: auto;
- z-index: -100;
+ z-index: -100000;
  -ms-transform: translateX(-50%) translateY(-50%);
  -moz-transform: translateX(-50%) translateY(-50%);
  -webkit-transform: translateX(-50%) translateY(-50%);
@@ -134,11 +143,21 @@ address {
 }
 
 footer {
-   margin-top: 3em;
+   background-color: white;
+   background-size: cover;
+   background-repeat: repeat;
 }
 
-.footer-top {
+/*.footer-top {
    padding: 2rem 0 0;
+}*/
+
+#footer-content{
+   background-color: #0A5AA3;
+}
+
+#coastline{
+   width: 100%;
 }
 
 footer p {
@@ -147,7 +166,7 @@ footer p {
 
 footer a,
 footer a:hover {
-   /*color: #6ec5ff;*/
+   color: #6ec5ff;
    text-decoration: none;
 }
 

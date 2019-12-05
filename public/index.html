@@ -26,67 +26,47 @@
    <meta name="theme-color" content="#0d3760">
    <!-- End Common Head -->
    <style>
-      @import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,700&display=swap');
+
       .nav-item{
          padding: 0px 5px;
       }
-      .background-video { 
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -100;
-        -ms-transform: translateX(-50%) translateY(-50%);
-        -moz-transform: translateX(-50%) translateY(-50%);
-        -webkit-transform: translateX(-50%) translateY(-50%);
-        transform: translateX(-50%) translateY(-50%);
-     }
-     body{
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        overflow: ;
-        z-index: -100;
-        /*padding-top: 2rem;*/
-        width: 100%; 
-        height: 100%;
-        font-family: &apos;Libre Franklin&apos;, sans-serif;
-     }
-     .banner-panel{
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-   }
-   .nav-sticky-bottom{
-      position: absolute; bottom: 0.5rem;
-   }
-   .nav-sticky-top{
-      position: fixed;
-      top: 0;
-   }
-   .nav-link{
-      font-weight: 500;
-      color: white;
-   }
-   @media (max-width: 1000px), (max-height: 600px){
-      #banner-caption{
-         display: none;
+      .banner-panel{
+         min-width: 100%;
+         min-height: 100%;
+         width: auto
+         height: auto;
       }
-   }
-   #tagline{
-      font-size: 3rem;
-   }
-   @media (max-width: 767px){
+      .nav-sticky-bottom{
+         position: absolute; bottom: 0.5rem;
+      }
+      .nav-sticky-top{
+         position: fixed;
+         top: 0;
+      }
+      .nav-link{
+         font-weight: 500;
+         color: white;
+      }
+      @media (max-width: 767.98px), (max-height: 600px){
+         #banner-caption{
+            display: none;
+         }
+      }
       #tagline{
-         font-size: 2rem;
+         font-size: 3.75rem;
       }
-   }
-</style>
+      @media (max-width: 767px){
+      /*#tagline{
+         font-size: 2rem;
+         }*/
+
+      }
+      @media (max-width: 575.98px){
+         #besides-logo{
+            display: none;
+         }
+      }
+   </style>
 </head>
 
 <body>
@@ -148,149 +128,147 @@
    </div>
 
    <!-- Container for banner video and logo -->
-   <div class="banner-panel container">
+   <div class="banner-panel">
       <video style class="background-video" poster="video/intro-video-poster.jpg" autoplay="autoplay" loop="loop" muted="muted">
-         <source src="video/intro-video.mp4">
+         <source src="video/drone.mp4">
          </video>
          <!-- <img class="img-fluid background-video" src="img/barter-island.jpg" onerror="this.src=&apos;img/logo_square.png&apos;" alt="BLE logo"> -->
          <!-- Container for BLE logo -->
-         <div class="container d-flex align-items-center flex-row flex-wrap" style="z-index: -100; margin: auto; padding: auto; position: relative; top: 10vh; left: 0;">
-            <div>
-               <img src="img/logo-square.png" style="max-height: 350px;" onerror="this.src=&apos;img/logo_square.png&apos;" class="img-fluid" alt="BLE logo">
-            </div> 
-            <div class="flex-grow-1" style="flex-basis: 400px; color: white;"><!-- <p style="font-weight: 700; font-size: 150%">Beaufort Lagoons Ecosystems Long Term Ecological Research</p> -->
-               <p id="tagline" style="font-weight: 700;">Studying the interface of land and sea at the top of the world</p>
-               <p>U.S. Long Term Ecological Research Network site since 2017</p></div>
+         <div class="container d-flex align-items-center justify-content-center flex-row flex-wrap" style="z-index: -100; margin: auto; padding: auto; position: relative; top: 10vh;">
+         <img src="img/logo-square.png" style="max-height: 400px;" onerror="this.src=&apos;img/logo_square.png&apos;" class="img-fluid" alt="BLE logo">
+         <div id="besides-logo" class="flex-grow-1 text-center" style="flex-basis: 400px; color: white;"><!-- <p style="font-weight: 700; font-size: 150%">Beaufort Lagoons Ecosystems Long Term Ecological Research</p> -->
+            <h1 id="tagline">Studying the interface of land and sea at the top of the world</h1>
+            <hr>
+            <!-- <p id="member-statement">U.S. Long Term Ecological Research Network site since 2017</p>-->
+         </div>
+      </div>
+   </div>
+
+   <!-- Main content -->
+   <div class="container-fluid" style="background-color: white;">
+      <div class="container text-center" id="banner-caption" style="position: absolute; left: 50%; bottom: 0; margin: auto; color: rgba(256, 256, 256, 0.75);">
+         <i style="font-size: 2.5rem;" class="lead fas fa-chevron-down"></i>
+      </div>
+
+      <!-- Content under first fold -->
+      <div class="container container-small">
+         <p class="figure-caption">Video: underwater remotely operated vehicles capture life under the lagoon ice.</p>
+         <br>
+         <br>
+         <h2>Overview</h2>
+         <br>
+         <p class>Beaufort Lagoon Ecosystems LTER is a new Long Term Ecological Research program along the
+            northern
+            Alaskan Arctic coastline in the Beaufort Sea. Lagoon systems encompass more than half of the Beaufort Sea
+            coast, providing food and habitat for large populations of migratory fish and waterfowl that are essential
+         to the culture of Inupiat communities of northern Alaska.</p> 
+         <p class> We believe that the differential availability of
+            seasonally distinct resources is critical for maintaining the high
+            productivity of these ecosystems. BLE LTER will use sampling, monitoring,
+            and modeling to study these lagoons and their interactions with the
+            surrounding environment to better understand how these ecosystems
+         function and to predict how they will change in the coming decades.</p>
+         <br>
+         <br>
+         <h4>Study sites</h4>
+         <br>
+         <img src="img/lagoons-map.jpg" class="figure-img img-fluid fill" alt>
+         <figcaption class="figure-caption">This is a placeholder map!</figcaption>
+         <br>
+         <br>
+         <br>
+         <h4 class="number-heading">BLE LTER by the numbers</h4>
+         <hr>
+         <div class="row lead text-center">
+            <div class="pb-3 col-md-6 ">
+               <p class="by-the-number">12</p>
+               investigators
+            </div>
+            <div class=" pb-3 col-md-6">
+               <p class="by-the-number">6</p>
+               universities represented
+            </div>
+            <div class=" pb-3 col-md-6">
+               <p class="by-the-number">3</p>
+               research nodes
+            </div>
+            <div class=" pb-3 col-md-6">
+               <p class="by-the-number">530</p>
+               km of coastline studied
             </div>
          </div>
-
-         <!-- Main content -->
-         <div class="container" , id style="background-color: rgba(256, 256, 256, 0.9); padding: 0;">
-            <!-- Container for LTER statement and down arrow -->
-            <div class="container" id="banner-caption" style="position: absolute; bottom: 1rem; margin: auto; text-align: center; color: rgba(256, 256, 256, 0.75);">
-               <!-- A member of LTER statement -->
-               <p style="text-align: center;">Video: underwater remotely operated vehicles (ROVs) capture life under the lagoon ice.</p>
-               <i style="font-size: 2.5rem; " class="lead fas fa-chevron-down"></i>
-            </div>
-
-            <!-- Content under first fold -->
-            <div class="container" style="max-width: 720px; margin: auto;">
-               <br>
-               <!-- <figcaption class="figure-caption">Background video: underwater remote-operated vehicles (ROVs) capture life beneath the winter ice in one of our study lagoons.</figcaption> -->
-               <br>
-               <h2 style="font-weight: 700;">Overview</h2>
-               <br>
-               <p class>Beaufort Lagoon Ecosystems LTER is a new Long Term Ecological Research program along the
-                  northern
-                  Alaskan Arctic coastline in the Beaufort Sea. Lagoon systems encompass more than half of the Beaufort Sea
-                  coast, providing food and habitat for large populations of migratory fish and waterfowl that are essential
-               to the culture of Inupiat communities of northern Alaska.</p> 
-               <p class> We believe that the differential availability of
-                  seasonally distinct resources is critical for maintaining the high
-                  productivity of these ecosystems. BLE LTER will use sampling, monitoring,
-                  and modeling to study these lagoons and their interactions with the
-                  surrounding environment to better understand how these ecosystems
-               function and to predict how they will change in the coming decades.</p>
-               <br>
-               <br>
-               <h4 style="font-weight: 700;">Study sites</h4>
-               <br>
-               <img src="img/lagoons-map.jpg" class="figure-img img-fluid fill" alt>
-               <figcaption class="figure-caption">This is a placeholder map!</figcaption>
-               <br>
-               <br>
-               <br>
-               <h4 style="font-weight: 700;" class="number-heading">BLE LTER by the numbers</h4>
-               <hr>
-               <div class="row lead text-center">
-                  <div class="pb-3 col-md-6 ">
-                     <p class="by-the-number">12</p>
-                     investigators
-                  </div>
-                  <div class=" pb-3 col-md-6">
-                     <p class="by-the-number">6</p>
-                     universities represented
-                  </div>
-                  <div class=" pb-3 col-md-6">
-                     <p class="by-the-number">3</p>
-                     research nodes
-                  </div>
-                  <div class=" pb-3 col-md-6">
-                     <p class="by-the-number">530</p>
-                     km of coastline studied
-                  </div>
-               </div>
-               <br>
-               <hr>
-               <br>
-               <h2 style="font-weight: 700;">Project news</h2>
-               <br>
-               <figure>
-                  <h4>Alaska Ocean Acidification Network interviews BLE LTER scientist Arley Muth</h4>
-                  <picture>
-                     <source srcset="https://d33wubrfki0l68.cloudfront.net/793bc14510152d16522bcd71249c831148025971/fcba3/img/arley-christina-ken-sm.jpg" media="(max-width: 767px)">
-                        <source srcset="https://d33wubrfki0l68.cloudfront.net/a2bdc40f342ee54ed68d0bcf078a44a53136025a/3f6be/img/arley-christina-ken.jpg">
-                           <img src="https://d33wubrfki0l68.cloudfront.net/a2bdc40f342ee54ed68d0bcf078a44a53136025a/3f6be/img/arley-christina-ken.jpg" class="figure-img img-fluid fill" alt="BLE scientists on field mission">
-                        </picture>
-                        <figcaption class="figure-caption">Pictured, clockwise from top right: project manager Christina Bonsell, scientist Arley Muth, and principal investigator Ken Dunton, on a field mission to the Boulder Patch.</figcaption>
-                        <br>
-                        <p class>Alaska Ocean Acidification Network <a href="https://aoos.org/alaska-ocean-acidification-network/scientist-interview-arley-hurley/" target="_blank">recently interviewed Arley Muth</a>, a BLE LTER scientist working on the Boulder Patch area east of Prudhoe Bay to study seasonal levels of pH, among other ecological questions. 
-                        </p>
-                     </figure>
-                     <br>
-                     <br>
-                     <h4>2019 field season is a success</h4>
-                     <p class>BLE LTER scientists wrapped up a successful 2019 sampling season in late August. We sampled all three nodes during the three seasons (April-winter, June-ice break-up, and August-summer) and retrieved instruments deployed during our first field season in 2018. We are busy processing data and discussing preliminary findings.</p>
-                     <br>
-                     <br>
-                     <h4>Follow our Twitter @ArcticLagoons</h4>
-                     <br>
-                     <div style="max-width: 480px" class><a class="twitter-timeline" data-tweet-limit="1" data-theme="light" data-link-color="#0070e9" href="https://twitter.com/ArcticLagoons?ref_src=twsrc%5Etfw">Tweets by
-                     ArcticLagoons</a>
-                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                  </div>
-                  <hr>
+         <br>
+         <hr>
+         <br>
+         <h2>Project news</h2>
+         <br>
+         <figure>
+            <h4>Alaska Ocean Acidification Network interviews BLE LTER scientist Arley Muth</h4>
+            <picture>
+               <source srcset="https://d33wubrfki0l68.cloudfront.net/793bc14510152d16522bcd71249c831148025971/fcba3/img/arley-christina-ken-sm.jpg" media="(max-width: 767px)">
+                  <source srcset="https://d33wubrfki0l68.cloudfront.net/a2bdc40f342ee54ed68d0bcf078a44a53136025a/3f6be/img/arley-christina-ken.jpg">
+                     <img src="https://d33wubrfki0l68.cloudfront.net/a2bdc40f342ee54ed68d0bcf078a44a53136025a/3f6be/img/arley-christina-ken.jpg" class="figure-img img-fluid fill" alt="BLE scientists on field mission">
+                  </picture>
+                  <figcaption class="figure-caption">Pictured, clockwise from top right: project manager Christina Bonsell, scientist Arley Muth, and principal investigator Ken Dunton, on a field mission to the Boulder Patch.</figcaption>
                   <br>
-                  <h2 style="font-weight: 700;">Opportunities</h2>
-                  <br>
-                  <h4>Ph.D. Assistantship in Arctic Estuarine Food Web Ecology</h4>
-                  <!-- Expires June 1 -->
-                  <p class>A Ph.D. research assistantship is available (beginning
-                     spring/summer 2020) in Katrin Iken&apos;s lab at the University of Alaska
-                     Fairbanks, College of Fisheries and Ocean Sciences (UAF, CFOS)
-                     (<a href="https://www.uaf.edu/cfos/" target="_blank" rel="noopener">https://www.uaf.edu/cfos/</a>). This
-                     position is part of a new Long-Term Ecological Research (LTER) program funded by the National Science
-                     Foundation to study the food web ecology of Beaufort Sea lagoons. The
-                     student&apos;s research would focus on discerning how variable carbon inputs
-                     (terrestrial, marine phytoplankton, sea ice) are utilized in the lagoon
-                     systems over the course of the year from frozen to break-up to open
-                     water. We seek applicants with a background in trophic ecology,
-                     especially with lab and data analysis skills in stable isotope
-                     analysis, compound-specific (amino acid) stable isotope analysis,
-                     and/or fatty acid analysis. The student is expected to participate in
-                     field work in the Arctic as well as develop a strong research thesis
-                     project. Applicants should have a M.S. degree in a marine or
-                     environmental science field, a strong academic background, show
-                     evidence of independent work in the field and/or lab, and demonstrate a
-                     capacity to contribute to a collaborative research environment. For
-                     more information, please email a statement of interest/background and a
-                     copy of your CV to Katrin Iken (<a href="mailto:kbiken@alaska.edu">kbiken@alaska.edu</a>). <br><br>
-                     Links:<br>
-                     <a href="https://www.uaf.edu/cfos/people/faculty/detail/index.xml?id=93" target="_blank" rel="noopener">Iken
-                     faculty page</a><br>
-                     <a href="https://www.uaf.edu/cfos/academics/graduate/" target="_blank" rel="noopener">
-                     CFOS graduate program</a>
+                  <p class>Alaska Ocean Acidification Network <a href="https://aoos.org/alaska-ocean-acidification-network/scientist-interview-arley-hurley/" target="_blank">recently interviewed Arley Muth</a>, a BLE LTER scientist working on the Boulder Patch area east of Prudhoe Bay to study seasonal levels of pH, among other ecological questions. 
                   </p>
-                  <br>
-                  <br>
-               </div> <!-- end content under first fold -->
+               </figure>
+               <br>
+               <br>
+               <h4>2019 field season is a success</h4>
+               <p class>BLE LTER scientists wrapped up a successful 2019 sampling season in late August. We sampled all three nodes during the three seasons (April-winter, June-ice break-up, and August-summer) and retrieved instruments deployed during our first field season in 2018. We are busy processing data and discussing preliminary findings.</p>
+               <br>
+               <br>
+               <h4>Follow our Twitter @ArcticLagoons</h4>
+               <br>
+               <div style="max-width: 480px" class><a class="twitter-timeline" data-tweet-limit="1" data-theme="light" data-link-color="#0070e9" href="https://twitter.com/ArcticLagoons?ref_src=twsrc%5Etfw">Tweets by
+               ArcticLagoons</a>
+               <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
-            <!-- Footer -->
-            <div class="container" style="background-color: rgba(256, 256, 256, 0.9); margin: 2rem auto;">
-               <footer class>
+            <hr>
+            <br>
+            <h2>Opportunities</h2>
+            <br>
+            <h4>Ph.D. Assistantship in Arctic Estuarine Food Web Ecology</h4>
+            <!-- Expires June 1 -->
+            <p class>A Ph.D. research assistantship is available (beginning
+               spring/summer 2020) in Katrin Iken&apos;s lab at the University of Alaska
+               Fairbanks, College of Fisheries and Ocean Sciences (UAF, CFOS)
+               (<a href="https://www.uaf.edu/cfos/" target="_blank" rel="noopener">https://www.uaf.edu/cfos/</a>). This
+               position is part of a new Long-Term Ecological Research (LTER) program funded by the National Science
+               Foundation to study the food web ecology of Beaufort Sea lagoons. The
+               student&apos;s research would focus on discerning how variable carbon inputs
+               (terrestrial, marine phytoplankton, sea ice) are utilized in the lagoon
+               systems over the course of the year from frozen to break-up to open
+               water. We seek applicants with a background in trophic ecology,
+               especially with lab and data analysis skills in stable isotope
+               analysis, compound-specific (amino acid) stable isotope analysis,
+               and/or fatty acid analysis. The student is expected to participate in
+               field work in the Arctic as well as develop a strong research thesis
+               project. Applicants should have a M.S. degree in a marine or
+               environmental science field, a strong academic background, show
+               evidence of independent work in the field and/or lab, and demonstrate a
+               capacity to contribute to a collaborative research environment. For
+               more information, please email a statement of interest/background and a
+               copy of your CV to Katrin Iken (<a href="mailto:kbiken@alaska.edu">kbiken@alaska.edu</a>). <br><br>
+               Links:<br>
+               <a href="https://www.uaf.edu/cfos/people/faculty/detail/index.xml?id=93" target="_blank" rel="noopener">Iken
+               faculty page</a><br>
+               <a href="https://www.uaf.edu/cfos/academics/graduate/" target="_blank" rel="noopener">
+               CFOS graduate program</a>
+            </p>
+            <br>
+            <br>
+         </div> <!-- end content under first fold -->
+      </div>
+      <!-- Footer -->
+      <footer class="lighter">
+      <img id="coastline" src="img/north_slope_coast.svg" style="width: 100%;">
+      <div id="footer-content">
       <div class="container-fluid">
          <div class="container">
-            <div class="row footer-top">
+            <div class="row">
                <div class="col-12 col-lg-6">
                   <p class="h4"><a href="index.html">Beaufort Lagoon Ecosystems LTER</a></p>
                   <p>This site is a member of the U.S. LTER Network.</p>
@@ -342,10 +320,10 @@
             </div>
          </div>
       </div>
+   </div>
    </footer>
-            </div>
 
-            <div id="before-end-of-body">
+      <div id="before-end-of-body">
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
       </script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
@@ -353,4 +331,4 @@
       <script async src="js/app.js"></script>
    </div>
 
-         </body></html>
+   </body></html>
