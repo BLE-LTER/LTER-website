@@ -1,8 +1,8 @@
 
-@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,400i,500,700,900&display=swap');
 
 nav {
-   border-bottom: 1px solid rgba(10,90,163, 0.3);
+   border-bottom: 1px solid #ddd /*rgba(10,90,163, 0.3)*/;
 }
 /*footer .container-fluid {
    border-top: 1px solid #eee;
@@ -15,41 +15,104 @@ nav {
 
 h1{
    font-weight: 900;
-   color: #0A5AA3;
+   /*color: #0A5AA3;*/
 }
 h2, h3, h4 {
    font-weight: 700;
 /*   color: #0A5AA3;
 */}
 
-/* override bootstrap */
-.navbar-dark .navbar-brand {
-   color: #000;
+nav{
+   font-size: 1rem;
+}
+
+/* ------------------------- */
+/* nav bar ------------------*/
+/* --------------------------*/
+
+.nav-item{
+   padding: 0px 5px;
+}
+.nav-link{
+      /*text-transform: uppercase;*/
+      /*font-variant: small-caps;*/
+}
+.dropdown-menu{
+   border:none;
+   /*border-top: 1px solid rgba(0,0,0,0.1);*/
+   border-radius: 0;
+}
+
+.navbar-brand {
+   /*color: #000;*/
+   justify-self: center;
 }
 
 .navbar-dark .navbar-nav .nav-link {
    color: #000;
 }
 
-.navbar-dark .navbar-nav .nav-link:focus,
-.navbar-dark .navbar-nav .nav-link:hover {
-   color: #000;
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+   color: #0A5AA3;
+   font-weight: 700;
+   /*border-bottom: 3px solid #0A5AA3;*/
+}
+.navbar-light .navbar-nav .nav-item::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #0A5AA3;
+    transition: width .1s;
 }
 
-/*.navbar{
-   position: sticky;
-}*/
+.navbar-light .navbar-nav .nav-item:hover::after {
+    width: 100%;
+    //transition: width .1s;
+}
+
+.navbar-light .navbar-toggler-icon {
+  border-color: transparent; /* Removes border color */
+}
+.navbar-light .navbar-toggle .icon-bar {
+  background-color: #f00; /* Changes regular toggle color */
+}
+.navbar-light .navbar-toggle .icon-bar:hover {
+  background-color: #0A5AA3; /* Changes toggle color on hover */
+}
+
+/* search box */
+
+.form-control{
+   border-radius: 0;
+   border:none;
+   border-bottom: 1px solid #ddd;
+}
+
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;  
+}
+::-moz-placeholder {
+   font-style: italic;  
+}
+:-ms-input-placeholder {  
+   font-style: italic; 
+}
 
 .btn-outline-light {
    color: #000;
-   border-color: #999;
+   border-color: #fff;
 }
 
 .btn-outline-light:not(:disabled):not(.disabled).active,
 .btn-outline-light:not(:disabled):not(.disabled):active,
 .show>.btn-outline-light.dropdown-toggle,
 .btn-outline-light:hover {
-   border-color: #999;
+   /*border-color: #999;*/
    color: #000;
    background-color: #E8F5F8;
 }
@@ -58,7 +121,10 @@ a {
    color: #0070e9;
 }
 
-/* theme */
+/* ---------------------------*/
+/* theme -------------------- */
+/* ---------------------------*/
+
 .lighter {
    color: #E8F5F8;
 }
@@ -90,9 +156,7 @@ a {
 }
 
 /* main */
-.nav-item{
-   padding: 0px 5px;
-}
+
 .background-video { 
  position: fixed;
  top: 50%;
@@ -124,10 +188,6 @@ body{
 #tagline{
    font-weight: 900;
    color: white;
-}
-
-#member-statement{
-   color: rgba(256, );
 }
 
 img.fill {
