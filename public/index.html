@@ -36,18 +36,14 @@
          width: auto
          height: auto;
       }
-      .nav-sticky-bottom{
+/*      .nav-sticky-bottom{
          position: absolute; bottom: 0.5rem;
       }
       .nav-sticky-top{
          position: fixed;
          top: 0;
-      }
-      .nav-link{
-         font-weight: 500;
-         color: white;
-      }
-      @media (max-width: 767.98px), (max-height: 600px){
+      }*/
+      @media (max-width: 767.98px), (max-height: 575.98px){
          #banner-caption{
             display: none;
          }
@@ -61,7 +57,7 @@
          }*/
 
       }
-      @media (max-width: 575.98px){
+      @media (max-width: 575.98px), (max-height: 575.98px){
          #besides-logo{
             display: none;
          }
@@ -86,8 +82,9 @@
                      <div class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
                         <a class="dropdown-item" href="about.html">Project Overview</a>
                         <a class="dropdown-item" href="people.html">Team</a>
-                        <a class="dropdown-item" href="contact.html">Contacts</a>
                         <a class="dropdown-item" href="media.html">Media Coverage</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="contact.html">Contact Us</a>
                      </div>
                   </li>
                   <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
@@ -130,15 +127,15 @@
 
    <!-- Container for banner video and logo -->
    <div class="banner-panel">
-      <video style class="background-video" poster="video/intro-video-poster.jpg" autoplay="autoplay" loop="loop" muted="muted">
+      <video style class="background-video" poster="video/drone.jpg" autoplay="autoplay" loop="loop" muted="muted">
          <source src="video/drone.mp4">
          </video>
          <!-- <img class="img-fluid background-video" src="img/barter-island.jpg" onerror="this.src=&apos;img/logo_square.png&apos;" alt="BLE logo"> -->
          <!-- Container for BLE logo -->
          <div class="container d-flex align-items-center justify-content-center flex-row flex-wrap" style="z-index: -100; margin: auto; padding: auto; position: relative; top: 10vh;">
-         <img src="img/logo-square.png" style="max-height: 400px;" onerror="this.src=&apos;img/logo_square.png&apos;" class="img-fluid" alt="BLE logo">
+         <img src="img/logo-square.png" style="max-height: 350px;" onerror="this.src=&apos;img/logo_square.png&apos;" class="img-fluid" alt="BLE logo">
          <div id="besides-logo" class="flex-grow-1 text-center" style="flex-basis: 400px; color: white;"><!-- <p style="font-weight: 700; font-size: 150%">Beaufort Lagoons Ecosystems Long Term Ecological Research</p> -->
-            <h1 id="tagline">Studying the interface of land and sea at the top of the world</h1>
+            <h1 id="tagline">We study the seasons where land meets sea at the top of the world</h1>
             <!-- <p id="member-statement">U.S. Long Term Ecological Research Network site since 2017</p>-->
          </div>
       </div>
@@ -152,7 +149,7 @@
 
       <!-- Content under first fold -->
       <div class="container container-small">
-         <p class="figure-caption">Video: underwater remotely operated vehicles capture life under the lagoon ice.</p>
+         <p class="figure-caption">Above: drone captures footage of ice break-up in the lagoons.</p>
          <br>
          <br>
          <h2>Overview</h2>
@@ -310,13 +307,16 @@
          <div class="container">
             <div class="row footer-bottom text-center text-lg-left">
                <div class="col-lg-8">
-                  <p class="mb-1"><small>Except where otherwise noted, material may be re-used under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
+                  <p class="mb-1"><small>Above: the Alaska North Slope coastline along the Beaufort Sea. Except where otherwise noted, material may be re-used under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
                            Commons BY-SA 4.0 license</a>.</small></p>
                </div>
                <div class="col-lg-4">
                   <p><small><a href="https://cio.utexas.edu/policies/web-privacy">Privacy Policy</a> |
                         <a href="https://cio.utexas.edu/policies/web-accessibility">Accessibility Policy</a></small></p>
                </div>
+               <!-- <div class="col-lg-12">
+                  <p><small>Above: the Alaska North Slope coastline along the Beaufort Sea.</small></p>
+               </div> -->
             </div>
          </div>
       </div>
