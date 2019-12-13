@@ -81,7 +81,9 @@ $(document).ready(function(){
     ]
     }
 
-    var map = L.map('map');
+    var map = L.map('map', {
+      scrollWheelZoom: false
+    });
     L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoid2hpdGVha2VyIiwiYSI6ImNqZm9kaWJtbjAwYmszNG93bHdvaHpiemYifQ.Z0xNGGp5cnR_Xtw_e4ZL1A', {
         maxZoom: 18,
         id: 'mapbox.satellite-streets',
@@ -115,4 +117,6 @@ $(document).ready(function(){
       }
     }).addTo(map);
     map.fitBounds(layer.getBounds().pad(0.1));
+    map.on('focus', function() { map.scrollWheelZoom.enable(); });
+map.on('blur', function() { map.scrollWheelZoom.disable(); });
 });
