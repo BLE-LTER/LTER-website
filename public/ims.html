@@ -42,7 +42,7 @@
 
 <body>
    <header>
-      <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
          <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
@@ -54,6 +54,7 @@
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
                      <div class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
+                        <a class="dropdown-item" href="about.html">Project Overview</a>
                         <a class="dropdown-item" href="about.html">Project Overview</a>
                         <a class="dropdown-item" href="people.html">Team</a>
                         <a class="dropdown-item" href="media.html">Media Coverage</a>
@@ -89,9 +90,9 @@
                <form>
                   <div class="input-group">
                      <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control" type="search" placeholder="Search this site..." aria-label="Search">
-                     <div class="input-group-append">
-                        <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit" title="Submit Search" aria-label="Submit Search"><i class="fas fa-search"></i></button>
-                     </div>
+<!--                      <div class="input-group-append">
+ -->                        <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit" title="Submit Search" aria-label="Submit Search"><i class="fas fa-search"></i></button>
+                     <!-- </div> -->
                   </div>
                </form>
             </div>
@@ -241,7 +242,7 @@
             us</a>.</p>
    </div>
 
-   <footer class="lighter">
+   <footer class="text-white">
       <img id="coastline" src="img/north_slope_coast.svg" style="width: 100%;">
       <div id="footer-content">
       <div class="container-fluid">
