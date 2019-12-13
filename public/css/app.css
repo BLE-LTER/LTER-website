@@ -112,18 +112,18 @@ nav{
    font-style: italic; 
 }
 
-.btn-outline-light {
+nav .btn {
    color: #000;
    border-color: #fff;
 }
 
-.btn-outline-light:not(:disabled):not(.disabled).active,
-.btn-outline-light:not(:disabled):not(.disabled):active,
-.show>.btn-outline-light.dropdown-toggle,
-.btn-outline-light:hover {
+nav .btn:not(:disabled):not(.disabled).active,
+.btn:not(:disabled):not(.disabled):active,
+.show>.btn.dropdown-toggle,
+.btn:hover {
    /*border-color: #999;*/
    color: #000;
-   background-color: #E8F5F8;
+   background-color: #eee;
 }
 
 a {
@@ -135,7 +135,7 @@ a {
 /* ---------------------------*/
 
 .lighter {
-   color: #E8F5F8;
+   color: #e3f2fa;
 }
 
 .bg-white{
@@ -184,7 +184,14 @@ a {
 
 #tagline{
    font-weight: 900;
+   font-size: 4.2rem;
+   letter-spacing: -0.02em;
    color: white;
+   line-height: 0.95;
+}
+
+#season .card, .card-img-top{
+   border-radius: 0;
 }
 
 img.fill {
@@ -216,6 +223,15 @@ footer {
 
    #coastline{
       width: 100%;
+   }
+
+   #glance h1{
+      font-size: 5rem;
+      font-weight: 700;
+   }
+   #glance h3{
+      font-size: 1.5rem;
+      font-weight: 400;
    }
 
    footer p {
