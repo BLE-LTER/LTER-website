@@ -150,6 +150,18 @@ a {
    background: #011E3E;
 }
 
+.bg-logo-green {
+  background: #637724;
+}
+
+.bg-logo-blue {
+  background-color: #0A5AA3;
+}
+
+.bg-gray-overlay {
+  
+}
+
 /* by the numbers */
 .number-heading {
    color: #;
@@ -185,9 +197,10 @@ a {
 #tagline{
    font-weight: 900;
    font-size: 4.2rem;
-   letter-spacing: -0.02em;
+   letter-spacing: -1px;
    color: white;
-   line-height: 0.95;
+   line-height: 0.97;
+   word-spacing: 5px;
 }
 
 #season .card, .card-img-top{
