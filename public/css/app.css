@@ -292,8 +292,8 @@ footer p {
 
 footer a,
 footer a:hover {
-  color: #6ec5ff;
-  text-decoration: none;
+  color: #fff;
+  text-decoration: underline;
 }
 
 .footer-bottom {
