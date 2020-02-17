@@ -13,7 +13,7 @@ font-family: 'Libre Franklin', sans-serif;
 overflow-x: hidden;
 }
 .container-small{
-margin-top: 5rem;
+/*margin-top: 5rem;*/
 max-width: 768px;
 }
 h1{
@@ -33,6 +33,7 @@ hyphenate-limit-chars: 7 3 2;
 }
 .page-title{
 font-size: 3rem;
+padding-top: 7rem;
 }
 .blockquote{
   font-size: 2rem;

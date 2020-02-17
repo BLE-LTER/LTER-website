@@ -56,7 +56,6 @@
                      <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
                      <div class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
                         <a class="dropdown-item" href="about.html">Project Overview</a>
-                        <a class="dropdown-item" href="about.html">Project News</a>
                         <a class="dropdown-item" href="people.html">Team</a>
                         <a class="dropdown-item" href="media.html">Media Coverage</a>
                         <div class="dropdown-divider"></div>
@@ -75,18 +74,6 @@
                   </li>
                   <li class="nav-item"><a class="nav-link" href="bibliography.html">Publications</a></li>
                   <li class="nav-item"><a class="nav-link" href="outreach.html">Outreach</a></li>
-                  <!-- <li class="nav-item"><a class="nav-link" href="people.html">People</a></li> -->
-                  <!-- <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Banner options</a>
-                     <div class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
-                        <a class="dropdown-item" href="index.html">Video: ROV under ice</a>
-                        <a class="dropdown-item" href="index-sampling.html">Video: sampling Elson</a>
-                        <a class="dropdown-item" href="index-drone.html">Video: drone footage</a>
-                        <a class="dropdown-item" href="index-students.html">Video: Kaktovik students</a>
-                        <a class="dropdown-item" href="index-barter.html">Picture: Barter island</a>
-                     </div>
-                  </li> -->
                </ul>
                <form>
                   <div class="input-group">
@@ -101,11 +88,11 @@
       </nav>
    </header>
 
-   <div class="container pt-3 container-small">
-      <h1>Information Management System at BLE LTER</h1>
+   <div class="container">
+      <h1 class="page-title hyphenate">Information Management System</h1>
       <br>
       <h2>Our philosophy</h2>
-      <p class>The BLE IMS uses modular components and relies on external APIs and open source resources to
+      <p class="lead">The BLE IMS uses modular components and relies on external APIs and open source resources to
          minimize development burden and promote reusability. We welcome discussion and feedback on our system, and we
          love collaborating with other information managers on improving the state of IM in LTER. See <a href="https://github.com/BLE-LTER/" target="_blank" rel="noopener">what we&apos;re up to on GitHub</a>, and
          take a peek into our information management system below.
@@ -163,7 +150,7 @@
       <br>
       <div class="border-top border-left border-right rounded-top mt-5 mb-4">
          <h2 class="text-center pt-3 pb-3">Our Website</h2>
-         <p class="pl-3 pr-2 ">Our static HTML website is built purely with HTML, CSS, and JavaScript, and costs us
+         <p class="lead pl-3 pr-2 ">Our static HTML website is built purely with HTML, CSS, and JavaScript, and costs us
             $0 to
             operate annually (yes, zero). You can literally download <a href="https://github.com/BLE-LTER/LTER-website" target="_blank" rel="noopener">our website on GitHub</a> and double-click index.html to run it from your
             local computer. We gladly take advantage of the following technologies.</p>
@@ -218,28 +205,28 @@
       </div>
       <br>
       <h3 class="h4">Going Serverless</h3>
-      <p class>By relying on external APIs and sticking with static HTML, we can implement our website without
+      <p class="lead">By relying on external APIs and sticking with static HTML, we can implement our website without
          having to maintain any servers.
          This means we don&apos;t incur the operating cost of a dynamic server (unlike WordPress or Drupal sites for
          example), and we aren&apos;t plagued by dynamic CMS security flaws.</p>
-      <p class>There are lots of free hosts for static websites. We like <a href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a> the best. They minify our assets to improve page load times,
+      <p class="lead">There are lots of free hosts for static websites. We like <a href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a> the best. They minify our assets to improve page load times,
          provide HTTPS, and host our site on a content delivery network with servers distributed around the world to
          maximize uptime and speed, among other benefits. As soon as we make a new commit to our site on GitHub,
          Netlify picks it up and distributes it across their network. They also support forms, functions, and secure
          logins, though we haven&apos;t played with those features yet.</p>
-      <p class>Eventually we may adopt a static site generator to assist with page creation and website
+      <p class="lead">Eventually we may adopt a static site generator to assist with page creation and website
          redesign. For now we use a simple script to update headers, footers, and navigation across the entire site
          when needed.</p>
       <br>
       <div class="border-top border-left border-right rounded-top mt-5 mb-4">
          <h2 class="text-center pt-3 pb-3">We Love Our Team</h2>
       </div>
-      <p class>Our Information Management System would be nothing without the skills, dedication, and enthusiasm
+      <p class="lead">Our Information Management System would be nothing without the skills, dedication, and enthusiasm
          of our team, both on the
          IM side and the domain science side. This system works because our scientists are willing and able to
          incorporate information management into their workflows up front, and
          because there is open, friendly, and regular dialog between scientists and information managers within BLE.</p>
-      <p class>Our IM team enjoys extending that dialog into the broader LTER community. If you are facing an IM
+      <p class="lead">Our IM team enjoys extending that dialog into the broader LTER community. If you are facing an IM
          challenge involving GIS, Python, or any part of the stack described above, feel free to <a href="mailto:BLE-IM@utexas.edu">contact
             us</a>.</p>
    </div>
