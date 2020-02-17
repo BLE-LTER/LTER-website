@@ -1,8 +1,8 @@
-var CACHE_NAME = 'ble-cache-v1.002';
+var CACHE_NAME = 'ble-cache-v1.003';
 var urlsToCache = [
-  'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
+  'https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
   'https://code.jquery.com/jquery-3.2.1.slim.min.js',
-  'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js',
+  'https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',
   'https://unpkg.com/lunr/lunr.js',
 ];
 
