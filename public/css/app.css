@@ -156,21 +156,8 @@ a {
 .lighter {
   color: #e3f2fa;
 }
-
-.bigger {
-  font-size: 150%;
-}
-
 .bg-white {
   background: #fff;
-}
-
-.bg-darker {
-  background: #0d3760;
-}
-
-.bg-darkest {
-  background: #011E3E;
 }
 
 .bg-logo-green {
@@ -200,22 +187,7 @@ a {
   padding-right: 1rem;
   padding-left: 1rem;
 }
-.anchor-bottom {
-  position: absolute;
-  bottom: 5rem;
-  left: 3rem;
-  right: 3rem;
-}
-/* by the numbers */
-.number-heading {
-  margin-bottom: 1em;
-  padding-bottom: 0.5em;
-}
 
-.by-the-number {
-  font-size: 2.5em;
-  margin-bottom: 0;
-}
 
 /* main */
 .background-video {
@@ -285,6 +257,19 @@ footer {
   font-size: 1.5rem;
   font-weight: 400;
 }
+
+/*
+
+working on link styling, very minor problem
+
+*/
+/*#overview a{
+  text-decoration: underline; 
+  text-decoration-color: #fff;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 1.5px;
+  text-decoration-style: solid;
+}*/
 
 footer p {
   line-height: 1.125rem;
