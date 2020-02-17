@@ -32,7 +32,11 @@ hyphens: auto;
 hyphenate-limit-chars: 7 3 2;
 }
 .page-title{
-font-size: 4rem;
+font-size: 3rem;
+}
+.blockquote{
+  font-size: 2rem;
+  font-weight: 700;
 }
 h2, h3, h4 {
 font-weight: 700;
