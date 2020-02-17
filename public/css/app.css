@@ -20,9 +20,19 @@ h1{
 font-weight: 900;
 /*font-size: 3rem;*/
 }
-
+.hyphenate {
+overflow-wrap: break-word;
+word-wrap: break-word;
+-webkit-hyphens: auto;
+-ms-hyphens: auto;
+hyphens: auto;
+-moz-hyphenate-limit-chars: 7 3 2; /* not yet supported */
+-webkit-hyphenate-limit-chars: 7 3 2; /* not yet supported */
+-ms-hyphenate-limit-chars: 7 3 2;
+hyphenate-limit-chars: 7 3 2;
+}
 .page-title{
-  font-size: 4rem;
+font-size: 4rem;
 }
 h2, h3, h4 {
 font-weight: 700;
@@ -148,9 +158,17 @@ background-color: #0A5AA3;
 padding-top: 5rem;
 padding-bottom: 5rem;
 }
+.py-rem7{
+padding-top: 7rem;
+padding-bottom: 7rem;
+}
 .px-rem3{
 padding-right: 3rem;
 padding-left: 3rem;
+}
+.px-rem1{
+padding-right: 1rem;
+padding-left: 1rem;
 }
 .anchor-bottom{
 position: absolute;
