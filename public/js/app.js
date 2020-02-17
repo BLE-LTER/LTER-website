@@ -70,8 +70,7 @@ function updateQueryStringParameter(uri, key, value) {
    var separator = uri.indexOf("?") !== -1 ? "&" : "?";
    if (uri.match(re)) {
       return uri.replace(re, "$1" + key + "=" + value + "$2");
-   }
-   else {
+   } else {
       return uri + separator + key + "=" + value;
    }
 }
@@ -82,7 +81,7 @@ function makePageLink(currentUrl, currentStart, start, linkText) {
    var tagStart = '<a href="';
    if (currentStart == start) {
       uri = "#";
-      if (linkText.toString().substring(0, 1) !== "&") {  // Don't modify arrows
+      if (linkText.toString().substring(0, 1) !== "&") { // Don't modify arrows
          tagStart = '<a class="active" href="';
       }
    }
@@ -159,14 +158,12 @@ function showResultCount(query, total, limitPerPage, currentStartIndex, domEleme
    if (query != "" && query != null) {
       query = escapeHtml(query);
       var forQuery = ' for <span class="result-query">' + query + '</span>';
-   }
-   else {
+   } else {
       var forQuery = "";
    }
    if (limitPerPage === null || total <= limitPerPage) {
       var showing = "</p>";
-   }
-   else {
+   } else {
       var fromCount = currentStartIndex + 1;
       var toCount = currentStartIndex + limitPerPage;
       if (toCount > total) {
@@ -199,13 +196,12 @@ function createCORSRequest(method, url) {
 
 
 // Make the actual CORS request.
-function makeCorsRequest(url, successCallback, errorCallback) {
+function makeCorsRequest(url, headerDict, successCallback, errorCallback) {
    var xhr = createCORSRequest("GET", url);
    if (!xhr) {
       alert("CORS not supported");
       return;
    }
-
    // Response handlers.
    xhr.onload = function () {
       var headers = xhr.getAllResponseHeaders().split("\n");
@@ -214,13 +210,18 @@ function makeCorsRequest(url, successCallback, errorCallback) {
          var parts = headers[i].split(": ");
          header_dict[parts[0].toLowerCase()] = parts[1];
       }
-
       successCallback(header_dict, xhr.responseText);
    };
-
    xhr.onerror = function () {
       errorCallback();
    };
 
+   if (headerDict) {
+      var keys = Object.keys(headerDict);
+      for (var index = 0; index < keys.length; index++) {
+         var key = keys[index];
+         xhr.setRequestHeader(key, headerDict[key]);
+      }
+   }
    xhr.send();
 }
