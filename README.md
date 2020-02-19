@@ -95,6 +95,18 @@ To extract the first frame:
 For more control over the output bitrate, or to add effects such as filters, overlays, and subtitles, you'll need to install video editing software.  Tim tested a few and likes the free and open-source cross-platform Shotcut.  For tips on reducing bitrate by tweaking Shotcut's many output options, see this [Reddit thread on encoding](https://www.reddit.com/r/shotcut/comments/4hxsi3/encoding_help/).
 The key tip was to customize the average bitrate. Tim tried 512 kbps, and this resulted in a file of size 3.9 MB, compared to size 4.8 MB using the basic Windows workflow. The original file size for Tim's test was 16.6 MB.  The right value depends on the video, as you may want to preserve more quality in some videos.
 
+Basic Shotcut procedure to export video:
+
+1. View the Details tab of the video properties in File Explorer to see the video dimensions, bitrate, and frame rate.
+2. Open video with Shotcut and trim it.
+3. Click Export.
+4. Select the Stock > H.254 High Profile preset.
+5. Click Advanced.
+6. On the Audio tab, disable audio.
+7. On the Codec tab, in the Rate control box, choose Average bitrate.
+8. Choose an average bitrate. Try 512 kb/s and go from there.
+9. Click Export File.
+
 Tim says no to these programs, mostly because he couldn't figure out how to effectively reduce bitrate:
 
 * Lightworks

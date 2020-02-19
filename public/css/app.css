@@ -239,6 +239,7 @@ footer {
   background-color: white;
   background-size: cover;
   background-repeat: repeat;
+  padding-top: 10px;
 }
 
 #footer-content {
