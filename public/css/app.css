@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,400i,500,700,900&display=swap');
 
+html {
+  font-size: 1rem; 
+}
+
 body {
   top: 0;
   right: 0;
@@ -210,7 +214,7 @@ a {
 
 #tagline {
   font-weight: 900;
-  font-size: 3.78rem;
+  font-size: 3.56rem;
   letter-spacing: -1px;
   color: white;
   line-height: 0.97;
