@@ -7,8 +7,7 @@ This project contains an example [Long Term Ecological Research](https://lternet
 ## Features
 
 * Responsive design and navigation bar using Bootstrap
-* Bibliography search using
-  [Zotero](https://github.com/BLE-LTER/Zotero-JavaScript-Search-Client)
+* Bibliography database using Zotero
 * Dataset search using [PASTA](https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client)
 * Local site search using [Lunr](https://github.com/BLE-LTER/Lunr-Index-and-Search-for-Static-Sites)
 * Progressive Web App (though not that useful for us presently)
@@ -20,6 +19,8 @@ This project contains an example [Long Term Ecological Research](https://lternet
 
 `apply_template.js` is used to update the header or footer for all HTML files
 from a template file. See more about templates below.
+
+`harvest_zotero.js` is used to update the cached bibliography from a Zotero collection. Run this script via Node.js when your Zotero collection has been updated.
 
 [RealFaviconGenerator](https://realfavicongenerator.net/) was used to create the various icons and browserconfig.xml. To make your own icons, I suggest starting with a single image file 512x512 pixels in size.
 
