@@ -140,9 +140,9 @@ function parseZoteroResults(results) {
       // Use hidden text to enable sorting with LTER-Funded at the top
       if (beginning == "LTER-Funded") {
          result = '<span style="display: none;">1</span>' + text;
-      } else if (beginning == "LTER-Enable") {
+      } else if (beginning == "LTER-Enabled") {
          result = '<span style="display: none;">2</span>' + text;
-      } else if (beginning == "Foundationa") {
+      } else if (beginning == "Foundational") {
          result = '<span style="display: none;">3</span>' + text;
       }
       return result;
