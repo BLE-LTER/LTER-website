@@ -140,9 +140,9 @@ function parseZoteroResults(results) {
       // Use hidden text to enable sorting with LTER-Funded at the top
       if (beginning == "LTER-Funded") {
          result = '<span style="display: none;">1</span>' + text;
-      } else if (beginning == "LTER-Enabled") {
+      } else if (beginning == "LTER-Enable") {
          result = '<span style="display: none;">2</span>' + text;
-      } else if (beginning == "Foundational") {
+      } else if (beginning == "Foundationa") {
          result = '<span style="display: none;">3</span>' + text;
       }
       return result;
@@ -190,7 +190,7 @@ function parseZoteroResults(results) {
          "Date": pubDate,
          "Citation": result["bib"] + itemLink + " " + dataLinks,
          "Type": itemType,
-         "Relationshp": tagsToShow
+         "Relationship": tagsToShow
       }
       parsedResults.push(item);
    }
