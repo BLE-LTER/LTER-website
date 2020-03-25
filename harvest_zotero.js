@@ -135,17 +135,17 @@ function parseZoteroResults(results) {
          return ZOTERO_CONFIG["showTags"].indexOf(n) !== -1;
       });
       const text = matches.join(", ");
-      const beginning = text.slice(0, 11);
-      let result = text;
       // Use hidden text to enable sorting with LTER-Funded at the top
-      if (beginning == "LTER-Funded") {
-         result = '<span style="display: none;">1</span>' + text;
-      } else if (beginning == "LTER-Enable") {
-         result = '<span style="display: none;">2</span>' + text;
-      } else if (beginning == "Foundationa") {
-         result = '<span style="display: none;">3</span>' + text;
+      let tagRank = "99";
+      if (text.startsWith("LTER-Funded")) {
+         tagRank = "1";
+      } else if (text.startsWith("LTER-Enabled")) {
+         tagRank = "2";
+      } else if (text.startsWith("Foundational")) {
+         tagRank = "3";
       }
-      return result;
+      const span = '<span style="display: none;">' + tagRank + '</span>';
+      return span + text;
    }
 
    function parseDataLinks(extra) {
