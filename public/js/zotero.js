@@ -281,7 +281,7 @@ function searchZotero(query, itemType, sort, start) {
    var url = base + params + style + limit;
    showUrl(url);
    showLoading(true);
-   makeCorsRequest(url, successCallback, errorCallback);
+   makeCorsRequest(url, null, successCallback, errorCallback);
 }
 
 
