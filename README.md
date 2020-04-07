@@ -113,3 +113,9 @@ Tim says no to these programs, mostly because he couldn't figure out how to effe
 * Lightworks
 * Avidemux
 * HitFilm Express
+
+## Deployment on Netlify
+
+BLE uses Netlify for free hosting.
+
+A nice feature of Netlify is live previews of branches and pull requests. To see a preview of a branch, input the branch name, two dashes, and then your raw Netlify URL, which is `eager-sammet-b7ed61.netlify.com/` for BLE. For example, if a branch is called `cool-stuff`, the URL would be `https://cool-stuff--eager-sammet-b7ed61.netlify.com/`.
