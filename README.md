@@ -101,7 +101,7 @@ Basic Shotcut procedure to export video:
 1. View the Details tab of the video properties in File Explorer to see the video dimensions, bitrate, and frame rate.
 2. Open video with Shotcut and trim it.
 3. Click Export.
-4. Select the Stock > H.254 High Profile preset.
+4. Select the Stock > H.264 High Profile preset.
 5. Click Advanced.
 6. On the Audio tab, disable audio.
 7. On the Codec tab, in the Rate control box, choose Average bitrate.
