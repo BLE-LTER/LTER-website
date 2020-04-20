@@ -92,9 +92,10 @@
    </header>
    <!-- banner video / logo / tagline -->
    <div class="banner-panel">
-      <video class="background-video" poster="video/drone.jpg" autoplay="autoplay" loop="loop" muted="muted">
+      <!-- <video class="background-video" poster="video/drone.jpg" autoplay="autoplay" loop="loop" muted="muted">
          <source src="video/drone.mp4">
-      </video>
+      </video> -->
+      <video id="video-banner" class="background-video" autoplay="autoplay" loop="loop" muted="muted"><source /></video>
       <div class="container d-flex align-items-center justify-content-center flex-row flex-wrap" style="z-index: 100; margin: auto; padding: auto; position: relative; top: 10vh;">
          <img src="img/logo-square.png" style="max-height: 300px;" class="img-fluid" alt="BLE logo">
          <div class="flex-grow-1 text-lg-left text-center text-white" style="flex-basis: 400px;" id="besides-logo">
@@ -350,5 +351,52 @@
       <script async src="js/app.js"></script>
    </div>
 <script src="js/overview_map.js"></script>
+<script>
+   function assignVideo() {
+      function getUrlParam(name, url) {
+         if (!url) url = window.location.href;
+         name = name.replace(/[\[\]]/g, "\\$&");
+         var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+         if (!results) return null;
+         if (!results[2]) return "";
+         return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+
+      var day = getUrlParam("day");
+      if (!day || parseInt(day) > 6) {
+         var d = new Date();
+         day = d.getDay();
+      } else {
+         day = parseInt(day);
+      }
+
+      var video_el = document.getElementById("video-banner");
+      var source_el = video_el.firstElementChild;
+      switch (day) {
+         case 1:
+         case 4:
+            video_el.setAttribute("poster", "video/students.jpg"); 
+            source_el.setAttribute("src", "video/students.mp4"); 
+            break;
+         case 2:
+         case 5:
+            video_el.setAttribute("poster", "video/sampling.jpg"); 
+            source_el.setAttribute("src", "video/sampling.mp4"); 
+            break;
+         case 3:
+         case 6:
+            video_el.setAttribute("poster", "video/drone.jpg"); 
+            source_el.setAttribute("src", "video/drone.mp4"); 
+            break;     
+         default:
+            video_el.setAttribute("poster", "video/under-ice.jpg"); 
+            source_el.setAttribute("src", "video/under-ice.mp4"); 
+            break;
+      }
+   } 
+
+   assignVideo();
+</script>
 
 </body></html>
