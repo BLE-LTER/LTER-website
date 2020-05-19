@@ -65,10 +65,11 @@ You'll probably want to manually edit favicon-16x16.png and favicon-32x32.png, o
 
 For videos played in the background, you need to:
 
-1. Remove audio.
-2. Trim it to just the quality content.
-3. Make it as small as possible.
-4. Extract the first frame as an image to use while the video is loading in a browser.
+1. Make sure the video looks good at various window sizes including those for mobile devices. Basically this means the interesting content shouldn't be only on the sides of the video.
+2. Remove audio.
+3. Trim it to just the quality content.
+4. Make it as small as possible.
+5. Extract the first frame as an image to use while the video is loading in a browser.
 
 You can accomplish this to a basic degree using a Windows 10 software stack.
 

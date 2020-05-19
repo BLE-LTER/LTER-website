@@ -376,24 +376,18 @@
       var video_el = document.getElementById("video-banner");
       var source_el = video_el.firstElementChild;
       switch (day) {
+         case 0:
+            video_el.setAttribute("poster", "video/under-ice.jpg"); 
+            source_el.setAttribute("src", "video/under-ice.mp4"); 
+            break;     
          case 1:
          case 4:
             video_el.setAttribute("poster", "video/students.jpg"); 
             source_el.setAttribute("src", "video/students.mp4"); 
             break;
-         case 2:
-         case 5:
-            video_el.setAttribute("poster", "video/sampling.jpg"); 
-            source_el.setAttribute("src", "video/sampling.mp4"); 
-            break;
-         case 3:
-         case 6:
+         default:
             video_el.setAttribute("poster", "video/drone.jpg"); 
             source_el.setAttribute("src", "video/drone.mp4"); 
-            break;     
-         default:
-            video_el.setAttribute("poster", "video/under-ice.jpg"); 
-            source_el.setAttribute("src", "video/under-ice.mp4"); 
             break;
       }
    } 
