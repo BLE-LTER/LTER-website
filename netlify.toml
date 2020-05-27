@@ -1,13 +1,15 @@
 [build]
   environment = { RUBY_VERSION = "2.6.2" }
-  
+
 [[plugins]]
-package = "@netlify/plugin-sitemap"
+  package = "netlify-plugin-minify-html"
 
   [plugins.inputs]
-  exclude = [
-    '**/**/google**.html'
-  ]
+    contexts = [
+      'production',
+      'branch-deploy',
+      'deploy-preview'
+    ]
 
 [[plugins]]
 package = "netlify-plugin-checklinks"
