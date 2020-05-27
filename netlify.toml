@@ -1,0 +1,14 @@
+[build]
+  environment = { RUBY_VERSION = "2.6.2" }
+
+[[plugins]]
+package = "netlify-plugin-checklinks"
+
+  [plugins.inputs]
+  checkExternal = false
+
+[[plugins]]
+package = "netlify-plugin-a11y"
+
+   [plugins.inputs]
+   resultMode = "warn"
