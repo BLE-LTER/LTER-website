@@ -2,16 +2,6 @@
   environment = { RUBY_VERSION = "2.6.2" }
 
 [[plugins]]
-  package = "netlify-plugin-minify-html"
-
-  [plugins.inputs]
-    contexts = [
-      'production',
-      'branch-deploy',
-      'deploy-preview'
-    ]
-
-[[plugins]]
 package = "netlify-plugin-checklinks"
 
   [plugins.inputs]
