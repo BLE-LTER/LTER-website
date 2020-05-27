@@ -6,3 +6,6 @@ package = "netlify-plugin-checklinks"
 
   [plugins.inputs]
   checkExternal = false
+
+[[plugins]]
+package = "netlify-plugin-a11y"
