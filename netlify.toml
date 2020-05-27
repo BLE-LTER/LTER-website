@@ -8,6 +8,9 @@ package = "netlify-plugin-checklinks"
   checkExternal = false
 
 [[plugins]]
+package = "netlify-plugin-inline-critical-css"
+
+[[plugins]]
 package = "netlify-plugin-a11y"
 
    [plugins.inputs]
