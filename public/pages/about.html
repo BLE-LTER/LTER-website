@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en"><head>
    <meta charset="utf-8">
-   <title>Site Search | Beaufort Lagoon Ecosystems LTER</title>
-   <meta name="description" content="A Long Term Ecological Research (LTER) program studying lagoon ecosystems along the northern Alaskan Arctic coastline in the Beaufort Sea">
-   <meta name="keywords" content="LTER, Beaufort Sea, Lagoon Ecosystem">
-   <link rel="canonical" href="https://ble.lternet.edu/search.html">
+   <title>About | Beaufort Lagoon Ecosystems LTER</title>
+   <meta name="description" content="About the Beaufort Lagoon Ecosystems (BLE) Long Term Ecological Research (LTER) program">
+   <meta name="keywords" content="About BLE">
+   <link rel="canonical" href="https://ble.lternet.edu/about.html">
    <!-- Start Common Head -->
    <meta http-equiv="x-ua-compatible" content="ie=edge">
    <meta name="author" content="Tim Whiteaker">
@@ -12,7 +12,7 @@
    shrink-to-fit=no">
    <link rel="dns-prefetch" href="https://unpkg.com">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-   <link rel="stylesheet" href="/css/app.css">
+   <link rel="stylesheet" href="../css/app.css">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=rMqzlp2Rno">
    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=rMqzlp2Rno">
@@ -23,6 +23,8 @@
    <meta name="msapplication-TileColor" content="#2b5797">
    <meta name="theme-color" content="#0d3760">
    <!-- End Common Head -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin>
+   <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin></script>
 </head>
 
 <body>
@@ -32,7 +34,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" title="BLE Home Page" href="/"><img src="/img/logo-round-rgb.png" style="max-height: 40px;" alt="BLE home
+            <a class="navbar-brand" title="BLE Home Page" href="/"><img src="../img/logo-round-rgb.png" style="max-height: 40px;" alt="BLE home
             page link"></a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                <ul class="navbar-nav mr-auto">
@@ -70,28 +72,71 @@
       </nav>
    </header>
 
-   <div class="container pt-3">
-      <h1>Search the BLE LTER website</h1>
-      <form id="lunrSearchForm" name="lunrSearchForm">
-         <div class="form-group">
-            <div class="input-group">
-               <input class="form-control" name="q" placeholder="Enter search term" type="text" aria-label="Enter search term">
-               <div class="input-group-append">
-                  <button class="btn btn-outline-secondary" type="submit" aria-label="Submit Search">Search</button>
-               </div>
-            </div>
-         </div>
-      </form>
-      <div class="loading" id="loading-div" style="display:none">
-         <i class="fas fa-spinner fa-pulse fa-3x fa-fw"></i>
-         <span class="sr-only">Loading...</span>
-      </div>
-      <div class="resultCount" id="resultCount"></div>
-      <div id="searchResults"></div>
+   <div class="container container-small">
+      <h1 class="page-title hyphenate">About BLE LTER</h1>
+      <br>
+      <figure class="figure m-0">
+                  <picture class="text-center">
+                     <source srcset="../img/about-banner.jpg">
+                     <img class="figure-img img-fluid" src="../img/about-banner.jpg" alt="BLE-LTER research">
+                  </picture>
+               </figure>
+               <br>
+      <p class="lead">Long Term Ecological Research (LTER) helps us understand
+         how our environment is changing through time and how past events such as
+         shifts in ocean currents or the arrival of new species impact ecosystems
+         over long time scales. The extended tenure of LTER sites also engenders
+         relationships with local communities so that citizens are engaged with
+         ecological research, which in turn helps ensure the longevity of the site.</p>
+      <p class="lead">The Beaufort Lagoon Ecosystems (BLE) LTER program was funded by the National Science
+         Foundation (NSF) in 2017 and is based out of three nodes along the Beaufort Sea coast: Utqia&#x121;vik
+         (formerly
+         Barrow), Deadhorse, and Kaktovik. At each node,
+         we deploy instruments and collect samples in nearby lagoon systems, each with their own unique
+         characteristics. This research provides a much needed mechanism for tracking and understanding 1) how natural
+         climate cycles influence coastal ecosystems in the Arctic, and 2) how climate change effects such as permafrost
+         thaw, shifting precipitation regimes, and losses of sea ice alter coastal ecosystems thorough effects on
+         inputs, nutrient cycling, and ocean mixing.</p>
+      <br>
+      <button class="btn btn-lg btn-outline-primary m-1"><a href="/research">See our research</a></button>
+      <button class="btn btn-lg btn-outline-primary m-1"><a rel="external noopener" target="_blank" href="https://utexas.box.com/v/BLE-LTER-2016-Proposal">Download the Project Proposal</a></button>
+      <br>
+      <br>
+      <p class="lead">Our fieldwork takes place within the homeland of the I&#xF1;upiat, whose subsistence lifestyles are built upon strong traditions and beliefs. We recognize the I&#xF1;upiat&#x2019;s fundamental understanding of their natural surroundings and their strong sense of place.  The co-production of knowledge is important in our joint efforts to understand the ecological functioning of these systems. </p>
+      <p class="lead">
+         We honor the
+         people who have acted as stewards of this land since time immemorial, and respect the significant traditional
+         ecological knowledge that is passed down by elders. We engage with local communities in multiple ways. We hold regular, open meetings with the communities of
+         Kaktovik and Utqia&#x121;vik, as well as with Traditional Knowledge holders in Kaktovik. This project also includes a
+         strong commitment to K-12 Programs in Kaktovik and Utqia&#x121;vik and offers employment opportunities to native high
+         school seniors or recently graduated students living in these villages as field research assistants.
+      </p>
+      <button class="btn btn-lg btn-outline-primary"><a href="/outreach">Learn about our community engagement
+            programs</a></button>
+      <br>
+      <br>
+      <hr>
+      <br>
+      <h2>Policies</h2>
+      <br>
+      <h3>Data Release, Access, and Use</h3>
+      <p class="lead">BLE follows <a href="https://lternet.edu/data-access-policy/" target="_blank" rel="external noopener">LTER
+            Data Policies</a>, which typically means data are made publicly available within two years of collection.
+         Each dataset includes metadata describing the data use agreement, the two most common for our case being CC BY
+         (free to use with attribution) and CC0 (public domain). You can find data
+         in our <a href="catalog.html">Data Catalog</a>.</p>
+      <br>
+      <h3>Conduct</h3>
+      <p class="lead">BLE personnel are expected to abide by the following policies to promote a fair, ethical, and
+         productive organization.</p>
+      <button class="btn btn-lg btn-outline-primary m-1"><a rel="external noopener" target="_blank" href="https://utexas.box.com/v/BLE-Code-of-Conduct">Code of Conduct</a></button>
+      <button class="btn btn-lg btn-outline-primary m-1"><a rel="external noopener" target="_blank" href="https://utexas.box.com/v/BLE-Sexual-Misconduct-Policy">Sexual Misconduct Policy</a></button>
+      <button class="btn btn-lg btn-outline-primary m-1"><a rel="external noopener" target="_blank" href="https://utexas.box.com/v/ble-authorship-policy">Authorship Policy</a></button>
    </div>
 
+
    <footer class="text-white">
-      <img id="coastline" src="/img/north_slope_coast.svg" alt="coastline" style="width: 100%;">
+      <img id="coastline" src="../img/north_slope_coast.svg" alt="coastline" style="width: 100%;">
       <div id="footer-content">
          <div class="container-fluid">
             <div class="container">
@@ -127,13 +172,13 @@
                      <p><a rel="external noopener" href="http://www.lternet.edu/site/">LTER Network Sites</a></p>
                      <p>
                         <a rel="external noopener" href="http://www.lternet.edu/">
-                           <noscript data-src="/img/LTER-network-square-sm.jpg" img-class alt="LTER logo within link to LTER Network">
-                              <img src="/img/LTER-network-square-sm.jpg" alt="LTER logo within link to LTER Network">
+                           <noscript data-src="../img/LTER-network-square-sm.jpg" img-class alt="LTER logo within link to LTER Network">
+                              <img src="../img/LTER-network-square-sm.jpg" alt="LTER logo within link to LTER Network">
                            </noscript>
                         </a>
                         <a rel="external noopener" href="https://www.nsf.gov/">
-                           <noscript data-src="/img/nsf1.gif" img-class alt="NSF logo within link to National Science Foundation">
-                              <img src="/img/nsf1.gif" alt="NSF logo within link to National Science Foundation">
+                           <noscript data-src="../img/nsf1.gif" img-class alt="NSF logo within link to National Science Foundation">
+                              <img src="../img/nsf1.gif" alt="NSF logo within link to National Science Foundation">
                            </noscript>
                         </a>
                      </p>
@@ -163,11 +208,11 @@
    <div id="before-end-of-body">
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-      <script async src="/js/app.js"></script>
+      <script async src="../js/app.js"></script>
    </div>
-   <script src="https://unpkg.com/lunr/lunr.js"></script>
-   <script src="/js/lunr_index.js"></script>
-   <script async src="/js/lunrclient.js"></script>
+   <script async src="js/overview_map.js"></script>
+
+
 
 
 </body></html>
