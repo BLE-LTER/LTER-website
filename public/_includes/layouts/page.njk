@@ -1,0 +1,32 @@
+<!doctype html>
+<html {% if section %} data-current="{{ section }}"{% endif %} lang="en">
+	<head>
+		<meta charset="utf-8">
+	<title>{{ title }}</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	{% include "components/head.njk" %}
+
+	</head>
+	
+
+	<body>
+		<header>
+			{% include "components/nav.njk" %}
+		</header>
+
+		<div class="container">
+			<h1 class="page-title hyphenate">
+				{{ title }}
+			</h1>
+
+			{{ layoutContent | safe }}
+		</div>
+
+		{% include "components/footer.njk" %}
+
+		{% include "components/before_end_of_body.njk" %}
+	</body>
+
+</html>

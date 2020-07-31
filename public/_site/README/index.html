@@ -1,0 +1,95 @@
+<h1>LTER-website</h1>
+<p>Static HTML website for Long Term Ecological Research site</p>
+<p>This project contains an example <a href="https://lternet.edu/">Long Term Ecological Research</a> (LTER) site website which aims to satisfy LTER website guidelines. The website is implemented as static HTML which can be hosted for free using services like <a href="https://www.netlify.com/">Netlify</a>.</p>
+<h2>Features</h2>
+<ul>
+<li>Responsive design and navigation bar using Bootstrap</li>
+<li>Bibliography database using Zotero</li>
+<li>Dataset search using <a href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client">PASTA</a></li>
+<li>Local site search using <a href="https://github.com/BLE-LTER/Lunr-Index-and-Search-for-Static-Sites">Lunr</a></li>
+<li>Progressive Web App (though not that useful for us presently)</li>
+<li>https://simplesharingbuttons.com/ for sharing buttons</li>
+</ul>
+<h2>About this pile of files</h2>
+<p><code>build_index.js</code> is used to build the search index. It is modified from https://github.com/twhiteaker/Lunr-Index-and-Search-for-Static-Sites. Using node.js, you would run <code>build_index.js</code> after every time you updated site content to rebuild the search index, and copy the resulting <code>lunr_index.js</code> into the <code>public/js</code> folder.</p>
+<p><code>apply_template.js</code> is used to update the header or footer for all HTML files
+from a template file. See more about templates below.</p>
+<p><code>harvest_zotero.js</code> is used to update the cached bibliography from a Zotero collection. Run this script via Node.js when your Zotero collection has been updated.</p>
+<p><a href="https://realfavicongenerator.net/">RealFaviconGenerator</a> was used to create the various icons and browserconfig.xml. To make your own icons, I suggest starting with a single image file 512x512 pixels in size.</p>
+<p><code>robots.txt</code> tells search engines to index all pages.  <code>humans.txt</code> is for someone to read if they want to look at the source files behind the website.</p>
+<p><code>google1b139a0c8d361fbe.html</code> tells Google that I own this website. I need to figure out how to include that on the CDN host without forcing it to be in GitHub, since I do not want to own the site of anyone who forks this repo.</p>
+<p><code>sitemap.xml</code> helps Search Engines index the site.</p>
+<p><code>sw.js</code> is the service worker that enables this website to be a <a href="https://developers.google.com/web/progressive-web-apps/">Progressive Web App (PWA)</a>. That means it can be pinned to your desktop or home screen, and some caching of resources locally is enabled which permits limited offline use.</p>
+<p>You'll notice multiple sizes for images in the img folder. Using a <code>picture</code> tag in the HTML, we tell a browser to only load the image size it needs, saving bandwidth and boosting performance.  I use tools like <a href="http://compressimage.toolur.com/">toolur</a> and <a href="http://optimizilla.com/">Optimizilla</a> to compress images.</p>
+<h2>Applying Templates</h2>
+<p>The <code>apply_template.js</code> script looks for certain parts of HTML files in the
+<code>public</code> folder and replaces them with parts from a template.  For example, this enables you
+to update all pages if you add a new menu item to the navigation bar.  For this
+sript to work, you must include elements exactly as follows:</p>
+<ul>
+<li><strong>head</strong> - For common parts of the <code>&lt;head&gt;</code> element, such as links to external
+stylesheets, enclose those parts between <code>&lt;!-- Start Common Head --&gt;</code> and
+<code>&lt;!-- End Common Head --&gt;</code> comments.</li>
+<li><strong>header</strong> - Use HTML <code>&lt;header&gt;</code> element. This is where your navigation bar goes.</li>
+<li><strong>footer</strong> - Use HTML <code>&lt;footer&gt;</code> element. This is where your footer goes.</li>
+<li><strong>before end of body</strong> - This is where you'll often load scripts instead of
+<code>&lt;head&gt;</code> so that the scripts don't block loading of the body. Enclose such
+scripts within a <code>&lt;div&gt;</code> element with id <code>before-end-of-body</code>, as in <code>&lt;div id=&quot;before-end-of-body&quot;&gt;&lt;script async src=&quot;js/app.js&quot;&gt;&lt;/script&gt;&lt;/div&gt;</code>.</li>
+</ul>
+<p>To apply a template, edit <code>apply_template.js</code> so that the <code>TEMPLATE</code> constant is
+pointing to the desired template. Then start a Node command prompt and run <code>node apply_template.js</code>. This script requires <a href="https://nodejs.org/en/download/">Node.js</a> and <a href="https://github.com/cheeriojs/cheerio">cheerio</a>.</p>
+<h2>Creating Icons</h2>
+<p><a href="https://realfavicongenerator.net/">RealFaviconGenerator</a> was used to create the various icons and browserconfig.xml. To make your own icons, I suggest starting with a single image file 512x512 pixels in size.</p>
+<p>You'll probably want to manually edit favicon-16x16.png and favicon-32x32.png, or else they may look blurry when rescaled from 512x512.  You'll also want to edit favicon.ico (Chrome uses this, for example) since it includes those smaller sizes embedded within it. If you don't already have an editor which handles *.ico files, try <a href="https://redketchup.io/icon-editor">redketchup's Icon Editor</a> as it lets you upload the 16x16 and 32x32 images that you just manually created, to replace those sizes in favicon.ico.</p>
+<h2>Background Videos</h2>
+<p>For videos played in the background, you need to:</p>
+<ol>
+<li>Make sure the video looks good at various window sizes including those for mobile devices. Basically this means the interesting content shouldn't be only on the sides of the video.</li>
+<li>Remove audio.</li>
+<li>Trim it to just the quality content.</li>
+<li>Make it as small as possible.</li>
+<li>Extract the first frame as an image to use while the video is loading in a browser.</li>
+</ol>
+<p>You can accomplish this to a basic degree using a Windows 10 software stack.</p>
+<h3>Editing videos using basic Windows 10 software</h3>
+<p>To remove audio:</p>
+<ol>
+<li>Use https://www.audioremover.com/ to remove the audio.</li>
+</ol>
+<p>To trim and make small:</p>
+<ol>
+<li>Right-click the resulting video in File Explorer, point to Open with, and click Photos.</li>
+<li>Click Edit &amp; Create &gt; Trim.</li>
+<li>Trim the video and click Save as.  The Photos app doesn't save at a high bitrate, so you'll likely also reduce file size in this step.  You have no control over this.</li>
+</ol>
+<p>To extract the first frame:</p>
+<ol>
+<li>Right-click the resulting video in File Explorer, point to Open with, and click Photos.</li>
+<li>Click Edit &amp; Create &gt; Save photos.</li>
+<li>Move the slider to the beginning of the video.</li>
+<li>Click Save a photo.</li>
+</ol>
+<h3>Editing videos using downloaded software</h3>
+<p>For more control over the output bitrate, or to add effects such as filters, overlays, and subtitles, you'll need to install video editing software.  Tim tested a few and likes the free and open-source cross-platform Shotcut.  For tips on reducing bitrate by tweaking Shotcut's many output options, see this <a href="https://www.reddit.com/r/shotcut/comments/4hxsi3/encoding_help/">Reddit thread on encoding</a>.
+The key tip was to customize the average bitrate. Tim tried 512 kbps, and this resulted in a file of size 3.9 MB, compared to size 4.8 MB using the basic Windows workflow. The original file size for Tim's test was 16.6 MB.  The right value depends on the video, as you may want to preserve more quality in some videos.</p>
+<p>Basic Shotcut procedure to export video:</p>
+<ol>
+<li>View the Details tab of the video properties in File Explorer to see the video dimensions, bitrate, and frame rate.</li>
+<li>Open video with Shotcut and trim it.</li>
+<li>Click Export.</li>
+<li>Select the Stock &gt; H.264 High Profile preset.</li>
+<li>Click Advanced.</li>
+<li>On the Audio tab, disable audio.</li>
+<li>On the Codec tab, in the Rate control box, choose Average bitrate.</li>
+<li>Choose an average bitrate. Try 512 kb/s and go from there.</li>
+<li>Click Export File.</li>
+</ol>
+<p>Tim says no to these programs, mostly because he couldn't figure out how to effectively reduce bitrate:</p>
+<ul>
+<li>Lightworks</li>
+<li>Avidemux</li>
+<li>HitFilm Express</li>
+</ul>
+<h2>Deployment on Netlify</h2>
+<p>BLE uses Netlify for free hosting.</p>
+<p>A nice feature of Netlify is live previews of branches and pull requests. To see a preview of a branch, input the branch name, two dashes, and then your raw Netlify URL, which is <code>eager-sammet-b7ed61.netlify.com/</code> for BLE. For example, if a branch is called <code>cool-stuff</code>, the URL would be <code>https://cool-stuff--eager-sammet-b7ed61.netlify.com/</code>.</p>
