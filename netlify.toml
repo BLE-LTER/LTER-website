@@ -9,11 +9,13 @@ package = "netlify-plugin-checklinks"
 
 [[plugins]]
 package = "netlify-plugin-a11y"
+  [plugins.inputs]
+   resultMode = "warn"
 
 [[plugins]]
 package = "@algolia/netlify-plugin-crawler"
 
-   [plugins.inputs]
+  [plugins.inputs]
   branches = ['master', 'algolia']
   mainBranch = "algolia"
   disabled = false
