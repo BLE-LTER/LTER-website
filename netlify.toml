@@ -10,5 +10,15 @@ package = "netlify-plugin-checklinks"
 [[plugins]]
 package = "netlify-plugin-a11y"
 
+[[plugins]]
+package = "@algolia/netlify-plugin-crawler"
    [plugins.inputs]
    resultMode = "warn"
+
+   [plugins.inputs]
+  branches = ['master', 'algolia']
+  disabled = false
+  pathPrefix = "/public"
+  customDomain = "ble.lternet.edu"
+  renderJavaScript = false
+  template = "hierarchical"
