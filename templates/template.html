@@ -20,6 +20,8 @@
    <link rel="manifest" href="/site.webmanifest?v=rMqzlp2Rno">
    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=rMqzlp2Rno" color="#0d3760">
    <link rel="shortcut icon" href="/favicon.ico?v=rMqzlp2Rno">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
+
    <meta name="msapplication-TileColor" content="#2b5797">
    <meta name="theme-color" content="#0d3760">
    <!-- End Common Head -->
@@ -163,6 +165,24 @@
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
       <script async src="js/app.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+<script type="text/javascript">
+
+  algoliasearchNetlify({
+
+    appId: 'TCXC3S30W1',
+
+    apiKey: '4192e022ca7324b819c06709a91b57e9',
+
+    siteId: '84d8b51e-beb6-4843-bee0-a636ab45efe9',
+
+    branch: 'algolia',
+
+    selector: 'div#search',
+
+  });
+
+</script>
    </div>
 </body>
 
