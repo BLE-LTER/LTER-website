@@ -25,7 +25,9 @@ body {
 
 /* algolia search bar follows header */
 .aa-Panel {
+  @media (min-width: 767.98px){
   position: fixed !important;
+}
 }
  
 /* widens search form */
