@@ -155,6 +155,11 @@ nav {
   font-style: italic;
 }
 
+/* algolia search bar follows header */
+.aa-Panel {
+position: fixed;
+}
+
 nav .btn {
   color: #000;
   border-color: #fff;
