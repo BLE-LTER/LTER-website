@@ -23,6 +23,11 @@ body {
   overflow-x: hidden;
 }
 
+/* algolia search bar follows header */
+.aa-Panel {
+  position: fixed !important;
+}
+
 .container-small {
   /*margin-top: 5rem;*/
   max-width: 960px;
@@ -155,10 +160,7 @@ nav {
   font-style: italic;
 }
 
-/* algolia search bar follows header */
-.aa-Panel {
-position: fixed;
-}
+
 
 nav .btn {
   color: #000;
