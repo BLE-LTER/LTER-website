@@ -27,6 +27,11 @@ body {
 .aa-Panel {
   position: fixed !important;
 }
+ 
+/* widens search form */
+.aa-Form{
+  min-width: 250px !important;
+}
 
 .container-small {
   /*margin-top: 5rem;*/
