@@ -18,22 +18,7 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/people</loc>
-  <lastmod>2020-05-27T20:45:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ble.lternet.edu/media</loc>
-  <lastmod>2020-05-27T20:45:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ble.lternet.edu/contact</loc>
-  <lastmod>2020-05-27T20:45:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ble.lternet.edu/research</loc>
+  <loc>https://ble.lternet.edu/bibliography</loc>
   <lastmod>2020-05-27T20:45:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -43,7 +28,37 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://ble.lternet.edu/contact</loc>
+  <lastmod>2020-05-27T20:45:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://ble.lternet.edu/ims</loc>
+  <lastmod>2020-05-27T20:45:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/media</loc>
+  <lastmod>2020-05-27T20:45:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/partner</loc>
+  <lastmod>2021-01-21T18:19:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/people</loc>
+  <lastmod>2020-05-27T20:45:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/outreach</loc>
+  <lastmod>2020-05-27T20:45:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/research</loc>
   <lastmod>2020-05-27T20:45:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -53,15 +68,8 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/bibliography</loc>
-  <lastmod>2020-05-27T20:45:13+00:00</lastmod>
+  <loc>https://ble.lternet.edu/student</loc>
+  <lastmod>2021-01-21T18:19:38+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-<url>
-  <loc>https://ble.lternet.edu/outreach</loc>
-  <lastmod>2020-05-27T20:45:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
 </urlset>

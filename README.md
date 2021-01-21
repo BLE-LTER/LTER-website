@@ -9,13 +9,11 @@ This project contains an example [Long Term Ecological Research](https://lternet
 * Responsive design and navigation bar using Bootstrap
 * Bibliography database using Zotero
 * Dataset search using [PASTA](https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client)
-* Local site search using [Lunr](https://github.com/BLE-LTER/Lunr-Index-and-Search-for-Static-Sites)
+* Site search using [Algolia](https://github.com/algolia/algoliasearch-netlify)
 * Progressive Web App (though not that useful for us presently)
 * https://simplesharingbuttons.com/ for sharing buttons
 
 ## About this pile of files
-
-`build_index.js` is used to build the search index. It is modified from https://github.com/twhiteaker/Lunr-Index-and-Search-for-Static-Sites. Using node.js, you would run `build_index.js` after every time you updated site content to rebuild the search index, and copy the resulting `lunr_index.js` into the `public/js` folder.
 
 `apply_template.js` is used to update the header or footer for all HTML files
 from a template file. See more about templates below.
@@ -120,3 +118,98 @@ Tim says no to these programs, mostly because he couldn't figure out how to effe
 BLE uses Netlify for free hosting.
 
 A nice feature of Netlify is live previews of branches and pull requests. To see a preview of a branch, input the branch name, two dashes, and then your raw Netlify URL, which is `eager-sammet-b7ed61.netlify.com/` for BLE. For example, if a branch is called `cool-stuff`, the URL would be `https://cool-stuff--eager-sammet-b7ed61.netlify.com/`.
+
+## Site search by Algolia
+
+Here we document the nitty gritties of Algolia search on our website. 
+
+#### Why we like it
+
+We use it because of (1) automatic re-indexing triggered with every deployment of our website (a.k.a every push to the Github repository), (2) their instant search and fuzzy search feature.
+
+#### How to make it work
+
+First, go to https://github.com/algolia/algoliasearch-netlify/blob/master/docs/GettingStarted.md and read their getting started guide.
+
+These are steps we need to do.
+
+(1) Set up and indexing
+- Install the Algolia plugin for Netlify. Note that this is done not on the Netlify GUI, but on a different website specifically for Algolia X Netlify. Follow the link and directions in the Github guide. You will need the appropriate Netlify login.
+- Link up Algolia with the Netlify site you want. This is again done in the Algolia x Netlify site.
+- Modify the Algolia plugin settings in the Netlify config file "netlify.toml". One finds this in the base directory of the website git repo. See https://github.com/algolia/algoliasearch-netlify/tree/master/plugin#available-parameters for the available parameters. The ones I've found most relevant: 
+	- "pathPrefix". This should be the same as the Netlify "publish" directory, which in our case is "/public".
+	- "customDomain". This matters a lot if you are on a fork or a branch, which means the URL you're checking is not our canonical ble.lternet.edu referred to in the sitemap and in HTML header canonicals, and will lead to lots of indexing failures. In which case, set this to "ble.lternet.edu". No "https".
+	- "branches". Algolia can create different indices for different branches on the git repo, but it needs to be told specifically which ones. If you're experimenting on a different branch other than master, say "['master', 'yourbranchname']" and delete the latter once merged into master.
+	- "template". This determines how Algolia will break up the index records. There are two options as of 2021-01-21: "default" and "hierarchical". The former will index by page, the latter by headings within a page. We chose the latter, since our website has comparatively few pages but a lot of information within each page.
+- Check out and make sure the indexing of the website contents is to satisfaction. To do this, trigger a deployment of the Netlify site. Generally a new commit to the git repo will accomplish this, so consider doing this on a branch. Or alternatively trigger a deployment manually in the Netlify GUI, since you're most likely logged in for most of this anyway. Under the deployment log, if Algolia and Netlify have been linked up correctly, the log will give you a URL to the crawler records. Follow the link and check out the records. The "successful" count should roughly be equal to the number of distinct pages we have, plus one for the sitemap. Don't worry about the "ignored" category; my understanding is that Algolia does the indexing based on our sitemap, and it will look for common sitemap naming schemes; whatever doesn't work go into "ignored". 
+
+(2) Incorporate Algolia into front end 
+
+- Algolia has a plug-and-play front-end and this is what we use. It looks great, although the search result panel has a small, unobstrusive Algolia logo. Not ideal, but not bad. There is the option to write one's own front end.
+
+- Copy the snippet of info Algolia gives you once you've linked Netlify with Algolia. It will look something like this, with the IDs and API key identifying our site.
+
+```
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+
+<script type="text/javascript">
+
+  algoliasearchNetlify({
+
+    appId: '',
+
+    apiKey: '',
+
+    siteId: '',
+
+    branch: 'master',
+
+    selector: 'div#search',
+
+  });
+
+</script>
+```
+
+- Double check to make sure the IDs and API key are correct and refer to the appropriate Netlify page. There are two API keys Algolia will give you, the searchAPI is ok to put in public code, and the other is super not ok. Make sure it's not the latter in the snippet. If you copy from the site that risk is minimal. 
+
+- Double check that the "branch" param in the snippet says the correct branch(es). Yes, the branches need to be specified in both the `netlify.toml` file and here.
+
+- Edit the selector if needed.
+
+- In our page template (`templates/template.html` in base git directory), copy and paste the first line into the HTML header. Copy and paste the `<script>` tag into the "end of body" div we have for scripts. 
+
+- Add the selector (the default case is a div with a "search" ID attribute) where you want a search box to go in the template. We normally have it on the navbar.
+
+- Run `apply_template.js` to apply the template.
+
+- Git commit and push to trigger deployment. Check out your handiwork and adjust if needed.
+
+#### Misc. observations and notes
+
+1. Formatting headers
+
+A nice feature of the "hierarchical" indexing is that once users select a search result from the drop-down result panel, they will be taken directly to the corresponding section. This is pretty neat. To make this happen, the underlying markers need to be in HTML source code. 
+
+This indexing by Algolia relies on headings (`<h1>` to `<h6>` HTML tags). Each heading will need to have its own ID attribute. E.g. `<h1 id="title"> title </h1>`.
+
+Keep this in mind when adding content.
+  
+2. Internal "SEO"
+
+Think about logical breaks in content so that headings (and therefore searchable "sections") can be strategically placed. What will users search for on our site? The spots where headings are customarily placed in a page are a good start.
+
+3. Commitments and usage limits
+
+The free tier we get with Algolia and Netlify allows for 20 monthly "commitments". According to their website, a commitment equals to 1000 searches and 1000 records. We are probably not in any danger, but it is something to look out for. 
+Algolia will also send usage reports to the email address associated with the Netlify page. This report details keywords used and their frequencies, etc., and whether there were any keywords that resulted in no hits. This latter especially would be useful to think about new content or SEO.
+
+4. CSS mods
+
+There are two minor modifications in CSS I made; otherwise we lifted their front-end wholesale. 
+
+- min-width for the class ".aa-Form" was set to 250px, originally 150px. This is the search box.
+- position for the class ".aa-Panel" was set to fixed, so that the search results panel does not disappear once we scroll down the page. 
+- both needed the !important declaration to override Algolia's styling.
