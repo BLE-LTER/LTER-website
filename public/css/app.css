@@ -7,6 +7,7 @@
 
 html {
   font-size: 1rem; 
+  scroll-padding-top: 60px;
 }
 
 body {
@@ -20,6 +21,16 @@ body {
   height: 100%;
   font-family: 'Libre Franklin', sans-serif;
   overflow-x: hidden;
+}
+
+/* algolia search bar follows header */
+.aa-Panel {
+  position: fixed !important;
+}
+ 
+/* widens search form */
+.aa-Form{
+  min-width: 250px !important;
 }
 
 .container-small {
@@ -153,6 +164,8 @@ nav {
 :-ms-input-placeholder {
   font-style: italic;
 }
+
+
 
 nav .btn {
   color: #000;

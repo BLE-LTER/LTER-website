@@ -20,6 +20,8 @@
    <link rel="manifest" href="/site.webmanifest?v=rMqzlp2Rno">
    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=rMqzlp2Rno" color="#0d3760">
    <link rel="shortcut icon" href="/favicon.ico?v=rMqzlp2Rno">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css">
+
    <meta name="msapplication-TileColor" content="#2b5797">
    <meta name="theme-color" content="#0d3760">
    <!-- End Common Head -->
@@ -68,19 +70,15 @@
                   <li class="nav-item"><a class="nav-link" href="bibliography.html">Publications</a></li>
                   <li class="nav-item"><a class="nav-link" href="outreach.html">Outreach</a></li>
                </ul>
-               <form>
-                  <div class="input-group">
-                     <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control" type="search" placeholder="Search this site..." aria-label="Search">
-                     <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit" title="Submit Search" aria-label="Submit Search"><i class="fas fa-search"></i></button>
+                  <div id="search">
                   </div>
-               </form>
             </div>
          </div>
       </nav>
    </header>
 
    <div class="container container-small">
-      <h1 class="page-title hyphenate">About BLE LTER</h1>
+      <h1 class="page-title hyphenate" id="lead">About BLE LTER</h1>
       <br>
       <figure class="figure m-0">
                   <picture class="text-center">
@@ -124,18 +122,18 @@
       <br>
       <hr>
       <br>
-      <h2>Policies</h2>
+      <h2 id="policies">Policies</h2>
       <button class="btn btn-lg btn-outline-primary m-1"><a rel="external noopener" target="_blank" href="https://utexas.box.com/v/BLE-DEI-Plan">Diversity, Equity, and Inclusion Plan</a></button>
       <button class="btn btn-lg btn-outline-primary m-1"><a rel="external noopener" target="_blank" href="https://utexas.box.com/v/ble-authorship-policy">Authorship Policy</a></button>
       <br><br>
-      <h3>Data Release, Access, and Use</h3>
+      <h3 id="data">Data Release, Access, and Use</h3>
       <p class="lead">BLE follows <a href="https://lternet.edu/data-access-policy/" target="_blank" rel="external noopener">LTER
             Data Policies</a>, which typically means data are made publicly available within two years of collection.
          Each dataset includes metadata describing the data use agreement, the two most common for our case being CC BY
          (free to use with attribution) and CC0 (public domain). You can find data
          in our <a href="catalog.html">Data Catalog</a>.</p>
       <br>
-      <h3>Conduct</h3>
+      <h3 id="conduct">Conduct</h3>
       <p class="lead">BLE personnel are expected to abide by the following policies to promote a fair, ethical, and
          productive organization.</p>
       <button class="btn btn-lg btn-outline-primary m-1"><a rel="external noopener" target="_blank" href="https://utexas.box.com/v/BLE-Code-of-Conduct">Code of Conduct</a></button>
@@ -217,6 +215,24 @@
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
       <script async src="js/app.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+<script type="text/javascript">
+
+  algoliasearchNetlify({
+
+    appId: 'TCXC3S30W1',
+
+    apiKey: '4192e022ca7324b819c06709a91b57e9',
+
+    siteId: '84d8b51e-beb6-4843-bee0-a636ab45efe9',
+
+    branch: 'algolia',
+
+    selector: 'div#search',
+
+  });
+
+</script>
    </div>
    <script async src="js/overview_map.js"></script>
 

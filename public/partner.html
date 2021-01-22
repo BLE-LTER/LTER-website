@@ -20,6 +20,8 @@
    <link rel="manifest" href="/site.webmanifest?v=rMqzlp2Rno">
    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=rMqzlp2Rno" color="#0d3760">
    <link rel="shortcut icon" href="/favicon.ico?v=rMqzlp2Rno">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css">
+
    <meta name="msapplication-TileColor" content="#2b5797">
    <meta name="theme-color" content="#0d3760">
    <!-- End Common Head -->
@@ -46,7 +48,13 @@
                         <a class="dropdown-item" href="contact.html">Contact Us</a>
                      </div>
                   </li>
-                  <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="researchDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Research</a>
+                     <div class="dropdown-menu" aria-labelledby="researchDropdownMenuLink">
+                        <a class="dropdown-item" href="research.html">Research Overview</a>
+                        <a class="dropdown-item" href="student.html">Student Research</a>
+                     </div>
+                  </li>
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data</a>
                      <div class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
@@ -59,23 +67,19 @@
                   <li class="nav-item"><a class="nav-link" href="bibliography.html">Publications</a></li>
                   <li class="nav-item"><a class="nav-link" href="outreach.html">Outreach</a></li>
                </ul>
-               <form>
-                  <div class="input-group">
-                     <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control" type="search" placeholder="Search this site..." aria-label="Search">
-                     <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit" title="Submit Search" aria-label="Submit Search"><i class="fas fa-search"></i></button>
+                  <div id="search">
                   </div>
-               </form>
             </div>
          </div>
       </nav>
    </header>
    <!-- Main content -->
    <div class="container container-small">
-      <h1 class="page-title hyphenate">Partner Projects</h1>
+      <h1 class="page-title hyphenate" id="partner">Partner Projects</h1>
       <br>
       <hr>
       <br>
-      <h2>Alaska Ocean Observing System</h2>
+      <h2 id="aoos">Alaska Ocean Observing System</h2>
       <div class="row mb-5">
          <div class="col-lg-7">
          <p class="lead">
@@ -163,5 +167,24 @@
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
       <script async src="js/app.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+<script type="text/javascript">
+
+  algoliasearchNetlify({
+
+    appId: 'TCXC3S30W1',
+
+    apiKey: '4192e022ca7324b819c06709a91b57e9',
+
+    siteId: '84d8b51e-beb6-4843-bee0-a636ab45efe9',
+
+    branch: 'algolia',
+
+    selector: 'div#search',
+
+  });
+
+</script>
    </div>
+
 </body></html>
