@@ -459,6 +459,7 @@ function errorCallback() {
 
 // Writes CORS request URL to the page so user can see it
 function showUrl(url) {
+   console.log(url);
    var txt = '<a href="' + url + '" target="_blank">' + url + '</a>';
    setHtml(PASTA_CONFIG["urlElementId"], txt);
 }
@@ -625,6 +626,21 @@ window.onload = function () {
             return '"' + text + '"';
       }
 
+      function isPackageId(text) {
+         // e.g., knb-lter-ble.1.7
+
+         function isNumeric(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+         }
+
+         if (text.startsWith("knb-lter-ble.")) {
+            text = text.substring(13);
+            if (isNumeric(text))
+               return true;
+         }
+         return false;
+      }
+
       var base = PASTA_CONFIG["server"];
       var fields = ["title",
          "pubdate",
@@ -636,12 +652,21 @@ window.onload = function () {
       if (coreArea && coreArea !== "any") {
          params += '&fq=keyword:"' + coreArea + '"';
       }
-      var query = "&q=" + userQuery;
+
+      // Check for package identifier
+      var query = "";
+      if (isPackageId(userQuery))
+         query = "&q=*+AND+(packageid:" + userQuery + "+id:" + userQuery + ")";
+      else
+         query = "&q=" + userQuery;
+
+
       if (creator) query += "+AND+(author:" + addQuotes(creator) + "+OR+organization:" + addQuotes(creator) + ")";
-      if (pkgId) {
-         pkgId = pkgId.replace(":", "%5C:");
-         query += "+AND+(doi:" + pkgId + "+packageid:" + pkgId + "+id:" + pkgId + ")";
-      }
+      //// Commented out since we're getting package ID from search box
+      // if (pkgId) {
+      //    pkgId = pkgId.replace(":", "%5C:");
+      //    query += "+AND+(doi:" + pkgId + "+packageid:" + pkgId + "+id:" + pkgId + ")";
+      // }
       if (taxon) query += "+AND+taxonomic:" + addQuotes(taxon);
       if (geo) query += "+AND+geographicdescription:" + addQuotes(geo);
       var dateQuery = makeDateQuery(sYear, eYear, datayear, pubyear);
