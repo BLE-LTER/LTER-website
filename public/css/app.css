@@ -399,3 +399,17 @@ ul.share-buttons img {
 .dataset-author {
   color: #6c757d;
 }
+
+/* by the numbers styling */
+
+.faux-h4 {
+  font-size: 1.5rem; 
+  line-height: 1.3; 
+  margin-bottom: .5rem;
+}
+
+.faux-h2 {
+  font-size: 2.5rem;
+  line-height: 1.3; 
+  margin-bottom: .5rem;
+}
