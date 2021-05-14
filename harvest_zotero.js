@@ -157,9 +157,9 @@ function parseZoteroResults(results) {
             var j = i + 1;
             if (doi.startsWith("https://doi.org/")) {
                if (dois.length == 1) {
-                  links.push(' <a href="' + doi + '" target="_blank" rel="noopener">Data link.</a>');
+                  links.push(' <a href="' + doi + '" target="_blank" rel="noopener" aria-label="open data in new tab">Data link.</a>');
                } else {
-               links.push(' <a href="' + doi + '" target="_blank" rel="noopener">Data link ' + j + '.</a>');
+               links.push(' <a href="' + doi + '" target="_blank" rel="noopener" aria-label="open data in new tab">Data link ' + j + '.</a>');
                }
             }
          }
@@ -172,12 +172,12 @@ function parseZoteroResults(results) {
    function parseItemLink(item) {
       if (item["DOI"]) {
          if (item["DOI"].startsWith("http")) {
-            return '<a href="' + item["DOI"] + '" target="_blank" rel="noopener">Item link.</a>';
+            return '<a href="' + item["DOI"] + '" target="_blank" rel="noopener" aria-label="open item in new tab">Item link.</a>';
          } else {
-            return '<a href="https://doi.org/' + item["DOI"] + '" target="_blank" rel="noopener">Item link.</a>';
+            return '<a href="https://doi.org/' + item["DOI"] + '" target="_blank"  rel="noopener"  aria-label="open item in new tab">Item link.</a>';
          }
       } else if (item["url"])
-         return '<a href="' + item["url"] + '" target="_blank" rel="noopener">Item link.</a>';
+         return '<a href="' + item["url"] + '" target="_blank" rel="noopener"  aria-label="open item in new tab">Item link.</a>';
       else
          return "";
    }
