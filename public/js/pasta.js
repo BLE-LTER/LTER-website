@@ -215,7 +215,7 @@ function buildHtml(citations) {
       var date = (citation["pub_year"]) ? " Published " + citation["pub_year"] + "" : "";
       // default ESIP formatting has trailing period after DOI
       var link = (citation["doi"]) ? citation["doi"].slice(0, -1) : "https://portal.edirepository.org/nis/mapbrowse?packageid=" + citation["pid"];
-      var title = '<a rel="external noopener" href="' + link + '" target="_blank">' + citation["title"] + '</a>';
+      var title = '<a rel="external noopener" href="' + link + '" target="_blank" aria-label="open data in new tab">' + citation["title"] + '</a>';
       var row = '<p><span class="dataset-title">' + title +
          '</span><br><span class="dataset-author">' + authors + date +
          '</span></p>';
@@ -305,7 +305,7 @@ function buildCitationsFromPasta(pastaDocs) {
          link = ("https://portal.edirepository.org/nis/mapbrowse?packageid=" +
             doc.getElementsByTagName("packageid")[0].childNodes[0].nodeValue);
       }
-      var title = '<a rel="external noopener" href="' + link + '" target="_blank">' +
+      var title = '<a rel="external noopener" href="' + link + '" target="_blank" aria-label="open data in new tab">' +
          doc.getElementsByTagName("title")[0].childNodes[0].nodeValue.trim() + '</a>';
       var row = '<p><span class="dataset-title">' + title +
          '</span><br><span class="dataset-author">' + names + date +
@@ -460,7 +460,7 @@ function errorCallback() {
 // Writes CORS request URL to the page so user can see it
 function showUrl(url) {
    console.log(url);
-   var txt = '<a href="' + url + '" target="_blank">' + url + '</a>';
+   var txt = '<a href="' + url + '" target="_blank" aria-label="open link in new tab">' + url + '</a>';
    setHtml(PASTA_CONFIG["urlElementId"], txt);
 }
 
