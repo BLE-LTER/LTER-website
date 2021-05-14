@@ -213,3 +213,10 @@ There are two minor modifications in CSS I made; otherwise we lifted their front
 - min-width for the class ".aa-Form" was set to 250px, originally 150px. This is the search box.
 - position for the class ".aa-Panel" was set to fixed, so that the search results panel does not disappear once we scroll down the page. 
 - both needed the !important declaration to override Algolia's styling.
+
+## Accessibility features
+
+To maintain WCAG compliance, pay attention to the following when updating the website:
+
+- Add "aria-label" attributes to links that open in a new tab. This label should say what's opening, and that it's opening in a new tab. 
+- If you're adding a section with a title of some sort, and using heading tags, pay attention to the hierarchy of headings already in the document. Consistency of headings dictate that (1) documents have one and only one h1 heading, and (2) the structure is consistent, and (3) text that stylistically appear as headers (bolded, large size) should actually be headers and make sense that way (i.e. don't apply styles to paragraph text that make them appear to be headers, font-weight is an especially important property here). 
