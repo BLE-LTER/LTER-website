@@ -460,7 +460,7 @@ function errorCallback() {
 // Writes CORS request URL to the page so user can see it
 function showUrl(url) {
    console.log(url);
-   var txt = '<a href="' + url + '" target="_blank">' + url + '</a>';
+   var txt = '<a href="' + url + '" target="_blank" aria-label="open link in new tab">' + url + '</a>';
    setHtml(PASTA_CONFIG["urlElementId"], txt);
 }
 
