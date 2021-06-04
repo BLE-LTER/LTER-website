@@ -9,8 +9,7 @@
    <meta name="author" content="An T. Nguyen">
    <meta name="viewport" content="width=device-width, initial-scale=1.0,
    shrink-to-fit=no">
-   <link rel="dns-prefetch" href="https://unpkg.com">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
    <link rel="stylesheet" href="css/app.css">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -34,50 +33,50 @@
     </a>
       <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white py-1 px-2">
          <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-               aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-            </button>
             <a class="navbar-brand" title="BLE Home Page" href="index.html"><img
             src="img/logo-round-rgb.png" style="max-height: 40px;" alt="BLE home
             page link"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-               <ul class="navbar-nav mr-auto">
+               <ul class="navbar-nav me-auto">
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-toggle="dropdown"
+                     <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" role="button">About</a>
-                     <div class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
-                        <a class="dropdown-item" href="about.html">Project Overview</a>
-                        <a class="dropdown-item" href="people.html">Team</a>
-                        <a class="dropdown-item" href="partner.html">Partner Projects</a>
-                        <a class="dropdown-item" href="media.html">Media Coverage</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="contact.html">Contact Us</a>
-                     </div>
+                     <ul class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
+                        <li><a class="dropdown-item" href="about.html">Project Overview</a></li>
+                        <li><a class="dropdown-item" href="people.html">Team</a></li>
+                        <li><a class="dropdown-item" href="partner.html">Partner Projects</a></li>
+                        <li><a class="dropdown-item" href="media.html">Media Coverage</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
+                     </ul>
                   </li>
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="researchDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" role="button">Research</a>
-                     <div class="dropdown-menu" aria-labelledby="researchDropdownMenuLink">
-                        <a class="dropdown-item" href="research.html">Research Overview</a>
-                        <a class="dropdown-item" href="student.html">Student Research</a>
-                     </div>
+                     <a class="nav-link dropdown-toggle" href="#" id="researchDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Research
+                     </a>
+                     <ul class="dropdown-menu" aria-labelledby="researchDropdownMenuLink">
+                        <li><a class="dropdown-item" href="research.html">Research Overview</a></li>
+                        <li><a class="dropdown-item" href="student.html">Student Research</a></li>
+                     </ul>
                   </li>
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" role="button">Data</a>
-                     <div class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
-                        <a class="dropdown-item" href="catalog.html">Data Catalog</a>
-                        <a class="dropdown-item" href="ims.html">Information Management</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="submitdata.html">Submit Data</a>
-                     </div>
+                     <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Data
+                     </a>
+                     <ul class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
+                        <li><a class="dropdown-item" href="catalog.html">Data Catalog</a></li>
+                        <li><a class="dropdown-item" href="ims.html">Information Management</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="submitdata.html">Submit Data</a></li>
+                     </ul>
                   </li>
                   <li class="nav-item"><a class="nav-link" href="bibliography.html">Publications</a></li>
                   <li class="nav-item"><a class="nav-link" href="outreach.html">Outreach</a></li>
                </ul>
-                  <div id="search">
-                  </div>
+               <div id="search"></div>
             </div>
          </div>
       </nav>
@@ -98,13 +97,18 @@
                            Science Foundation</a> under award #1656026 (2017-08-01 to 2022-07-31). Any opinions,
                            findings, conclusions, or recommendations expressed in the material are those of the
                            author(s) and do not necessarily reflect the views of the National Science Foundation.</small></p>
-                     <button class="btn btn-outline-primary border-white m-2"><a rel="external noopener" href="https://utexas.app.box.com/folder/7974766549" target="_blank" class="text-white" style="text-decoration: none;" aria-label="open internal sharing site in a new tab">Internal file sharing site</a></button>
-                     <button class="btn btn-outline-primary border-white m-2" aria-label="Facebook button">
-                        <a href="https://facebook.com/arcticlagoons" rel="external noopener" target="_blank" title="BLE on Facebook" aria-label="open Facebook in new tab">
+                     <button class="btn btn-outline-primary border-white m-2 footer-button">
+                        <a rel="external noopener" href="https://utexas.app.box.com/folder/7974766549" target="_blank" class="text-white" 
+                        aria-label="open internal sharing site in a new tab">Internal file sharing site</a>
+                     </button>
+                     <button class="btn btn-outline-primary border-white m-2 footer-button" aria-label="Facebook button">
+                        <a href="https://facebook.com/arcticlagoons" rel="external noopener" target="_blank" title="BLE on Facebook" 
+                        aria-label="open Facebook in new tab">
                            <i class="fab fa-facebook-f text-white"></i></a>
                      </button>
-                     <button class="btn btn-outline-primary border-white m-2" aria-label="Twitter button">
-                        <a href="https://twitter.com/ArcticLagoons" rel="external noopener" target="_blank" title="BLE on Twitter" aria-label="open Twitter in new tab">
+                     <button class="btn btn-outline-primary border-white m-2 footer-button" aria-label="Twitter button">
+                        <a href="https://twitter.com/ArcticLagoons" rel="external noopener" target="_blank" title="BLE on Twitter" 
+                        aria-label="open Twitter in new tab">
                            <i class="fab fa-twitter text-white"></i></a>
                      </button>
                   </div>
@@ -118,10 +122,10 @@
                   </div>
                   <div class="col-sm-6 col-lg-3">
                      <h3 class="h4">See Also</h3>
-                     <p><a rel="external noopener" href="http://www.lternet.edu/">LTER Network Homepage</a></p>
-                     <p><a rel="external noopener" href="http://www.lternet.edu/site/">LTER Network Sites</a></p>
+                     <p><a rel="external noopener" href="https://www.lternet.edu/">LTER Network Homepage</a></p>
+                     <p><a rel="external noopener" href="https://www.lternet.edu/site/">LTER Network Sites</a></p>
                      <p>
-                        <a rel="external noopener" href="http://www.lternet.edu/">
+                        <a rel="external noopener" href="https://www.lternet.edu/">
                           <img src="img/LTER-network-square-sm.jpg" alt="LTER logo within link to LTER Network">
                         </a>
                         <a rel="external noopener" href="https://www.nsf.gov/">
@@ -134,7 +138,7 @@
          </div>
          <div class="container-fluid">
             <div class="container">
-               <div class="row footer-bottom text-center text-lg-left">
+               <div class="row footer-bottom text-center text-lg-start">
                   <div class="col-lg-8">
                      <p class="mb-1"><small>Above: the Alaska North Slope coastline along the Beaufort Sea. Except where
                            otherwise noted, material may be re-used under a <a
@@ -153,26 +157,17 @@
    </footer>
 
    <div id="before-end-of-body">
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
-<script type="text/javascript">
-
-  algoliasearchNetlify({
-
-    appId: 'TCXC3S30W1',
-
-    apiKey: '4192e022ca7324b819c06709a91b57e9',
-
-    siteId: '84d8b51e-beb6-4843-bee0-a636ab45efe9',
-
-    branch: 'algolia',
-
-    selector: 'div#search',
-
-  });
-
-</script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+      <script type="text/javascript">
+         algoliasearchNetlify({
+            appId: 'TCXC3S30W1',
+            apiKey: '4192e022ca7324b819c06709a91b57e9',
+            siteId: '84d8b51e-beb6-4843-bee0-a636ab45efe9',
+            branch: 'algolia',
+            selector: 'div#search',
+         });
+      </script>
    </div>
 </body>
 
