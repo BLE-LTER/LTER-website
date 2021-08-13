@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="en"><head>
-   <meta charset="utf-8">
-   <title>Publications | Beaufort Lagoon Ecosystems LTER</title>
-   <meta name="description" content="Publications, presentations, and other works created by the Beaufort Lagoon Ecosystems (BLE) Long Term Ecological Research (LTER) program">
-   <meta name="keywords" content="BLE publications, bibliography">
-   <link rel="canonical" href="https://ble.lternet.edu/bibliography.html">
-   <!-- Start Common Head -->
+    <meta charset="utf-8">
+    <title>BLE related datasets | Beaufort Lagoon Ecosystems LTER</title>
+    <meta name="description" content="Datasets related to the Beaufort Lagoon Ecosystems (BLE) Long Term Ecological Research (LTER) program">
+    <meta name="keywords" content="BLE related datasets">
+    <link rel="canonical" href="https://ble.lternet.edu/relateddata.html">
+    <!-- Start Common Head -->
    <meta http-equiv="x-ua-compatible" content="ie=edge">
    <meta name="author" content="Tim Whiteaker">
    <meta name="author" content="An T. Nguyen">
@@ -24,14 +24,10 @@
    <meta name="msapplication-TileColor" content="#2b5797">
    <meta name="theme-color" content="#0d3760">
    <!-- End Common Head -->
-   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-   <style>
-      #biblio_table a {color: #0067d6;}
-   </style>
 </head>
 
 <body>
-   <header>
+    <header>
    <a id="skip-nav" class="sr-only sr-only-focusable" href="#main-content">
       Skip Navigation or Skip to Content
     </a>
@@ -84,35 +80,16 @@
          </div>
       </nav>
    </header>
-
-   <main class="container" id="main-content">
-      <h1 class="page-title hyphenate">BLE LTER Publications</h1>
+   <!-- Main content -->
+   <main class="container container-small" id="main-content">
+      <h1 class="page-title hyphenate" id="partner">Related Data</h1>
       <br>
-      <p class="lead">Search our bibliography, or view <a href="https://www.zotero.org/groups/2211939/lter-ble/items" target="_blank" rel="noopener" title="BLE Zotero Group" aria-label="open BLE zotero library in new tab">our library on Zotero</a>.
-      </p>
-      <table id="biblio_table" class="display">
-         <thead>
-            <tr>
-               <th>Year</th>
-               <th>Citation</th>
-               <th>Type</th>
-               <th>Relationship</th>
-            </tr>
-         </thead>
-         <tbody>
-         </tbody>
-      </table>
+      <hr>
       <br>
-      <p class="lead">Is your publication not listed here? Contact our <a href="mailto:mctigue@utexas.edu?subject=BLE%20Publication&amp;body=Dear%20Nathan,%20will%20you%20please%20add%20this%20to%20our%20BLE%20Zotero%20Group?">project
-            manager</a> to add it to our BLE collection.</p>
-      <p class="lead">Publishing a paper funded via BLE? Please include
-         our site name and award number in the acknowledgments, as in:<br>
-         This work was supported by the Beaufort Lagoon Ecosystems Long Term
-         Ecological Research program (BLE LTER) under National Science
-         Foundation award #1656026.</p>
-   </main>
-
-   <footer class="text-white">
+      <p>Rawlins M; Connolly C; McClelland J (2021): Model estimates of dissolved organic carbon, runoff, snowmelt, and snow water equivalent from 1981-2010 across the western Arctic. Quantifying Variability and Controls of Riverine Dissolved Organic Carbon Exported to Arctic Coastal Margins of North America. <a href="https://doi.org/10.15485/1809256">doi:10.15485/1809256</a> </p>
+      <p>Dunton, K. H., C. E. Bonsell, K. Iken, C. F. Aumack, B. Konar, A. F. Muth, and S. V. Schonberg. 2020. Arctic Nearshore Impact Monitoring in the Development Area (ANIMIDA) III: The Boulder Patch and other Kelp Communities in the Development Area. Ecosystem monitoring data collected from the Boulder Patch, Stefansson Sound, Alaska (1976-2018).  Arctic Data Center. <a href="https://doi.org/10.18739/A27W67662">doi:10.18739/A27W67662</a> .</p>
+    </main>
+    <footer class="text-white">
       <img id="coastline" src="img/north_slope_coast.svg" alt="coastline" style="width: 100%;">
       <div id="footer-content">
          <div class="container-fluid">
@@ -179,8 +156,7 @@
          </div>
       </div>
    </footer>
-
-   <div id="before-end-of-body">
+    <div id="before-end-of-body">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
       <script type="text/javascript">
@@ -193,35 +169,6 @@
          });
       </script>
    </div>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
-   <script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js">
-   </script>
-   <script src="js/biblio-data.js"></script>
-   <script>
-      $(document).ready(function () {
-         $("#biblio_table").DataTable({
-            data: biblioData,
-            columns: [{
-                  data: "Date"
-               },
-               {
-                  data: "Citation"
-               },
-               {
-                  data: "Type"
-               },
-               {
-                  data: "Relationship"
-               }
-            ],
-            order: [
-               [3, "asc"],
-               [0, "desc"]
-            ],
-            pageLength: 100
-         });
-      });
-   </script>
 
 
 </body></html>
