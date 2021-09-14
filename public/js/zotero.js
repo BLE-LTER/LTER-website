@@ -172,7 +172,7 @@ function parseZoteroResults(resultText) {
 
    function parseItemLink(url) {
       if (url)
-         return '<a href="' + url + '" target="_blank" rel="noopener">Item link.</a>';
+         return '<a href="' + url + '" target="_blank" rel="noopener">Data link.</a>';
       else
          return "";
    }
