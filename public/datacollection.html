@@ -107,8 +107,10 @@
 
 <select id="timeSelect">
 	<option value="">Collection Type</option>
-	<option value="true">Yes</option>
-	<option value="false">No</option>
+	<option value="ongoing_timeseries">Ongoing time series</option>
+	<option value="completed_timeseries">Completed time series</option>
+	<option value="short_term_study">Short term study</option>
+	<option value="non_temporal">Time dimension not applicable</option>
 </select>
         <br>
         <br>
@@ -241,7 +243,9 @@
      $('#cpSelect').on('change', function(){ 
      	var selectedValue = $(this).val(); 
      	table.column(3).search(selectedValue).draw(); });
-
+	$('#timeSelect').on('change', function(){ 
+     	var selectedValue = $(this).val(); 
+     	table.column(4).search(selectedValue).draw(); });
       });
 
 </script>
