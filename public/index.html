@@ -1,21 +1,20 @@
 <!DOCTYPE html><html style="height: 100%;" lang="en" prefix="og: http://ogp.me/ns#"><head>
-   <meta charset="utf-8">
-   <title>Beaufort Lagoon Ecosystems LTER</title>
-   <meta name="description" content="A Long Term Ecological Research (LTER) program studying lagoon ecosystems along the northern Alaskan Arctic coastline in the Beaufort Sea">
-   <meta name="keywords" content="LTER, Beaufort Sea, Lagoon Ecosystem">
-   <link rel="canonical" href="https://ble.lternet.edu/">
-   <meta property="og:title" content="Beaufort Lagoon Ecosystems LTER">
-   <meta property="og:type" content="website">
-   <meta property="og:url" content="https://ble.lternet.edu/">
-   <meta property="og:image" content="https://ble.lternet.edu/img/seaice.jpg">
-   <!-- Start Common Head -->
+    <meta charset="utf-8">
+    <title>Beaufort Lagoon Ecosystems LTER</title>
+    <meta name="description" content="A Long Term Ecological Research (LTER) program studying lagoon ecosystems along the northern Alaskan Arctic coastline in the Beaufort Sea">
+    <meta name="keywords" content="LTER, Beaufort Sea, Lagoon Ecosystem">
+    <link rel="canonical" href="https://ble.lternet.edu/">
+    <meta property="og:title" content="Beaufort Lagoon Ecosystems LTER">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ble.lternet.edu/">
+    <meta property="og:image" content="https://ble.lternet.edu/img/seaice.jpg">
+    <!-- Start Common Head -->
    <meta http-equiv="x-ua-compatible" content="ie=edge">
    <meta name="author" content="Tim Whiteaker">
    <meta name="author" content="An T. Nguyen">
    <meta name="viewport" content="width=device-width, initial-scale=1.0,
    shrink-to-fit=no">
-   <link rel="dns-prefetch" href="https://unpkg.com">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
    <link rel="stylesheet" href="css/app.css">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=rMqzlp2Rno">
@@ -24,219 +23,244 @@
    <link rel="manifest" href="/site.webmanifest?v=rMqzlp2Rno">
    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=rMqzlp2Rno" color="#0d3760">
    <link rel="shortcut icon" href="/favicon.ico?v=rMqzlp2Rno">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css">
+
    <meta name="msapplication-TileColor" content="#2b5797">
    <meta name="theme-color" content="#0d3760">
    <!-- End Common Head -->
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin>
-   <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin></script>
-   <style>
-   
-   </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin>
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin></script>
+    <style>
+    </style>
 </head>
+
 <body>
-   <!-- Nav -->
-   <header>
+    <!-- Nav -->
+    <header>
+   <a id="skip-nav" class="sr-only sr-only-focusable" href="#main-content">
+      Skip Navigation or Skip to Content
+    </a>
       <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white py-1 px-2">
          <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-            </button>
             <a class="navbar-brand" title="BLE Home Page" href="index.html"><img src="img/logo-round-rgb.png" style="max-height: 40px;" alt="BLE home
             page link"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-               <ul class="navbar-nav mr-auto">
+               <ul class="navbar-nav me-auto">
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
-                     <div class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
-                        <a class="dropdown-item" href="about.html">Project Overview</a>
-                        <a class="dropdown-item" href="people.html">Team</a>
-                        <a class="dropdown-item" href="partner.html">Partner Projects</a>
-                        <a class="dropdown-item" href="media.html">Media Coverage</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="contact.html">Contact Us</a>
-                     </div>
+                     <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">About</a>
+                     <ul class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
+                        <li><a class="dropdown-item" href="about.html">Project Overview</a></li>
+                        <li><a class="dropdown-item" href="people.html">Team</a></li>
+                        <li><a class="dropdown-item" href="partner.html">Partner Projects</a></li>
+                        <li><a class="dropdown-item" href="media.html">Media Coverage</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
+                     </ul>
                   </li>
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="researchDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Research</a>
-                     <div class="dropdown-menu" aria-labelledby="researchDropdownMenuLink">
-                        <a class="dropdown-item" href="research.html">Research Overview</a>
-                        <a class="dropdown-item" href="student.html">Student Research</a>
-                     </div>
+                     <a class="nav-link dropdown-toggle" href="#" id="researchDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Research
+                     </a>
+                     <ul class="dropdown-menu" aria-labelledby="researchDropdownMenuLink">
+                        <li><a class="dropdown-item" href="research.html">Research Overview</a></li>
+                        <li><a class="dropdown-item" href="student.html">Student Research</a></li>
+                     </ul>
                   </li>
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data</a>
-                     <div class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
-                        <a class="dropdown-item" href="catalog.html">Data Catalog</a>
-                        <a class="dropdown-item" href="ims.html">Information Management</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="submitdata.html">Submit Data</a>
-                     </div>
+                     <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Data
+                     </a>
+                     <ul class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
+                        <li><a class="dropdown-item" href="catalog.html">Data Catalog</a></li>
+                        <li><a class="dropdown-item" href="relateddata.html">Related Data</a></li>
+                        <li><a class="dropdown-item" href="ims.html">Information Management</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="submitdata.html">Submit Data</a></li>
+                     </ul>
                   </li>
                   <li class="nav-item"><a class="nav-link" href="bibliography.html">Publications</a></li>
                   <li class="nav-item"><a class="nav-link" href="outreach.html">Outreach</a></li>
                </ul>
-               <form>
-                  <div class="input-group">
-                     <input id="siteSearchInput" onkeypress="siteSearchKeypress(event)" class="form-control" type="search" placeholder="Search this site..." aria-label="Search">
-                     <button onclick="return launchSiteSearch()" class="btn btn-outline-light" type="submit" title="Submit Search" aria-label="Submit Search"><i class="fas fa-search"></i></button>
-                  </div>
-               </form>
+               <div id="search"></div>
             </div>
          </div>
       </nav>
    </header>
-   <!-- banner video / logo / tagline -->
-   <div class="banner-panel">
-      <video class="background-video" poster="video/drone.jpg" autoplay="autoplay" loop="loop" muted="muted">
-         <source src="video/drone.mp4">
-      </video>
-      <div class="container d-flex align-items-center justify-content-center flex-row flex-wrap" style="z-index: 100; margin: auto; padding: auto; position: relative; top: 10vh;">
-         <img src="img/logo-square.png" style="max-height: 300px;" class="img-fluid" alt="BLE logo">
-         <div class="flex-grow-1 text-lg-left text-center text-white" style="flex-basis: 400px;" id="besides-logo">
-            <h1 id="tagline">We study ecosystem change where land meets sea at the top of the world</h1>
-         </div>
-      </div>
-   </div>
-   <!-- Main content -->
-   <div class="container-fluid bg-white">
-      <div class="row bg-logo-blue text-white py-rem7 px-rem1">
-         <div id="overview" class="container">
-            <p style="font-size: 2rem;">Beaufort Lagoon Ecosystems LTER is a new Long Term Ecological Research* site. We
-               use diverse methods to study <a href="#sites" class="text-white">lagoons and other aquatic sites</a> along the northern Alaskan Arctic coast. Our
-               interests include land/sea interactions in these unique ecosystems, their biogeochemical and biological makeup, their <a href="#seasons" class="text-white">seasonal dynamics and long-term changes</a>, and using our expertise to serve local communities.</p>
-            <button class="btn btn-light btn-lg m-1"><a href="about.html">More about us</a> </button>
-            <button class="btn btn-light btn-lg m-1"><a href="research.html">Our research </a> </button>
-            <button class="btn btn-light btn-lg m-1"><a href="#news">Project news</a></button>
+    <!-- banner video / logo / tagline -->
+    <div class="banner-panel" style="background-color: rgba(0, 0, 0, 0.2);">
+        <video class="background-video" poster="video/drone.jpg" autoplay="autoplay" loop="loop" muted="muted">
+            <source src="video/drone.mp4">
+        </video>
+        <div class="container d-flex align-items-center justify-content-center flex-row flex-wrap" style="z-index: 100; margin: auto; padding: auto; position: relative; top: 10vh;">
+            <img src="img/logo-square.png" style="max-height: 300px;" class="img-fluid" alt="BLE logo">
+            <div class="flex-grow-1 text-lg-left text-center text-white" style="flex-basis: 400px;" id="besides-logo">
+                <h1 id="tagline">We study ecosystem change where land meets sea at the top of the world</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Main content -->
+    <main class="container-fluid bg-white" id="main-content">
+        <div class="row bg-logo-blue text-white py-rem7 px-rem1">
+            <div id="overview" class="container" style="max-width: 1320px;">
+                <p style="font-size: 2rem;">Beaufort Lagoon Ecosystems LTER is a new Long Term Ecological Research* site. We
+                    use diverse methods to study <a href="#sites" class="text-white">lagoons and other aquatic sites</a> along the northern Alaskan Arctic coast. Our
+                    interests include land/sea interactions in these unique ecosystems, their biogeochemical and biological makeup, their <a href="#seasons" class="text-white">seasonal dynamics and long-term changes</a>, and using our expertise to serve local communities.</p>
+                <button class="btn btn-light btn-lg m-1"><a href="about.html">More about us</a> </button>
+                <button class="btn btn-light btn-lg m-1"><a href="research.html">Our research </a> </button>
+                <button class="btn btn-light btn-lg m-1"><a href="#news">Project news</a></button>
+                <br>
+                <br>
+                <p>* We joined the <a class="text-white" style="text-decoration: underline;" rel="external noopener" href="https://lternet.edu/" target="_blank" aria-label="LTER network">U.S. LTER network</a> in 2017. The northernmost in the 28-site network, BLE
+                    LTER will address gaps in our understanding of the rapidly changing Arctic. We collaborate
+                    closely with other sites to do the best science and to promote open research.</p>
+            </div>
+        </div>
+        <div class="container container-small my-5 py-5">
+            <h2 class="h1 text-center" id="numbers">By the numbers</h2>
             <br>
-            <br>
-            <p>* We joined the <a class="text-white" style="text-decoration: underline;" rel="external noopener" href="https://lternet.edu/" target="_blank">U.S. LTER network</a> in 2017. The newest and northernmost in the 28-site network, BLE
-            LTER will address gaps in our understanding of the rapidly changing Arctic. We collaborate
-         closely with other sites to do the best science and to promote open research.</p>
-      </div>
-   </div>
-   <div class="container container-small my-5 py-5">
-      <h1 class="text-center">By the numbers</h1>
-      <br>
-      <div id="glance">
-         <div class="row lead text-white justify-content-center">
-            <div class="col-md-5 mb-3 mr-md-3 p-5 text-right" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(img/12pi.jpg); background-size: cover; background-position: center;">
-               <h1>12</h1>
-               <h3>investigators</h3>
-               <h3>from six universities</h3>
+            <div id="glance">
+                <div class="row lead text-white justify-content-center">
+                    <div class="col-md-5 mb-3 me-md-3 p-5 text-end" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(img/12pi.jpg); background-size: cover; background-position: center;">
+                        <p class="faux-h4">
+                            <span class="faux-h2">12</span><br>
+                            investigators <br>
+                            from six universities</p>
+                    </div>
+                    <div class="col-md-5 mb-3 ms-md-3 p-5" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(img/3season.jpg); background-size: cover; background-position: center;">
+                        <p class="faux-h4">
+                            <span class="faux-h2">3</span><br>
+                            field seasons <br>
+                            each year</p>
+                    </div>
+                </div>
+                <div class="row lead text-white justify-content-center">
+                    <div class="col-md-5 mt-3 me-md-3 p-5 text-end" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(img/3node.jpg); background-size: cover; background-position: center;">
+                        <p class="faux-h4">
+                            <span class="faux-h2">3</span><br>
+                            research nodes <br>
+                            Utqia&#x121;vik, Deadhorse, Kaktovik</p>
+                    </div>
+                    <div class="col-md-5 mt-3 ms-md-3 p-5" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(img/530km.jpg); background-size: cover; background-position: center;">
+                        <p class="faux-h4">
+                            <span class="faux-h2">530</span><br>
+                            kilometers <br>
+                            of coastline studied</p>
+                    </div>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-lg btn-outline-primary"><a href="people.html">Our team</a></button>
+                    <button class="btn btn-lg btn-outline-primary m-1"><a href="media.html">Media coverage</a></button>
+                </div>
             </div>
-            <div class="col-md-5 mb-3 ml-md-3 p-5" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(img/3season.jpg); background-size: cover; background-position: center;">
-               <h1>3</h1>
-               <h3>field seasons</h3>
-               <h3>each year</h3>
+        </div>
+        <div class="row" id="sites_div">
+            <div class="col-lg-5 lead text-end text-white bg-logo-green py-rem5 px-rem3">
+                <h2 id="sites" class="h2">Our study sites</h2>
+                <p>Coastal lagoons are among the most productive habitats and make up more than 10% of the land-sea
+                    interface worldwide. The Beaufort Sea lagoons are complex and productive ecosystems. These systems
+                    encompass more than half of the Beaufort Sea coast, providing food and habitat for large populations of
+                    migratory fish and waterfowl essential to the culture of northern Alaska&apos;s I&#xF1;upiaq communities.
+                    Dozens of rivers, the &apos;highways of Alaska,&apos; altogether making up a vast drainage basin,
+                    flow into the Beaufort Sea through these lagoons.</p>
+                <p>Zoom in and click to see what makes each lagoon unique.</p>
             </div>
-         </div>
-         <div class="row lead text-white justify-content-center">
-            <div class="col-md-5 mt-3 mr-md-3 p-5 text-right" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(img/3node.jpg); background-size: cover; background-position: center;">
-               <h1>3</h1>
-               <h3>research nodes</h3>
-               <p>Utqia&#x121;vik, Deadhorse, Kaktovik</p>
+            <div class="col-lg-7 p-0">
+                <div id="map" class="h-100" style="min-height: 400px;"></div>
             </div>
-            <div class="col-md-5 mt-3 ml-md-3 p-5" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(img/530km.jpg); background-size: cover; background-position: center;">
-               <h1>530</h1>
-               <h3>kilometers</h3>
-               <h3>of coastline studied</h3>
+        </div>
+        <div class="container mt-5 py-5 justify-content-center" id="seasons_div">
+            <div class="text-center lead">
+                <h2 id="seasons" class="h1">Seasons in the lagoons</h2>
+                <p>Dramatic seasonality is a big reason why we think the lagoons are so fascinating.
+                    The time of year also influences everything we do in terms of field logistics; each season brings its own challenges and rewards.</p>
             </div>
-         </div>
-         <div class="mt-5 text-center">
-            <button class="btn btn-lg btn-outline-primary"><a href="people.html">Our team</a></button>
-            <button class="btn btn-lg btn-outline-primary m-1"><a href="media.html">Media coverage</a></button>
-         </div>
-      </div>
-   </div>
-   <div class="row" id="sites">
-      <div class="col-lg-5 lead text-right text-white bg-logo-green py-rem5 px-rem3">
-         <h1>Our study sites</h1>
-         <p>Coastal lagoons are among the most productive habitats and make up more than 10% of the land-sea
-            interface worldwide. The Beaufort Sea lagoons are complex and productive ecosystems. These systems
-            encompass more than half of the Beaufort Sea coast, providing food and habitat for large populations of
-            migratory fish and waterfowl essential to the culture of northern Alaska&apos;s I&#xF1;upiaq communities.
-            Dozens of rivers, the &apos;highways of Alaska,&apos; altogether making up a vast drainage basin,
-         flow into the Beaufort Sea through these lagoons.</p>
-         <p>Zoom in and click to see what makes each lagoon unique.</p>
-      </div>
-      <div class="col-lg-7 p-0">
-         <div id="map" class="h-100" style="min-height: 400px;"></div>
-      </div>
-   </div>
-   <div class="container mt-5 py-5 justify-content-center" id="seasons">
-      <div class="text-center lead">
-         <h1>Seasons in the lagoons</h1>
-         <p>Dramatic seasonality is a big reason why we think the lagoons are so fascinating.
-         The time of year also influences everything we do in terms of field logistics; each season brings its own challenges and rewards.</p>
-      </div>
-      <div class="card-deck">
-         <div class="col-lg-4 m-0 p-0">
-            <div class="card border-0 bg-light">
-               <img class="card-img-top" src="img/winter.jpg" alt="Scientist works in the Arctic night">
-               <div class="card-body">
-                  <h2>Frozen over</h2>
-                  <p>In winter, ice completely covers the lagoons. By April, when we sample, the ice is nearly 1.7 m thick.
-                     We use snowmobiles to reach our study sites and then drill holes to collect water and sediment.</p>
-                  <hr>
-                  <p class="h4">Our to-do list</p>
-                  <p>Measure sea-ice properties
-                  </p>
-                  <p>Sample the under-ice environment</p>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 m-0 p-0">
-            <div class="card border-0 bg-light">
-               <img class="card-img-top" src="img/spring.jpg" alt="Christina Bonsell walks on broken ice">
-               <div class="card-body">
-                  <h2>Ice break-up</h2>
-                  <p>Spring comes rapidly to the Arctic once daylight lengthens. Ice break-up may happen in a
-                  matter of days and can make field work treacherous. We sample in June to represent spring conditions.</p>
-                  <hr>
-                  <p class="h4">Our to-do list</p>
-                  <p>Sample rivers near their peak flow</p>
-                  <p>
-                  Obtain water mixing data in the lagoons</p>
-               </div>
-            </div>
-         </div>
-         <div class="col-lg-4 m-0 p-0">
-            <div class="card border-0 bg-light">
-               <img class="card-img-top" src="img/summer.jpg" alt="Sampling the lagoons by boat on open water">
-               <div class="card-body">
-                  <h2>Open water</h2>
-                  <p>In summer, the lagoons exchange materials with the Beaufort Sea freely. Ecosystem productivity
-                  peaks around this time. We sample in August via boat trips to represent summer conditions.</p>
-                  <hr>
-                  <p class="h4">Our to-do list</p>
-                  <p>Retrieve and redeploy moored instruments</p>
-                  <p>Sample eroding coastal bluffs</p>
-               </div>
+            <div class="row row-cols-1 row-cols-lg-3">
+                <div class="col m-0 px-3 pb-3">
+                    <div class="card border-0 bg-light h-100">
+                        <img class="card-img-top" src="img/winter.jpg" alt="Scientist works in the Arctic night">
+                        <div class="card-body">
+                            <h3 class="h2" id="winter">Frozen over</h3>
+                            <p>In winter, ice completely covers the lagoons. By April, when we sample, the ice is nearly 1.7 m thick.
+                                We use snowmobiles to reach our study sites and then drill holes to collect water and sediment.</p>
+                            <hr>
+                            <h4 class="h4">Our to-do list</h4>
+                            <p>Measure sea-ice properties
+                            </p>
+                            <p>Sample the under-ice environment</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-0 px-3 pb-3">
+                    <div class="card border-0 bg-light h-100">
+                        <img class="card-img-top" src="img/spring.jpg" alt="Christina Bonsell walks on broken ice">
+                        <div class="card-body">
+                            <h3 class="h2" id="spring">Ice break-up</h3>
+                            <p>Spring comes rapidly to the Arctic once daylight lengthens. Ice break-up may happen in a
+                                matter of days and can make field work treacherous. We sample in June to represent spring conditions.</p>
+                            <hr>
+                            <h4 class="h4">Our to-do list</h4>
+                            <p>Sample rivers near their peak flow</p>
+                            <p>
+                                Obtain water mixing data in the lagoons</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-0 px-3 pb-3">
+                    <div class="card border-0 bg-light h-100">
+                        <img class="card-img-top" src="img/summer.jpg" alt="Sampling the lagoons by boat on open water">
+                        <div class="card-body">
+                            <h3 class="h2" id="summers">Open water</h3>
+                            <p>In summer, the lagoons exchange materials with the Beaufort Sea freely. Ecosystem productivity
+                                peaks around this time. We sample in August via boat trips to represent summer conditions.</p>
+                            <hr>
+                            <h4 class="h4">Our to-do list</h4>
+                            <p>Retrieve and redeploy moored instruments</p>
+                            <p>Sample eroding coastal bluffs</p>
+                        </div>
+                    </div>
+                </div>
             </div>
          </div>
-      </div>
-   </div>
-   <div class="container" id="news">
-      <h1 class="text-center"><br>Project news</h1>
+      
+   
+   <div class="container">
+      <h1 class="text-center" id="news"><br>Project news</h1>
       <!-- <hr> -->
       <div class="row mt-5">
          <div class="col-md-8 pb-md-0 pb-5 pr-0 pr-md-4">
-            <h2 class="h3">Opportunity: Research Assistant, BLE LTER</h2>
+            <!-- <h2 class="h3" id="ra">Opportunity: Research Assistant, BLE LTER</h2>
             <p>The Beaufort Lagoon Ecosystems Long-Term Ecological Research Program seeks to employ a full-time Research Assistant. The Research Assistant will work closely with BLE LTER program leaders and students to carry out physical, chemical, and biological research at field sites along the Alaskan Beaufort Sea coast. The Research Assistant will also help maintain sample inventories, conduct sample processing, perform analyses, organize resultant data, and contribute to BLE LTER reporting activities. This position is based at The University of Texas Marine Science Institute (UTMSI) in Port Aransas, TX. </p>
 <p> Visit <a href="https://utaustin.wd1.myworkdayjobs.com/UTstaff/job/MARINE-SCIENCE-INSTITUTE/Research-Scientist-Assistant_R_00011526">this webpage</a> for more information and to apply for the position. Applicants will need to submit a resume/CV, letter of interest, and the names and contact information of three references. Application review will begin immediately and continue until the position is filled, but no later than 1 February 2021. Position ends 31 Jan 2022 with possibility of extension. </p>
 <p>Serious applicants may contact BLE LTER Program co-leads Ken Dunton (<a href="mailto:ken.dunton@utexas.edu">ken.dunton@utexas.edu</a>) or
 Jim McClelland (<a href="mailto:jimm@utexas.edu">jimm@utexas.edu</a>) for additional information or questions.</p>
+            <br> -->
+            <h2 class="h3" id="mendenhall">Opportunity: Mendenhall Research Fellowship Program</h2>
+            <p class="lead"> This new fellowship program at USGS provides fellows with two year salaried appointments working under research advisors. Of special relevance to the BLE LTER is research project 20-8. Geomorphic and social influences on coastal resilience to climate change. Find more information on <a href="https://www.usgs.gov/centers/mendenhall/20-8-geomorphic-and-social-influences-coastal-resilience-climate-change" target="_blank" aria-label="see posting in a new tab">the USGS website</a>.</p>
             <br>
-            <h2 class="h3">New coastal permafrost research shows unexpected results</h2>
-            <p>A new publication, co-authored by BLE LTER investigator James McClelland, uses subsurface mapping to show permafrost to be mostly absent under the shallow seafloor in Kaktovik Lagoon. This research poses implications on sea-land water exchange, carbon dynamics, and coastal erosion. Read <a href="https://advances.sciencemag.org/content/6/43/eabb5083" target="_blank">the paper on Science Advances</a> or <a href="https://www.jsg.utexas.edu/news/2020/10/coastal-permafrost-more-susceptible-to-climate-change-than-previously-thought/" target="_blank">coverage</a> by The University of Texas Jackson School of Geosciences.</p>
+            <h2 class="h3" id="rawlins_2021">Model results point to increasing freshwater and DOC exports to Elson Lagoon</h2>
+        <p class="lead">BLE investigator Michael Rawlins and co-authors in a pair of papers describe an updated hydrological model of the North Slope, which, among other notable results, estimates that in 2019 the amount of freshwater dissolved organic carbon exported to Elson Lagoon is almost triple that of the 1980s. This has widespread implications for the lagoon ecosystems. Read the articles at <a href="https://doi.org/10.1088/1748-9326/ac2288" target="_blank" aria-label="open publication in new tab">Environmental Research Letter and <a href="https://onlinelibrary.wiley.com/doi/abs/10.1029/2021JG006420" target="_blank" aria-label="open publication in new tab">Journal of Geophysical Research</a>, or see the news release via <a href="https://www.umass.edu/news/article/carbon-dissolved-arctic-rivers-affects-our-world-heres-how-study-it" target="_blank" aria-label="open the publication in new tab">UMass-Amherst</a>. </p>
+        <br>
+            <h2 class="h3" id="jim">New coastal permafrost research shows unexpected results</h2>
+            <p>A new publication, co-authored by BLE LTER investigator James McClelland, uses subsurface mapping to show permafrost to be mostly absent under the shallow seafloor in Kaktovik Lagoon. 
+               This research poses implications on sea-land water exchange, carbon dynamics, and coastal erosion. 
+               Read <a href="https://advances.sciencemag.org/content/6/43/eabb5083" rel="external noopener" target="_blank">the paper on Science Advances</a> or 
+               <a href="https://www.jsg.utexas.edu/news/2020/10/coastal-permafrost-more-susceptible-to-climate-change-than-previously-thought/" rel="external noopener" target="_blank">coverage</a>
+                by The University of Texas Jackson School of Geosciences.</p>
             <br>
-            <h2 class="h3">Graduate student spotlight: Brian Kim</h2>
-            <p>The LTER Network Office recently interviewed <a href="student.html#brian">Brian Kim</a> as part of an ongoing LTER graduate student spotlight series. Alongside his research in the sediment biogeochemistry of the lagoons, Brian also serves as the LTER-wide graduate student representative and runs <a href="https://www.instagram.com/lter_community/" target="_blank">an Instagram account</a> documenting student activities. Read <a href="https://lternet.edu/stories/lter-graduate-student-spotlight-brian-kim/" target="_blank">his interview here</a> to learn about his research, experience in graduate school, and stories about field work with the BLE team.</p>
+            <h2 class="h3" id="brian">Graduate student spotlight: Brian Kim</h2>
+            <p>The LTER Network Office recently interviewed <a href="student.html#brian">Brian Kim</a> as part of an ongoing LTER graduate student spotlight series. 
+               Alongside his research in the sediment biogeochemistry of the lagoons, Brian also serves as the LTER-wide graduate student representative and runs 
+               <a href="https://www.instagram.com/lter_community/" rel="external noopener" target="_blank">an Instagram account</a> documenting student activities. 
+               Read <a href="https://lternet.edu/stories/lter-graduate-student-spotlight-brian-kim/" rel="external noopener" target="_blank">his interview here</a> to learn about his research, 
+               experience in graduate school, and stories about field work with the BLE team.</p>
             <br>
             <!-- <h2 class="h3">New BLE LTER research on The Cryosphere</h2>
-            <p>Michael Rawlins, BLE LTER investigator, led a new hydrological analysis of the Alaskan North Slope that points to thawing permafrost and increased groundwater flow under the surface. Read about <a href="https://doi.org/10.5194/tc-13-3337-2019" targer="_blank">the science on The Cryosphere</a>, coverage by <a rel="external noopener" href="https://www.umass.edu/newsoffice/article/thawing-permafrost-affecting-northern" target="_blank">UMass Amherst</a>, coverage by the <a rel="external noopener" href="https://www.nsf.gov/discoveries/disc_summ.jsp?cntn_id=299798&amp;org=NSF&amp;from=news" target="_blank"> National Science Foundation</a>, and see the <a rel="external noopener" href="http://dx.doi.org/10.6073/pasta/2c1cd0c1d3f0f257d9dac659314bc777" target="_blank"> model data archived at the Environmental Data Initiative</a>.</p>
+            <p>Michael Rawlins, BLE LTER investigator, led a new hydrological analysis of the Alaskan North Slope that points to thawing permafrost and increased groundwater flow under the surface. Read about <a href="https://doi.org/10.5194/tc-13-3337-2019" target="_blank">the science on The Cryosphere</a>, coverage by <a rel="external noopener" href="https://www.umass.edu/newsoffice/article/thawing-permafrost-affecting-northern" target="_blank">UMass Amherst</a>, coverage by the <a rel="external noopener" href="https://www.nsf.gov/discoveries/disc_summ.jsp?cntn_id=299798&amp;org=NSF&amp;from=news" target="_blank"> National Science Foundation</a>, and see the <a rel="external noopener" href="http://dx.doi.org/10.6073/pasta/2c1cd0c1d3f0f257d9dac659314bc777" target="_blank"> model data archived at the Environmental Data Initiative</a>.</p>
             <br> -->
-            <!-- <h2 class="h3">Alaska Ocean Acidification Network interviews BLE LTER scientist Arley Muth</h2>
+                    <!-- <h2 class="h3">Alaska Ocean Acidification Network interviews BLE LTER scientist Arley Muth</h2>
             <picture>
                <source srcset="img/arley-christina-ken-sm.jpg" media="(max-width: 767px)">
                <source srcset="img/arley-christina-ken.jpg">
@@ -247,9 +271,8 @@ Jim McClelland (<a href="mailto:jimm@utexas.edu">jimm@utexas.edu</a>) for additi
                clockwise from top right: project manager Christina Bonsell, scientist Arley Muth, and principal
                investigator Ken Dunton, on a field mission to the Boulder Patch.
             </p> -->
-
-         </div>
-         <!-- <div class="col-md-8 pb-md-0 pb-5 pr-0 pr-md-4">
+                </div>
+                <!-- <div class="col-md-8 pb-md-0 pb-5 pr-0 pr-md-4">
             <h2>Opportunity: Summer 2020 Undergraduate Research Experience</h2>
             <p class>
             We are seeking an undergraduate researcher interested in aquatic coastal ecology, Arctic ecology, environmental science, biogeochemistry, or related topics, to join the Beaufort Lagoon Ecosystems project under the NSF Research Experience for Undergraduates (REU) program.</p>
@@ -274,40 +297,41 @@ Jim McClelland (<a href="mailto:jimm@utexas.edu">jimm@utexas.edu</a>) for additi
             <p>For more information or to apply, email Dr. Vanessa Lougheed at vlougheed@utep.edu. Deadline to apply is <strong>February 15th, 2020.</strong></p>
             <button class="btn btn-outline-primary"><a rel="external noopener" href="https://utexas.box.com/v/BLE-REU-flyer" target="_blank">Program Flyer (PDF)</a></button>
          </div> -->
-         <div class="col-md-4 border rounded p-2"><a class="twitter-timeline" data-tweet-limit="2" data-theme="light" data-link-color="#0070e9" href="https://twitter.com/ArcticLagoons?ref_src=twsrc%5Etfw">Tweets by
-         ArcticLagoons</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
-   </div>
-   
-</div>
-</div>
-<!-- Footer -->
-<footer class="text-white">
+                <div class="col-md-4 border rounded p-2"><a class="twitter-timeline" data-tweet-limit="2" data-theme="light" data-link-color="#0070e9" href="https://twitter.com/ArcticLagoons?ref_src=twsrc%5Etfw">Tweets by
+                        ArcticLagoons</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="text-white">
       <img id="coastline" src="img/north_slope_coast.svg" alt="coastline" style="width: 100%;">
       <div id="footer-content">
          <div class="container-fluid">
             <div class="container">
                <div class="row">
                   <div class="col-12 col-lg-6 pb-4 pb-lg-0">
-                     <p class="h4"><a href="index.html" style="text-decoration: none;">Beaufort Lagoon Ecosystems LTER</a></p>
+                     <h2 class="h4"><a href="index.html" style="text-decoration: none;">Beaufort Lagoon Ecosystems LTER</a></h2>
                      <p>This site is a member of the U.S. LTER Network.</p>
                      <p><small>This material is based upon work supported by the <a rel="external noopener" href="https://www.nsf.gov/">National
                            Science Foundation</a> under award #1656026 (2017-08-01 to 2022-07-31). Any opinions,
                            findings, conclusions, or recommendations expressed in the material are those of the
                            author(s) and do not necessarily reflect the views of the National Science Foundation.</small></p>
-                     <button class="btn btn-outline-primary border-white m-2"><a rel="external noopener" href="https://utexas.app.box.com/folder/7974766549" target="_blank" class="text-white" style="text-decoration: none;">Internal file sharing site</a></button>
-                     <button class="btn btn-outline-primary border-white m-2" aria-label="Facebook button">
-                        <a href="https://facebook.com/arcticlagoons" rel="external noopener" target="_blank" title="BLE on Facebook" aria-label="Facebook">
+                     <button class="btn btn-outline-primary border-white m-2 footer-button">
+                        <a rel="external noopener" href="https://utexas.app.box.com/folder/7974766549" target="_blank" class="text-white" aria-label="open internal sharing site in a new tab">Internal file sharing site</a>
+                     </button>
+                     <button class="btn btn-outline-primary border-white m-2 footer-button" aria-label="Facebook button">
+                        <a href="https://facebook.com/arcticlagoons" rel="external noopener" target="_blank" title="BLE on Facebook" aria-label="open Facebook in new tab">
                            <i class="fab fa-facebook-f text-white"></i></a>
                      </button>
-                     <button class="btn btn-outline-primary border-white m-2" aria-label="Twitter button">
-                        <a href="https://twitter.com/ArcticLagoons" rel="external noopener" target="_blank" title="BLE on Twitter" aria-label="Twitter">
+                     <button class="btn btn-outline-primary border-white m-2 footer-button" aria-label="Twitter button">
+                        <a href="https://twitter.com/ArcticLagoons" rel="external noopener" target="_blank" title="BLE on Twitter" aria-label="open Twitter in new tab">
                            <i class="fab fa-twitter text-white"></i></a>
                      </button>
                   </div>
                   <div class="col-sm-6 col-lg-3 pb-4 pb-lg-0">
-                     <p class="h4">Contact</p>
+                     <h3 class="h4">Contact</h3>
                      <address>
                         <p><a href="mailto:ken.dunton@utexas.edu">Ken Dunton</a><br>Principal Investigator</p>
                         <p><a href="mailto:jimm@utexas.edu">James McClelland</a><br>Co-Principal Investigator</p>
@@ -315,19 +339,15 @@ Jim McClelland (<a href="mailto:jimm@utexas.edu">jimm@utexas.edu</a>) for additi
                      </address>
                   </div>
                   <div class="col-sm-6 col-lg-3">
-                     <p class="h4">See Also</p>
-                     <p><a rel="external noopener" href="http://www.lternet.edu/">LTER Network Homepage</a></p>
-                     <p><a rel="external noopener" href="http://www.lternet.edu/site/">LTER Network Sites</a></p>
+                     <h3 class="h4">See Also</h3>
+                     <p><a rel="external noopener" href="https://www.lternet.edu/">LTER Network Homepage</a></p>
+                     <p><a rel="external noopener" href="https://www.lternet.edu/site/">LTER Network Sites</a></p>
                      <p>
-                        <a rel="external noopener" href="http://www.lternet.edu/">
-                           <noscript data-src="img/LTER-network-square-sm.jpg" img-class alt="LTER logo within link to LTER Network">
-                              <img src="img/LTER-network-square-sm.jpg" alt="LTER logo within link to LTER Network">
-                           </noscript>
+                        <a rel="external noopener" href="https://www.lternet.edu/">
+                          <img src="img/LTER-network-square-sm.jpg" alt="LTER logo within link to LTER Network">
                         </a>
                         <a rel="external noopener" href="https://www.nsf.gov/">
-                           <noscript data-src="img/nsf1.gif" img-class alt="NSF logo within link to National Science Foundation">
-                              <img src="img/nsf1.gif" alt="NSF logo within link to National Science Foundation">
-                           </noscript>
+                           <img src="img/nsf1.gif" alt="NSF logo within link to National Science Foundation">
                         </a>
                      </p>
                   </div>
@@ -336,7 +356,7 @@ Jim McClelland (<a href="mailto:jimm@utexas.edu">jimm@utexas.edu</a>) for additi
          </div>
          <div class="container-fluid">
             <div class="container">
-               <div class="row footer-bottom text-center text-lg-left">
+               <div class="row footer-bottom text-center text-lg-start">
                   <div class="col-lg-8">
                      <p class="mb-1"><small>Above: the Alaska North Slope coastline along the Beaufort Sea. Except where
                            otherwise noted, material may be re-used under a <a rel="external noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
@@ -352,11 +372,20 @@ Jim McClelland (<a href="mailto:jimm@utexas.edu">jimm@utexas.edu</a>) for additi
          </div>
       </div>
    </footer>
-<div id="before-end-of-body">
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-      <script async src="js/app.js"></script>
+    <div id="before-end-of-body">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+      <script type="text/javascript">
+         algoliasearchNetlify({
+            appId: 'TCXC3S30W1',
+            apiKey: '4192e022ca7324b819c06709a91b57e9',
+            siteId: '84d8b51e-beb6-4843-bee0-a636ab45efe9',
+            branch: 'algolia',
+            selector: 'div#search',
+         });
+      </script>
    </div>
-<script src="js/overview_map.js"></script>
+    <script src="js/overview_map.js"></script>
+
 
 </body></html>

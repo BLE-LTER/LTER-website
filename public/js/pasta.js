@@ -17,6 +17,193 @@ var PASTA_CONFIG = {
 
 var QUERY_URL = ""; // Query URL without row limit or start parameter
 
+// Get URL arguments
+function getParameterByName(name, url) {
+   if (!url) url = window.location.href;
+   name = name.replace(/[\[\]]/g, "\\$&");
+   var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      results = regex.exec(url);
+   if (!results) return null;
+   if (!results[2]) return "";
+   return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+
+function showLoading(isLoading) {
+   var x = document.getElementById("loading-div");
+   if (isLoading) {
+      document.body.style.cursor = "wait";
+      x.style.display = "block";
+   } else {
+      document.body.style.cursor = "default";
+      x.style.display = "none";
+   }
+}
+
+// PAGINATION
+
+// https://stackoverflow.com/questions/5999118/add-or-update-query-string-parameter
+function updateQueryStringParameter(uri, key, value) {
+   var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+   var separator = uri.indexOf("?") !== -1 ? "&" : "?";
+   if (uri.match(re)) {
+      return uri.replace(re, "$1" + key + "=" + value + "$2");
+   } else {
+      return uri + separator + key + "=" + value;
+   }
+}
+
+
+function makePageLink(currentUrl, currentStart, start, linkText) {
+   var uri = updateQueryStringParameter(currentUrl, "start", start);
+   var tagStart = '<a href="';
+   if (currentStart == start) {
+      uri = "#";
+      if (linkText.toString().substring(0, 1) !== "&") { // Don't modify arrows
+         tagStart = '<a class="active" href="';
+      }
+   }
+   var link = tagStart + uri + '">' + linkText + '</a>';
+   return link;
+}
+
+
+// Creates links to additional pages of search results.
+// Requires a start URI argument indicating start index of search results
+// as passed to the server providing the search results.
+function showPageLinks(total, limit, showPages, currentStart, domElementId) {
+   if (total <= limit) {
+      return "";
+   }
+
+   var el = document.getElementById(domElementId);
+   if (!el) return;
+
+   var currentUrl = window.location.href;
+   var numPages = Math.ceil(total / limit);
+   var currentPage = Math.floor(currentStart / limit) + 1;
+   var pagesLeftRight = Math.floor(showPages / 2);
+   var startPage = currentPage - pagesLeftRight;
+   var endPage = currentPage + pagesLeftRight;
+
+   if (endPage > numPages) {
+      endPage = numPages;
+      startPage = endPage - showPages + 1;
+   }
+   if (startPage <= 0) {
+      startPage = 1;
+      endPage = showPages;
+      if (endPage > numPages) {
+         endPage = numPages;
+      }
+   }
+
+   var link_list = [];
+   link_list.push(makePageLink(currentUrl, currentStart, 0, "&laquo;"));
+   for (var i = startPage; i <= endPage; i++) {
+      var startIndex = (i - 1) * limit;
+      link_list.push(makePageLink(currentUrl, currentStart, startIndex, i));
+   }
+   var lastIndex = (numPages - 1) * limit;
+   link_list.push(
+      makePageLink(currentUrl, currentStart, lastIndex, "&raquo;"));
+
+   el.innerHTML = link_list.join("");
+}
+
+
+function escapeHtml(unsafe) {
+   return unsafe
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+}
+
+
+function showResultCount(query, total, limitPerPage, currentStartIndex, domElementId) {
+   var element = document.getElementById(domElementId);
+   if (total == 0 || !element) {
+      return;
+   }
+
+   var s = "";
+   if (total > 1) {
+      s = "s";
+   }
+   var found = "<p>Found " + total + " result" + s;
+   if (query != "" && query != null) {
+      query = escapeHtml(query);
+      var forQuery = ' for <span class="result-query">' + query + '</span>';
+   } else {
+      var forQuery = "";
+   }
+   if (limitPerPage === null || total <= limitPerPage) {
+      var showing = "</p>";
+   } else {
+      var fromCount = currentStartIndex + 1;
+      var toCount = currentStartIndex + limitPerPage;
+      if (toCount > total) {
+         toCount = total;
+      }
+      var showing = (". Showing results " + fromCount + " to " + toCount + ".</p>");
+   }
+   element.innerHTML = found + forQuery + showing;
+}
+
+// CORS
+
+// adapted from https://www.html5rocks.com/en/tutorials/cors/
+// Create the XHR object.
+function createCORSRequest(method, url) {
+   var xhr = new XMLHttpRequest();
+   if ("withCredentials" in xhr) {
+      // XHR for Chrome/Firefox/Opera/Safari.
+      xhr.open(method, url, true);
+   } else if (typeof XDomainRequest != "undefined") {
+      // XDomainRequest for IE.
+      xhr = new XDomainRequest();
+      xhr.open(method, url);
+   } else {
+      // CORS not supported.
+      xhr = null;
+   }
+   return xhr;
+}
+
+
+// Make the actual CORS request.
+function makeCorsRequest(url, headerDict, successCallback, errorCallback) {
+   var xhr = createCORSRequest("GET", url);
+   if (!xhr) {
+      alert("CORS not supported");
+      return;
+   }
+   // Response handlers.
+   xhr.onload = function () {
+      var headers = xhr.getAllResponseHeaders().split("\n");
+      var header_dict = {};
+      for (var i = 0; i < headers.length; i++) {
+         var parts = headers[i].split(": ");
+         header_dict[parts[0].toLowerCase()] = parts[1];
+      }
+      successCallback(header_dict, xhr.responseText);
+   };
+   xhr.onerror = function () {
+      errorCallback();
+   };
+
+   if (headerDict) {
+      var keys = Object.keys(headerDict);
+      for (var index = 0; index < keys.length; index++) {
+         var key = keys[index];
+         xhr.setRequestHeader(key, headerDict[key]);
+      }
+   }
+   xhr.send();
+}
+
 // Parse citation dictionary into HTML
 function buildHtml(citations) {
    var html = [];
@@ -28,7 +215,7 @@ function buildHtml(citations) {
       var date = (citation["pub_year"]) ? " Published " + citation["pub_year"] + "" : "";
       // default ESIP formatting has trailing period after DOI
       var link = (citation["doi"]) ? citation["doi"].slice(0, -1) : "https://portal.edirepository.org/nis/mapbrowse?packageid=" + citation["pid"];
-      var title = '<a rel="external noopener" href="' + link + '" target="_blank">' + citation["title"] + '</a>';
+      var title = '<a rel="external noopener" href="' + link + '" target="_blank" aria-label="open data in new tab">' + citation["title"] + '</a>';
       var row = '<p><span class="dataset-title">' + title +
          '</span><br><span class="dataset-author">' + authors + date +
          '</span></p>';
@@ -118,7 +305,7 @@ function buildCitationsFromPasta(pastaDocs) {
          link = ("https://portal.edirepository.org/nis/mapbrowse?packageid=" +
             doc.getElementsByTagName("packageid")[0].childNodes[0].nodeValue);
       }
-      var title = '<a rel="external noopener" href="' + link + '" target="_blank">' +
+      var title = '<a rel="external noopener" href="' + link + '" target="_blank" aria-label="open data in new tab">' +
          doc.getElementsByTagName("title")[0].childNodes[0].nodeValue.trim() + '</a>';
       var row = '<p><span class="dataset-title">' + title +
          '</span><br><span class="dataset-author">' + names + date +
@@ -272,7 +459,8 @@ function errorCallback() {
 
 // Writes CORS request URL to the page so user can see it
 function showUrl(url) {
-   var txt = '<a href="' + url + '" target="_blank">' + url + '</a>';
+   console.log(url);
+   var txt = '<a href="' + url + '" target="_blank" aria-label="open link in new tab">' + url + '</a>';
    setHtml(PASTA_CONFIG["urlElementId"], txt);
 }
 
@@ -387,6 +575,8 @@ function makeAutocomplete(elementId, choices, minChars) {
    return autocomplete;
 }
 
+
+
 // When the window loads, read query parameters and perform search
 window.onload = function () {
    function initApp(expanded) {
@@ -436,6 +626,21 @@ window.onload = function () {
             return '"' + text + '"';
       }
 
+      function isPackageId(text) {
+         // e.g., knb-lter-ble.1.7
+
+         function isNumeric(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+         }
+
+         if (text.startsWith("knb-lter-ble.")) {
+            text = text.substring(13);
+            if (isNumeric(text))
+               return true;
+         }
+         return false;
+      }
+
       var base = PASTA_CONFIG["server"];
       var fields = ["title",
          "pubdate",
@@ -447,12 +652,21 @@ window.onload = function () {
       if (coreArea && coreArea !== "any") {
          params += '&fq=keyword:"' + coreArea + '"';
       }
-      var query = "&q=" + userQuery;
+
+      // Check for package identifier
+      var query = "";
+      if (isPackageId(userQuery))
+         query = "&q=*+AND+(packageid:" + userQuery + "+id:" + userQuery + ")";
+      else
+         query = "&q=" + userQuery;
+
+
       if (creator) query += "+AND+(author:" + addQuotes(creator) + "+OR+organization:" + addQuotes(creator) + ")";
-      if (pkgId) {
-         pkgId = pkgId.replace(":", "%5C:");
-         query += "+AND+(doi:" + pkgId + "+packageid:" + pkgId + "+id:" + pkgId + ")";
-      }
+      //// Commented out since we're getting package ID from search box
+      // if (pkgId) {
+      //    pkgId = pkgId.replace(":", "%5C:");
+      //    query += "+AND+(doi:" + pkgId + "+packageid:" + pkgId + "+id:" + pkgId + ")";
+      // }
       if (taxon) query += "+AND+taxonomic:" + addQuotes(taxon);
       if (geo) query += "+AND+geographicdescription:" + addQuotes(geo);
       var dateQuery = makeDateQuery(sYear, eYear, datayear, pubyear);
