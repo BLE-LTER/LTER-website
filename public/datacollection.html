@@ -89,7 +89,7 @@
       </nav>
    </header>
     <main class="container" id="main-content">
-        <h1 class="page-title hyphenate" id="datacollection">Browse BLE LTER collections</h1>
+        <h1 class="page-title hyphenate" id="datacollection">Browse BLE LTER data collections</h1>
         <br>
         <select id="themeSelect">
     <option value="">Select theme</option>
@@ -107,19 +107,17 @@
 
 <select id="timeSelect">
 	<option value="">Collection Type</option>
-	<option value="ongoing_timeseries">Ongoing time series</option>
-	<option value="completed_timeseries">Completed time series</option>
-	<option value="short_term_study">Short term study</option>
-	<option value="non_temporal">Time dimension not applicable</option>
+	<option value="Ongoing timeseries">Ongoing timeseries</option>
+	<option value="Completed timeseriess">Completed timeseries</option>
+	<option value="hort term study">Short term study</option>
+	<option value="No time dimension">No time dimension</option>
 </select>
         <br>
         <br>
 <table id="table" class="display">
 	<thead>
             <tr>
-               <th>DataSetID</th>
                <th>Title</th>
-               <th>Link</th>
                <th>Core Program?</th>
                <th>Collection Type</th>
                <th>Research Theme</th>
@@ -182,7 +180,7 @@
             <div class="container">
                <div class="row footer-bottom text-center text-lg-start">
                   <div class="col-lg-8">
-                     <p class="mb-1"><small>Above: the Alaska North Slope coastline along the Beaufort Sea. Except where
+                     <p class="mb-1 "><small>Above: the Alaska North Slope coastline along the Beaufort Sea. Except where
                            otherwise noted, material may be re-used under a <a rel="external noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
                               Commons BY-SA 4.0 license</a>.</small></p>
                   </div>
@@ -217,14 +215,17 @@
       $(document).ready(function () {
          var table = $("#table").DataTable({
             data: data,
-            columns: [{
-                  data: "DataSetID"
-               },
+            paging: false,
+            columns: [
                {
-                  data: "Title"
-               },
-               {
-                  data: "url"
+                  data: "Title",
+                  "render": function(data, type, row, meta){
+            if(type === 'display'){
+                data = '<a class="text-decoration-none" href="' + row.url + '" target="_blank" aria-label="open data in new tab">' + data + '</a>';
+            }
+
+            return data;
+        }
                },
                {
                   data: "is_core"
