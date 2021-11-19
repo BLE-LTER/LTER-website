@@ -23,9 +23,11 @@ body {
   overflow-x: hidden;
 }
 
-/* algolia search bar follows header */
+/* so that algolia search bar follows header and doesnt do a weird floating thing */
+/* see https://github.com/algolia/algoliasearch-netlify/issues/544 */
 .aa-Panel {
   position: fixed !important;
+  top: 45px !important; 
 }
  
 /* widens search form */
