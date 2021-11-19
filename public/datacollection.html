@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
-
-<head>
+<!DOCTYPE html><html lang="en" prefix="og: http://ogp.me/ns#"><head>
     <meta charset="utf-8">
     <title>Browse Data Collections | Beaufort Lagoon Ecosystems LTER</title>
     <meta name="description" content="Search, browse, and discover BLE LTER datasets">
@@ -77,11 +74,11 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
                                 <li><a class="dropdown-item" href="finddata.html">Find Data</a></li>
-                                <li><a class="dropdown-item" href="ims.html">Information Management</a></li>
+                                <li><a class="dropdown-item" href="submitdata.html">Submit Data</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="submitdata.html">Submit Data</a></li>
+                                <li><a class="dropdown-item" href="ims.html">Information Management</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="bibliography.html">Publications</a></li>
@@ -95,11 +92,11 @@
     <main class="container" id="main-content">
         <h1 class="page-title hyphenate" id="datacollection">Browse BLE LTER data collections</h1>
         <br>
-        <div class="form-group row">
+        <div class="form-group row justify-content-start align-items-end">
             <div class="col-auto">
                 <label class="col-form-label" for="themeSelect">Research theme</label>
-                <select class="form-select mb-4" id="themeSelect">
-                    <option value="">Any</option>
+                <select class="form-select" id="themeSelect">
+                    <option value>Any</option>
                     <option value="Water and nutrient inputs">Theme 1: Water and nutrient inputs</option>
                     <option value="Lagoon and sea interactions">Theme 2: Lagoon and sea interactions</option>
                     <option value="Biogeochemistry and nutrient cycling">Theme 3: Biogeochemistry and nutrient cycling</option>
@@ -108,24 +105,24 @@
             </div>
             <div class="col-auto">
                 <label class="col-form-label" for="cpSelect">Core Program</label>
-                <select class="form-select mb-4" id="cpSelect">
-                    <option value="">Any</option>
+                <select class="form-select" id="cpSelect">
+                    <option value>Any</option>
                     <option value="true">Yes</option>
                     <option value="false">No</option>
                 </select>
             </div>
             <div class="col-auto">
                 <label class="col-form-label" for="timeSelect">Timeseries type</label>
-                <select class="form-select mb-4" id="timeSelect">
-                    <option value="">Any</option>
+                <select class="form-select" id="timeSelect">
+                    <option value>Any</option>
                     <option value="Ongoing timeseries">Ongoing timeseries</option>
                     <option value="Completed timeseriess">Completed timeseries</option>
                     <option value="hort term study">Short term study</option>
                     <option value="No time dimension">No time dimension</option>
                 </select>
             </div>
+            <button class="btn col-auto h-50 btn-dark text-white" id="reset" type="reset">Reset</button>
             <br>
-            <button class="btn" id="reset">Reset</button>
         </div>
         <table id="table" class="display">
             <thead>
@@ -193,7 +190,7 @@
                 <div class="container">
                     <div class="row footer-bottom text-center text-lg-start">
                         <div class="col-lg-8">
-                            <p class="mb-1 "><small>Above: the Alaska North Slope coastline along the Beaufort Sea. Except where
+                            <p class="mb-1"><small>Above: the Alaska North Slope coastline along the Beaufort Sea. Except where
                                     otherwise noted, material may be re-used under a <a rel="external noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
                                         Commons BY-SA 4.0 license</a>.</small></p>
                         </div>
@@ -231,6 +228,7 @@
             paging: false,
             columns: [{
                     data: "Title",
+                    // display the title and include URL as hyperlink
                     "render": function(data, type, row, meta) {
                         if (type === 'display') {
                             data = '<a class="text-decoration-none" href="' + row.url + '" target="_blank" aria-label="open data in new tab">' + data + '</a>';
@@ -242,7 +240,18 @@
                     data: "theme"
                 },
                 {
-                    data: "is_core"
+                    data: "is_core",
+                    // displays a checkbox if core is true
+                    // but then this disables filtering by core program
+                    // "render": function(data, type, row, meta) {
+                    //     if (type=="display" && row.is_core==true) {
+                    //         x = '<input type="checkbox" disabled checked/>';
+                    //     } else {
+                    //         x = '<input type="checkbox" disabled/>'
+                    //     }
+
+                    //     return x;
+                    // }
                 },
                 {
                     data: "temporal_type"
@@ -264,14 +273,15 @@
             table.column(3).search(selectedValue).draw();
         });
 
-        // enable reset button
+        // reset button
         $('#reset').on('click', function() {
             $('select').each(function() {
-                $(this).val("");
+                $(this).val(""); // clear filter selections
+                table.search('').columns().search('').draw(); // clear all global and column searches
             });
         });
     });
     </script>
-</body>
 
-</html>
+
+</body></html>
