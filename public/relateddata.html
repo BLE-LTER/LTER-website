@@ -1,9 +1,16 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
     <meta charset="utf-8">
     <title>BLE related datasets | Beaufort Lagoon Ecosystems LTER</title>
     <meta name="description" content="Datasets related to the Beaufort Lagoon Ecosystems (BLE) Long Term Ecological Research (LTER) program">
     <meta name="keywords" content="BLE related datasets">
     <link rel="canonical" href="https://ble.lternet.edu/relateddata.html">
+    <link href="css/search.css" rel="stylesheet" type="text/css">
+    <script src="js/cors.js"></script>
+    <script src="js/pagination.js"></script>
+    <script src="js/zotero.js"></script>
     <!-- Start Common Head -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="author" content="Tim Whiteaker">
@@ -82,95 +89,106 @@
             </div>
         </nav>
     </header>
-   <!-- Main content -->
-   <main class="container container-small" id="main-content">
-      <h1 class="page-title hyphenate" id="partner">Related Data</h1>
-      <br>
-      <hr>
-      <br>
-      <p>Rawlins M; Connolly C; McClelland J (2021): Model estimates of dissolved organic carbon, runoff, snowmelt, and snow water equivalent from 1981-2010 across the western Arctic. Quantifying Variability and Controls of Riverine Dissolved Organic Carbon Exported to Arctic Coastal Margins of North America. <a href="https://doi.org/10.15485/1809256">doi:10.15485/1809256</a> </p>
-      <p>Dunton, K. H., C. E. Bonsell, K. Iken, C. F. Aumack, B. Konar, A. F. Muth, and S. V. Schonberg. 2020. Arctic Nearshore Impact Monitoring in the Development Area (ANIMIDA) III: The Boulder Patch and other Kelp Communities in the Development Area. Ecosystem monitoring data collected from the Boulder Patch, Stefansson Sound, Alaska (1976-2018).  Arctic Data Center. <a href="https://doi.org/10.18739/A27W67662">doi:10.18739/A27W67662</a> .</p>
-    </main>
-    <footer class="text-white">
-        <img id="coastline" src="img/north_slope_coast.svg" alt="coastline" style="width: 100%;">
-        <div id="footer-content">
-            <div class="container-fluid">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-lg-6 pb-4 pb-lg-0">
-                            <h2 class="h4"><a href="index.html" style="text-decoration: none;">Beaufort Lagoon Ecosystems LTER</a></h2>
-                            <p>This site is a member of the U.S. LTER Network.</p>
-                            <p><small>This material is based upon work supported by the <a rel="external noopener" href="https://www.nsf.gov/">National
-                                        Science Foundation</a> under award #1656026 (2017-08-01 to 2022-07-31). Any opinions,
-                                    findings, conclusions, or recommendations expressed in the material are those of the
-                                    author(s) and do not necessarily reflect the views of the National Science Foundation.</small></p>
-                            <button class="btn btn-outline-primary border-white m-2 footer-button">
-                                <a rel="external noopener" href="https://utexas.app.box.com/folder/7974766549" target="_blank" class="text-white" aria-label="open internal sharing site in a new tab">Internal file sharing site</a>
-                            </button>
-                            <button class="btn btn-outline-primary border-white m-2 footer-button" aria-label="Facebook button">
-                                <a href="https://facebook.com/arcticlagoons" rel="external noopener" target="_blank" title="BLE on Facebook" aria-label="open Facebook in new tab">
-                                    <i class="fab fa-facebook-f text-white"></i></a>
-                            </button>
-                            <button class="btn btn-outline-primary border-white m-2 footer-button" aria-label="Twitter button">
-                                <a href="https://twitter.com/ArcticLagoons" rel="external noopener" target="_blank" title="BLE on Twitter" aria-label="open Twitter in new tab">
-                                    <i class="fab fa-twitter text-white"></i></a>
-                            </button>
-                        </div>
-                        <div class="col-sm-6 col-lg-3 pb-4 pb-lg-0">
-                            <h3 class="h4">Contact</h3>
-                            <address>
-                                <p><a href="mailto:ken.dunton@utexas.edu">Ken Dunton</a><br>Principal Investigator</p>
-                                <p><a href="mailto:jimm@utexas.edu">James McClelland</a><br>Co-Principal Investigator</p>
-                                <p><a href="mailto:whiteaker@utexas.edu">Tim Whiteaker</a><br>Information Manager</p>
-                            </address>
-                        </div>
-                        <div class="col-sm-6 col-lg-3">
-                            <h3 class="h4">See Also</h3>
-                            <p><a rel="external noopener" href="https://www.lternet.edu/">LTER Network Homepage</a></p>
-                            <p><a rel="external noopener" href="https://www.lternet.edu/site/">LTER Network Sites</a></p>
-                            <p>
-                                <a rel="external noopener" href="https://www.lternet.edu/">
-                                    <img src="img/LTER-network-square-sm.jpg" alt="LTER logo within link to LTER Network">
-                                </a>
-                                <a rel="external noopener" href="https://www.nsf.gov/">
-                                    <img src="img/nsf1.gif" alt="NSF logo within link to National Science Foundation">
-                                </a>
-                            </p>
-                        </div>
+    <!-- Main content -->
+    <main class="container" id="main-content">
+        <h1 class="page-title hyphenate" id="partner">Related Data</h1>
+        <br>
+        <p class="lead">Browse or search a collection of BLE related data, powered by the <a href="https://github.com/BLE-LTER/Zotero-JavaScript-Search-Client" rel="noopener">Zotero-JavaScript-Search-Client</a>.</p>
+        <br>
+        <form id="zoteroSearchForm" name="zoteroSearchForm">
+            <input class="search-input" name="q" placeholder="Enter search term" type="text">
+            <input type="submit" value="Search">
+        </form>
+        <div class="loading" id="loading-div">
+            <i class="fas fa-spinner fa-pulse fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="resultCount" id="resultCount"></div>
+        <div id="searchResults"></div>
+        <div class="pagination" id="paginationBot"></div>
+        </div>
+</body>
+</main>
+<footer class="text-white">
+    <img id="coastline" src="img/north_slope_coast.svg" alt="coastline" style="width: 100%;">
+    <div id="footer-content">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-6 pb-4 pb-lg-0">
+                        <h2 class="h4"><a href="index.html" style="text-decoration: none;">Beaufort Lagoon Ecosystems LTER</a></h2>
+                        <p>This site is a member of the U.S. LTER Network.</p>
+                        <p><small>This material is based upon work supported by the <a rel="external noopener" href="https://www.nsf.gov/">National
+                                    Science Foundation</a> under award #1656026 (2017-08-01 to 2022-07-31). Any opinions,
+                                findings, conclusions, or recommendations expressed in the material are those of the
+                                author(s) and do not necessarily reflect the views of the National Science Foundation.</small></p>
+                        <button class="btn btn-outline-primary border-white m-2 footer-button">
+                            <a rel="external noopener" href="https://utexas.app.box.com/folder/7974766549" target="_blank" class="text-white" aria-label="open internal sharing site in a new tab">Internal file sharing site</a>
+                        </button>
+                        <button class="btn btn-outline-primary border-white m-2 footer-button" aria-label="Facebook button">
+                            <a href="https://facebook.com/arcticlagoons" rel="external noopener" target="_blank" title="BLE on Facebook" aria-label="open Facebook in new tab">
+                                <i class="fab fa-facebook-f text-white"></i></a>
+                        </button>
+                        <button class="btn btn-outline-primary border-white m-2 footer-button" aria-label="Twitter button">
+                            <a href="https://twitter.com/ArcticLagoons" rel="external noopener" target="_blank" title="BLE on Twitter" aria-label="open Twitter in new tab">
+                                <i class="fab fa-twitter text-white"></i></a>
+                        </button>
                     </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="container">
-                    <div class="row footer-bottom text-center text-lg-start">
-                        <div class="col-lg-8">
-                            <p class="mb-1"><small>Above: the Alaska North Slope coastline along the Beaufort Sea. Except where
-                                    otherwise noted, material may be re-used under a <a rel="external noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
-                                        Commons BY-SA 4.0 license</a>.</small></p>
-                        </div>
-                        <div class="col-lg-4">
-                            <p><small><a rel="external noopener" href="https://cio.utexas.edu/policies/web-privacy">Privacy Policy</a> |
-                                    <a rel="external noopener" href="https://cio.utexas.edu/policies/web-accessibility">Accessibility Policy</a></small>
-                            </p>
-                        </div>
+                    <div class="col-sm-6 col-lg-3 pb-4 pb-lg-0">
+                        <h3 class="h4">Contact</h3>
+                        <address>
+                            <p><a href="mailto:ken.dunton@utexas.edu">Ken Dunton</a><br>Principal Investigator</p>
+                            <p><a href="mailto:jimm@utexas.edu">James McClelland</a><br>Co-Principal Investigator</p>
+                            <p><a href="mailto:whiteaker@utexas.edu">Tim Whiteaker</a><br>Information Manager</p>
+                        </address>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <h3 class="h4">See Also</h3>
+                        <p><a rel="external noopener" href="https://www.lternet.edu/">LTER Network Homepage</a></p>
+                        <p><a rel="external noopener" href="https://www.lternet.edu/site/">LTER Network Sites</a></p>
+                        <p>
+                            <a rel="external noopener" href="https://www.lternet.edu/">
+                                <img src="img/LTER-network-square-sm.jpg" alt="LTER logo within link to LTER Network">
+                            </a>
+                            <a rel="external noopener" href="https://www.nsf.gov/">
+                                <img src="img/nsf1.gif" alt="NSF logo within link to National Science Foundation">
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <div id="before-end-of-body">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
-        <script type="text/javascript">
-        algoliasearchNetlify({
-            appId: 'TCXC3S30W1',
-            apiKey: '4192e022ca7324b819c06709a91b57e9',
-            siteId: '84d8b51e-beb6-4843-bee0-a636ab45efe9',
-            branch: 'algolia',
-            selector: 'div#search',
-        });
-        </script>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row footer-bottom text-center text-lg-start">
+                    <div class="col-lg-8">
+                        <p class="mb-1"><small>Above: the Alaska North Slope coastline along the Beaufort Sea. Except where
+                                otherwise noted, material may be re-used under a <a rel="external noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
+                                    Commons BY-SA 4.0 license</a>.</small></p>
+                    </div>
+                    <div class="col-lg-4">
+                        <p><small><a rel="external noopener" href="https://cio.utexas.edu/policies/web-privacy">Privacy Policy</a> |
+                                <a rel="external noopener" href="https://cio.utexas.edu/policies/web-accessibility">Accessibility Policy</a></small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</footer>
+<div id="before-end-of-body">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+    <script type="text/javascript">
+    algoliasearchNetlify({
+        appId: 'TCXC3S30W1',
+        apiKey: '4192e022ca7324b819c06709a91b57e9',
+        siteId: '84d8b51e-beb6-4843-bee0-a636ab45efe9',
+        branch: 'algolia',
+        selector: 'div#search',
+    });
+    </script>
+</div>
+</body>
 
-
-</body></html>
+</html>
