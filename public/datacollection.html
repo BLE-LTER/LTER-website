@@ -117,7 +117,7 @@
                     <option value>Any</option>
                     <option value="Ongoing timeseries">Ongoing timeseries</option>
                     <option value="Completed timeseriess">Completed timeseries</option>
-                    <option value="hort term study">Short term study</option>
+                    <option value="short term study">Short term study</option>
                     <option value="No time dimension">No time dimension</option>
                 </select>
             </div>
@@ -280,6 +280,12 @@
                 table.search('').columns().search('').draw(); // clear all global and column searches
             });
         });
+
+        // If user arrived here by clicking Back, previous filters are selected but full table is shown.
+        // Trigger the filter change event to sync the table to the filters.
+        $('#themeSelect').change();
+        $('#cpSelect').change();
+        $('#timeSelect').change();
     });
     </script>
 
