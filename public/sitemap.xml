@@ -9,73 +9,83 @@
 
 <url>
   <loc>https://ble.lternet.edu/</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://ble.lternet.edu/about</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ble.lternet.edu/people</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ble.lternet.edu/partner</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ble.lternet.edu/media</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ble.lternet.edu/contact</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ble.lternet.edu/research</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ble.lternet.edu/student</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/catalog</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ble.lternet.edu/relateddata</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ble.lternet.edu/ims</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
+  <loc>https://ble.lternet.edu/finddata</loc>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ble.lternet.edu/submitdata</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/ims</loc>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ble.lternet.edu/bibliography</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ble.lternet.edu/outreach</loc>
-  <lastmod>2021-08-13T18:26:17+00:00</lastmod>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/catalog</loc>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/samples</loc>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/relateddata</loc>
+  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 
