@@ -16,10 +16,10 @@ package = "netlify-plugin-a11y"
 package = "@algolia/netlify-plugin-crawler"
 
   [plugins.inputs]
-  branches = ['master']
+  branches = ['master', 'search']
   mainBranch = "master"
   disabled = false
   pathPrefix = "/public"
-  customDomain = "ble.lternet.edu"
+  customDomain = "search--eager-sammet-b7ed61.netlify.app"
   renderJavaScript = false
   template = "hierarchical"
