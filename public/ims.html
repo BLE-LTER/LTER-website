@@ -15,7 +15,7 @@
    shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=rMqzlp2Rno">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=rMqzlp2Rno">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=rMqzlp2Rno">
@@ -111,7 +111,7 @@
                         <h3 class="h4 my-0 font-weight-normal" id="collecting_metadata">Collecting Metadata</h3>
                     </div>
                     <div class="d-flex flex-column card-body">
-                        <i class="fas fa-file-excel fa-4x  text-logo-blue"></i>
+                        <i class="bi bi-file-earmark-spreadsheet-fill fs-1 fw-bold text-logo-blue"></i>
                         <p class=" text-left mt-3 mb-4">
                             Our researchers use a <a href="https://utexas.box.com/v/ble-metadata-template" target="_blank" rel="noopener" aria-label="open metadata template in new tab">spreadsheet metadata template</a> to supply metadata with data submissions. The
                             spreadsheet includes validation and other forms of guidance to help the user supply rich metadata.
@@ -127,7 +127,7 @@
                         <h3 class="h4 my-0 font-weight-normal" id="storing_metadata">Storing Metadata</h3>
                     </div>
                     <div class="d-flex flex-column card-body">
-                        <i class="fas fa-database fa-4x  text-logo-blue"></i>
+                        <i class=" bi bi-table fs-1 fw-bold text-logo-blue"></i>
                         <p class=" text-left mt-3 mb-4">
                             We store data package information in a Postgres database using the
                             <a href="https://github.com/lter/LTER-core-metabase" target="_blank" rel="noopener" aria-label="open LTER core metabase project on github in new tab">LTER Core
@@ -144,7 +144,7 @@
                         <h3 class="h4 my-0 font-weight-normal" id="making_eml">Making EML</h3>
                     </div>
                     <div class="d-flex flex-column card-body">
-                        <i class="fas fa-code fa-4x  text-logo-blue"></i>
+                        <i class="bi bi-code-square fs-1 fw-bold text-logo-blue"></i>
                         <p class=" text-left mt-3 mb-4">
                             We created an R package called <a href="https://github.com/BLE-LTER/MetaEgress" target="_blank" rel="external noopener" aria-label="open metaegress project on github in new tab"> MetaEgress</a> to generate Ecological Metadata Language documents from our Core
                             Metabase. We plan to eventually tie this into the <a href="https://github.com/EDIorg/EMLassemblyline" target="_blank" rel="noopener" aria-label="open EMLassemblyline project on github in new tab">EML Assembly Line</a>.
@@ -170,7 +170,7 @@
                         <h3 class="h4 my-0 font-weight-normal" id="data_catalog">Data Catalog</h3>
                     </div>
                     <div class="d-flex flex-column card-body">
-                        <i class="fas fa-table fa-4x  text-logo-blue"></i>
+                        <i class="bi bi-search-heart fs-1 fw-bold text-logo-blue"></i>
                         <p class=" text-left mt-3 mb-4">
                             Using our <a href="https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client" target="_blank" rel="noopener" aria-label="open pasta client project on github in new tab">PASTA client</a>, our <a href="catalog.html">Data Catalog</a> taps into the
                             Environmental Data Initiative where we archive our data. This ensures that our website stays in sync
@@ -189,7 +189,7 @@
                         <h3 class="h4 my-0 font-weight-normal" id="bibliography">Bibliography</h3>
                     </div>
                     <div class="d-flex flex-column card-body">
-                        <i class="fas fa-book fa-4x text-logo-blue"></i>
+                        <i class="bi bi-book-half fs-1 fw-bold text-logo-blue"></i>
                         <p class=" text-left mt-3 mb-4">
                             We use <a href="https://www.zotero.org/" target="_blank" rel="noopener" aria-label="open zotero website in new tab">Zotero</a> as our reference
                             manager. With our <a href="https://github.com/BLE-LTER/Zotero-JavaScript-Search-Client" target="_blank" rel="noopener" aria-label="open zotero client project on github in new tab">Zotero
@@ -206,7 +206,7 @@
                         <h3 class="h4 my-0 font-weight-normal" id="site_search">Site Search</h3>
                     </div>
                     <div class="d-flex flex-column card-body">
-                        <i class="fas fa-search fa-4x  text-logo-blue"></i>
+                        <i class="bi bi-search fs-1 fw-bold  text-logo-blue"></i>
                         <p class=" text-left mt-3 mb-4">
                             We use <a href="https://algolia.com/" target="_blank" rel="noopener" aria-label="open algolia website in new tab">Algolia for Netlify</a> for searching content on our
                             website. We like that Algolia works seamlessly with Netlify to provide instant search and fuzzy search capacity.
@@ -262,11 +262,11 @@
                             </button>
                             <button class="btn btn-outline-primary border-white m-2 footer-button" aria-label="Facebook button">
                                 <a href="https://facebook.com/arcticlagoons" rel="external noopener" target="_blank" title="BLE on Facebook" aria-label="open Facebook in new tab">
-                                    <i class="fab fa-facebook-f text-white"></i></a>
+                                    <i class="bi bi-facebook text-white"></i></a>
                             </button>
                             <button class="btn btn-outline-primary border-white m-2 footer-button" aria-label="Twitter button">
                                 <a href="https://twitter.com/ArcticLagoons" rel="external noopener" target="_blank" title="BLE on Twitter" aria-label="open Twitter in new tab">
-                                    <i class="fab fa-twitter text-white"></i></a>
+                                    <i class="bi bi-twitter text-white"></i></a>
                             </button>
                         </div>
                         <div class="col-sm-6 col-lg-3 pb-4 pb-lg-0">
