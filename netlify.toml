@@ -16,8 +16,8 @@ package = "netlify-plugin-a11y"
 package = "@algolia/netlify-plugin-crawler"
 
   [plugins.inputs]
-  branches = ['master']
-  mainBranch = "master"
+  branches = ['main']
+  mainBranch = "main"
   disabled = false
   pathPrefix = "/public"
   customDomain = "ble.lternet.edu"
