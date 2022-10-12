@@ -27,7 +27,7 @@ function fetchChunk(uri) {
          response.text().then(function (text) {
             resolve(JSON.parse(text));
          });
-      });
+      }).catch(console.error);
    });
 }
 
@@ -168,7 +168,7 @@ function parseZoteroResults(results) {
                var url = urls[i];
                var j = i + 1;
                links.push(' <a href="' + url + '" target="_blank" rel="noopener" aria-label="open data in new tab">Data link ' + j + '.</a>');
-            }   
+            }
          }
          return links.join(" ");
       } else {
@@ -260,7 +260,7 @@ function main() {
       // Results fetched. Now process them.
       Promise.all(promises).then(handleResults)
          .catch(console.error);
-   });
+   }).catch(console.error);
 }
 
 main();
