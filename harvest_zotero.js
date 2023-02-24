@@ -12,7 +12,7 @@ const ZOTERO_CONFIG = {
    "collectionKey": "KHTHLKB5", // Key of collection within library to search, e.g., "KHTHLKB5", or "" if no collection
    "filterTags": "", // For filtering results by tag(s), e.g., "&tag=LTER-Funded".  See examples at https://www.zotero.org/support/dev/web_api/v3/basics
    "includeCols": ["Year", "Type", "ShowTags"], // Array of columns to include in the output table, other than Citation. The full set is ["Year", "Type", "ShowTags"]
-   "showTags": ["Foundational", "LTER-Funded", "LTER-Enabled"], // Include a column showing this tag if present for each item
+   "showTags": ["Foundational", "Supported"], // Include a column showing this tag if present for each item
    "showTagColName": "Relationship", // Name for the column in HTML table under which the showTags will appear
    "style": "" // Bibliography display style, e.g., apa. Leave blank for default which is chicago-note-bibliography.
 };
@@ -135,14 +135,12 @@ function parseZoteroResults(results) {
          return ZOTERO_CONFIG["showTags"].indexOf(n) !== -1;
       });
       const text = matches.join(", ");
-      // Use hidden text to enable sorting with LTER-Funded at the top
+      // Use hidden text to enable sorting with Supported at the top
       let tagRank = "99";
-      if (text.startsWith("LTER-Funded")) {
+      if (text.startsWith("Supported")) {
          tagRank = "1";
-      } else if (text.startsWith("LTER-Enabled")) {
-         tagRank = "2";
       } else if (text.startsWith("Foundational")) {
-         tagRank = "3";
+         tagRank = "2";
       }
       const span = '<span style="display: none;">' + tagRank + '</span>';
       return span + text;
