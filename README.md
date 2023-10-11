@@ -30,7 +30,7 @@ from a template file. See more about templates below.
 
 `sw.js` is the service worker that enables this website to be a [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/). That means it can be pinned to your desktop or home screen, and some caching of resources locally is enabled which permits limited offline use.
 
-You'll notice multiple sizes for images in the img folder. Using a `picture` tag in the HTML, we tell a browser to only load the image size it needs, saving bandwidth and boosting performance.  I use tools like [toolur](http://compressimage.toolur.com/) and [Optimizilla](http://optimizilla.com/) to compress images.
+You'll notice multiple sizes for images in the img folder. Using a `picture` tag in the HTML, we tell a browser to only load the image size it needs, saving bandwidth and boosting performance.  I use tools like [toolur](https://pi7.org/compressor/compress-toolur) and [Optimizilla](http://optimizilla.com/) to compress images.
 
 ## Applying Templates
 
