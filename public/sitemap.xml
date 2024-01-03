@@ -9,82 +9,97 @@
 
 <url>
   <loc>https://ble.lternet.edu/</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/about</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/catalog.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
+  <priority>0.94</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/about.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/people</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/people.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/partner</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/partner.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/media</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/media.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/contact</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/contact.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/research</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/research.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/student</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/student.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/finddata</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/finddata.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/submitdata</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/submitdata.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/ims</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/ims.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/bibliography</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/bibliography.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/outreach</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/outreach.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/catalog</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/doc/BLE%20II%20Proposal.pdf</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/samples</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/doc/BLE%20DEI%20Plan.pdf</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://ble.lternet.edu/relateddata</loc>
-  <lastmod>2022-01-28T19:27:31+00:00</lastmod>
+  <loc>https://ble.lternet.edu/doc/BLE%20I%20Proposal.pdf</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/samples.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ble.lternet.edu/relateddata.html</loc>
+  <lastmod>2024-01-03T15:10:44+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
