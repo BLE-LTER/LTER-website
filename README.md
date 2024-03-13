@@ -18,7 +18,7 @@ This project contains an example [Long Term Ecological Research](https://lternet
 `apply_template.js` is used to update the header or footer for all HTML files
 from a template file. See more about templates below.
 
-`harvest_zotero.js` is used to update the cached bibliography from a Zotero collection. Run this script via Node.js when your Zotero collection has been updated.
+`harvest_zotero.mjs` is used to update the cached bibliography from a Zotero collection. Run this script via Node.js when your Zotero collection has been updated using this command: `node --loader ts-node/esm harvest_zotero.mjs`
 
 [RealFaviconGenerator](https://realfavicongenerator.net/) was used to create the various icons and browserconfig.xml. To make your own icons, I suggest starting with a single image file 512x512 pixels in size.
 
