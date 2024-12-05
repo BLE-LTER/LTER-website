@@ -252,6 +252,8 @@ async function runScript() {
          // Now make asynchronous calls until we fetched all results
          while (start < count) {
             uri = baseUri + "&limit=" + limit + "&start=" + start;
+            // Encode the uri
+            uri = encodeURI(uri);
             let promise = fetchChunk(uri);
             promises.push(promise);
             start += limit;
