@@ -37,7 +37,7 @@ You'll notice multiple sizes for images in the img folder. Using a `picture` tag
 The `apply_template.js` script looks for certain parts of HTML files in the
 `public` folder and replaces them with parts from a template.  For example, this enables you
 to update all pages if you add a new menu item to the navigation bar.  For this
-sript to work, you must include elements exactly as follows:
+script to work, you must include elements in the template exactly as follows:
 
 * **head** - For common parts of the `<head>` element, such as links to external
   stylesheets, enclose those parts between `<!-- Start Common Head -->` and
