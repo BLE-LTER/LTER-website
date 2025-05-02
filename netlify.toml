@@ -1,8 +1,5 @@
 [build]
-  environment = { 
-    RUBY_VERSION = "3.2.2", 
-    NODE_VERSION = "22" 
-  }
+  environment = { RUBY_VERSION = "3.2.2", NODE_VERSION = "22" }
 
 [[plugins]]
 package = "netlify-plugin-checklinks"
