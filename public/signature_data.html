@@ -92,30 +92,201 @@
         </nav>
     </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="container mt-5 pt-5" id="main-content">
-    <h1 class="page-title">Signature Data</h1>
-    <p class="lead">Welcome to the signature data page. Use this space to describe BLE Signature data or any useful links.</p>
+    <style>
+/* General accordion card styling */
+.accordion-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+.accordion-item:hover {
+  transform: translateY(-2px);
+}
 
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <div class="card-body">
-            <h3 class="card-title">Resource 1</h3>
-            <p class="card-text">Details about data</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <div class="card-body">
-            <h3 class="card-title">Resource 2</h3>
-            <p class="card-text"> Details about data</p>
-          </div>
-        </div>
+/* Shared button styling */
+.accordion-button {
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1.25rem 1.5rem;
+  color: #212529 !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0;
+}
+
+/* Preserve gradient when expanded */
+.accordion-button:not(.collapsed),
+.accordion-button {
+  background-image: inherit !important;
+  background-color: inherit !important;
+}
+
+/* Section-specific gradients */
+.section-spring .accordion-button {
+  background-image: linear-gradient(45deg, #e3f2fd, #bbdefb) !important;
+}
+.section-carbon .accordion-button {
+  background-image: linear-gradient(45deg, #e8f5e9, #c8e6c9) !important;
+}
+.section-erosion .accordion-button {
+  background-image: linear-gradient(45deg, #fff3e0, #ffe0b2) !important;
+}
+.section-physio .accordion-button {
+  background-image: linear-gradient(45deg, #f3e5f5, #e1bee7) !important;
+}
+
+/* Body */
+.accordion-body {
+  background-color: #fdfdfd;
+  padding: 1.75rem;
+  border-top: 1px solid #e0e0e0;
+  font-size: 1.1rem;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Subheading style */
+.small-heading {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 1rem 0 0.5rem;
+  color: #333;
+}
+
+/* Main content font style */
+#main-content {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #212529;
+}
+</style>
+
+    <main id="site-main" class="site-main" role="main">
+    <div class="container" style="max-width: 1200px;"  id="main-content">
+    <article id="post-2112" class="post-2112 page type-page status-publish hentry">
+        <header class="entry-header">
+            <h1 class="entry-title"  style="margin-top: 6rem; font-size: 3rem;">Signature Data</h1>
+          </header>
+            <div class="entry-content">
+                <p>Signature datasets of BLE LTER illustrate ecological processes and patterns that occur in Beaufort Lagoon Ecosystems. These datasets are significant for understanding the dynamics of the ecosystem and are often used in publications and research.</p>
+                <p>Click on the dataset names below to view more details, including descriptions, plots, and links to the data.</p>
+      <div class="accordion" id="signatureDataAccordion">
+
+  <div class="accordion-item section-spring">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button big-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Physiochemical water column parameters and hydrographic time series
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#signatureDataAccordion">
+      <div class="accordion-body">
+       <h3 class="small-heading">Dataset Description</h3>
+              <p> To understand circulation and seasonality as part of the Beaufort Lagoon Ecosystem Long Term Ecological Research program, temperature, conductivity, salinity, pressure, depth, and current velocity are recorded hourly in situ, starting August 2018 in lagoons across the Beaufort Sea coast (Elson Lagoon, Kaktovik Lagoon, and Jago Lagoon). Moorings include combinations of 1) RBR Concerto CTDs with temperature, conductivity, and pressure sensors; 2) StarOddi CTs with temperature and conductivity sensors; and 3) Lowell TCM-1 Tilt Current meters with MAT-1 Data Loggers for velocity and bearing. In addition, during BLE LTER's annual sampling, water column physiochemical parameters (chlorophyll a, dissolved oxygen, phycoerythrin concentration, pH, temperature, conductivity, salinity) are measured by hand with a YSI data sonde at river, lagoon, and open ocean sites along the Beaufort Sea coast. Here we provide both quality controlled in situ mooring data and all YSI sonde data.</p>
+              
+              <h4 class="small-heading">Publications</h4>
+              <ul>
+  <li>
+    Miller, C.A., Bonsell, C., McTigue, N.D., Kelley, A.L.<span style="color: #0070e9;">
+    Seasonal phases of an Arctic lagoon reveal the discontinuities of pH variability and CO₂ flux at the air–sea interface.
+  </span>
+    <em>Biogeosciences</em>, 
+    <a href="https://doi.org/10.5194/bg-18-1203-2021" target="_blank" rel="noopener">https://doi.org/10.5194/bg-18-1203-2021</a> 
+  </li>
+  <li>
+    Observed and forecasted global warming pressure on coastal hypoxia.
+    <em>Biogeosciences</em>, 
+    <a href="https://doi.org/10.5194/bg-2021-285" target="_blank" rel="noopener">https://doi.org/10.5194/bg-2021-285</a> 
+  <li>
+    Slow Community Development Enhances Abiotic Limitation of Benthic Community Structure in a High Arctic Kelp Bed. 
+    <em>Frontiers in Marine Science</em>, 
+    <a href="https://doi.org/10.3389/fmars.2021.592295" target="_blank" rel="noopener">https://doi.org/10.3389/fmars.2021.592295</a> 
+  </li>
+  <li>
+    Observed and projected global warming pressure on coastal hypoxia. 
+    <em>Biogeosciences</em>, 
+    <a href="https://doi.org/10.5194/bg-19-4479-2022" target="_blank" rel="noopener">https://doi.org/10.5194/bg-19-4479-2022</a>
+  </li>
+  <li>
+    Monitoring Alaskan Arctic Shelf Ecosystems Through Collaborative Observation Networks. 
+    <em>Oceanography</em>, 
+    <a href="https://doi.org/10.5670/oceanog.2022.119" target="_blank" rel="noopener">https://doi.org/10.5670/oceanog.2022.119</a> 
+  </li>
+  <li>
+    Marine Pelagic Ecosystem Responses to Climate Variability and Change. 
+    <em>BioScience</em>, 
+    <a href="https://doi.org/10.1093/biosci/biac050" target="_blank" rel="noopener">https://doi.org/10.1093/biosci/biac050</a> 
+  </li>
+  <li>
+    Environmental Controls on Carbon and Nitrogen Cycling in Alaskan Arctic Coastal Lagoons.
+    <em>ProQuest Dissertation, The College of William and Mary</em>, 2024 
+  </li>
+</ul>
       </div>
     </div>
-  </main>
+  </div>
+
+  <div class="accordion-item section-carbon">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button big-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Diverse Carbon Sources Fuel Food Webs
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#signatureDataAccordion">
+      <div class="accordion-body">
+        <h3 class="small-heading">Dataset Description</h3>
+              <P>Most consumers in Beaufort Sea lagoons exhibit omnivorous (generalist) feeding strategies. Food web structure shifts with the seasons as food sources change from ice cover to open water. Multiple food sources provide sustenance to consumers including allochthonous (marine and terrestrial/ riverine organic matter) and autochthonous (microphytobenthic and phytoplankton) organic matter.</P>
+              Content for Diverse Carbon Sources Fuel Food Webs goes here.<a href="https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-ble.6.1" target="_blank" rel="noopener">see related dataset</a>.
+              
+              <h4 class="small-heading">Publications</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item section-erosion">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button big-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Coastal Erosion is Increasing
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#signatureDataAccordion">
+      <div class="accordion-body">
+        <h3 class="small-heading">Dataset Description</h3>
+              <P>Consistent with reports from other regions of the Arctic and the Beaufort Sea Coast, coastal erosion rates appear to have increased along the shores of Elson Lagoon near Utqiaġvik (formerly Barrow) over the last half century. Areas with historically low erosion rates are changing faster, but rates do not exceed those of areas with historically high erosion.</P>
+              Content for Coastal Erosion is Increasing goes here.
+              
+              <h4 class="small-heading">Publications</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item section-physio">
+    <h2 class="accordion-header" id="headingFour">
+      <button class="accordion-button big-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        Extreme Variability in Physio-Hydrological Conditions
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#signatureDataAccordion">
+      <div class="accordion-body">
+        <h3 class="small-heading">Dataset Description</h3>
+              <P>Beaufort Sea lagoons experience large seasonal variations in temperature and salinity related to the Arctic freeze-thaw cycle. In the most extreme cases, lagoons swing from completely freshwater conditions during the spring to hypersaline conditions during the winter. Variations in salinity regimes among lagoons are modulated by ocean exchange characteristics and proximity to river mouths. Water transparency is highest during ice break-up, but following ice retreat, wind driven sediment resuspension increases light attenuation.</P>
+              Content for Extreme Variability in Physio-Hydrological Conditions goes here.
+              
+              <h4 class="small-heading">Publications</h4>
+      </div>
+    </div>
+  </div>
+
+</div>
+    </article>
+</div>
+</main>
 
   <footer class="text-white">
         <img id="coastline" src="img/north_slope_coast.svg" alt="coastline" style="width: 100%;">
