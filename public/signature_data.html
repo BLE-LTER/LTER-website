@@ -130,16 +130,24 @@
 
 /* Section-specific gradients */
 .section-spring .accordion-button {
-  background-image: linear-gradient(45deg, #e3f2fd, #bbdefb) !important;
+  background-image: linear-gradient(45deg, rgb(206, 229, 242), rgb(206, 229, 242)) !important;
 }
 .section-carbon .accordion-button {
-  background-image: linear-gradient(45deg, #e8f5e9, #c8e6c9) !important;
+  background-image: linear-gradient(45deg, rgb(39, 114, 189), rgb(39, 114, 189)) !important;
 }
 .section-erosion .accordion-button {
-  background-image: linear-gradient(45deg, #fff3e0, #ffe0b2) !important;
+  background-image: linear-gradient(45deg, rgb(24, 98, 181), rgb(24, 98, 181)) !important;
 }
-.section-physio .accordion-button {
-  background-image: linear-gradient(45deg, #f3e5f5, #e1bee7) !important;
+.section-hydro .accordion-button {
+  background-image: linear-gradient(45deg, rgb(115, 145, 55), rgb(115, 145, 55)) !important;
+}
+
+.section-series .accordion-button {
+  background-image: linear-gradient(45deg, rgb(14,90,175), rgb(14,90,175)) !important;
+}
+
+.section-time .accordion-button {
+  background-image: linear-gradient(45deg, rgb(76, 87, 74), rgb(76, 87, 74)) !important;
 }
 
 /* Body */
@@ -166,6 +174,10 @@
   line-height: 1.6;
   color: #212529;
 }
+.accordion-title {
+  color: #fff !important;
+  text-shadow: none !important; 
+}
 </style>
 
     <main id="site-main" class="site-main" role="main">
@@ -182,10 +194,10 @@
   <div class="accordion-item section-spring">
     <h2 class="accordion-header" id="headingOne">
       <button class="accordion-button big-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Physiochemical water column parameters and hydrographic time series
+        <span class="accordion-title">Physiochemical water column parameters and hydrographic time series</span>
       </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#signatureDataAccordion">
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#signatureDataAccordion">
       <div class="accordion-body">
        <h3 class="small-heading">Dataset Description</h3>
               <p> To understand circulation and seasonality as part of the Beaufort Lagoon Ecosystem Long Term Ecological Research program, temperature, conductivity, salinity, pressure, depth, and current velocity are recorded hourly in situ, starting August 2018 in lagoons across the Beaufort Sea coast (Elson Lagoon, Kaktovik Lagoon, and Jago Lagoon). Moorings include combinations of 1) RBR Concerto CTDs with temperature, conductivity, and pressure sensors; 2) StarOddi CTs with temperature and conductivity sensors; and 3) Lowell TCM-1 Tilt Current meters with MAT-1 Data Loggers for velocity and bearing. In addition, during BLE LTER's annual sampling, water column physiochemical parameters (chlorophyll a, dissolved oxygen, phycoerythrin concentration, pH, temperature, conductivity, salinity) are measured by hand with a YSI data sonde at river, lagoon, and open ocean sites along the Beaufort Sea coast. Here we provide both quality controlled in situ mooring data and all YSI sonde data.</p>
@@ -235,14 +247,14 @@
   <div class="accordion-item section-carbon">
     <h2 class="accordion-header" id="headingTwo">
       <button class="accordion-button big-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Diverse Carbon Sources Fuel Food Webs
+        <span class="accordion-title">Disturbance Patterns</span>
       </button>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#signatureDataAccordion">
       <div class="accordion-body">
         <h3 class="small-heading">Dataset Description</h3>
-              <P>Most consumers in Beaufort Sea lagoons exhibit omnivorous (generalist) feeding strategies. Food web structure shifts with the seasons as food sources change from ice cover to open water. Multiple food sources provide sustenance to consumers including allochthonous (marine and terrestrial/ riverine organic matter) and autochthonous (microphytobenthic and phytoplankton) organic matter.</P>
-              Content for Diverse Carbon Sources Fuel Food Webs goes here.<a href="https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-ble.6.1" target="_blank" rel="noopener">see related dataset</a>.
+         <img src="C:/Users/im23237/Downloads/signaturedata.1.jpg" alt="Description of image" class="img-fluid my-3">     
+              
               
               <h4 class="small-heading">Publications</h4>
       </div>
@@ -252,24 +264,29 @@
   <div class="accordion-item section-erosion">
     <h2 class="accordion-header" id="headingThree">
       <button class="accordion-button big-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Coastal Erosion is Increasing
+        <span class="accordion-title">Primary Production</span>
       </button>
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#signatureDataAccordion">
       <div class="accordion-body">
         <h3 class="small-heading">Dataset Description</h3>
-              <P>Consistent with reports from other regions of the Arctic and the Beaufort Sea Coast, coastal erosion rates appear to have increased along the shores of Elson Lagoon near Utqiaġvik (formerly Barrow) over the last half century. Areas with historically low erosion rates are changing faster, but rates do not exceed those of areas with historically high erosion.</P>
-              Content for Coastal Erosion is Increasing goes here.
-              
-              <h4 class="small-heading">Publications</h4>
+              <P>Comparison of AOU and ΔCO2indicate that the relative influence of biological processes, ocean-atmosphere exchange and inputs from other factors such as melting ice and terrestrial inflow in BLE lagoons metabolism vary over time and space.</P>
+<p>When points lie along the 1:1 line, the pattern is likely attributed to biological processes, linking the consumption or production of CO2 and O2 (e.g. photosynthesis, respiration). Notably, during ice cover, strong positive coupling of CO2 saturation with AOU, in addition to high pCO2 and AOU (top right quadrant), point to net heterotrophy in the lagoons.</p>
+<p>Conversely, during ice breakup, biological uptake from primary production and phytoplankton blooms led to pCO2 undersaturation and low AOU. However, positive AOU during this season suggests that alkaline sea ice melt, rather than metabolic activity, may sometimes drive CO2 sink capacity.</p>
+<p>Finally, during open water, there was likely a strong influence of ocean-atmosphere exchange on pCO2, indicated by weak relationships between pCO2 and AOU. Inputs from rivers may have led to net heterotrophy and CO2 efflux, while interaction with marine inflows may lead to opposing conditions.
+</P>
+              <img src="C:/Users/im23237/Downloads/SignatureDatasetNEP.jpg" alt="Description of image" class="img-fluid my-3">
+              <p> Figure caption. Scatterplot of apparent oxygen utilization, AOU (i.e. Saturated – Observed O2 concentrations) versus air-sea CO2 gradient, ΔCO2, (i.e. in situ CO2 - atmospheric CO2) in a) surface and b) bottom waters, with dashed 1:1 lines (From Spera & Lougheed, 2025)</p>
+              <h4 class="small-heading">Data Link</h4> <em>Spot and continuous seasonal pCO2 sensor measurements from lagoon and river sites along the Alaska Beaufort Sea coast</em> <a href="https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-ble.20.1" target="_blank" rel="noopener">https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-ble.20.1</a> 
+              <h5 class="small-heading">Publications</h5>
       </div>
     </div>
   </div>
 
-  <div class="accordion-item section-physio">
+  <div class="accordion-item section-hydro">
     <h2 class="accordion-header" id="headingFour">
       <button class="accordion-button big-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-        Extreme Variability in Physio-Hydrological Conditions
+        <span class="accordion-title">Extreme Variability</span>
       </button>
     </h2>
     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#signatureDataAccordion">
@@ -282,7 +299,39 @@
       </div>
     </div>
   </div>
+ <div class="accordion-item section-series">
+    <h2 class="accordion-header" id="headingFive">
+      <button class="accordion-button big-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        <span class="accordion-title">Physio-Hydrological Conditions</span>
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#signatureDataAccordion">
+      <div class="accordion-body">
+        <h3 class="small-heading">Dataset Description</h3>
+              <P>Beaufort Sea lagoons experience large seasonal variations in temperature and salinity related to the Arctic freeze-thaw cycle. In the most extreme cases, lagoons swing from completely freshwater conditions during the spring to hypersaline conditions during the winter. Variations in salinity regimes among lagoons are modulated by ocean exchange characteristics and proximity to river mouths. Water transparency is highest during ice break-up, but following ice retreat, wind driven sediment resuspension increases light attenuation.</P>
+              Content for Extreme Variability in Physio-Hydrological Conditions goes here.
+              
+              <h4 class="small-heading">Publications</h4>
+      </div>
+    </div>
+  </div>
 
+  <div class="accordion-item section-time">
+    <h2 class="accordion-header" id="headingSix">
+      <button class="accordion-button big-title" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        <span class="accordion-title"> Variability in Physio-Hydrology</span>
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#signatureDataAccordion">
+      <div class="accordion-body">
+        <h3 class="small-heading">Dataset Description</h3>
+              <P>Beaufort Sea lagoons experience large seasonal variations in temperature and salinity related to the Arctic freeze-thaw cycle. In the most extreme cases, lagoons swing from completely freshwater conditions during the spring to hypersaline conditions during the winter. Variations in salinity regimes among lagoons are modulated by ocean exchange characteristics and proximity to river mouths. Water transparency is highest during ice break-up, but following ice retreat, wind driven sediment resuspension increases light attenuation.</P>
+              Content for Extreme Variability in Physio-Hydrological Conditions goes here.
+              
+              <h4 class="small-heading">Publications</h4>
+      </div>
+    </div>
+  </div>
 </div>
     </article>
 </div>
