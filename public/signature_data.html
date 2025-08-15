@@ -30,15 +30,10 @@
     <style>
 /* General accordion card styling */
 .accordion-item {
-  background: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   margin-bottom: 2rem;
   overflow: hidden;
-  transition: transform 0.2s ease;
-}
-.accordion-item:hover {
-  transform: translateY(-2px);
 }
 
 /* Shared button styling */
@@ -55,22 +50,12 @@
   border-radius: 0;
 }
 
-/* Preserve gradient when expanded */
-.accordion-button:not(.collapsed),
-.accordion-button {
-  background-image: inherit !important;
-  background-color: inherit !important;
-}
-
-/* Section-specific gradients */
-
 .section-erosion .accordion-button {
   background-image: linear-gradient(45deg, rgb(24, 98, 181), rgb(24, 98, 181)) !important;
 }
 
 /* Body */
 .accordion-body {
-  background-color: #fdfdfd;
   padding: 1.75rem;
   border-top: 1px solid #e0e0e0;
   font-size: 1.1rem;
@@ -83,12 +68,7 @@
   margin: 1rem 0 0.5rem;
   color: #333;
 }
-#main-content {
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #212529;
-}
+
 .accordion-title {
   color: #fff !important;
   text-shadow: none !important; 
@@ -108,13 +88,13 @@
   --bs-accordion-btn-active-icon-color: #fff;
 }
 
-</style>
+    </style>
 
 </head>
 
 <body>
   <!-- HEADER -->
-  <header>
+    <header>
         <a id="skip-nav" class="sr-only sr-only-focusable" href="#main-content">
             Skip Navigation or Skip to Content
         </a>
@@ -178,7 +158,7 @@
     
     
     <main class="container"  id="main-content">
-          <h1 class="page-title hyphenate" style="margin-top: 0; font-size: 3rem;">Signature Data</h1>
+        <h1 class="page-title hyphenate">Signature Data</h1>
         <div class="lead">
           <p>Signature datasets of BLE LTER illustrate ecological processes and patterns that occur in Beaufort Lagoon Ecosystems. These datasets are significant for understanding the dynamics of the ecosystem and are often used in publications and research.</p>
           <p>Click on the dataset names below to view more details, including descriptions, plots, and links to the data.</p>
@@ -187,30 +167,29 @@
             
             <div class="accordion-item section-erosion">
               <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button big-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   <span class="accordion-title">Disturbance Patterns</span>
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
                 <div class="accordion-body">
-                  <h3 class="small-heading">Dataset Description</h3>
+                <h3 class="small-heading">Dataset Description</h3>
                   <img src="img/signaturedata.jpg" alt="Disturbance Patterns illustration" class="img-fluid my-3" />
-                  <h3 class="small-heading">Publications</h3>
+                <h3 class="small-heading">Publications</h3>
                   
-                </div>
               </div>
-            </div>
-
-            
+          </div>
+        </div>
+        
             <div class="accordion-item section-erosion">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button big-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                   <span class="accordion-title">Primary Production</span>
                 </button>
-              </h2>
+            </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" >
                 <div class="accordion-body">
-                  <h3 class="small-heading">Dataset Description</h3>
+                <h3 class="small-heading">Dataset Description</h3>
                   <p>Comparison of AOU and CO<sub>2</sub> indicate that the relative influence of biological processes, ocean-atmosphere exchange, and inputs from other factors such as melting ice and terrestrial inflow in BLE lagoons metabolism vary over time and space.</p>
                   <p>When points lie along the 1:1 line, the pattern is likely attributed to biological processes, linking the consumption or production of CO<sub>2</sub> and O<sub>2</sub> (e.g., photosynthesis, respiration). Notably, during ice cover, strong positive coupling of CO<sub>2</sub> saturation with AOU, in addition to high pCO<sub>2</sub> and AOU (top right quadrant), point to net heterotrophy in the lagoons.</p>
                   <p>Conversely, during ice breakup, biological uptake from primary production and phytoplankton blooms led to pCO<sub>2</sub> undersaturation and low AOU. However, positive AOU during this season suggests that alkaline sea ice melt, rather than metabolic activity, may sometimes drive CO<sub>2</sub> sink capacity.</p>
@@ -219,18 +198,18 @@
                   <img src="img/SignatureDatasetNEP.jpg" alt="Scatterplot of AOU vs air-sea ∆CO2 for surface and bottom waters" class="img-fluid my-3" />
                   <p><em>Figure.</em> Scatterplot of apparent oxygen utilization (AOU; Saturated - Observed O<sub>2</sub> concentrations) versus airsea CO<sub>2</sub> gradient (∆CO<sub>2</sub>; in situ CO<sub>2</sub> - atmospheric CO<sub>2</sub>) in (a) surface and (b) bottom waters, with dashed 1:1 lines (From Spera &amp; Lougheed, 2025).</p>
 
-                  <h3 class="small-heading">Data Link</h3>
+                <h3 class="small-heading">Data Link</h3>
                   <p>Spot and continuous seasonal pCO<sub>2</sub> sensor measurements from lagoon and river sites along the Alaska Beaufort Sea coast —
                     <a href="https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-ble.20.1" target="_blank" rel="noopener">knb-lter-ble.20.1 on EDI</a>
                   </p>
-                  <h3 class="small-heading">Publications</h3>
+                <h3 class="small-heading">Publications</h3>
                
                 </div>
               </div>
             </div>
           </div>
         </div> 
-  </main>
+    </main>
 
   <footer class="text-white">
         <img id="coastline" src="img/north_slope_coast.svg" alt="coastline" style="width: 100%;">
