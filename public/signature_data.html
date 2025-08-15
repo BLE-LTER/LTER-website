@@ -25,72 +25,8 @@
     <link rel="shortcut icon" href="/favicon.ico?v=rMqzlp2Rno">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css">
     <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="theme-color" content="#0d3760">
+    <meta name="theme-color" content="#0d3760" />
     <!-- End Common Head -->
-</head>
-
-<body>
-  <!-- HEADER -->
-  <header>
-        <a id="skip-nav" class="sr-only sr-only-focusable" href="#main-content">
-            Skip Navigation or Skip to Content
-        </a>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white py-1 px-2">
-            <div class="container">
-                <a rel="external noopener" href="https://www.nsf.gov/" title="National Science Foundation" aria-label="open NSF site in a new tab">
-                    <img src="img/NSF_logo.png" style="max-height: 40px;" alt="NSF logo within link to National Science Foundation">
-                </a>
-                <a class="navbar-brand" title="BLE Home Page" href="index.html"><img src="img/logo-round-rgb.png" style="max-height: 40px;" alt="BLE home
-            page link"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">About</a>
-                            <ul class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
-                                <li><a class="dropdown-item" href="about.html">Project Overview</a></li>
-                                <li><a class="dropdown-item" href="people.html">Team</a></li>
-                                <li><a class="dropdown-item" href="partner.html">Partner Projects</a></li>
-                                <li><a class="dropdown-item" href="media.html">Media Coverage</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="researchDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Research
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="researchDropdownMenuLink">
-                                <li><a class="dropdown-item" href="research.html">Research Overview</a></li>
-                                <li><a class="dropdown-item" href="student.html">Student Research</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Data
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
-                                <li><a class="dropdown-item" href="signature_data.html">Signature Data</a></li>
-                                <li><a class="dropdown-item" href="finddata.html">Find Data</a></li>
-                                <li><a class="dropdown-item" href="submitdata.html">Submit Data</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="ims.html">Information Management</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="bibliography.html">Publications</a></li>
-                        <li class="nav-item"><a class="nav-link" href="outreach.html">Outreach</a></li>
-                    </ul>
-                    <div id="search"></div>
-                </div>
-            </div>
-        </nav>
-    </header>
 
     <style>
 /* General accordion card styling */
@@ -190,60 +126,143 @@
 .accordion-button:not(.collapsed) .fa-chevron-down {
   transform: rotate(180deg);
 }
+.accordion-button::after,
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 16 16' fill='%23ffffff'%3E%3Cpath fill-rule='evenodd' d='M1.5 5.5l6 6 6-6'/%3E%3C/svg%3E") !important;
+}
+.accordion-button {
+  --bs-accordion-btn-icon-color: #fff;
+  --bs-accordion-btn-active-icon-color: #fff;
+}
+
 </style>
 
-    <main id="site-main" class="site-main" role="main">
-    <div class="container" style="max-width: 1200px;"  id="main-content">
-    <article id="post-2112" class="post-2112 page type-page status-publish hentry">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+        <a id="skip-nav" class="sr-only sr-only-focusable" href="#main-content">
+            Skip Navigation or Skip to Content
+        </a>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white py-1 px-2">
+            <div class="container">
+                <a rel="external noopener" href="https://www.nsf.gov/" title="National Science Foundation" aria-label="open NSF site in a new tab">
+                    <img src="img/NSF_logo.png" style="max-height: 40px;" alt="NSF logo within link to National Science Foundation">
+                </a>
+                <a class="navbar-brand" title="BLE Home Page" href="index.html"><img src="img/logo-round-rgb.png" style="max-height: 40px;" alt="BLE home
+            page link"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">About</a>
+                            <ul class="dropdown-menu" aria-labelledby="aboutDropdownMenuLink">
+                                <li><a class="dropdown-item" href="about.html">Project Overview</a></li>
+                                <li><a class="dropdown-item" href="people.html">Team</a></li>
+                                <li><a class="dropdown-item" href="partner.html">Partner Projects</a></li>
+                                <li><a class="dropdown-item" href="media.html">Media Coverage</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="researchDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Research
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="researchDropdownMenuLink">
+                                <li><a class="dropdown-item" href="research.html">Research Overview</a></li>
+                                <li><a class="dropdown-item" href="student.html">Student Research</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dataDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Data
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dataDropdownMenuLink">
+                                <li><a class="dropdown-item" href="signature_data.html">Signature Data</a></li>
+                                <li><a class="dropdown-item" href="finddata.html">Find Data</a></li>
+                                <li><a class="dropdown-item" href="submitdata.html">Submit Data</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="ims.html">Information Management</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="bibliography.html">Publications</a></li>
+                        <li class="nav-item"><a class="nav-link" href="outreach.html">Outreach</a></li>
+                    </ul>
+                    <div id="search"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    
+    <main id="site-main" class="site-main">
+    <div class="container" style="max-width: 1200px;" id="main-content">
+      <article id="post-2112" class="post-2112 page type-page status-publish hentry">
         <header class="entry-header">
-            <h1 class="entry-title"  style="margin-top: 6rem; font-size: 3rem;">Signature Data</h1>
-          </header>
-            <div class="entry-content">
-                <p>Signature datasets of BLE LTER illustrate ecological processes and patterns that occur in Beaufort Lagoon Ecosystems. These datasets are significant for understanding the dynamics of the ecosystem and are often used in publications and research.</p>
-                <p>Click on the dataset names below to view more details, including descriptions, plots, and links to the data.</p>
-      <div class="accordion" id="signatureDataAccordion">
+          <h1 class="entry-title" style="margin-top: 6rem; font-size: 3rem;">Signature Data</h1>
+        </header>
+        <div class="entry-content">
+          <p>Signature datasets of BLE LTER illustrate ecological processes and patterns that occur in Beaufort Lagoon Ecosystems. These datasets are significant for understanding the dynamics of the ecosystem and are often used in publications and research.</p>
+          <p>Click on the dataset names below to view more details, including descriptions, plots, and links to the data.</p>
 
-  <div class="accordion" id="signatureDataAccordion">
+          <div class="accordion" id="signatureDataAccordion">
+            
+            <div class="accordion-item section-erosion">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button big-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <span class="accordion-title">Disturbance Patterns</span>
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
+                <div class="accordion-body">
+                  <h3 class="small-heading">Dataset Description</h3>
+                  <img src="img/signaturedata.jpg" alt="Disturbance Patterns illustration" class="img-fluid my-3" />
+                  <h4 class="small-heading">Publications</h4>
+                  
+                </div>
+              </div>
+            </div>
 
-  <div class="accordion-item section-carbon">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button big-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        <span class="accordion-title">Disturbance Patterns</span>
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#signatureDataAccordion">
-      <div class="accordion-body">
-        <h3 class="small-heading">Dataset Description</h3>
-         <img src="img/signaturedata.jpg" alt="Description of image" class="img-fluid my-3">     
-              <h4 class="small-heading">Publications</h4>
-      </div>
-    </div>
-  </div>
+            
+            <div class="accordion-item section-erosion">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button big-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <span class="accordion-title">Primary Production</span>
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" >
+                <div class="accordion-body">
+                  <h3 class="small-heading">Dataset Description</h3>
+                  <p>Comparison of AOU and CO<sub>2</sub> indicate that the relative influence of biological processes, ocean-atmosphere exchange, and inputs from other factors such as melting ice and terrestrial inflow in BLE lagoons metabolism vary over time and space.</p>
+                  <p>When points lie along the 1:1 line, the pattern is likely attributed to biological processes, linking the consumption or production of CO<sub>2</sub> and O<sub>2</sub> (e.g., photosynthesis, respiration). Notably, during ice cover, strong positive coupling of CO<sub>2</sub> saturation with AOU, in addition to high pCO<sub>2</sub> and AOU (top right quadrant), point to net heterotrophy in the lagoons.</p>
+                  <p>Conversely, during ice breakup, biological uptake from primary production and phytoplankton blooms led to pCO<sub>2</sub> undersaturation and low AOU. However, positive AOU during this season suggests that alkaline sea ice melt, rather than metabolic activity, may sometimes drive CO<sub>2</sub> sink capacity.</p>
+                  <p>Finally, during open water, there was likely a strong influence of ocean-atmosphere exchange on pCO<sub>2</sub>, indicated by weak relationships between pCO<sub>2</sub> and AOU. Inputs from rivers may have led to net heterotrophy and CO<sub>2</sub> efflux, while interaction with marine inflows may lead to opposing conditions.</p>
 
-  <div class="accordion-item section-erosion">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button big-title collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        <span class="accordion-title">Primary Production</span>
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#signatureDataAccordion">
-      <div class="accordion-body">
-        <h3 class="small-heading">Dataset Description</h3>
-              <P>Comparison of AOU and ∆CO2indicate that the relative influence of biological processes, ocean-atmosphere exchange and inputs from other factors such as melting ice and terrestrial inflow in BLE lagoons metabolism vary over time and space.</P>
-<p>When points lie along the 1:1 line, the pattern is likely attributed to biological processes, linking the consumption or production of CO2 and O2 (e.g. photosynthesis, respiration). Notably, during ice cover, strong positive coupling of CO2 saturation with AOU, in addition to high pCO2 and AOU (top right quadrant), point to net heterotrophy in the lagoons.</p>
-<p>Conversely, during ice breakup, biological uptake from primary production and phytoplankton blooms led to pCO2 undersaturation and low AOU. However, positive AOU during this season suggests that alkaline sea ice melt, rather than metabolic activity, may sometimes drive CO2 sink capacity.</p>
-<p>Finally, during open water, there was likely a strong influence of ocean-atmosphere exchange on pCO2, indicated by weak relationships between pCO2 and AOU. Inputs from rivers may have led to net heterotrophy and CO2 efflux, while interaction with marine inflows may lead to opposing conditions.
-</P>
-              <img src="img/SignatureDatasetNEP.jpg" alt="Description of image" class="img-fluid my-3">
-              <p> Figure caption. Scatterplot of apparent oxygen utilization, AOU (i.e. Saturated – Observed O2 concentrations) versus air-sea CO2 gradient, ∆CO2, (i.e. in situ CO2 - atmospheric CO2) in a) surface and b) bottom waters, with dashed 1:1 lines (From Spera & Lougheed, 2025)</p>
-              <h4 class="small-heading">Data Link</h4> <em>Spot and continuous seasonal pCO2 sensor measurements from lagoon and river sites along the Alaska Beaufort Sea coast</em> <a href="https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-ble.20.1" target="_blank" rel="noopener">https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-ble.20.1</a> 
-              <h5 class="small-heading">Publications</h5>
-      </div>
-    </div>
-  </div>
+                  <img src="img/SignatureDatasetNEP.jpg" alt="Scatterplot of AOU vs air-sea ∆CO2 for surface and bottom waters" class="img-fluid my-3" />
+                  <p><em>Figure.</em> Scatterplot of apparent oxygen utilization (AOU; Saturated - Observed O<sub>2</sub> concentrations) versus airsea CO<sub>2</sub> gradient (∆CO<sub>2</sub>; in situ CO<sub>2</sub> - atmospheric CO<sub>2</sub>) in (a) surface and (b) bottom waters, with dashed 1:1 lines (From Spera &amp; Lougheed, 2025).</p>
 
-</div>
-</main>
+                  <h4 class="small-heading">Data Link</h4>
+                  <p>Spot and continuous seasonal pCO<sub>2</sub> sensor measurements from lagoon and river sites along the Alaska Beaufort Sea coast —
+                    <a href="https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-ble.20.1" target="_blank" rel="noopener">knb-lter-ble.20.1 on EDI</a>
+                  </p>
+                  <h5 class="small-heading">Publications</h5>
+               
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </article>
+    </div> 
+  </main>
 
   <footer class="text-white">
         <img id="coastline" src="img/north_slope_coast.svg" alt="coastline" style="width: 100%;">
@@ -254,6 +273,7 @@
                         <div class="col-12 col-lg-6 pb-4 pb-lg-0">
                             <h2 class="h4"><a href="index.html" style="text-decoration: none;">Beaufort Lagoon
                                     Ecosystems LTER</a></h2>
+                            <p>This site is a member of the U.S. LTER Network.</p>
                             <p>This site is a member of the U.S. LTER Network.</p>
                             <p><small>This material is based upon work supported by the <a rel="external noopener" href="https://www.nsf.gov/">National
                                         Science Foundation</a> under award #2322664 (2023-2028) and #1656026 (2017-2022). Any
@@ -326,6 +346,25 @@
                 selector: 'div#search',
             });
         </script>
+        <script> document.addEventListener('DOMContentLoaded', function () { 
+          const navbar = document.querySelector('.navbar.fixed-top'); 
+          const navOffset = navbar ? navbar.offsetHeight + 10 : 0;  
+          document.querySelectorAll('#signatureDataAccordion .accordion-collapse') 
+          .forEach(function (collapseEl) { 
+            collapseEl.addEventListener('shown.bs.collapse', function (event) { 
+            const header = event.target.previousElementSibling; 
+            if (header) { 
+              const topPos = header.getBoundingClientRect().top + window.pageYOffset; 
+              window.scrollTo({ 
+              top: topPos - navOffset, 
+              behavior: 'smooth' 
+              }); 
+              } 
+              }); 
+              }); 
+              }); 
+        </script>
+
     </div>
 
 
