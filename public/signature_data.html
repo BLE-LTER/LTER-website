@@ -89,6 +89,10 @@
 }
 
     </style>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 </head>
 
@@ -231,13 +235,140 @@
                     <a href="https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-ble.18.8" target="_blank" rel="noopener">knb-lter-ble.18.8 on EDI</a>
                   </p>
                 <h3 class="small-heading">Publications</h3>
-                
-               
-                </div>
+
+               </div>
               </div>
-            </div>
-          </div>
-        </div> 
+              </div>
+            <!-- Accordion 5: Single-year CTD viewer -->
+<div class="accordion-item section-erosion">
+  <h2 class="accordion-header" id="headingFive">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+      <span class="accordion-title">CTD Time Series - Single Year</span>
+    </button>
+  </h2>
+
+  <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive">
+    <div class="accordion-body">
+      <h3 class="small-heading">Dataset Description</h3>
+      <p>Explore daily averages of conductivity, temperature, and depth from CTD data.</p>
+
+      <div class="row g-3 align-items-end my-3">
+        <div class="col-md-4">
+          <label for="yearSelect" class="form-label">Select Year</label>
+          <select id="yearSelect" class="form-select"></select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="paramSelect" class="form-label">Select Parameter</label>
+          <select id="paramSelect" class="form-select">
+            <option value="temperature_C">Temperature</option>
+            <option value="conductivity_uS_cm">Conductivity</option>
+            <option value="depth_m">Depth</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="stationSelect" class="form-label">Select Station</label>
+          <select id="stationSelect" class="form-select"></select>
+        </div>
+      </div>
+
+      <div class="row my-3">
+        <div class="col-md-4"><strong>Minimum:</strong> <span id="statMin">--</span></div>
+        <div class="col-md-4"><strong>Maximum:</strong> <span id="statMax">--</span></div>
+        <div class="col-md-4"><strong>Average:</strong> <span id="statAvg">--</span></div>
+      </div>
+
+      <div id="ctdPlot" style="width:100%; height:500px;"></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="accordion-item section-erosion">
+  <h2 class="accordion-header" id="headingSix">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+      <span class="accordion-title">CTD Time Series - Multiple Years</span>
+    </button>
+  </h2>
+
+  <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix">
+    <div class="accordion-body">
+      <h3 class="small-heading">Dataset Description</h3>
+      <p>Select multiple years to compare CTD daily averages.</p>
+
+      <div class="row g-3 align-items-end my-3">
+        <div class="col-md-4">
+          <label for="yearSelectMulti" class="form-label">Select Year(s)</label>
+          <select id="yearSelectMulti" class="form-select" multiple></select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="paramSelectMulti" class="form-label">Select Parameter</label>
+          <select id="paramSelectMulti" class="form-select">
+            <option value="temperature_C">Temperature</option>
+            <option value="conductivity_uS_cm">Conductivity</option>
+            <option value="depth_m">Depth</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="stationSelectMulti" class="form-label">Select Station</label>
+          <select id="stationSelectMulti" class="form-select"></select>
+        </div>
+      </div>
+
+      <div class="row my-3">
+        <div class="col-md-4"><strong>Minimum:</strong> <span id="statMinMulti">--</span></div>
+        <div class="col-md-4"><strong>Maximum:</strong> <span id="statMaxMulti">--</span></div>
+        <div class="col-md-4"><strong>Average:</strong> <span id="statAvgMulti">--</span></div>
+      </div>
+
+      <div id="ctdPlotMulti" style="width:100%; height:500px;"></div>
+    </div>
+  </div>
+</div>
+<div class="accordion-item section-erosion">
+  <h2 class="accordion-header" id="headingSeven">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+      <span class="accordion-title">CTD Year Comparison</span>
+    </button>
+  </h2>
+
+  <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven">
+    <div class="accordion-body">
+      <p>Compare CTD daily averages across years on the same Jan–Dec timeline.</p>
+
+      <div class="row g-3 align-items-end my-3">
+        <div class="col-md-6">
+          <label for="paramSelectCompare" class="form-label">Select Parameter</label>
+          <select id="paramSelectCompare" class="form-select">
+            <option value="temperature_C">Temperature</option>
+            <option value="conductivity_uS_cm">Conductivity</option>
+            <option value="depth_m">Depth</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label for="stationSelectCompare" class="form-label">Select Station</label>
+          <select id="stationSelectCompare" class="form-select"></select>
+        </div>
+      </div>
+
+      <div class="row my-3">
+      <div class="col-md-4"><strong>Minimum:</strong> <span id="statMinCompare">--</span></div>
+      <div class="col-md-4"><strong>Maximum:</strong> <span id="statMaxCompare">--</span></div>
+      <div class="col-md-4"><strong>Average:</strong> <span id="statAvgCompare">--</span></div>
+      </div>
+
+      <div id="ctdPlotCompare" style="width:100%; height:520px;"></div>
+
+      <div id="yearCheckboxesCompare" class="d-flex flex-wrap gap-4 mt-3"></div>
+    </div>
+  </div>
+</div>
+</div>
+      </div>
     </main>
 
   <footer class="text-white">
@@ -311,6 +442,7 @@
         </div>
     </footer>
 <div id="before-end-of-body">
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
         <script type="text/javascript">
@@ -322,6 +454,591 @@
                 selector: 'div#search',
             });
         </script>
+       <script>
+let ctdData = [];
+let stationLookup = {};
+
+const yLabelMap = {
+  temperature_C: 'Temperature (°C)',
+  conductivity_uS_cm: 'Conductivity (uS/cm)',
+  depth_m: 'Depth (m)'
+};
+
+const titleMap = {
+  temperature_C: 'Temperature',
+  conductivity_uS_cm: 'Conductivity',
+  depth_m: 'Depth'
+};
+
+function hasValidDataForParam(d, selectedParam) {
+  if (d[selectedParam] == null || isNaN(Number(d[selectedParam]))) {
+    return false;
+  }
+
+  if (
+    selectedParam === 'conductivity_uS_cm' &&
+    (d.flags_condsal === 'INV' || d.flags_condsal === 'MISSING')
+  ) {
+    return false;
+  }
+
+  return true;
+}
+
+function getPlotValue(d, selectedParam) {
+  return hasValidDataForParam(d, selectedParam)
+    ? Number(d[selectedParam])
+    : null;
+}
+
+Promise.all([
+  fetch('data/ctd_data.json').then(r => r.json()),
+  fetch('data/stations.json').then(r => r.json())
+]).then(([ctd, stations]) => {
+  ctdData = ctd.map(d => ({ ...d, year: Number(d.year) }));
+  stationLookup = stations;
+
+  populateYears();
+  populateStations();
+  updatePlot();
+
+  populateYearsMulti();
+
+  $('#yearSelectMulti').select2({
+    placeholder: 'Select Year(s)',
+    width: '100%'
+  });
+
+  populateStationsMulti();
+  updatePlotMulti();
+
+  populateYearsCompare();
+  populateStationsCompare();
+  updatePlotCompare();
+
+  document.getElementById('yearSelect').addEventListener('change', () => {
+    populateStations();
+    updatePlot();
+  });
+
+  document.getElementById('paramSelect').addEventListener('change', updatePlot);
+  document.getElementById('stationSelect').addEventListener('change', updatePlot);
+
+  $('#yearSelectMulti').on('change', () => {
+    populateStationsMulti();
+    updatePlotMulti();
+  });
+
+  document.getElementById('paramSelectMulti').addEventListener('change', () => {
+    populateYearsMulti();
+    populateStationsMulti();
+    updatePlotMulti();
+  });
+
+  document.getElementById('stationSelectMulti').addEventListener('change', () => {
+    populateYearsMulti();
+    updatePlotMulti();
+  });
+
+  document.getElementById('paramSelectCompare').addEventListener('change', () => {
+    populateYearsCompare();
+    populateStationsCompare();
+    updatePlotCompare();
+  });
+
+  document.getElementById('stationSelectCompare').addEventListener('change', () => {
+    populateYearsCompare();
+    updatePlotCompare();
+  });
+}).catch(error => {
+  console.error('Error loading CTD data:', error);
+});
+
+/* Accordion 5 */
+function populateYears() {
+  const yearSelect = document.getElementById('yearSelect');
+  const selectedParam = document.getElementById('paramSelect').value;
+
+  const years = [...new Set(
+    ctdData
+      .filter(d => hasValidDataForParam(d, selectedParam))
+      .map(d => d.year)
+      .filter(y => !isNaN(y))
+  )].sort((a, b) => a - b);
+
+  yearSelect.innerHTML = '';
+
+  years.forEach(year => {
+    const option = document.createElement('option');
+    option.value = year;
+    option.textContent = year;
+    yearSelect.appendChild(option);
+  });
+}
+
+function populateStations() {
+  const selectedYear = Number(document.getElementById('yearSelect').value);
+  const selectedParam = document.getElementById('paramSelect').value;
+  const stationSelect = document.getElementById('stationSelect');
+  const previousStation = stationSelect.value;
+
+  const stations = [...new Set(
+    ctdData
+      .filter(d =>
+        d.year === selectedYear &&
+        hasValidDataForParam(d, selectedParam)
+      )
+      .map(d => d.station)
+      .filter(Boolean)
+  )].sort();
+
+  stationSelect.innerHTML = '';
+
+  stations.forEach(station => {
+    const option = document.createElement('option');
+    option.value = station;
+    option.textContent = stationLookup[station] || station;
+    stationSelect.appendChild(option);
+  });
+
+  if (previousStation && stations.includes(previousStation)) {
+    stationSelect.value = previousStation;
+  }
+}
+
+function updatePlot() {
+  const selectedYear = Number(document.getElementById('yearSelect').value);
+  const selectedParam = document.getElementById('paramSelect').value;
+  const selectedStation = document.getElementById('stationSelect').value;
+
+  const filtered = ctdData
+    .filter(d =>
+      d.year === selectedYear &&
+      d.station === selectedStation
+    )
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  updateStats(filtered, selectedParam, 'statMin', 'statMax', 'statAvg');
+
+  Plotly.newPlot('ctdPlot', makeTraces(filtered, selectedParam), {
+    title: `${titleMap[selectedParam]} Daily Average (${selectedYear}) - ${stationLookup[selectedStation] || selectedStation}`,
+    xaxis: {
+      title: 'Date',
+      range: [`${selectedYear}-01-01`, `${selectedYear}-12-31`]
+    },
+    yaxis: {
+      title: yLabelMap[selectedParam]
+    },
+    margin: { t: 60, r: 30, b: 60, l: 70 }
+  }, {
+    responsive: true,
+    displaylogo: false
+  });
+}
+
+/* Accordion 6 */
+function populateYearsMulti() {
+  const yearSelect = document.getElementById('yearSelectMulti');
+  const selectedParam = document.getElementById('paramSelectMulti').value;
+  const selectedStation = document.getElementById('stationSelectMulti').value;
+  const previouslySelected = getSelectedYears();
+
+  let filtered = ctdData.filter(d => hasValidDataForParam(d, selectedParam));
+
+  if (selectedStation) {
+    filtered = filtered.filter(d => d.station === selectedStation);
+  }
+
+  const years = [...new Set(filtered.map(d => d.year).filter(y => !isNaN(y)))]
+    .sort((a, b) => a - b);
+
+  yearSelect.innerHTML = '';
+
+  years.forEach(year => {
+    const option = document.createElement('option');
+    option.value = year;
+    option.textContent = year;
+
+    if (previouslySelected.includes(year)) {
+      option.selected = true;
+    }
+
+    yearSelect.appendChild(option);
+  });
+
+  const stillSelected = previouslySelected.filter(year => years.includes(year));
+
+  if (stillSelected.length > 0) {
+    $('#yearSelectMulti').val(stillSelected);
+  } else if (years.length > 0) {
+    $('#yearSelectMulti').val([years[0]]);
+  } else {
+    $('#yearSelectMulti').val(null);
+  }
+
+  if ($('#yearSelectMulti').data('select2')) {
+    $('#yearSelectMulti').trigger('change.select2');
+  }
+}
+
+function getSelectedYears() {
+  const selected = $('#yearSelectMulti').val();
+  return selected ? selected.map(Number) : [];
+}
+
+function populateStationsMulti() {
+  const selectedYears = getSelectedYears();
+  const selectedParam = document.getElementById('paramSelectMulti').value;
+  const stationSelect = document.getElementById('stationSelectMulti');
+  const previousStation = stationSelect.value;
+
+  let filtered = ctdData.filter(d => hasValidDataForParam(d, selectedParam));
+
+  if (selectedYears.length > 0) {
+    filtered = filtered.filter(d => selectedYears.includes(d.year));
+  }
+
+  const stations = [...new Set(
+    filtered
+      .map(d => d.station)
+      .filter(Boolean)
+  )].sort();
+
+  stationSelect.innerHTML = '';
+
+  stations.forEach(station => {
+    const option = document.createElement('option');
+    option.value = station;
+    option.textContent = stationLookup[station] || station;
+    stationSelect.appendChild(option);
+  });
+
+  if (previousStation && stations.includes(previousStation)) {
+    stationSelect.value = previousStation;
+  } else if (stations.length > 0) {
+    stationSelect.value = stations[0];
+  }
+}
+
+function updatePlotMulti() {
+  const selectedYears = getSelectedYears();
+  const selectedParam = document.getElementById('paramSelectMulti').value;
+  const selectedStation = document.getElementById('stationSelectMulti').value;
+
+  const filteredAll = ctdData
+    .filter(d =>
+      selectedYears.includes(d.year) &&
+      d.station === selectedStation
+    )
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  updateStats(filteredAll, selectedParam, 'statMinMulti', 'statMaxMulti', 'statAvgMulti');
+
+  const traces = [];
+
+  selectedYears.forEach(year => {
+    const yearData = filteredAll
+      .filter(d => d.year === year)
+      .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    if (yearData.length < 2) return;
+
+    traces.push({
+      x: yearData.map(d => d.date),
+      y: yearData.map(d => getPlotValue(d, selectedParam)),
+      type: 'scatter',
+      mode: 'lines',
+      name: year.toString(),
+      line: { width: 2 },
+      connectgaps: false,
+      hovertemplate:
+        year + '<br>%{x}<br>' +
+        yLabelMap[selectedParam] + ': %{y}<extra></extra>'
+    });
+
+    addQmMarkers(traces, yearData, selectedParam, year, false);
+  });
+
+  Plotly.newPlot('ctdPlotMulti', traces, {
+    title:
+      `${titleMap[selectedParam]} Daily Average (${selectedYears.join(', ')}) - ` +
+      (stationLookup[selectedStation] || selectedStation),
+    xaxis: {
+      title: 'Date'
+    },
+    yaxis: {
+      title: yLabelMap[selectedParam]
+    },
+    margin: { t: 60, r: 30, b: 60, l: 70 },
+    legend: {
+      orientation: 'h',
+      x: 0,
+      y: -0.25
+    }
+  }, {
+    responsive: true,
+    displaylogo: false
+  });
+}
+
+/* Accordion 7 */
+function populateYearsCompare() {
+  const yearBox = document.getElementById('yearCheckboxesCompare');
+  const selectedParam = document.getElementById('paramSelectCompare').value;
+  const selectedStation = document.getElementById('stationSelectCompare').value;
+  const previouslySelected = getSelectedCompareYears();
+
+  let filtered = ctdData.filter(d => hasValidDataForParam(d, selectedParam));
+
+  if (selectedStation) {
+    filtered = filtered.filter(d => d.station === selectedStation);
+  }
+
+  const years = [...new Set(filtered.map(d => d.year).filter(y => !isNaN(y)))]
+    .sort((a, b) => b - a);
+
+  yearBox.innerHTML = '';
+
+  years.forEach((year, index) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'form-check form-check-inline';
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.className = 'form-check-input compare-year-check';
+    checkbox.value = year;
+    checkbox.id = `compare-year-${year}`;
+
+    checkbox.checked =
+      previouslySelected.length > 0
+        ? previouslySelected.includes(year)
+        : index < 5;
+
+    const label = document.createElement('label');
+    label.className = 'form-check-label';
+    label.htmlFor = `compare-year-${year}`;
+    label.textContent = year;
+
+    wrapper.appendChild(checkbox);
+    wrapper.appendChild(label);
+    yearBox.appendChild(wrapper);
+  });
+
+  document.querySelectorAll('.compare-year-check').forEach(cb => {
+    cb.addEventListener('change', updatePlotCompare);
+  });
+}
+
+function getSelectedCompareYears() {
+  return Array.from(document.querySelectorAll('.compare-year-check:checked'))
+    .map(cb => Number(cb.value));
+}
+
+function populateStationsCompare() {
+  const selectedYears = getSelectedCompareYears();
+  const selectedParam = document.getElementById('paramSelectCompare').value;
+  const stationSelect = document.getElementById('stationSelectCompare');
+  const previousStation = stationSelect.value;
+
+  let filtered = ctdData.filter(d => hasValidDataForParam(d, selectedParam));
+
+  if (selectedYears.length > 0) {
+    filtered = filtered.filter(d => selectedYears.includes(d.year));
+  }
+
+  const stations = [...new Set(
+    filtered
+      .map(d => d.station)
+      .filter(Boolean)
+  )].sort();
+
+  stationSelect.innerHTML = '';
+
+  stations.forEach(station => {
+    const option = document.createElement('option');
+    option.value = station;
+    option.textContent = stationLookup[station] || station;
+    stationSelect.appendChild(option);
+  });
+
+  if (previousStation && stations.includes(previousStation)) {
+    stationSelect.value = previousStation;
+  } else if (stations.length > 0) {
+    stationSelect.value = stations[0];
+  }
+}
+
+function updatePlotCompare() {
+  const selectedYears = getSelectedCompareYears();
+  const selectedParam = document.getElementById('paramSelectCompare').value;
+  const selectedStation = document.getElementById('stationSelectCompare').value;
+
+  const colors = [
+    '#1f77b4',
+    '#ff0000',
+    '#99cc00',
+    '#ff7f0e',
+    '#e377c2',
+    '#0000ff',
+    '#2ca02c',
+    '#9467bd'
+  ];
+
+  const traces = [];
+
+  selectedYears.forEach((year, index) => {
+    const yearData = ctdData
+      .filter(d =>
+        d.year === year &&
+        d.station === selectedStation
+      )
+      .map(d => {
+        const dt = new Date(d.date);
+        return {
+          ...d,
+          seasonalDate: new Date(2020, dt.getMonth(), dt.getDate())
+        };
+      })
+      .sort((a, b) => a.seasonalDate - b.seasonalDate);
+
+    if (yearData.length < 2) return;
+
+    traces.push({
+      x: yearData.map(d => d.seasonalDate),
+      y: yearData.map(d => getPlotValue(d, selectedParam)),
+      type: 'scatter',
+      mode: 'lines',
+      name: year.toString(),
+      line: {
+        color: colors[index % colors.length],
+        width: 2
+      },
+      connectgaps: false,
+      hovertemplate:
+        year + ' %{x|%b %d}<br>' +
+        yLabelMap[selectedParam] + ': %{y}<extra></extra>'
+    });
+
+    addQmMarkers(traces, yearData, selectedParam, year, true);
+  });
+
+  const allSelectedData = ctdData
+  .filter(d =>
+    selectedYears.includes(d.year) &&
+    d.station === selectedStation
+  );
+
+updateStats(
+  allSelectedData,
+  selectedParam,
+  'statMinCompare',
+  'statMaxCompare',
+  'statAvgCompare'
+);
+
+  Plotly.newPlot('ctdPlotCompare', traces, {
+    title: `${titleMap[selectedParam]} Comparison - ${stationLookup[selectedStation] || selectedStation}`,
+    plot_bgcolor: 'white',
+    paper_bgcolor: 'white',
+
+    xaxis: {
+      tickformat: '%b',
+      range: [new Date(2020, 0, 1), new Date(2020, 11, 31)],
+      showgrid: true,
+      gridcolor: 'rgba(0,0,0,0.15)',
+      zeroline: false
+    },
+
+    yaxis: {
+      title: yLabelMap[selectedParam],
+      showgrid: true,
+      gridcolor: 'rgba(0,0,0,0.15)',
+      zeroline: false
+    },
+
+    margin: { t: 50, r: 30, b: 60, l: 70 },
+
+    legend: {
+      orientation: 'h',
+      x: 0,
+      y: -0.25
+    }
+  }, {
+    responsive: true,
+    displaylogo: false
+  });
+}
+
+/* Helpers */
+function updateStats(filtered, selectedParam, minId, maxId, avgId) {
+  const values = filtered
+    .map(d => getPlotValue(d, selectedParam))
+    .filter(v => v !== null);
+
+  if (values.length === 0) {
+    document.getElementById(minId).textContent = '--';
+    document.getElementById(maxId).textContent = '--';
+    document.getElementById(avgId).textContent = '--';
+    return;
+  }
+
+  document.getElementById(minId).textContent = Math.min(...values).toFixed(2);
+  document.getElementById(maxId).textContent = Math.max(...values).toFixed(2);
+  document.getElementById(avgId).textContent =
+    (values.reduce((a, b) => a + b, 0) / values.length).toFixed(2);
+}
+
+function makeTraces(filtered, selectedParam) {
+  const traces = [{
+    x: filtered.map(d => d.date),
+    y: filtered.map(d => getPlotValue(d, selectedParam)),
+    type: 'scatter',
+    mode: 'lines',
+    name: 'Daily average',
+    connectgaps: false,
+    hovertemplate:
+      '%{x}<br>' +
+      yLabelMap[selectedParam] +
+      ': %{y}<extra></extra>'
+  }];
+
+  addQmMarkers(traces, filtered, selectedParam, null, false);
+
+  return traces;
+}
+
+function addQmMarkers(traces, data, selectedParam, year, useSeasonalDate) {
+  if (selectedParam !== 'conductivity_uS_cm') return;
+
+  const qmPoints = data.filter(
+    d =>
+      d.flags_condsal === 'QM' &&
+      d[selectedParam] != null &&
+      !isNaN(Number(d[selectedParam]))
+  );
+
+  if (qmPoints.length === 0) return;
+
+  traces.push({
+    x: qmPoints.map(d => useSeasonalDate ? d.seasonalDate : d.date),
+    y: qmPoints.map(d => Number(d[selectedParam])),
+    type: 'scatter',
+    mode: 'markers',
+    name: year ? `${year} QM flag` : 'QM flag',
+    marker: {
+      size: 8,
+      color: 'orange',
+      symbol: 'circle',
+      line: { color: 'black', width: 1 }
+    },
+    hovertemplate:
+      (year ? year + '<br>' : '') +
+      '%{x}<br>QM flag<br>' +
+      yLabelMap[selectedParam] +
+      ': %{y}<extra></extra>'
+  });
+}
+</script>
 </div>
 </body>
 </html>
