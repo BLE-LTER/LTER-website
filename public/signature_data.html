@@ -26,7 +26,7 @@
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content="#0d3760" />
     <!-- End Common Head -->
-
+ 
     <style>
 /* General accordion card styling */
 .accordion-item {
@@ -262,7 +262,7 @@
           <label for="paramSelect" class="form-label">Select Parameter</label>
           <select id="paramSelect" class="form-select">
             <option value="temperature_C">Temperature</option>
-            <option value="conductivity_uS_cm">Conductivity</option>
+            <option value="salinity">Salinity</option>
             <option value="depth_m">Depth</option>
           </select>
         </div>
@@ -307,7 +307,7 @@
           <label for="paramSelectMulti" class="form-label">Select Parameter</label>
           <select id="paramSelectMulti" class="form-select">
             <option value="temperature_C">Temperature</option>
-            <option value="conductivity_uS_cm">Conductivity</option>
+            <option value="salinity">Salinity</option>
             <option value="depth_m">Depth</option>
           </select>
         </div>
@@ -344,7 +344,7 @@
           <label for="paramSelectCompare" class="form-label">Select Parameter</label>
           <select id="paramSelectCompare" class="form-select">
             <option value="temperature_C">Temperature</option>
-            <option value="conductivity_uS_cm">Conductivity</option>
+            <option value="salinity">Salinity</option>
             <option value="depth_m">Depth</option>
           </select>
         </div>
@@ -461,12 +461,14 @@ let stationLookup = {};
 const yLabelMap = {
   temperature_C: 'Temperature (°C)',
   conductivity_uS_cm: 'Conductivity (uS/cm)',
+  salinity: 'Salinity',
   depth_m: 'Depth (m)'
 };
 
 const titleMap = {
   temperature_C: 'Temperature',
   conductivity_uS_cm: 'Conductivity',
+  salinity: 'Salinity',
   depth_m: 'Depth'
 };
 
@@ -476,7 +478,7 @@ function hasValidDataForParam(d, selectedParam) {
   }
 
   if (
-    selectedParam === 'conductivity_uS_cm' &&
+    selectedParam === 'salinity' &&
     (d.flags_condsal === 'INV' || d.flags_condsal === 'MISSING')
   ) {
     return false;
@@ -923,18 +925,18 @@ function updatePlotCompare() {
   });
 
   const allSelectedData = ctdData
-  .filter(d =>
-    selectedYears.includes(d.year) &&
-    d.station === selectedStation
-  );
+    .filter(d =>
+      selectedYears.includes(d.year) &&
+      d.station === selectedStation
+    );
 
-updateStats(
-  allSelectedData,
-  selectedParam,
-  'statMinCompare',
-  'statMaxCompare',
-  'statAvgCompare'
-);
+  updateStats(
+    allSelectedData,
+    selectedParam,
+    'statMinCompare',
+    'statMaxCompare',
+    'statAvgCompare'
+  );
 
   Plotly.newPlot('ctdPlotCompare', traces, {
     title: `${titleMap[selectedParam]} Comparison - ${stationLookup[selectedStation] || selectedStation}`,
@@ -1008,7 +1010,7 @@ function makeTraces(filtered, selectedParam) {
 }
 
 function addQmMarkers(traces, data, selectedParam, year, useSeasonalDate) {
-  if (selectedParam !== 'conductivity_uS_cm') return;
+  if (selectedParam !== 'salinity') return;
 
   const qmPoints = data.filter(
     d =>
