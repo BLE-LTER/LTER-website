@@ -611,13 +611,17 @@ function hasValidDataForParam(d, selectedParam) {
   if (
     selectedParam === 'salinity' &&
     (d.flags_condsal === 'INV' || d.flags_condsal === 'MISSING')
-  ) return false;
+  ) {
+    return false;
+  }
 
   return true;
 }
 
 function getPlotValue(d, selectedParam) {
-  return hasValidDataForParam(d, selectedParam) ? Number(d[selectedParam]) : null;
+  return hasValidDataForParam(d, selectedParam)
+    ? Number(d[selectedParam])
+    : null;
 }
 
 Promise.all([
@@ -640,12 +644,21 @@ Promise.all([
     populateYearsCompare();
     updatePlotCompare();
   });
-  document.getElementById('collapseFive').addEventListener('shown.bs.collapse', function () {
-  setTimeout(() => {
-    updatePlotCompare();
-    Plotly.Plots.resize(document.getElementById('ctdPlotCompare'));
-  }, 100);
-  });
+
+  const collapsePanel = document.getElementById('collapseFive');
+
+  if (collapsePanel) {
+    collapsePanel.addEventListener('shown.bs.collapse', function () {
+      setTimeout(() => {
+        updatePlotCompare();
+
+        const plotDiv = document.getElementById('ctdPlotCompare');
+        if (plotDiv) {
+          Plotly.Plots.resize(plotDiv);
+        }
+      }, 100);
+    });
+  }
 }).catch(error => {
   console.error('Error loading CTD data:', error);
 });
@@ -666,6 +679,7 @@ function populateYearsCompare() {
     .sort((a, b) => b - a);
 
   yearColorMap = {};
+
   years.forEach((year, index) => {
     yearColorMap[year] = colors[index % colors.length];
   });
@@ -727,6 +741,7 @@ function getSelectedCompareYears() {
 function selectAllYearsCompare() {
   document.querySelectorAll('.compare-year-check').forEach(cb => {
     cb.checked = true;
+
     const label = cb.parentElement.querySelector('label:last-child');
     if (label) label.style.fontWeight = 'bold';
   });
@@ -737,6 +752,7 @@ function selectAllYearsCompare() {
 function hideAllYearsCompare() {
   document.querySelectorAll('.compare-year-check').forEach(cb => {
     cb.checked = false;
+
     const label = cb.parentElement.querySelector('label:last-child');
     if (label) label.style.fontWeight = 'normal';
   });
@@ -776,19 +792,21 @@ function updatePlotCompare() {
   const messageDiv = document.getElementById('ctdPlotMessage');
 
   if (selectedYears.length === 0) {
-  Plotly.purge(plotDiv);
-  plotDiv.style.display = 'none';
-  messageDiv.style.display = 'block';
+    Plotly.purge(plotDiv);
 
-  document.getElementById('statMinCompare').textContent = '--';
-  document.getElementById('statMaxCompare').textContent = '--';
-  document.getElementById('statAvgCompare').textContent = '--';
+    plotDiv.style.display = 'none';
+    messageDiv.style.display = 'block';
 
-  return;
-}
+    document.getElementById('statMinCompare').textContent = '--';
+    document.getElementById('statMaxCompare').textContent = '--';
+    document.getElementById('statAvgCompare').textContent = '--';
 
-plotDiv.style.display = 'block';
-messageDiv.style.display = 'none';
+    return;
+  }
+
+  plotDiv.style.display = 'block';
+  messageDiv.style.display = 'none';
+
   const selectedParam = document.getElementById('paramSelectCompare').value;
   const selectedStation = document.getElementById('stationSelectCompare').value;
   const stationDisplayName = getStationDisplayName(selectedStation);
@@ -802,6 +820,7 @@ messageDiv.style.display = 'none';
       .filter(d => d.year === year && d.station === selectedStation)
       .map(d => {
         const dt = new Date(d.date);
+
         return {
           ...d,
           seasonalDate: new Date(2020, dt.getMonth(), dt.getDate())
@@ -997,26 +1016,26 @@ messageDiv.style.display = 'none';
     plotDiv.removeAllListeners('plotly_hover');
     plotDiv.removeAllListeners('plotly_unhover');
 
-   function resetHoverEffect() {
-  Plotly.restyle(plotDiv, {
-    x: [[]],
-    y: [[]]
-  }, [hoverTraceIndex]);
-
-  plotDiv.data.forEach((trace, index) => {
-    if (index === hoverTraceIndex) return;
-
-    Plotly.restyle(plotDiv, {
-      opacity: 1
-    }, [index]);
-
-    if (trace.mode === 'lines') {
+    function resetHoverEffect() {
       Plotly.restyle(plotDiv, {
-        'line.width': 2
-      }, [index]);
+        x: [[]],
+        y: [[]]
+      }, [hoverTraceIndex]);
+
+      plotDiv.data.forEach((trace, index) => {
+        if (index === hoverTraceIndex) return;
+
+        Plotly.restyle(plotDiv, {
+          opacity: 1
+        }, [index]);
+
+        if (trace.mode === 'lines') {
+          Plotly.restyle(plotDiv, {
+            'line.width': 2
+          }, [index]);
+        }
+      });
     }
-  });
-}
 
     plotDiv.on('plotly_hover', function(eventData) {
       const pt = eventData.points[0];
@@ -1123,7 +1142,7 @@ function openStationMap() {
       '_blank'
     );
   } else {
-    alert("No coordinates found for this station.");
+    alert('No coordinates found for this station.');
   }
 }
 
@@ -1139,7 +1158,7 @@ function downloadSelectedCTD() {
   );
 
   if (filtered.length === 0) {
-    alert("No data available.");
+    alert('No data available.');
     return;
   }
 
