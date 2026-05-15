@@ -629,7 +629,6 @@ Promise.all([
 
   populateStationsCompare();
   populateYearsCompare();
-  updatePlotCompare();
 
   document.getElementById('paramSelectCompare').addEventListener('change', () => {
     populateStationsCompare();
@@ -640,6 +639,12 @@ Promise.all([
   document.getElementById('stationSelectCompare').addEventListener('change', () => {
     populateYearsCompare();
     updatePlotCompare();
+  });
+  document.getElementById('collapseFive').addEventListener('shown.bs.collapse', function () {
+  setTimeout(() => {
+    updatePlotCompare();
+    Plotly.Plots.resize(document.getElementById('ctdPlotCompare'));
+  }, 100);
   });
 }).catch(error => {
   console.error('Error loading CTD data:', error);
