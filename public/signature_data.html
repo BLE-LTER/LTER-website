@@ -87,6 +87,143 @@
   --bs-accordion-btn-icon-color: #fff;
   --bs-accordion-btn-active-icon-color: #fff;
 }
+.year-box {
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
+  max-height: 420px;
+  overflow-y: default;
+  background-color: #f8f9fa;
+}
+
+#yearCheckboxesCompare .form-check {
+  display: block;
+  margin-bottom: 8px;
+}
+
+#ctdPlotCompare {
+  cursor: default  !important;
+}
+
+#ctdPlotCompare,
+#ctdPlotCompare * {
+  cursor: default   !important;
+}
+.year-panel {
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 8px;
+  max-height: 520px;
+  overflow-y: default;
+  font-size: 0.85rem;
+  background: white;
+}
+
+.year-toggle {
+  font-weight: bold;
+  cursor: default  !important;
+  margin-bottom: 4px;
+}
+
+.year-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 2px 0;
+}
+
+.year-item input {
+  margin: 0;
+}
+
+.compare-year-check {
+  display: none;
+}
+
+.year-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0;
+}
+
+.year-color-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+/* Show check mark when selected */
+.compare-year-check:checked + label .year-color-box::after {
+  content: "✓";
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* Make year text clickable */
+.year-item label {
+  cursor: default;
+  user-select: none;
+}
+
+.compare-year-check:not(:checked) + .year-color-box {
+  opacity: 1;
+}
+.ctd-info-box {
+  background: #f8f9fa;
+  border-left: 5px solid rgb(24, 98, 181);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.ctd-info-box h3 {
+  margin-bottom: 0.35rem;
+  font-size: 1.25rem;
+  color: #0d3760;
+}
+.ctd-plot-box {
+  background: #ffffff;
+  border: 1px solid #dce5ec;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+.year-panel {
+  border: 1px solid #dce5ec;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.year-toggle {
+  background: #f1f7fc;
+  border-radius: 6px;
+  padding: 0.4rem 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.year-toggle:hover {
+  background: #e2f0fa;
+}
+
+.year-stats {
+  margin-top: 0.75rem;
+}
+
+.year-stats div {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 0.35rem 0.45rem;
+  margin-bottom: 0.35rem;
+}
 
     </style>
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
@@ -239,105 +376,21 @@
                </div>
               </div>
               </div>
-            <!-- Accordion 5: Single-year CTD viewer -->
 <div class="accordion-item section-erosion">
   <h2 class="accordion-header" id="headingFive">
     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-      <span class="accordion-title">CTD Time Series - Single Year</span>
+      <span class="accordion-title">Temperature, Salinity and Depth Year Comparison</span>
     </button>
   </h2>
 
   <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive">
     <div class="accordion-body">
-      <h3 class="small-heading">Dataset Description</h3>
-      <p>Explore daily averages of conductivity, temperature, and depth from CTD data.</p>
 
-      <div class="row g-3 align-items-end my-3">
-        <div class="col-md-4">
-          <label for="yearSelect" class="form-label">Select Year</label>
-          <select id="yearSelect" class="form-select"></select>
-        </div>
-
-        <div class="col-md-4">
-          <label for="paramSelect" class="form-label">Select Parameter</label>
-          <select id="paramSelect" class="form-select">
-            <option value="temperature_C">Temperature</option>
-            <option value="salinity">Salinity</option>
-            <option value="depth_m">Depth</option>
-          </select>
-        </div>
-
-        <div class="col-md-4">
-          <label for="stationSelect" class="form-label">Select Station</label>
-          <select id="stationSelect" class="form-select"></select>
-        </div>
+      <div class="ctd-info-box">
+        <h3>Temperature, Salinity and Depth Year Comparison</h3>
+        <p>Use the dropdowns to compare temperature, salinity, or depth across years.
+          Colored background bands show under ice, breakup, and open-water seasons.</p>
       </div>
-
-      <div class="row my-3">
-        <div class="col-md-4"><strong>Minimum:</strong> <span id="statMin">--</span></div>
-        <div class="col-md-4"><strong>Maximum:</strong> <span id="statMax">--</span></div>
-        <div class="col-md-4"><strong>Average:</strong> <span id="statAvg">--</span></div>
-      </div>
-
-      <div id="ctdPlot" style="width:100%; height:500px;"></div>
-    </div>
-  </div>
-</div>
-
-
-<div class="accordion-item section-erosion">
-  <h2 class="accordion-header" id="headingSix">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-      <span class="accordion-title">CTD Time Series - Multiple Years</span>
-    </button>
-  </h2>
-
-  <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix">
-    <div class="accordion-body">
-      <h3 class="small-heading">Dataset Description</h3>
-      <p>Select multiple years to compare CTD daily averages.</p>
-
-      <div class="row g-3 align-items-end my-3">
-        <div class="col-md-4">
-          <label for="yearSelectMulti" class="form-label">Select Year(s)</label>
-          <select id="yearSelectMulti" class="form-select" multiple></select>
-        </div>
-
-        <div class="col-md-4">
-          <label for="paramSelectMulti" class="form-label">Select Parameter</label>
-          <select id="paramSelectMulti" class="form-select">
-            <option value="temperature_C">Temperature</option>
-            <option value="salinity">Salinity</option>
-            <option value="depth_m">Depth</option>
-          </select>
-        </div>
-
-        <div class="col-md-4">
-          <label for="stationSelectMulti" class="form-label">Select Station</label>
-          <select id="stationSelectMulti" class="form-select"></select>
-        </div>
-      </div>
-
-      <div class="row my-3">
-        <div class="col-md-4"><strong>Minimum:</strong> <span id="statMinMulti">--</span></div>
-        <div class="col-md-4"><strong>Maximum:</strong> <span id="statMaxMulti">--</span></div>
-        <div class="col-md-4"><strong>Average:</strong> <span id="statAvgMulti">--</span></div>
-      </div>
-
-      <div id="ctdPlotMulti" style="width:100%; height:500px;"></div>
-    </div>
-  </div>
-</div>
-<div class="accordion-item section-erosion">
-  <h2 class="accordion-header" id="headingSeven">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-      <span class="accordion-title">CTD Year Comparison</span>
-    </button>
-  </h2>
-
-  <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven">
-    <div class="accordion-body">
-      <p>Compare CTD daily averages across years on the same Jan–Dec timeline.</p>
 
       <div class="row g-3 align-items-end my-3">
         <div class="col-md-6">
@@ -355,18 +408,53 @@
         </div>
       </div>
 
-      <div class="row my-3">
-      <div class="col-md-4"><strong>Minimum:</strong> <span id="statMinCompare">--</span></div>
-      <div class="col-md-4"><strong>Maximum:</strong> <span id="statMaxCompare">--</span></div>
-      <div class="col-md-4"><strong>Average:</strong> <span id="statAvgCompare">--</span></div>
+      <div class="row g-3 mt-2">
+        <div class="col-md-10">
+          <div class="ctd-plot-box">
+            <div id="ctdPlotCompare" style="width:100%; height: 580px;"></div>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+
+          <div class="ctd-action-row mb-3">
+            <button class="btn btn-outline-primary btn-sm w-100 mb-2" type="button" onclick="openStationMap()">
+              <i class="fas fa-map-marker-alt"></i> View Station Map
+            </button>
+
+            <button class="btn btn-outline-success btn-sm w-100" type="button" onclick="downloadSelectedCTD()">
+              <i class="fas fa-download"></i> Download Data
+            </button>
+          </div>
+          <div class="year-panel">
+
+            <div class="year-toggle" onclick="selectAllYearsCompare()">
+              <i class="fas fa-eye"></i> Show all years
+            </div>
+
+            <div class="year-toggle" onclick="hideAllYearsCompare()">
+              <i class="fas fa-eye-slash"></i> Hide all years
+            </div>
+
+            <div id="yearCheckboxesCompare"></div>
+
+            <hr class="my-2">
+
+            <div class="year-stats mt-2">
+              <div class="stats-title"><strong>Selected Years</strong></div>
+              <div><strong>Minimum:</strong> <span id="statMinCompare">--</span></div>
+              <div><strong>Maximum:</strong> <span id="statMaxCompare">--</span></div>
+              <div><strong>Average:</strong> <span id="statAvgCompare">--</span></div>
+            </div>
+            <span class="badge bg-light text-dark border">
+              Last updated: <span id="lastUpdatedCompare">--</span>
+            </span>
+          </div>
+        </div>
       </div>
 
-      <div id="ctdPlotCompare" style="width:100%; height:520px;"></div>
-
-      <div id="yearCheckboxesCompare" class="d-flex flex-wrap gap-4 mt-3"></div>
     </div>
   </div>
-</div>
 </div>
       </div>
     </main>
@@ -457,6 +545,12 @@
        <script>
 let ctdData = [];
 let stationLookup = {};
+let yearColorMap = {};
+
+const colors = [
+  '#1f77b4', '#ff0000', '#99cc00', '#ff7f0e',
+  '#e377c2', '#0000ff', '#2ca02c', '#9467bd'
+];
 
 const yLabelMap = {
   temperature_C: 'Temperature (°C)',
@@ -472,25 +566,29 @@ const titleMap = {
   depth_m: 'Depth'
 };
 
-function hasValidDataForParam(d, selectedParam) {
-  if (d[selectedParam] == null || isNaN(Number(d[selectedParam]))) {
-    return false;
+function getStationDisplayName(station) {
+  const stationInfo = stationLookup[station];
+
+  if (stationInfo && typeof stationInfo === 'object') {
+    return stationInfo.name || station;
   }
+
+  return stationInfo || station;
+}
+
+function hasValidDataForParam(d, selectedParam) {
+  if (d[selectedParam] == null || isNaN(Number(d[selectedParam]))) return false;
 
   if (
     selectedParam === 'salinity' &&
     (d.flags_condsal === 'INV' || d.flags_condsal === 'MISSING')
-  ) {
-    return false;
-  }
+  ) return false;
 
   return true;
 }
 
 function getPlotValue(d, selectedParam) {
-  return hasValidDataForParam(d, selectedParam)
-    ? Number(d[selectedParam])
-    : null;
+  return hasValidDataForParam(d, selectedParam) ? Number(d[selectedParam]) : null;
 }
 
 Promise.all([
@@ -500,51 +598,13 @@ Promise.all([
   ctdData = ctd.map(d => ({ ...d, year: Number(d.year) }));
   stationLookup = stations;
 
-  populateYears();
-  populateStations();
-  updatePlot();
-
-  populateYearsMulti();
-
-  $('#yearSelectMulti').select2({
-    placeholder: 'Select Year(s)',
-    width: '100%'
-  });
-
-  populateStationsMulti();
-  updatePlotMulti();
-
-  populateYearsCompare();
   populateStationsCompare();
+  populateYearsCompare();
   updatePlotCompare();
 
-  document.getElementById('yearSelect').addEventListener('change', () => {
-    populateStations();
-    updatePlot();
-  });
-
-  document.getElementById('paramSelect').addEventListener('change', updatePlot);
-  document.getElementById('stationSelect').addEventListener('change', updatePlot);
-
-  $('#yearSelectMulti').on('change', () => {
-    populateStationsMulti();
-    updatePlotMulti();
-  });
-
-  document.getElementById('paramSelectMulti').addEventListener('change', () => {
-    populateYearsMulti();
-    populateStationsMulti();
-    updatePlotMulti();
-  });
-
-  document.getElementById('stationSelectMulti').addEventListener('change', () => {
-    populateYearsMulti();
-    updatePlotMulti();
-  });
-
   document.getElementById('paramSelectCompare').addEventListener('change', () => {
-    populateYearsCompare();
     populateStationsCompare();
+    populateYearsCompare();
     updatePlotCompare();
   });
 
@@ -556,234 +616,6 @@ Promise.all([
   console.error('Error loading CTD data:', error);
 });
 
-/* Accordion 5 */
-function populateYears() {
-  const yearSelect = document.getElementById('yearSelect');
-  const selectedParam = document.getElementById('paramSelect').value;
-
-  const years = [...new Set(
-    ctdData
-      .filter(d => hasValidDataForParam(d, selectedParam))
-      .map(d => d.year)
-      .filter(y => !isNaN(y))
-  )].sort((a, b) => a - b);
-
-  yearSelect.innerHTML = '';
-
-  years.forEach(year => {
-    const option = document.createElement('option');
-    option.value = year;
-    option.textContent = year;
-    yearSelect.appendChild(option);
-  });
-}
-
-function populateStations() {
-  const selectedYear = Number(document.getElementById('yearSelect').value);
-  const selectedParam = document.getElementById('paramSelect').value;
-  const stationSelect = document.getElementById('stationSelect');
-  const previousStation = stationSelect.value;
-
-  const stations = [...new Set(
-    ctdData
-      .filter(d =>
-        d.year === selectedYear &&
-        hasValidDataForParam(d, selectedParam)
-      )
-      .map(d => d.station)
-      .filter(Boolean)
-  )].sort();
-
-  stationSelect.innerHTML = '';
-
-  stations.forEach(station => {
-    const option = document.createElement('option');
-    option.value = station;
-    option.textContent = stationLookup[station] || station;
-    stationSelect.appendChild(option);
-  });
-
-  if (previousStation && stations.includes(previousStation)) {
-    stationSelect.value = previousStation;
-  }
-}
-
-function updatePlot() {
-  const selectedYear = Number(document.getElementById('yearSelect').value);
-  const selectedParam = document.getElementById('paramSelect').value;
-  const selectedStation = document.getElementById('stationSelect').value;
-
-  const filtered = ctdData
-    .filter(d =>
-      d.year === selectedYear &&
-      d.station === selectedStation
-    )
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
-
-  updateStats(filtered, selectedParam, 'statMin', 'statMax', 'statAvg');
-
-  Plotly.newPlot('ctdPlot', makeTraces(filtered, selectedParam), {
-    title: `${titleMap[selectedParam]} Daily Average (${selectedYear}) - ${stationLookup[selectedStation] || selectedStation}`,
-    xaxis: {
-      title: 'Date',
-      range: [`${selectedYear}-01-01`, `${selectedYear}-12-31`]
-    },
-    yaxis: {
-      title: yLabelMap[selectedParam]
-    },
-    margin: { t: 60, r: 30, b: 60, l: 70 }
-  }, {
-    responsive: true,
-    displaylogo: false
-  });
-}
-
-/* Accordion 6 */
-function populateYearsMulti() {
-  const yearSelect = document.getElementById('yearSelectMulti');
-  const selectedParam = document.getElementById('paramSelectMulti').value;
-  const selectedStation = document.getElementById('stationSelectMulti').value;
-  const previouslySelected = getSelectedYears();
-
-  let filtered = ctdData.filter(d => hasValidDataForParam(d, selectedParam));
-
-  if (selectedStation) {
-    filtered = filtered.filter(d => d.station === selectedStation);
-  }
-
-  const years = [...new Set(filtered.map(d => d.year).filter(y => !isNaN(y)))]
-    .sort((a, b) => a - b);
-
-  yearSelect.innerHTML = '';
-
-  years.forEach(year => {
-    const option = document.createElement('option');
-    option.value = year;
-    option.textContent = year;
-
-    if (previouslySelected.includes(year)) {
-      option.selected = true;
-    }
-
-    yearSelect.appendChild(option);
-  });
-
-  const stillSelected = previouslySelected.filter(year => years.includes(year));
-
-  if (stillSelected.length > 0) {
-    $('#yearSelectMulti').val(stillSelected);
-  } else if (years.length > 0) {
-    $('#yearSelectMulti').val([years[0]]);
-  } else {
-    $('#yearSelectMulti').val(null);
-  }
-
-  if ($('#yearSelectMulti').data('select2')) {
-    $('#yearSelectMulti').trigger('change.select2');
-  }
-}
-
-function getSelectedYears() {
-  const selected = $('#yearSelectMulti').val();
-  return selected ? selected.map(Number) : [];
-}
-
-function populateStationsMulti() {
-  const selectedYears = getSelectedYears();
-  const selectedParam = document.getElementById('paramSelectMulti').value;
-  const stationSelect = document.getElementById('stationSelectMulti');
-  const previousStation = stationSelect.value;
-
-  let filtered = ctdData.filter(d => hasValidDataForParam(d, selectedParam));
-
-  if (selectedYears.length > 0) {
-    filtered = filtered.filter(d => selectedYears.includes(d.year));
-  }
-
-  const stations = [...new Set(
-    filtered
-      .map(d => d.station)
-      .filter(Boolean)
-  )].sort();
-
-  stationSelect.innerHTML = '';
-
-  stations.forEach(station => {
-    const option = document.createElement('option');
-    option.value = station;
-    option.textContent = stationLookup[station] || station;
-    stationSelect.appendChild(option);
-  });
-
-  if (previousStation && stations.includes(previousStation)) {
-    stationSelect.value = previousStation;
-  } else if (stations.length > 0) {
-    stationSelect.value = stations[0];
-  }
-}
-
-function updatePlotMulti() {
-  const selectedYears = getSelectedYears();
-  const selectedParam = document.getElementById('paramSelectMulti').value;
-  const selectedStation = document.getElementById('stationSelectMulti').value;
-
-  const filteredAll = ctdData
-    .filter(d =>
-      selectedYears.includes(d.year) &&
-      d.station === selectedStation
-    )
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
-
-  updateStats(filteredAll, selectedParam, 'statMinMulti', 'statMaxMulti', 'statAvgMulti');
-
-  const traces = [];
-
-  selectedYears.forEach(year => {
-    const yearData = filteredAll
-      .filter(d => d.year === year)
-      .sort((a, b) => new Date(a.date) - new Date(b.date));
-
-    if (yearData.length < 2) return;
-
-    traces.push({
-      x: yearData.map(d => d.date),
-      y: yearData.map(d => getPlotValue(d, selectedParam)),
-      type: 'scatter',
-      mode: 'lines',
-      name: year.toString(),
-      line: { width: 2 },
-      connectgaps: false,
-      hovertemplate:
-        year + '<br>%{x}<br>' +
-        yLabelMap[selectedParam] + ': %{y}<extra></extra>'
-    });
-
-    addQmMarkers(traces, yearData, selectedParam, year, false);
-  });
-
-  Plotly.newPlot('ctdPlotMulti', traces, {
-    title:
-      `${titleMap[selectedParam]} Daily Average (${selectedYears.join(', ')}) - ` +
-      (stationLookup[selectedStation] || selectedStation),
-    xaxis: {
-      title: 'Date'
-    },
-    yaxis: {
-      title: yLabelMap[selectedParam]
-    },
-    margin: { t: 60, r: 30, b: 60, l: 70 },
-    legend: {
-      orientation: 'h',
-      x: 0,
-      y: -0.25
-    }
-  }, {
-    responsive: true,
-    displaylogo: false
-  });
-}
-
-/* Accordion 7 */
 function populateYearsCompare() {
   const yearBox = document.getElementById('yearCheckboxesCompare');
   const selectedParam = document.getElementById('paramSelectCompare').value;
@@ -799,15 +631,22 @@ function populateYearsCompare() {
   const years = [...new Set(filtered.map(d => d.year).filter(y => !isNaN(y)))]
     .sort((a, b) => b - a);
 
+  yearColorMap = {};
+  years.forEach((year, index) => {
+    yearColorMap[year] = colors[index % colors.length];
+  });
+
   yearBox.innerHTML = '';
 
   years.forEach((year, index) => {
+    const yearColor = yearColorMap[year];
+
     const wrapper = document.createElement('div');
-    wrapper.className = 'form-check form-check-inline';
+    wrapper.className = 'year-item';
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
-    checkbox.className = 'form-check-input compare-year-check';
+    checkbox.className = 'compare-year-check';
     checkbox.value = year;
     checkbox.id = `compare-year-${year}`;
 
@@ -816,18 +655,33 @@ function populateYearsCompare() {
         ? previouslySelected.includes(year)
         : index < 5;
 
-    const label = document.createElement('label');
-    label.className = 'form-check-label';
-    label.htmlFor = `compare-year-${year}`;
-    label.textContent = year;
+    const colorLabel = document.createElement('label');
+    colorLabel.htmlFor = `compare-year-${year}`;
+    colorLabel.style.margin = '0';
+    colorLabel.style.cursor = 'default';
+
+    const colorBox = document.createElement('span');
+    colorBox.className = 'year-color-box';
+    colorBox.style.backgroundColor = yearColor;
+
+    colorLabel.appendChild(colorBox);
+
+    const textLabel = document.createElement('label');
+    textLabel.htmlFor = `compare-year-${year}`;
+    textLabel.textContent = year;
+    textLabel.style.color = 'black';
+    textLabel.style.cursor = 'default';
+    textLabel.style.fontWeight = checkbox.checked ? 'bold' : 'normal';
+
+    checkbox.addEventListener('change', () => {
+      textLabel.style.fontWeight = checkbox.checked ? 'bold' : 'normal';
+      updatePlotCompare();
+    });
 
     wrapper.appendChild(checkbox);
-    wrapper.appendChild(label);
+    wrapper.appendChild(colorLabel);
+    wrapper.appendChild(textLabel);
     yearBox.appendChild(wrapper);
-  });
-
-  document.querySelectorAll('.compare-year-check').forEach(cb => {
-    cb.addEventListener('change', updatePlotCompare);
   });
 }
 
@@ -836,30 +690,42 @@ function getSelectedCompareYears() {
     .map(cb => Number(cb.value));
 }
 
+function selectAllYearsCompare() {
+  document.querySelectorAll('.compare-year-check').forEach(cb => {
+    cb.checked = true;
+    const label = cb.parentElement.querySelector('label:last-child');
+    if (label) label.style.fontWeight = 'bold';
+  });
+
+  updatePlotCompare();
+}
+
+function hideAllYearsCompare() {
+  document.querySelectorAll('.compare-year-check').forEach(cb => {
+    cb.checked = false;
+    const label = cb.parentElement.querySelector('label:last-child');
+    if (label) label.style.fontWeight = 'normal';
+  });
+
+  updatePlotCompare();
+}
+
 function populateStationsCompare() {
-  const selectedYears = getSelectedCompareYears();
   const selectedParam = document.getElementById('paramSelectCompare').value;
   const stationSelect = document.getElementById('stationSelectCompare');
   const previousStation = stationSelect.value;
 
-  let filtered = ctdData.filter(d => hasValidDataForParam(d, selectedParam));
+  const filtered = ctdData.filter(d => hasValidDataForParam(d, selectedParam));
 
-  if (selectedYears.length > 0) {
-    filtered = filtered.filter(d => selectedYears.includes(d.year));
-  }
-
-  const stations = [...new Set(
-    filtered
-      .map(d => d.station)
-      .filter(Boolean)
-  )].sort();
+  const stations = [...new Set(filtered.map(d => d.station).filter(Boolean))]
+    .sort();
 
   stationSelect.innerHTML = '';
 
   stations.forEach(station => {
     const option = document.createElement('option');
     option.value = station;
-    option.textContent = stationLookup[station] || station;
+    option.textContent = getStationDisplayName(station);
     stationSelect.appendChild(option);
   });
 
@@ -874,26 +740,15 @@ function updatePlotCompare() {
   const selectedYears = getSelectedCompareYears();
   const selectedParam = document.getElementById('paramSelectCompare').value;
   const selectedStation = document.getElementById('stationSelectCompare').value;
-
-  const colors = [
-    '#1f77b4',
-    '#ff0000',
-    '#99cc00',
-    '#ff7f0e',
-    '#e377c2',
-    '#0000ff',
-    '#2ca02c',
-    '#9467bd'
-  ];
+  const stationDisplayName = getStationDisplayName(selectedStation);
 
   const traces = [];
 
-  selectedYears.forEach((year, index) => {
+  selectedYears.forEach(year => {
+    const yearColor = yearColorMap[year] || colors[0];
+
     const yearData = ctdData
-      .filter(d =>
-        d.year === year &&
-        d.station === selectedStation
-      )
+      .filter(d => d.year === year && d.station === selectedStation)
       .map(d => {
         const dt = new Date(d.date);
         return {
@@ -905,30 +760,66 @@ function updatePlotCompare() {
 
     if (yearData.length < 2) return;
 
+    const yearValues = yearData
+      .map(d => getPlotValue(d, selectedParam))
+      .filter(v => v !== null);
+
+    const yearMin = Math.min(...yearValues).toFixed(2);
+    const yearMax = Math.max(...yearValues).toFixed(2);
+    const yearAvg = (
+      yearValues.reduce((a, b) => a + b, 0) / yearValues.length
+    ).toFixed(2);
+
     traces.push({
       x: yearData.map(d => d.seasonalDate),
       y: yearData.map(d => getPlotValue(d, selectedParam)),
       type: 'scatter',
       mode: 'lines',
       name: year.toString(),
+      opacity: 1,
       line: {
-        color: colors[index % colors.length],
+        color: yearColor,
         width: 2
       },
-      connectgaps: false,
       hovertemplate:
-        year + ' %{x|%b %d}<br>' +
-        yLabelMap[selectedParam] + ': %{y}<extra></extra>'
+        '<b>Year:</b> ' + year + '<br>' +
+        '<b>Date:</b> %{x|%b %d}<br>' +
+        '<b>' + yLabelMap[selectedParam] + ':</b> %{y:.2f}<br>' +
+        '<br>' +
+        '<b>Year Min:</b> ' + yearMin + '<br>' +
+        '<b>Year Max:</b> ' + yearMax + '<br>' +
+        '<b>Year Avg:</b> ' + yearAvg +
+        '<extra></extra>'
     });
 
-    addQmMarkers(traces, yearData, selectedParam, year, true);
+    addQmMarkers(traces, yearData, selectedParam, year, true, yearColor);
   });
 
-  const allSelectedData = ctdData
-    .filter(d =>
-      selectedYears.includes(d.year) &&
-      d.station === selectedStation
-    );
+  const hoverTraceIndex = traces.length;
+
+  traces.push({
+    x: [],
+    y: [],
+    type: 'scatter',
+    mode: 'markers',
+    name: 'Hover point',
+    showlegend: false,
+    hoverinfo: 'skip',
+    marker: {
+      size: 8,
+      color: 'white',
+      opacity: 1,
+      symbol: 'circle',
+      line: {
+        width: 5,
+        color: '#1f77b4'
+      }
+    }
+  });
+
+  const allSelectedData = ctdData.filter(
+    d => selectedYears.includes(d.year) && d.station === selectedStation
+  );
 
   updateStats(
     allSelectedData,
@@ -938,8 +829,12 @@ function updatePlotCompare() {
     'statAvgCompare'
   );
 
-  Plotly.newPlot('ctdPlotCompare', traces, {
-    title: `${titleMap[selectedParam]} Comparison - ${stationLookup[selectedStation] || selectedStation}`,
+  updateLastUpdatedCompare();
+
+  const plotDiv = document.getElementById('ctdPlotCompare');
+
+  Plotly.newPlot(plotDiv, traces, {
+    title: `${titleMap[selectedParam]} Comparison - ${stationDisplayName}`,
     plot_bgcolor: 'white',
     paper_bgcolor: 'white',
 
@@ -948,15 +843,80 @@ function updatePlotCompare() {
       range: [new Date(2020, 0, 1), new Date(2020, 11, 31)],
       showgrid: true,
       gridcolor: 'rgba(0,0,0,0.15)',
-      zeroline: false
+      zeroline: false,
+      showspikes: false
     },
 
     yaxis: {
       title: yLabelMap[selectedParam],
       showgrid: true,
       gridcolor: 'rgba(0,0,0,0.15)',
-      zeroline: false
+      zeroline: false,
+      showspikes: false
     },
+
+    shapes: [
+      {
+        type: 'rect',
+        xref: 'x',
+        yref: 'paper',
+        x0: new Date(2020, 0, 1),
+        x1: new Date(2020, 4, 31),
+        y0: 0,
+        y1: 1,
+        fillcolor: 'rgba(125, 180, 255, 0.22)',
+        line: { width: 0 }
+      },
+      {
+        type: 'rect',
+        xref: 'x',
+        yref: 'paper',
+        x0: new Date(2020, 5, 1),
+        x1: new Date(2020, 6, 15),
+        y0: 0,
+        y1: 1,
+        fillcolor: 'rgba(255, 165, 0, 0.18)',
+        line: { width: 0 }
+      },
+      {
+        type: 'rect',
+        xref: 'x',
+        yref: 'paper',
+        x0: new Date(2020, 6, 15),
+        x1: new Date(2020, 11, 31),
+        y0: 0,
+        y1: 1,
+        fillcolor: 'rgba(60, 179, 113, 0.18)',
+        line: { width: 0 }
+      }
+    ],
+
+    annotations: [
+      {
+        x: new Date(2020, 2, 15),
+        y: -0.18,
+        xref: 'x',
+        yref: 'paper',
+        text: 'Under ice',
+        showarrow: false
+      },
+      {
+        x: new Date(2020, 5, 20),
+        y: -0.18,
+        xref: 'x',
+        yref: 'paper',
+        text: 'Breakup',
+        showarrow: false
+      },
+      {
+        x: new Date(2020, 8, 1),
+        y: -0.18,
+        xref: 'x',
+        yref: 'paper',
+        text: 'Open water',
+        showarrow: false
+      }
+    ],
 
     margin: { t: 50, r: 30, b: 60, l: 70 },
 
@@ -964,14 +924,92 @@ function updatePlotCompare() {
       orientation: 'h',
       x: 0,
       y: -0.25
-    }
+    },
+
+    dragmode: 'zoom',
+    hovermode: 'closest',
+    hoverdistance: 5,
+    spikedistance: -1
   }, {
     responsive: true,
-    displaylogo: false
+    displaylogo: false,
+    scrollZoom: true,
+    staticPlot: false,
+    doubleClick: 'reset',
+    modeBarButtonsToRemove: [
+      'zoom2d',
+      'pan2d',
+      'select2d',
+      'lasso2d',
+      'zoomIn2d',
+      'zoomOut2d',
+      'autoScale2d',
+      'resetScale2d'
+    ]
+  }).then(() => {
+    plotDiv.removeAllListeners('plotly_hover');
+    plotDiv.removeAllListeners('plotly_unhover');
+
+   function resetHoverEffect() {
+  Plotly.restyle(plotDiv, {
+    x: [[]],
+    y: [[]]
+  }, [hoverTraceIndex]);
+
+  plotDiv.data.forEach((trace, index) => {
+    if (index === hoverTraceIndex) return;
+
+    Plotly.restyle(plotDiv, {
+      opacity: 1
+    }, [index]);
+
+    if (trace.mode === 'lines') {
+      Plotly.restyle(plotDiv, {
+        'line.width': 2
+      }, [index]);
+    }
   });
 }
 
-/* Helpers */
+    plotDiv.on('plotly_hover', function(eventData) {
+      const pt = eventData.points[0];
+      const hoveredTrace = pt.curveNumber;
+
+      if (hoveredTrace === hoverTraceIndex) return;
+
+      const hoveredColor =
+        plotDiv.data[hoveredTrace].line?.color ||
+        plotDiv.data[hoveredTrace].marker?.color ||
+        '#1f77b4';
+
+      Plotly.restyle(plotDiv, {
+        x: [[pt.x]],
+        y: [[pt.y]],
+        'marker.line.color': [hoveredColor],
+        'marker.color': ['white']
+      }, [hoverTraceIndex]);
+
+      plotDiv.data.forEach((trace, index) => {
+        if (index === hoverTraceIndex) return;
+
+        if (trace.mode === 'lines') {
+          Plotly.restyle(plotDiv, {
+            opacity: index === hoveredTrace ? 1 : 0.35,
+            'line.width': index === hoveredTrace ? 3 : 2
+          }, [index]);
+        } else {
+          Plotly.restyle(plotDiv, {
+            opacity: index === hoveredTrace ? 1 : 0.35
+          }, [index]);
+        }
+      });
+    });
+
+    plotDiv.on('plotly_unhover', resetHoverEffect);
+    plotDiv.onmouseleave = resetHoverEffect;
+  });
+}
+
 function updateStats(filtered, selectedParam, minId, maxId, avgId) {
   const values = filtered
     .map(d => getPlotValue(d, selectedParam))
@@ -990,26 +1028,7 @@ function updateStats(filtered, selectedParam, minId, maxId, avgId) {
     (values.reduce((a, b) => a + b, 0) / values.length).toFixed(2);
 }
 
-function makeTraces(filtered, selectedParam) {
-  const traces = [{
-    x: filtered.map(d => d.date),
-    y: filtered.map(d => getPlotValue(d, selectedParam)),
-    type: 'scatter',
-    mode: 'lines',
-    name: 'Daily average',
-    connectgaps: false,
-    hovertemplate:
-      '%{x}<br>' +
-      yLabelMap[selectedParam] +
-      ': %{y}<extra></extra>'
-  }];
-
-  addQmMarkers(traces, filtered, selectedParam, null, false);
-
-  return traces;
-}
-
-function addQmMarkers(traces, data, selectedParam, year, useSeasonalDate) {
+function addQmMarkers(traces, data, selectedParam, year, useSeasonalDate, yearColor) {
   if (selectedParam !== 'salinity') return;
 
   const qmPoints = data.filter(
@@ -1026,18 +1045,108 @@ function addQmMarkers(traces, data, selectedParam, year, useSeasonalDate) {
     y: qmPoints.map(d => Number(d[selectedParam])),
     type: 'scatter',
     mode: 'markers',
-    name: year ? `${year} QM flag` : 'QM flag',
+    name: year ? `${year} Questionable Measurements` : 'Questionable Measurements',
     marker: {
       size: 8,
-      color: 'orange',
+      color: yearColor,
+      opacity: 1,
       symbol: 'circle',
       line: { color: 'black', width: 1 }
     },
     hovertemplate:
       (year ? year + '<br>' : '') +
-      '%{x}<br>QM flag<br>' +
+      '%{x|%b %d}<br>Questionable Measurements<br>' +
       yLabelMap[selectedParam] +
       ': %{y}<extra></extra>'
+  });
+}
+
+function openStationMap() {
+  const selectedStation = document.getElementById('stationSelectCompare').value;
+  const stationInfo = stationLookup[selectedStation];
+
+  if (
+    stationInfo &&
+    typeof stationInfo === 'object' &&
+    stationInfo.latitude &&
+    stationInfo.longitude
+  ) {
+    window.open(
+      `https://www.google.com/maps?q=${stationInfo.latitude},${stationInfo.longitude}`,
+      '_blank'
+    );
+  } else {
+    alert("No coordinates found for this station.");
+  }
+}
+
+function downloadSelectedCTD() {
+  const selectedYears = getSelectedCompareYears();
+  const selectedParam = document.getElementById('paramSelectCompare').value;
+  const selectedStation = document.getElementById('stationSelectCompare').value;
+
+  const filtered = ctdData.filter(d =>
+    selectedYears.includes(d.year) &&
+    d.station === selectedStation &&
+    hasValidDataForParam(d, selectedParam)
+  );
+
+  if (filtered.length === 0) {
+    alert("No data available.");
+    return;
+  }
+
+  const headers = ['date', 'year', 'station', selectedParam];
+
+  const rows = filtered.map(d => [
+    d.date,
+    d.year,
+    d.station,
+    d[selectedParam]
+  ]);
+
+  const csv = [
+    headers.join(','),
+    ...rows.map(r => r.join(','))
+  ].join('\n');
+
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `ctd_${selectedStation}_${selectedParam}.csv`;
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
+function updateLastUpdatedCompare() {
+  const selectedStation = document.getElementById('stationSelectCompare').value;
+  const selectedParam = document.getElementById('paramSelectCompare').value;
+  const badge = document.getElementById('lastUpdatedCompare');
+
+  if (!badge) return;
+
+  const filtered = ctdData.filter(d =>
+    d.station === selectedStation &&
+    hasValidDataForParam(d, selectedParam) &&
+    d.date
+  );
+
+  if (filtered.length === 0) {
+    badge.textContent = '--';
+    return;
+  }
+
+  const latestDate = filtered
+    .map(d => new Date(d.date))
+    .filter(d => !isNaN(d))
+    .sort((a, b) => b - a)[0];
+
+  badge.textContent = latestDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long'
   });
 }
 </script>

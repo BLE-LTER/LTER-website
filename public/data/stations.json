@@ -1,11 +1,47 @@
 {
-  "EELD1": "Elson East Lagoon Deep Station 1",
-  "EELD2": "Elson East Lagoon Deep Station 2",
-  "EWLD1": "Elson West Lagoon Deep Station 1",
-  "EWLD2": "Elson West Lagoon Deep Station 2",
-  "JALD1": "Jago Lagoon Deep Station 1",
-  "JALD2": "Jago Lagoon Deep Station 2",
-  "KALD1": "Kaktovik Lagoon Deep Station 1",
-  "KALD2": "Kaktovik Lagoon Deep Station 2",
-  "SSLD2": "Stefansson Sound Deep Station 2"
+  "EELD1": {
+    "name": "Elson East Lagoon Deep Station 1",
+    "latitude": 71.2929,
+    "longitude": -156.1964
+  },
+  "EELD2": {
+    "name": "Elson East Lagoon Deep Station 2",
+    "latitude": 71.2521,
+    "longitude": -156.0462
+  },
+  "EWLD1": {
+    "name": "Elson West Lagoon Deep Station 1",
+    "latitude": 71.3379,
+    "longitude": -156.4165
+  },
+  "EWLD2": {
+    "name": "Elson West Lagoon Deep Station 2",
+    "latitude": 71.3105,
+    "longitude": -156.2878
+  },
+  "JALD1": {
+    "name": "Jago Lagoon Deep Station 1",
+    "latitude": 70.1041,
+    "longitude": -143.4892
+  },
+  "JALD2": {
+    "name": "Jago Lagoon Deep Station 2",
+    "latitude": 70.1068,
+    "longitude": -143.4435
+  },
+  "KALD1": {
+    "name": "Kaktovik Lagoon Deep Station 1",
+    "latitude": 70.089,
+    "longitude": -143.6233
+  },
+  "KALD2": {
+    "name": "Kaktovik Lagoon Deep Station 2",
+    "latitude": 70.1009,
+    "longitude": -143.5709
+  },
+  "SSLD2": {
+    "name": "Stefansson Sound Deep Station 2",
+    "latitude": 70.3208,
+    "longitude": -147.7561
+  }
 }
