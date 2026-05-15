@@ -218,11 +218,27 @@
   margin-top: 0.75rem;
 }
 
-.year-stats div {
+.year-stats {
+  margin-top: 0.75rem;
+}
+
+.compare-stat-box {
   background: #f8f9fa;
   border-radius: 6px;
-  padding: 0.35rem 0.45rem;
-  margin-bottom: 0.35rem;
+  padding: 0.45rem 0.5rem;
+  margin-bottom: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.stat-label {
+  font-weight: 600;
+}
+
+.stat-value {
+  white-space: nowrap;
 }
 
     </style>
@@ -409,17 +425,20 @@
       </div>
 
       <div class="row g-3 mt-2">
-        <div class="col-md-10">
+        <div class="col-12 col-lg-10">
           <div class="ctd-plot-box">
-            <div id="ctdPlotCompare" style="width:100%; height: 580px;"></div>
+            <div id="ctdPlotMessage" style="display:none; text-align:center; padding: 250px 20px; font-size:1.2rem; color:#193096;">
+              Select any years to view the plot
+            </div>
+          <div id="ctdPlotCompare" style="width:100%; height: 580px;"></div>
           </div>
         </div>
 
-        <div class="col-md-2">
+        <div class="col-12 col-lg-2">
 
           <div class="ctd-action-row mb-3">
             <button class="btn btn-outline-primary btn-sm w-100 mb-2" type="button" onclick="openStationMap()">
-              <i class="fas fa-map-marker-alt"></i> View Station Map
+              <i class="fas fa-map-marker-alt"></i> View Station Location
             </button>
 
             <button class="btn btn-outline-success btn-sm w-100" type="button" onclick="downloadSelectedCTD()">
@@ -440,15 +459,25 @@
 
             <hr class="my-2">
 
-            <div class="year-stats mt-2">
-              <div class="stats-title"><strong>Selected Years</strong></div>
-              <div><strong>Minimum:</strong> <span id="statMinCompare">--</span></div>
-              <div><strong>Maximum:</strong> <span id="statMaxCompare">--</span></div>
-              <div><strong>Average:</strong> <span id="statAvgCompare">--</span></div>
+            <div class="year-stats">
+            <div class="stats-heading">Selected Years</div>
+            <div class="compare-stat-box">
+            <span class="stat-label">Min</span>
+            <span class="stat-value" id="statMinCompare">--</span>
             </div>
-            <span class="badge bg-light text-dark border">
-              Last updated: <span id="lastUpdatedCompare">--</span>
-            </span>
+
+            <div class="compare-stat-box">
+            <span class="stat-label">Max</span>
+            <span class="stat-value" id="statMaxCompare">--</span>
+            </div>
+
+            <div class="compare-stat-box">
+            <span class="stat-label">Avg</span>
+            <span class="stat-value" id="statAvgCompare">--</span>
+            </div>
+        </div>
+        </div>
+            </div>
           </div>
         </div>
       </div>
@@ -738,6 +767,23 @@ function populateStationsCompare() {
 
 function updatePlotCompare() {
   const selectedYears = getSelectedCompareYears();
+  const plotDiv = document.getElementById('ctdPlotCompare');
+  const messageDiv = document.getElementById('ctdPlotMessage');
+
+  if (selectedYears.length === 0) {
+  Plotly.purge(plotDiv);
+  plotDiv.style.display = 'none';
+  messageDiv.style.display = 'block';
+
+  document.getElementById('statMinCompare').textContent = '--';
+  document.getElementById('statMaxCompare').textContent = '--';
+  document.getElementById('statAvgCompare').textContent = '--';
+
+  return;
+}
+
+plotDiv.style.display = 'block';
+messageDiv.style.display = 'none';
   const selectedParam = document.getElementById('paramSelectCompare').value;
   const selectedStation = document.getElementById('stationSelectCompare').value;
   const stationDisplayName = getStationDisplayName(selectedStation);
@@ -828,10 +874,6 @@ function updatePlotCompare() {
     'statMaxCompare',
     'statAvgCompare'
   );
-
-  updateLastUpdatedCompare();
-
-  const plotDiv = document.getElementById('ctdPlotCompare');
 
   Plotly.newPlot(plotDiv, traces, {
     title: `${titleMap[selectedParam]} Comparison - ${stationDisplayName}`,
@@ -1119,35 +1161,6 @@ function downloadSelectedCTD() {
   a.click();
 
   URL.revokeObjectURL(url);
-}
-
-function updateLastUpdatedCompare() {
-  const selectedStation = document.getElementById('stationSelectCompare').value;
-  const selectedParam = document.getElementById('paramSelectCompare').value;
-  const badge = document.getElementById('lastUpdatedCompare');
-
-  if (!badge) return;
-
-  const filtered = ctdData.filter(d =>
-    d.station === selectedStation &&
-    hasValidDataForParam(d, selectedParam) &&
-    d.date
-  );
-
-  if (filtered.length === 0) {
-    badge.textContent = '--';
-    return;
-  }
-
-  const latestDate = filtered
-    .map(d => new Date(d.date))
-    .filter(d => !isNaN(d))
-    .sort((a, b) => b - a)[0];
-
-  badge.textContent = latestDate.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long'
-  });
 }
 </script>
 </div>
