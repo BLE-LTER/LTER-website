@@ -32,6 +32,12 @@ from a template file. See more about templates below.
 
 You'll notice multiple sizes for images in the img folder. Using a `picture` tag in the HTML, we tell a browser to only load the image size it needs, saving bandwidth and boosting performance.  I use tools like [toolur](https://pi7.org/compressor/compress-toolur) and [Optimizilla](http://optimizilla.com/) to compress images.
 
+## R Scripts
+
+The `R/` folder contains scripts used to process BLE datasets for the Signature Data page.
+
+For Temperature, Salinity and Depth year comparison, the script downloads CTD data from EDI, and generated JSON files(`ctd_data.json` and `stations.json`) used for interactive visualization on the website.
+
 ## Applying Templates
 
 The `apply_template.js` script looks for certain parts of HTML files in the
