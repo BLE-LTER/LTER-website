@@ -1,7 +1,7 @@
 "use strict";
 
 var PASTA_CONFIG = {
-   "server": "https://pasta.lternet.edu/package/search/eml?", // PASTA server
+   server: "/.netlify/functions/edi-search?", // Server-side function to handle EDI search requests and add API key
    "filter": "&fq=scope:knb-lter-ble", // Filter results for an LTER site
    "limit": 20, // Max number of results to retrieve per page
    "resultsElementId": "searchResults", // Element to contain results
@@ -12,7 +12,8 @@ var PASTA_CONFIG = {
    "pagesBotElementId": "paginationBot", // Element to display result page links below results
    "showPages": 5, // MUST BE ODD NUMBER! Max number of page links to show
    "sortDiv": "sortDiv", // Element with interactive sort options
-   "useCiteService": true // true if we should use EDI Cite service to build citations instead of building from PASTA results
+   "useCiteService": true, // true if we should use EDI Cite service to build citations instead of building from PASTA results
+   "UseDoiLinks": true, // true if we should use DOI links for datasets that have a DOI, false to use PASTA landing page links
 };
 
 var QUERY_URL = ""; // Query URL without row limit or start parameter
@@ -121,7 +122,50 @@ function escapeHtml(unsafe) {
       .replace(/'/g, "&#039;");
 }
 
+function buildEdiLandingUrl(packageId) {
+   return (
+      "https://portal.edirepository.org/nis/mapbrowse" +
+      "?packageid=" +
+      encodeURIComponent(packageId)
+   );
+}
 
+function makeDatasetButton(packageId, title) {
+   return (
+      '<a href="#" ' +
+      'class="edi-dataset-button" ' +
+      'data-package-id="' +
+      escapeHtml(packageId) +
+      '" target="_blank" ' +
+      'rel="external noopener" ' +
+      'aria-label="open data in new tab">' +
+      escapeHtml(title) +
+      "</a>"
+   );
+}
+
+function initializeDatasetButtons() {
+   var buttons = document.querySelectorAll(".edi-dataset-button");
+
+   for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener("click", function (event) {
+         event.preventDefault();
+
+         var packageId = this.getAttribute("data-package-id");
+
+         try {
+            window.open(
+               buildEdiLandingUrl(packageId),
+               "_blank",
+               "noopener,noreferrer"
+            );
+         } catch (error) {
+            console.error(error);
+            alert("Dataset access is not configured.");
+         }
+      });
+   }
+}
 function showResultCount(query, total, limitPerPage, currentStartIndex, domElementId) {
    var element = document.getElementById(domElementId);
    if (total == 0 || !element) {
@@ -213,14 +257,35 @@ function buildHtml(citations) {
       var citation = citations[i];
       var authors = citation["authors"];
       var date = (citation["pub_year"]) ? " Published " + citation["pub_year"] + "" : "";
-      // default ESIP formatting has trailing period after DOI
-      var link = (citation["doi"]) ? citation["doi"].slice(0, -1) : "https://portal.edirepository.org/nis/mapbrowse?packageid=" + citation["pid"];
-      var title = '<a rel="external noopener" href="' + link + '" target="_blank" aria-label="open data in new tab">' + citation["title"] + '</a>';
+      var title = "";
+
+      if (
+         PASTA_CONFIG["UseDoiLinks"] &&
+         citation["doi"]
+      ) {
+         var doi = citation["doi"].replace(/\.$/, "");
+
+         title =
+            '<a rel="external noopener" ' +
+            'href="https://doi.org/' +
+            encodeURIComponent(doi) +
+            '" target="_blank" ' +
+            'aria-label="Open dataset DOI in a new tab">' +
+            escapeHtml(citation["title"]) +
+            "</a>";
+      } else {
+         title = makeDatasetButton(
+            citation["pid"],
+            citation["title"]
+         );
+      }
+
       var row = '<p><span class="dataset-title">' + title +
          '</span><br><span class="dataset-author">' + authors + date +
          '</span></p>';
       html.push(row);
    }
+
    if (citationCount) {
       return html.join("\n");
    } else {
@@ -252,6 +317,7 @@ function getCitations(packageIds) {
                if (callsRemaining <= 0) {
                   var html = buildHtml(citations);
                   document.getElementById("searchResults").innerHTML = html;
+                  initializeDatasetButtons();
                   showLoading(false);
                }
             };
@@ -279,6 +345,7 @@ function buildCitationsFromCite(pastaDocs) {
 // Build dataset citations from PASTA XML
 function buildCitationsFromPasta(pastaDocs) {
    var html = [];
+
    for (var i = 0; i < pastaDocs.length; i++) {
       var doc = pastaDocs[i];
       var authorNodes = doc.getElementsByTagName("author");
@@ -294,24 +361,33 @@ function buildCitationsFromPasta(pastaDocs) {
       } catch (error) {
          date = "";
       }
-      var link = "";
-      try {
-         var doi = doc.getElementsByTagName("doi")[0].childNodes[0].nodeValue;
-         if (doi.slice(0, 4) === "doi:") {
-            doi = doi.slice(4);
+      var packageId = doc.getElementsByTagName("packageid")[0].childNodes[0].nodeValue;
+      var datasetTitle = doc.getElementsByTagName("title")[0].childNodes[0].nodeValue.trim();
+      var title = "";
+
+      if (PASTA_CONFIG["UseDoiLinks"]) {
+         try {
+            var doi = doc.getElementsByTagName("doi")[0].childNodes[0].nodeValue;
+            if (doi.slice(0, 4) === "doi:") {
+               doi = doi.slice(4);
+            }
+            title = '<a rel="external noopener" href="https://doi.org/' +
+               encodeURIComponent(doi) +
+               '" target="_blank" aria-label="open data in new tab">' +
+               escapeHtml(datasetTitle) + '</a>';
+         } catch (err) {
+            title = makeDatasetButton(packageId, datasetTitle);
          }
-         link = "http://dx.doi.org/" + doi;
-      } catch (err) {
-         link = ("https://portal.edirepository.org/nis/mapbrowse?packageid=" +
-            doc.getElementsByTagName("packageid")[0].childNodes[0].nodeValue);
+      } else {
+         title = makeDatasetButton(packageId, datasetTitle);
       }
-      var title = '<a rel="external noopener" href="' + link + '" target="_blank" aria-label="open data in new tab">' +
-         doc.getElementsByTagName("title")[0].childNodes[0].nodeValue.trim() + '</a>';
+
       var row = '<p><span class="dataset-title">' + title +
          '</span><br><span class="dataset-author">' + names + date +
          '</span></p>';
       html.push(row);
    }
+
    var resultHtml;
    if (html.length) {
       resultHtml = html.join("\n");
@@ -319,9 +395,10 @@ function buildCitationsFromPasta(pastaDocs) {
       resultHtml = "<p>Your search returned no results.</p>";
    }
    document.getElementById("searchResults").innerHTML = resultHtml;
+   initializeDatasetButtons();
+
    showLoading(false);
 }
-
 function setHtml(elId, innerHtml) {
    var el = document.getElementById(elId);
    if (el)
@@ -459,8 +536,12 @@ function errorCallback() {
 
 // Writes CORS request URL to the page so user can see it
 function showUrl(url) {
-   console.log(url);
-   var txt = '<a href="' + url + '" target="_blank" aria-label="open link in new tab">' + url + '</a>';
+   var safeUrl = url.replace(
+      /([?&]key=)[^&]*/i,
+      "$1[REDACTED]"
+   );
+   console.log(safeUrl);
+   var txt = '<span>' + escapeHtml(safeUrl) + '</span>';
    setHtml(PASTA_CONFIG["urlElementId"], txt);
 }
 
