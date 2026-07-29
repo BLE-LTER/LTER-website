@@ -12,8 +12,8 @@ var PASTA_CONFIG = {
    "pagesBotElementId": "paginationBot", // Element to display result page links below results
    "showPages": 5, // MUST BE ODD NUMBER! Max number of page links to show
    "sortDiv": "sortDiv", // Element with interactive sort options
-   "useCiteService": true, // true if we should use EDI Cite service to build citations instead of building from PASTA results
-   "UseDoiLinks": false, // true if we should use DOI links for datasets that have a DOI, false to use PASTA landing page links
+   "useCiteService": false, // true if we should use EDI Cite service to build citations instead of building from PASTA results
+   "UseDoiLinks": true, // true if we should use DOI links for datasets that have a DOI, false to use PASTA landing page links
 };
 
 var QUERY_URL = ""; // Query URL without row limit or start parameter
