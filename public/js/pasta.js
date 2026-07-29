@@ -122,50 +122,6 @@ function escapeHtml(unsafe) {
       .replace(/'/g, "&#039;");
 }
 
-function buildEdiLandingUrl(packageId) {
-   return (
-      "https://portal.edirepository.org/nis/mapbrowse" +
-      "?packageid=" +
-      encodeURIComponent(packageId)
-   );
-}
-
-function makeDatasetButton(packageId, title) {
-   return (
-      '<a href="#" ' +
-      'class="edi-dataset-button" ' +
-      'data-package-id="' +
-      escapeHtml(packageId) +
-      '" target="_blank" ' +
-      'rel="external noopener" ' +
-      'aria-label="open data in new tab">' +
-      escapeHtml(title) +
-      "</a>"
-   );
-}
-
-function initializeDatasetButtons() {
-   var buttons = document.querySelectorAll(".edi-dataset-button");
-
-   for (var i = 0; i < buttons.length; i++) {
-      buttons[i].addEventListener("click", function (event) {
-         event.preventDefault();
-
-         var packageId = this.getAttribute("data-package-id");
-
-         try {
-            window.open(
-               buildEdiLandingUrl(packageId),
-               "_blank",
-               "noopener,noreferrer"
-            );
-         } catch (error) {
-            console.error(error);
-            alert("Dataset access is not configured.");
-         }
-      });
-   }
-}
 function showResultCount(query, total, limitPerPage, currentStartIndex, domElementId) {
    var element = document.getElementById(domElementId);
    if (total == 0 || !element) {
@@ -263,21 +219,21 @@ function buildHtml(citations) {
          PASTA_CONFIG["UseDoiLinks"] &&
          citation["doi"]
       ) {
-         var doi = citation["doi"].replace(/\.$/, "");
+         var doi = citation["doi"].trim();
+
+         doi = doi.replace(/\.$/, "");
+         doi = doi.replace(/^doi:\s*/i, "");
+         doi = doi.replace(/^https?:\/\/(dx\.)?doi\.org\//i, "");
 
          title =
             '<a rel="external noopener" ' +
-            'href="https://doi.org/' +
-            encodeURIComponent(doi) +
+            'href="https://doi.org/' + doi +
             '" target="_blank" ' +
             'aria-label="Open dataset DOI in a new tab">' +
             escapeHtml(citation["title"]) +
             "</a>";
       } else {
-         title = makeDatasetButton(
-            citation["pid"],
-            citation["title"]
-         );
+         title = escapeHtml(citation["title"]);
       }
 
       var row = '<p><span class="dataset-title">' + title +
@@ -317,7 +273,6 @@ function getCitations(packageIds) {
                if (callsRemaining <= 0) {
                   var html = buildHtml(citations);
                   document.getElementById("searchResults").innerHTML = html;
-                  initializeDatasetButtons();
                   showLoading(false);
                }
             };
@@ -367,24 +322,35 @@ function buildCitationsFromPasta(pastaDocs) {
 
       if (PASTA_CONFIG["UseDoiLinks"]) {
          try {
-            var doi = doc.getElementsByTagName("doi")[0].childNodes[0].nodeValue;
-            if (doi.slice(0, 4) === "doi:") {
-               doi = doi.slice(4);
-            }
-            title = '<a rel="external noopener" href="https://doi.org/' +
-               encodeURIComponent(doi) +
+            var doi = doc.getElementsByTagName("doi")[0].childNodes[0].nodeValue.trim();
+
+            // Remove "doi:" prefix
+            doi = doi.replace(/^doi:\s*/i, "");
+
+            // Remove an existing DOI URL prefix
+            doi = doi.replace(/^https?:\/\/(dx\.)?doi\.org\//i, "");
+
+            title =
+               '<a rel="external noopener" href="https://doi.org/' +
+               escapeHtml(doi) +
                '" target="_blank" aria-label="open data in new tab">' +
-               escapeHtml(datasetTitle) + '</a>';
+               escapeHtml(datasetTitle) +
+               "</a>";
          } catch (err) {
-            title = makeDatasetButton(packageId, datasetTitle);
+            title = escapeHtml(datasetTitle);
          }
       } else {
-         title = makeDatasetButton(packageId, datasetTitle);
+         title = escapeHtml(datasetTitle);
       }
 
-      var row = '<p><span class="dataset-title">' + title +
-         '</span><br><span class="dataset-author">' + names + date +
-         '</span></p>';
+      var row =
+         '<p><span class="dataset-title">' +
+         title +
+         '</span><br><span class="dataset-author">' +
+         names +
+         date +
+         "</span></p>";
+
       html.push(row);
    }
 
@@ -395,7 +361,6 @@ function buildCitationsFromPasta(pastaDocs) {
       resultHtml = "<p>Your search returned no results.</p>";
    }
    document.getElementById("searchResults").innerHTML = resultHtml;
-   initializeDatasetButtons();
 
    showLoading(false);
 }
