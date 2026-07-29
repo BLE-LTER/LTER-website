@@ -233,7 +233,14 @@ function buildHtml(citations) {
             escapeHtml(citation["title"]) +
             "</a>";
       } else {
-         title = escapeHtml(citation["title"]);
+         title =
+            '<a rel="external noopener" ' +
+            'href="https://portal.edirepository.org/nis/mapbrowse?packageid=' +
+            encodeURIComponent(citation["pid"]) +
+            '" target="_blank" ' +
+            'aria-label="Open dataset landing page in a new tab">' +
+            escapeHtml(citation["title"]) +
+            "</a>";
       }
 
       var row = '<p><span class="dataset-title">' + title +
@@ -337,10 +344,20 @@ function buildCitationsFromPasta(pastaDocs) {
                escapeHtml(datasetTitle) +
                "</a>";
          } catch (err) {
-            title = escapeHtml(datasetTitle);
+            title =
+               '<a rel="external noopener" href="https://portal.edirepository.org/nis/mapbrowse?packageid=' +
+               encodeURIComponent(packageId) +
+               '" target="_blank">' +
+               escapeHtml(datasetTitle) +
+               "</a>";
          }
       } else {
-         title = escapeHtml(datasetTitle);
+         title =
+            '<a rel="external noopener" href="https://portal.edirepository.org/nis/mapbrowse?packageid=' +
+            encodeURIComponent(packageId) +
+            '" target="_blank">' +
+            escapeHtml(datasetTitle) +
+            "</a>";
       }
 
       var row =
