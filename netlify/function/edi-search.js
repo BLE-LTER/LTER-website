@@ -18,7 +18,7 @@ export default async function handler(request) {
       console.error("PASTA_API_KEY environment variable is missing.");
 
       return new Response(
-         "The PASTA search service is not configured.",
+         "The PASTA API Key is missing.",
          {
             status: 500,
             headers: {

@@ -13,7 +13,7 @@ var PASTA_CONFIG = {
    "showPages": 5, // MUST BE ODD NUMBER! Max number of page links to show
    "sortDiv": "sortDiv", // Element with interactive sort options
    "useCiteService": true, // true if we should use EDI Cite service to build citations instead of building from PASTA results
-   "UseDoiLinks": true, // true if we should use DOI links for datasets that have a DOI, false to use PASTA landing page links
+   "UseDoiLinks": false, // true if we should use DOI links for datasets that have a DOI, false to use PASTA landing page links
 };
 
 var QUERY_URL = ""; // Query URL without row limit or start parameter
@@ -221,9 +221,9 @@ function buildHtml(citations) {
       ) {
          var doi = citation["doi"].trim();
 
-         doi = doi.replace(/\.$/, "");
-         doi = doi.replace(/^doi:\s*/i, "");
-         doi = doi.replace(/^https?:\/\/(dx\.)?doi\.org\//i, "");
+         doi = doi.replace(/\.$/, "");  // Removes the trailing period if it exists. Default ESIP formatting has trailing period after DOI.
+         doi = doi.replace(/^doi:\s*/i, "");  // Removes the "doi:" prefix if it exists, which is common in citations
+         doi = doi.replace(/^https?:\/\/(dx\.)?doi\.org\//i, "");  // Removes an existing DOI URL prefix if it exists, which is common in citations
 
          title =
             '<a rel="external noopener" ' +
