@@ -119,6 +119,33 @@ BLE uses Netlify for free hosting.
 
 A nice feature of Netlify is live previews of branches and pull requests. To see a preview of a branch, input the branch name, two dashes, and then your raw Netlify URL, which is `eager-sammet-b7ed61.netlify.com/` for BLE. For example, if a branch is called `cool-stuff`, the URL would be `https://cool-stuff--eager-sammet-b7ed61.netlify.com/`.
 
+### EDI API Access Key
+
+The EDI Search API requires an API access key to perform catalog searches. Since the data catalog runs in the browser, the API key cannot be stored in JavaScript without exposing it publicly.
+
+To support this authentication requirement, the data catalog was updated to use a **Netlify Function** as a server-side proxy. Instead of sending requests directly to the EDI Search API, the browser sends search requests to the Netlify Function. The function securely retrieves the API key from a Netlify environment variable (`PASTA_API_KEY`), appends it to the request, and forwards the request to the EDI Search API. The response is then returned to the browser. This approach keeps the API key private while allowing the data catalog to function as before.
+
+#### Getting an API Key
+
+To create an EDI API access key, follow the instructions in the EDI documentation:
+
+https://edirepository.org/resources/keys-and-catalogs
+
+#### Storing the Key Securely
+
+We do not recommend storing the API key in any form (encoded, split, etc.) in your public-facing code. Instead, store the key securely on your server or in the cloud. The example below describes how to do that with Netlify.
+
+1. Go to your Netlify site dashboard.
+2. Navigate to **Project configuration > Environment variables**.
+3. Select **Add a variable > Add a single variable**.
+4. Set the key name to `PASTA_API_KEY`.
+5. Check **Contains secret values**.
+6. Paste the API key into the **Production**, **Deploy Previews**, and **Branch deploys** environments.
+7. Click **Create variable**.
+8. Redeploy the site.
+
+After the environment variable has been configured and the site redeployed, the Netlify Function will automatically include the API key when querying the EDI Search API.
+
 ## Site search by Algolia
 
 Here we document the nitty gritties of Algolia search on our website. 

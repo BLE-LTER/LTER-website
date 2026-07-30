@@ -1,7 +1,7 @@
 "use strict";
 
 var PASTA_CONFIG = {
-   server: "/.netlify/functions/edi-search?", // Server-side function to handle EDI search requests and add API key
+   "query_base_url": "/.netlify/functions/edi-search?", // Server-side function to handle EDI search requests and add API key
    "filter": "&fq=scope:knb-lter-ble", // Filter results for an LTER site
    "limit": 20, // Max number of results to retrieve per page
    "resultsElementId": "searchResults", // Element to contain results
@@ -704,7 +704,7 @@ window.onload = function () {
          return false;
       }
 
-      var base = PASTA_CONFIG["server"];
+      var base = PASTA_CONFIG["query_base_url"];
       var fields = ["title",
          "pubdate",
          "doi",
